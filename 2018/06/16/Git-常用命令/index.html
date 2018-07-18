@@ -212,14 +212,17 @@
 <li><p>生成 SSH 公钥，并添加至 GitHub网站。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youemail@example.com&quot;</span><br><span class="line">ssh git@github.com  //测试是否成功。</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>可选择更改仓库提交的用户邮箱：<br><a href="https://help.github.com/articles/setting-your-commit-email-address-in-git/" target="_blank" rel="noopener">主题文档教程</a></p>
+</li>
 </ol>
-<h1 id="二-Git-获取项目-创建项目"><a href="#二-Git-获取项目-创建项目" class="headerlink" title="二 Git 获取项目,创建项目"></a>二 Git 获取项目,创建项目</h1><ol>
+<h1 id="二-Git-获取项目-创建项目"><a href="#二-Git-获取项目-创建项目" class="headerlink" title="二 Git 获取项目,创建项目"></a>二 Git 获取项目,创建项目</h1><ul>
 <li><p>将远程的代码 clone 到本地仓库:<br>克隆获取远程项目：<code>git clone git://github.com/schacon/grit.git</code></p>
 </li>
-<li><p>将本地的代码关联到远程仓库:<br>查看远程仓库：<code>git remote</code> 。<br>初始化一个仓库：<code>git init</code> 。<br>关联远程仓库：<code>git remote add [shortname] [url]</code><br>// <code>git remote add origin git@server-name:path/repo-name.git</code><br>(一个项目可以同时拥有好几个远端仓库为了能够区分，通常会起不同的名字。通常主远端仓库被称为origin。)</p>
+<li><p>将本地的代码关联到远程仓库:<br>初始化一个仓库：<code>git init</code> （如果是新的仓库）。<br>关联远程仓库：<code>git remote add [shortname] [url]</code><br>// <code>git remote add origin git@server-name:path/repo-name.git</code><br>(一个项目可以同时拥有好几个远端仓库为了能够区分，通常会起不同的名字。通常主远端仓库被称为origin。)</p>
 </li>
-</ol>
-<h1 id="三-获取与推送"><a href="#三-获取与推送" class="headerlink" title="三 获取与推送"></a>三 获取与推送</h1><ol>
+</ul>
+<h1 id="三-获取与推送"><a href="#三-获取与推送" class="headerlink" title="三 获取与推送"></a>三 获取与推送</h1><p>有新修改的内容记得 add 和 commit。</p>
+<ol>
 <li><p>获取远程数据：<br><code>git fetch [remote-name]</code> 不会合并，<br><code>git pull [remote-name] [branch-name]</code> 会获取并合并。 // <code>git push origin master</code></p>
 </li>
 <li><p>推送本地数据：<br><code>git push [remote-name] [branch-name]</code>。  // <code>git push origin master</code></p>
