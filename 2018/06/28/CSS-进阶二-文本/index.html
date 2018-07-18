@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        CSS 进阶二 文本｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/06/28/CSS-进阶二-文本/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>CSS 进阶二 文本</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-06-28
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            CSS 进阶二 文本
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-字体"><a href="#一-字体" class="headerlink" title="一 字体"></a>一 字体</h1><h2 id="1-字体大小"><a href="#1-字体大小" class="headerlink" title="1 字体大小"></a>1 字体大小</h2><p><code>font-size</code><br><img src="/2018/06/28/CSS-进阶二-文本/图1.PNG" alt="font-size"><br>1em = 12px，百分比也以 12px 为基准。1em 取决于 px 设置的大小。</p>
+<h2 id="2-字体"><a href="#2-字体" class="headerlink" title="2 字体"></a>2 字体</h2><p><code>font-family</code><br><img src="/2018/06/28/CSS-进阶二-文本/图2.PNG" alt="font-family1"><br><img src="/2018/06/28/CSS-进阶二-文本/图3.PNG" alt="font-family2"></p>
+<h2 id="3-加粗"><a href="#3-加粗" class="headerlink" title="3 加粗"></a>3 加粗</h2><p><code>font-weight</code><br><img src="/2018/06/28/CSS-进阶二-文本/图4.PNG" alt="font-weight"></p>
+<h2 id="4-斜体"><a href="#4-斜体" class="headerlink" title="4 斜体"></a>4 斜体</h2><p><code>font-style</code><br>数值为数字则直接继承，数值为百分比则先计算再继承。<br><img src="/2018/06/28/CSS-进阶二-文本/图5.PNG" alt="font-style"><br><img src="/2018/06/28/CSS-进阶二-文本/图6.PNG" alt="line-height"></p>
+<h2 id="5-多属性缩写"><a href="#5-多属性缩写" class="headerlink" title="5 多属性缩写"></a>5 多属性缩写</h2><p><img src="/2018/06/28/CSS-进阶二-文本/图7.PNG" alt="多属性缩写"></p>
+<h2 id="6-文字颜色"><a href="#6-文字颜色" class="headerlink" title="6 文字颜色"></a>6 文字颜色</h2><p><code>color</code><br>rgba() 中 a 为透明度。0 为全透明，1 为不透明。<br><img src="/2018/06/28/CSS-进阶二-文本/图8.PNG" alt="文字颜色"></p>
+<h1 id="二-对齐方式"><a href="#二-对齐方式" class="headerlink" title="二 对齐方式"></a>二 对齐方式</h1><h2 id="1-对齐方式"><a href="#1-对齐方式" class="headerlink" title="1 对齐方式"></a>1 对齐方式</h2><p><code>text-align</code><br>justify 为两端对齐。<br><img src="/2018/06/28/CSS-进阶二-文本/图9.PNG" alt="text-align"></p>
+<h2 id="2-垂直对齐"><a href="#2-垂直对齐" class="headerlink" title="2 垂直对齐"></a>2 垂直对齐</h2><p><code>vertical-align</code><br>百分比以行高为参照向上偏移。<br><img src="/2018/06/28/CSS-进阶二-文本/图10.PNG" alt="vertical-align"></p>
+<h2 id="3-首行缩进"><a href="#3-首行缩进" class="headerlink" title="3 首行缩进"></a>3 首行缩进</h2><p><code>text-indent</code><br>百分比以容器宽度为参照。<br><img src="/2018/06/28/CSS-进阶二-文本/图11.PNG" alt="text-indent"></p>
+<h1 id="三-格式处理"><a href="#三-格式处理" class="headerlink" title="三 格式处理"></a>三 格式处理</h1><h2 id="1-white-space"><a href="#1-white-space" class="headerlink" title="1 white-space"></a>1 white-space</h2><p><code>white-space</code><br>设置如何处理元素内的空白。<br><img src="/2018/06/28/CSS-进阶二-文本/图12.PNG" alt="white-space"></p>
+<h2 id="2-长单词自动换行"><a href="#2-长单词自动换行" class="headerlink" title="2 长单词自动换行"></a>2 长单词自动换行</h2><p><code>word-wrap</code><br>设置为 break-word<br><img src="/2018/06/28/CSS-进阶二-文本/图13.PNG" alt="word-wrap"></p>
+<h2 id="3-任意字母间换行"><a href="#3-任意字母间换行" class="headerlink" title="3 任意字母间换行"></a>3 任意字母间换行</h2><p><code>word-break</code><br><img src="/2018/06/28/CSS-进阶二-文本/图14.PNG" alt="word-break"></p>
+<h1 id="四-文字修饰"><a href="#四-文字修饰" class="headerlink" title="四 文字修饰"></a>四 文字修饰</h1><h2 id="1-文字阴影"><a href="#1-文字阴影" class="headerlink" title="1 文字阴影"></a>1 文字阴影</h2><p><code>text-shadow</code><br>三个 px 参数：x 轴偏移，y 轴偏移，模糊半径。<br><img src="/2018/06/28/CSS-进阶二-文本/图15.PNG" alt="text-shadow"></p>
+<h2 id="2-文字加线"><a href="#2-文字加线" class="headerlink" title="2 文字加线"></a>2 文字加线</h2><p><code>text-decoration</code><br><img src="/2018/06/28/CSS-进阶二-文本/图16.PNG" alt="text-decoration"></p>
+<h1 id="五-高级设置"><a href="#五-高级设置" class="headerlink" title="五 高级设置"></a>五 高级设置</h1><h2 id="1-长文本省略"><a href="#1-长文本省略" class="headerlink" title="1 长文本省略"></a>1 长文本省略</h2><p><code>text-overflow</code><br>让长文本不显示全，后面只显示三个省略。注意要配合两个属性使用。<br><img src="/2018/06/28/CSS-进阶二-文本/图17.PNG" alt="text-overflow"></p>
+<h2 id="2-定义鼠标图形"><a href="#2-定义鼠标图形" class="headerlink" title="2 定义鼠标图形"></a>2 定义鼠标图形</h2><p><code>cursor</code><br>可用于将文本通过 CSS 做成按钮。<br><img src="/2018/06/28/CSS-进阶二-文本/图18.PNG" alt="cursor"></p>
+<p>可以是一个图片，为图片时可多用一个做备份用（以防图片不可用）；<br>auto 为自动变换；<br>default 为箭头；<br>none 为消失；<br>help 为问号；<br>pointer 为手形状；<br>zoom-in 为放大镜；<br>move 在移动一些元素时可以使用。</p>
+<h2 id="3-强制继承值"><a href="#3-强制继承值" class="headerlink" title="3 强制继承值"></a>3 强制继承值</h2><p><code>inherit</code><br>当值为 inherit 时可强制继承父元素的值。<br><img src="/2018/06/28/CSS-进阶二-文本/图19.PNG" alt="inherit"></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/06/28/CSS-进阶三-盒子模型/" data-toggle="tooltip" data-placement="top"
+                           title="CSS 进阶三 盒子模型">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/06/26/CSS-进阶一-选择器/" data-toggle="tooltip" data-placement="top"
+                           title="CSS 进阶一 选择器">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-字体"><span class="toc-text">一 字体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-字体大小"><span class="toc-text">1 字体大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字体"><span class="toc-text">2 字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-加粗"><span class="toc-text">3 加粗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-斜体"><span class="toc-text">4 斜体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-多属性缩写"><span class="toc-text">5 多属性缩写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-文字颜色"><span class="toc-text">6 文字颜色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-对齐方式"><span class="toc-text">二 对齐方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对齐方式"><span class="toc-text">1 对齐方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-垂直对齐"><span class="toc-text">2 垂直对齐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-首行缩进"><span class="toc-text">3 首行缩进</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-格式处理"><span class="toc-text">三 格式处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-white-space"><span class="toc-text">1 white-space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-长单词自动换行"><span class="toc-text">2 长单词自动换行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-任意字母间换行"><span class="toc-text">3 任意字母间换行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-文字修饰"><span class="toc-text">四 文字修饰</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文字阴影"><span class="toc-text">1 文字阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-文字加线"><span class="toc-text">2 文字加线</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-高级设置"><span class="toc-text">五 高级设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-长文本省略"><span class="toc-text">1 长文本省略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-定义鼠标图形"><span class="toc-text">2 定义鼠标图形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-强制继承值"><span class="toc-text">3 强制继承值</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/iapplestory">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>

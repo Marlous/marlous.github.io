@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        HTML 基础｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/06/12/HTML-基础/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>HTML 基础</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-06-12
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            HTML 基础
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-概念"><a href="#一-概念" class="headerlink" title="一 概念"></a>一 概念</h1><ol>
+<li><p>HTML 文档基本构成：标签，属性，元素。</p>
+</li>
+<li><p>Head 放置一些辅助元素（主要为样式表 <code>&lt;style&gt;&lt;/style&gt;</code>；JavaScript 脚本 <code>&lt;script&gt;&lt;script&gt;</code>）。<br>Body 放置网页主体内容。</p>
+</li>
+<li><p>注释在 HTML,CSS,JavaScript 中的区别：<br>HTML中 <code>&lt;!--   --&gt;</code> ，<br>CSS中 <code>/*   */</code> ，<br>JavaScript 单行 <code>//</code>   多行 <code>/*   */</code> 。</p>
+</li>
+<li><p>使用小于号，大于号，引号等需要使用参考字符，以 <code>&amp;</code> 开始，以 <code>;</code> 结束。如 1&lt;2 写成 <code>1&amp;lt;2</code> 。</p>
+</li>
+</ol>
+<h1 id="二-基础格式"><a href="#二-基础格式" class="headerlink" title="二 基础格式"></a>二 基础格式</h1><p>使用 <code>&lt;hgroup&gt;</code> 标签对网页或区段（section）的标题进行组合，逻辑上为一体：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;hgroup&gt;</span><br><span class="line"> &lt;h1&gt;Welcome to my WWF&lt;/h1&gt;</span><br><span class="line"> &lt;h2&gt;For a living planet&lt;/h2&gt;</span><br><span class="line">&lt;/hgroup&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上标，下标<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a&lt;sup&gt;2&lt;/sup&gt;+b&lt;sub&gt;0&lt;/sub&gt;</span><br></pre></td></tr></table></figure></p>
+<p>加粗<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;&lt;/b&gt;</span><br></pre></td></tr></table></figure></p>
+<p>斜体<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;i&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缩小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;small&gt;&lt;/small&gt;</span><br></pre></td></tr></table></figure></p>
+<p>删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;del&gt;&lt;/del&gt;</span><br></pre></td></tr></table></figure></p>
+<p>增加的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ins&gt;&lt;/ins&gt;</span><br></pre></td></tr></table></figure></p>
+<p>过时的不提倡使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;s&gt;&lt;/s&gt;</span><br></pre></td></tr></table></figure></p>
+<p>高亮<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mark&gt;&lt;/mark&gt;</span><br></pre></td></tr></table></figure></p>
+<p>定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;dfn&gt;define&lt;/dfn&gt;</span><br></pre></td></tr></table></figure></p>
+<p>代码片段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;code&gt;code代码&lt;/code&gt;</span><br><span class="line"></span><br><span class="line">&lt;samp&gt;samp例子代码&lt;/samp&gt;</span><br></pre></td></tr></table></figure></p>
+<p>用户输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;kbd&gt;kbd用户输入&lt;/kbd&gt;</span><br></pre></td></tr></table></figure></p>
+<p>变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;var&gt;变量&lt;/var&gt;</span><br></pre></td></tr></table></figure></p>
+<p>引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;cite&gt;cite引用&lt;/cite&gt;</span><br></pre></td></tr></table></figure></p>
+<p>地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;Rm401 XK West&lt;/address&gt;</span><br></pre></td></tr></table></figure></p>
+<p>引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;q&gt;：引用的是小段文字；</span><br><span class="line"></span><br><span class="line">&lt;blockquote&gt;：引用的是大段的内容块。</span><br></pre></td></tr></table></figure></p>
+<p>预格式化不做处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;&lt;/pre&gt;</span><br></pre></td></tr></table></figure></p>
+<p>水平线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;hr&gt;</span><br></pre></td></tr></table></figure></p>
+<p>缩写，鼠标停留有注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;abbr=&quot;中华人民共和国&quot;&gt;PRC&lt;/abbr&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="三-深入格式"><a href="#三-深入格式" class="headerlink" title="三 深入格式"></a>三 深入格式</h1><h2 id="1-列表与图片"><a href="#1-列表与图片" class="headerlink" title="1 列表与图片"></a>1 列表与图片</h2><ul>
+<li><p>有序列表：<br>start 属性为从几开始。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol start=2&gt;</span><br><span class="line">	&lt;li&gt;ABC&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;ABC&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无序列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;ABC&lt;/li&gt;</span><br><span class="line">	&lt;li&gt;ABC&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">	&lt;dt&gt;词条&lt;/dt&gt;</span><br><span class="line">	&lt;dd&gt;词条的解释&lt;/dd&gt;</span><br><span class="line">&lt;/dl&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入图片，<code>./</code> 表示当前目录,同目录可直接写文件夹；<code>../</code> 表示上一级目录。从当前位置去找目的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;example.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot; alt=&quot;另选的。装在中，失败时显示的文字&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>窗口插入另一个页面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;http://www.163.com&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-超链接"><a href="#2-超链接" class="headerlink" title="2 超链接"></a>2 超链接</h2><ul>
+<li><p>target 属性有：<code>_blank</code> <code>_self</code> <code>_top</code>(在整个窗口中打开)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;&quot;&gt;XXX&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>页面内链接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#here&quot;&gt;XXX&lt;/a&gt; &lt;!--here 为某个标签的 id值--&gt;</span><br><span class="line">&lt;a href=&quot;you.html#here&quot;&gt;XXX&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>图片定位链接：<br>将图片隐射到地图，地图中再划分区域（区域中属性有形状，坐标，链接）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;example.jpg&quot; width=&quot;200&quot; height=&quot;200&quot; usemap=&quot;#map&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;map name=&quot;map&quot;&gt;</span><br><span class="line">	&lt;area shape=&quot;rect&quot; coords=&quot;0,0,50,50&quot; href=&quot;&quot;&gt;</span><br><span class="line">	&lt;area shape=&quot;circle&quot; coords=&quot;75,75,25&quot; href=&quot;&quot;&gt;</span><br><span class="line">&lt;/map&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-表格"><a href="#3-表格" class="headerlink" title="3 表格"></a>3 表格</h2><p>标题，行，表头&amp;列组成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;table border=&quot;1&quot;&gt;</span><br><span class="line">	&lt;caption&gt;这是一个表格&lt;/caption&gt;</span><br><span class="line">	&lt;thead&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;th&gt;OS&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;Chinese?&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;French&lt;/th&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;/thead&gt;</span><br><span class="line">	&lt;tbody&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;iOS 10&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;YES&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;YES&lt;/td&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;/tbody&gt;</span><br><span class="line">	&lt;tfoot&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td colspan=&quot;3&quot;&gt;列延展3个格子&lt;/td&gt; &lt;!--rowspan 为行延展，行合并--&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;/tfoot&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;thead&gt;用来包裹表格表头行&lt;/thead&gt;</span><br><span class="line">&lt;tbody&gt;用来包裹表格 body 部分行&lt;/tbody&gt;</span><br><span class="line">&lt;tfoot&gt;用来包裹表格 foot 行&lt;/tfoot&gt;</span><br></pre></td></tr></table></figure>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/06/12/团队协作工具/" data-toggle="tooltip" data-placement="top"
+                           title="团队协作工具">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/06/12/Hexo-踩坑记/" data-toggle="tooltip" data-placement="top"
+                           title="Hexo 踩坑记">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概念"><span class="toc-text">一 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-基础格式"><span class="toc-text">二 基础格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-深入格式"><span class="toc-text">三 深入格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-列表与图片"><span class="toc-text">1 列表与图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-超链接"><span class="toc-text">2 超链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-表格"><span class="toc-text">3 表格</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/iapplestory">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>

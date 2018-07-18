@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        HTML 进阶｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/06/25/HTML-进阶/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>HTML 进阶</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-06-25
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            HTML 进阶
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-概念"><a href="#一-概念" class="headerlink" title="一 概念"></a>一 概念</h1><ol>
+<li><p>HTML 发展史：<br><img src="/2018/06/25/HTML-进阶/图1.PNG" alt="HTML 发展史"></p>
+</li>
+<li><p>HTML 文档：<br>分为文档声明，<html> 根标签（根标签中分为文档头部，文档主体）。</html></p>
+</li>
+</ol>
+<ul>
+<li>文档声明（HTML5）为 <code>&lt;!DOCTYPE html&gt;</code> 。</li>
+<li>文档头部内容：<br><img src="/2018/06/25/HTML-进阶/图2.PNG" alt="文档头部内容"></li>
+</ul>
+<h1 id="二-标签"><a href="#二-标签" class="headerlink" title="二 标签"></a>二 标签</h1><h2 id="1-语法"><a href="#1-语法" class="headerlink" title="1 语法"></a>1 语法</h2><p>常用属性：</p>
+<ul>
+<li>id：<code>&lt;div id=&quot;nav&quot;&gt;&lt;/html&gt;div&gt;</code></li>
+<li>class: <code>&lt;span class=&quot;time&quot;&gt;&lt;/span&gt;</code></li>
+<li>style: <code>&lt;div style=&quot;display:none;&quot;&gt;&lt;/div&gt;</code></li>
+<li>title：<code>&lt;a title=&quot;收藏&quot;&gt;&lt;/a&gt;</code> </li>
+</ul>
+<h2 id="2-章节"><a href="#2-章节" class="headerlink" title="2 章节"></a>2 章节</h2><ol>
+<li><p>标签概况：<br><img src="/2018/06/25/HTML-进阶/图3.PNG" alt="标签集合"></p>
+</li>
+<li><p>章节标签：<br>之前用 div 进行分割，HTML5 新增的标签，可以更好的语义化。<br><img src="/2018/06/25/HTML-进阶/图4.PNG" alt="章节标签"></p>
+</li>
+</ol>
+<h2 id="3-文本"><a href="#3-文本" class="headerlink" title="3 文本"></a>3 文本</h2><ul>
+<li>超链接： <code>&lt;a href=&quot;&quot; target=&quot;&quot;&gt;&lt;/a&gt;</code> //链接还可以是锚点（#eg），也可以是一个 name 值。</li>
+</ul>
+<p>其余标签参考博文《HTML 基础》。</p>
+<h2 id="4-组标签"><a href="#4-组标签" class="headerlink" title="4 组标签"></a>4 组标签</h2><ul>
+<li>div</li>
+<li>p</li>
+<li>ul，ol，dl（自定义列表的 type 属性表示用什么作为序号，如 <code>type=&quot;a&quot;</code>）。</li>
+</ul>
+<h2 id="5-资源"><a href="#5-资源" class="headerlink" title="5 资源"></a>5 资源</h2><ul>
+<li><p>img：<code>&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;</code></p>
+</li>
+<li><p>iframe：<code>&lt;iframe src=&quot;&quot;&gt;&lt;/iframe&gt;</code></p>
+</li>
+<li><p>object，embed：嵌入外部资源。<br><img src="/2018/06/25/HTML-进阶/图5.PNG" alt="嵌入外部资源"></p>
+</li>
+<li><p>video：（自动播放可加入 autoplay 属性，循环播放用 loop 属性）。<br><img src="/2018/06/25/HTML-进阶/图6.PNG" alt="video"></p>
+</li>
+<li><p>audio：<br><img src="/2018/06/25/HTML-进阶/图7.PNG" alt="audio"></p>
+</li>
+<li><p>canvas，svg：用来嵌入图像。</p>
+</li>
+<li><p>map，area：可以用来定义热点。<br><img src="/2018/06/25/HTML-进阶/图8.PNG" alt="map，area"></p>
+</li>
+</ul>
+<h2 id="6-表格"><a href="#6-表格" class="headerlink" title="6 表格"></a>6 表格</h2><p>标题，行，表头&amp;列组成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;table border=&quot;1&quot;&gt;</span><br><span class="line">	&lt;caption&gt;这是一个表格&lt;/caption&gt;</span><br><span class="line">	&lt;thead&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;th&gt;OS&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;Chinese?&lt;/th&gt;</span><br><span class="line">		&lt;th&gt;French&lt;/th&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;/thead&gt;</span><br><span class="line">	&lt;tbody&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;iOS 10&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;YES&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;YES&lt;/td&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;/tbody&gt;</span><br><span class="line">	&lt;tfoot&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td colspan=&quot;3&quot;&gt;列延展3个格子&lt;/td&gt; &lt;!--rowspan 为行延展，行合并--&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;/tfoot&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;thead&gt;用来包裹表格表头行&lt;/thead&gt;</span><br><span class="line">&lt;tbody&gt;用来包裹表格 body 部分行&lt;/tbody&gt;</span><br><span class="line">&lt;tfoot&gt;用来包裹表格 foot 行&lt;/tfoot&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="7-表单"><a href="#7-表单" class="headerlink" title="7 表单"></a>7 表单</h2><p>用来将数据传送给后台。</p>
+<ol>
+<li><p>form:<br>action 属性为提交到哪个接口。<br>表单内用 <code>&lt;fieldset&gt;&lt;/fieldset&gt;</code> 来分区，其标题用 <code>&lt;legend&gt;&lt;/legend&gt;</code> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;/login&quot; method=&quot;post&quot;&gt;</span><br><span class="line">	&lt;fieldset&gt;</span><br><span class="line">		&lt;legend&gt;&lt;/legend&gt;</span><br><span class="line">		...</span><br><span class="line">	&lt;/fieldset&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>input:<br>表单中常用的标签。<br>name 属性为传到后台的名称，value 属性为传到后台的名称对应的值。<br>下拉选择中，可以用 optgroup 标签对 option 进行分组，<code>&lt;optgroup label=&quot;group&quot;&gt;&lt;/optgroup&gt;</code><br><img src="/2018/06/25/HTML-进阶/图9.PNG" alt="input"><br><img src="/2018/06/25/HTML-进阶/图10.PNG" alt="input2"><br><img src="/2018/06/25/HTML-进阶/图11.PNG" alt="input3"><br><img src="/2018/06/25/HTML-进阶/图12.PNG" alt="input4"><br><img src="/2018/06/25/HTML-进阶/图13.PNG" alt="input5"></p>
+</li>
+</ol>
+<h2 id="8-语义化"><a href="#8-语义化" class="headerlink" title="8 语义化"></a>8 语义化</h2><p>用正确的标签来描述页面。<br>语义化用来 SEO，提高代码可读性等。</p>
+<h1 id="三-实体字符"><a href="#三-实体字符" class="headerlink" title="三 实体字符"></a>三 实体字符</h1><p>类似于转义字符。</p>
+<ol>
+<li>两种表示方法：</li>
+</ol>
+<ul>
+<li>&entity_name; <code>&amp;nbsp;</code></li>
+<li>&#entity_number; <code>&amp;#160;</code></li>
+</ul>
+<ol start="2">
+<li>常用实体字符：<br><img src="/2018/06/25/HTML-进阶/图14.PNG" alt="常用实体字符"></li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/06/26/CSS-进阶一-选择器/" data-toggle="tooltip" data-placement="top"
+                           title="CSS 进阶一 选择器">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/06/24/开发与调试/" data-toggle="tooltip" data-placement="top"
+                           title="开发与调试">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概念"><span class="toc-text">一 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-标签"><span class="toc-text">二 标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-语法"><span class="toc-text">1 语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-章节"><span class="toc-text">2 章节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-文本"><span class="toc-text">3 文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-组标签"><span class="toc-text">4 组标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-资源"><span class="toc-text">5 资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-表格"><span class="toc-text">6 表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-表单"><span class="toc-text">7 表单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-语义化"><span class="toc-text">8 语义化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-实体字符"><span class="toc-text">三 实体字符</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/iapplestory">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>

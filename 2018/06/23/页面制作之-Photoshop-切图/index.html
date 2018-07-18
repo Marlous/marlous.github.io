@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        页面制作之 Photoshop 切图｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/06/23/页面制作之-Photoshop-切图/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>页面制作之 Photoshop 切图</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-06-23
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Photoshop"
+                           title="Photoshop">Photoshop</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            页面制作之 Photoshop 切图
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-什么是切图"><a href="#一-什么是切图" class="headerlink" title="一 什么是切图"></a>一 什么是切图</h1><p>从设计稿中切出图片素材。<br><img src="/2018/06/23/页面制作之-Photoshop-切图/图1.PNG" alt="什么是切图"></p>
+<p>HTML 使用 img 来引入图片资源。<code>&lt;img src=&quot;images/avatar.jpg&quot; alt=&quot;头像&quot;&gt;</code> 。<br>CSS 使用 background 来引入图片资源。<code>.icon{background-image:url(images/bg.jpg)}</code></p>
+<h1 id="二-工具，面板，视图"><a href="#二-工具，面板，视图" class="headerlink" title="二 工具，面板，视图"></a>二 工具，面板，视图</h1><ol>
+<li><p>PS 更改单位为像素，编辑 &gt; 首选项 &gt; 单位与标尺</p>
+</li>
+<li><p>面板（前端常用）：<br>窗口菜单下开启。工具，选项，历史记录，信息，图层（前三个为默认已打开）。<br>设置好后，保存工作区。</p>
+</li>
+<li><p>自动选择工具：<br>组相当于一个文件夹，平时使用图层来选取图片。</p>
+</li>
+<li><p>辅助视图：<br>在视图菜单下开启。对齐，标尺，显示 &gt; 参考线（打开显示额外内容）。</p>
+</li>
+</ol>
+<h1 id="三-测量，取色"><a href="#三-测量，取色" class="headerlink" title="三 测量，取色"></a>三 测量，取色</h1><ol>
+<li>需要测量的值：</li>
+</ol>
+<ul>
+<li>宽度，高度</li>
+<li>内边距，外边距</li>
+<li>边框</li>
+<li>定位</li>
+<li>文字大小</li>
+<li>行高</li>
+<li>背景图位置</li>
+</ul>
+<p>测量文字：选择文字工具，选择文字，查看相关属性。<br>矩形选框工具：按住 shift 增加选区，按住 alt 减少选区。</p>
+<ol start="2">
+<li>需要取色的值：</li>
+</ol>
+<ul>
+<li>边框色</li>
+<li>背景色</li>
+<li>文字色</li>
+</ul>
+<h1 id="四-切图"><a href="#四-切图" class="headerlink" title="四 切图"></a>四 切图</h1><ol>
+<li><p>那些需要切，并存为什么格式：<br>修饰性的图（存为 PNG24,PNG8 前者支持半透明后者不支持）。<br>内容性的图（一般存为 JPG）。</p>
+</li>
+<li><p>隐藏文字只留背景：</p>
+</li>
+</ol>
+<ul>
+<li><p>文字为独立图层：隐藏文字图层。</p>
+</li>
+<li><p>文字与背景合并：先选中图层，使用矩形选框工具，自由变换（ctrl+t）/使用移动工具+alt（+<br>shift 保持水平方向不动）。后者适用于有纹理的图。</p>
+</li>
+<li><p>ctrl+d 取消选择。</p>
+</li>
+</ul>
+<ol start="3">
+<li>将需要的图片切出来放入新的文件中：</li>
+</ol>
+<ul>
+<li><p>选择单独图标：选择图层，复制新建或拖到已有文件中（若分布在多个图层中，需要合并图层）。</p>
+</li>
+<li><p>切带背景的图：需要先合并可见图层，然后矩形选框，按住 alt 用魔棒选择（反选出需要的部分）。<br>在切小图标时注意魔棒工具的设置问题，如容差，消除锯齿等。</p>
+</li>
+<li><p>切用来平铺的背景图：矩形选择一竖条。ctrl+c,ctrl+n。</p>
+</li>
+<li><p>切片用于一刀切的活动页：拉参考线，选择切片工具，点击基于参考线的切片，保存（全选切片，统一设置存储格式）。</p>
+</li>
+</ul>
+<h1 id="五-保存"><a href="#五-保存" class="headerlink" title="五 保存"></a>五 保存</h1><ol>
+<li>怎样存储：<br>存储为 web 所用格式。</li>
+</ol>
+<ul>
+<li>对于独立图层，直接拖拽到新文件即可。</li>
+<li>对于已合并在一起的图层，选择后，复制，新建，粘贴（ctrl+c,ctrl+n,ctrl+v）。</li>
+</ul>
+<ol start="2">
+<li>保存类型：</li>
+</ol>
+<ul>
+<li><p>图片色彩丰富无透明度要求：保存为 JPG。</p>
+</li>
+<li><p>图片色彩不太丰富无论有无透明度要求：保存为 PNG8。<br><img src="/2018/06/23/页面制作之-Photoshop-切图/图2.PNG" alt="PNG8 设置"></p>
+</li>
+<li><p>图片有半透明要求：保存为 PNG24。<br><img src="/2018/06/23/页面制作之-Photoshop-切图/图3.PNG" alt="PNG8 设置"></p>
+</li>
+<li><p>保留一份 PSD，在 PSD 上进行修改。从 PSD 导出需要的图片。</p>
+</li>
+</ul>
+<h1 id="六-修改与维护"><a href="#六-修改与维护" class="headerlink" title="六 修改与维护"></a>六 修改与维护</h1><ul>
+<li><p>放下更多图标：更改画布大小（图像菜单）。</p>
+</li>
+<li><p>对于独立的图层直接用选择工具拖拽即可。对于同一图层需要先矩形选框后移动（选择后 ctrl+x,ctrl+v 可分开成独立的图层）。 </p>
+</li>
+<li><p>注意：修改 PNG8 图片时，默认使用索引颜色，需改成 RGB 颜色以防止丢失信息（图像菜单下更改）。</p>
+</li>
+</ul>
+<h1 id="七-图片优化与合并"><a href="#七-图片优化与合并" class="headerlink" title="七 图片优化与合并"></a>七 图片优化与合并</h1><ol>
+<li><p>把一个个小图标拼在一张图中（Sprite 拼图），在代码中使用。可以减少网络请求提升速度。</p>
+</li>
+<li><p>压缩工具：Minimage（无损），TinyPng（有损）。</p>
+</li>
+<li><p>图片间有间隔，横向纵向排列，同模块合并在一起。</p>
+</li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/06/24/开发与调试/" data-toggle="tooltip" data-placement="top"
+                           title="开发与调试">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/06/21/JavaScript-基础一-面向对象/" data-toggle="tooltip" data-placement="top"
+                           title="JavaScript 基础一 面向对象">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-什么是切图"><span class="toc-text">一 什么是切图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-工具，面板，视图"><span class="toc-text">二 工具，面板，视图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-测量，取色"><span class="toc-text">三 测量，取色</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-切图"><span class="toc-text">四 切图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-保存"><span class="toc-text">五 保存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-修改与维护"><span class="toc-text">六 修改与维护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-图片优化与合并"><span class="toc-text">七 图片优化与合并</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Photoshop"
+                           title="Photoshop">Photoshop</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/iapplestory">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        JavaScript 基础二 概述｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/06/15/JavaScript-基础二-概述/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JavaScript 基础二 概述</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-06-15
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JavaScript 基础二 概述
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-概念"><a href="#一-概念" class="headerlink" title="一 概念"></a>一 概念</h1><ol>
+<li><p>JavaScript 是一种可以在浏览器中运行的脚本语言。<br>用来实现用户数据交互，数据处理。</p>
+</li>
+<li><p>JavaScript 不仅可以应用在浏览器，也可应用于服务器，桌面应用（需要 Node.js 这个 JS 运行环境）。跨平台性好。</p>
+</li>
+<li><p>为了与 HTML 区分，JS 使用单引号包裹参数（也支持双引号）,变量不需要用引号。</p>
+</li>
+<li><p>变量命名规则：字母，数字，下划线。开头不能出现数字，不能出现关键字。</p>
+</li>
+<li><p>变量赋值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var out = &quot;Hello&quot;;</span><br><span class="line">document.write(out);  /* 写到 HTML，注意：HTML 中键入多个空格键，但最终也只显示一个空格间隙。 */</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="二-计算"><a href="#二-计算" class="headerlink" title="二 计算"></a>二 计算</h1><p>JS 中变量是没有类型的，但值是有类型的。</p>
+<p>JS 中定义了四种原始数据类型：number，string，boolean，undefined。</p>
+<h1 id="三-判断"><a href="#三-判断" class="headerlink" title="三 判断"></a>三 判断</h1><p>字符串比较大小与首字母顺序相关，首字母相同则比较下一个字母。<br><code>document.write(&quot;Hello &gt; &quot;Hello&quot;)</code> 为 false。</p>
+<h1 id="四-循环"><a href="#四-循环" class="headerlink" title="四 循环"></a>四 循环</h1><ol>
+<li><p>while 循环：<br>先判断（条件为 true 则循环），后执行。</p>
+</li>
+<li><p>do-while 循环：<br>先执行，后判断（条件为 true 则循环）。</p>
+</li>
+<li><p>for 循环：<br>for ( init; condition; step ){}</p>
+</li>
+<li><p>break 与 continue：<br>break 离开此循环。<br>continue 不执行接下来的语句，执行下一次循环。</p>
+</li>
+</ol>
+<h1 id="五-函数"><a href="#五-函数" class="headerlink" title="五 函数"></a>五 函数</h1><h2 id="1-定义函数"><a href="#1-定义函数" class="headerlink" title="1 定义函数"></a>1 定义函数</h2><p><code>function fun_name(){}</code> 或 <code>function fun_name(a,b){}</code></p>
+<h2 id="2-有返回值的函数"><a href="#2-有返回值的函数" class="headerlink" title="2 有返回值的函数"></a>2 有返回值的函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function max(a,b)&#123;return a&gt;b?a:b;&#125;</span><br><span class="line">function print(s)&#123;document.write(s);&#125;</span><br><span class="line"></span><br><span class="line">print(max(2,5));</span><br></pre></td></tr></table></figure>
+<h2 id="3-函数变量"><a href="#3-函数变量" class="headerlink" title="3 函数变量"></a>3 函数变量</h2><p>将函数定义成一个对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f = new Function(&quot;x&quot;,&quot;y&quot;,&quot;return x*y&quot;);  /* 函数也可以当成参数进行传递。 */</span><br><span class="line">等价于</span><br><span class="line">function f(x,y)&#123;return x*y;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-变量空间"><a href="#4-变量空间" class="headerlink" title="4 变量空间"></a>4 变量空间</h2><p>定义在函数外的变量，作用域为整个 HTML 页面。<br>定义在函数内的变量，作用域为函数内部。</p>
+<p>注意：函数内变量只在函数内部起作用（与函数外变量相同也只使用函数内定义的）。JS 只有函数内外这两种作用域，没有更小的作用域了（如更小的语句块内）。</p>
+<h1 id="六-数组"><a href="#六-数组" class="headerlink" title="六 数组"></a>六 数组</h1><p>用来存放一些数据，特别是每个数据通过索引来访问。</p>
+<h2 id="1-几种定义数组方式"><a href="#1-几种定义数组方式" class="headerlink" title="1 几种定义数组方式"></a>1 几种定义数组方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var score = new Array();  /* 通过索引赋值。score[0] = &quot;hello&quot;; */</span><br><span class="line">var score = new Array(size);</span><br><span class="line">var score = new Array(d1,d2,d3,...,dn);  /* 如果只有一个数字，则表示 size 意思。 */</span><br><span class="line">var score = [d1,d2,...,dn];</span><br></pre></td></tr></table></figure>
+<h2 id="2-数组的定义"><a href="#2-数组的定义" class="headerlink" title="2 数组的定义"></a>2 数组的定义</h2><p>score.length 为占据的空间。如原数组有三个值，现对第五号索引赋值，则长度为 6。<br>可以通过修改数组长度来抛弃某处之后的值。<br>score.length 永远比最后一个下标大 1。可向后追加。</p>
+<h2 id="3-转换数组为字符串"><a href="#3-转换数组为字符串" class="headerlink" title="3 转换数组为字符串"></a>3 转换数组为字符串</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">alert(score.toString());</span><br><span class="line">alert(score.valueOf());</span><br><span class="line"></span><br><span class="line">alert(score);</span><br><span class="line"></span><br><span class="line">alert(score.join(&quot;,&quot;));</span><br></pre></td></tr></table></figure>
+<h2 id="4-关于数组的一些操作"><a href="#4-关于数组的一些操作" class="headerlink" title="4 关于数组的一些操作"></a>4 关于数组的一些操作</h2><ol>
+<li><p>堆栈操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var colors = new Array();</span><br><span class="line">var count = colors.push(&quot;red&quot;,&quot;green&quot;);</span><br><span class="line">alert(count);</span><br><span class="line"></span><br><span class="line">var item = colors.pop();</span><br><span class="line">alert(item);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>队列操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var colors = new Array();</span><br><span class="line">var count = colors.push(&quot;red&quot;,&quot;green&quot;);</span><br><span class="line">alert(count);</span><br><span class="line"></span><br><span class="line">var item = colors.shift();</span><br><span class="line">alert(item);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>排序操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var values = [0,4,2,8,5];</span><br><span class="line">values.sort();</span><br><span class="line">alert(values);</span><br><span class="line"></span><br><span class="line">var values = [1,2,3,4,5];</span><br><span class="line">values.reverse();  //反转。</span><br><span class="line">alert(values);  //5,4,3,2,1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/06/16/自由软件与开源软件/" data-toggle="tooltip" data-placement="top"
+                           title="自由软件与开源软件">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/06/13/CSS-基础/" data-toggle="tooltip" data-placement="top"
+                           title="CSS 基础">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概念"><span class="toc-text">一 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-计算"><span class="toc-text">二 计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-判断"><span class="toc-text">三 判断</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-循环"><span class="toc-text">四 循环</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-函数"><span class="toc-text">五 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-定义函数"><span class="toc-text">1 定义函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-有返回值的函数"><span class="toc-text">2 有返回值的函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-函数变量"><span class="toc-text">3 函数变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-变量空间"><span class="toc-text">4 变量空间</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-数组"><span class="toc-text">六 数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-几种定义数组方式"><span class="toc-text">1 几种定义数组方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-数组的定义"><span class="toc-text">2 数组的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-转换数组为字符串"><span class="toc-text">3 转换数组为字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-关于数组的一些操作"><span class="toc-text">4 关于数组的一些操作</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/iapplestory">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>

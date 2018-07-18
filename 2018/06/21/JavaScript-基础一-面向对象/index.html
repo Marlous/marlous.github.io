@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        JavaScript 基础一 面向对象｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/06/21/JavaScript-基础一-面向对象/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JavaScript 基础一 面向对象</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-06-21
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JavaScript 基础一 面向对象
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-面向对象概念"><a href="#一-面向对象概念" class="headerlink" title="一 面向对象概念"></a>一 面向对象概念</h1><ol>
+<li><p>程序设计方法：<br>面向过程：以过程为中心，自顶向下逐步细化。看成一系列函数的调用。<br>面向对象：对象作为基本单元，程序分解为数据和相关操作。</p>
+</li>
+<li><p>概念和特性：<br>概念：对象，类，属性，方法。<br>特性：继承，封装，多态。</p>
+</li>
+</ol>
+<h1 id="二-constructor-对象构造器"><a href="#二-constructor-对象构造器" class="headerlink" title="二 constructor 对象构造器"></a>二 constructor 对象构造器</h1><ol>
+<li><p>概念：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var o = new Array();  // var 对象 = 对象构造器;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用函数来构造自定义的构造器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Student(name,class,score)</span><br><span class="line">&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.class = class;</span><br><span class="line">	this.score = score;</span><br><span class="line">	this.changeScore = function(score)  // 函数类型的属性即方法。</span><br><span class="line">	&#123;</span><br><span class="line">		this.score = score;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var student1 = new Student(&apos;Amy&apos;,&apos;2&apos;,&apos;98&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：如果构造函数有返回值 <code>return{}</code> 则得到的是一个空对象，undefined。</p>
+</li>
+</ol>
+<h1 id="三-this"><a href="#三-this" class="headerlink" title="三 this"></a>三 this</h1><ol>
+<li>全局环境中的 this：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 10;</span><br><span class="line">alert(this.a);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>this 指向全局对象（在浏览器中是 window 对象，其他环境不同）。</p>
+<ol start="2">
+<li><p>constructor 中的 this：<br>指将要创建出来的新的对象。</p>
+</li>
+<li><p>函数中的 this：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Person(name,age)</span><br><span class="line">&#123;</span><br><span class="line">	this.name = name;</span><br><span class="line">	this.age = age;</span><br><span class="line">	this.sayHello = function()</span><br><span class="line">	&#123;</span><br><span class="line">		alert(&apos;hello,&apos;+this.name);  // 指向函数调用者 p1。</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var p1 = new Person(&apos;lily&apos;,&apos;20&apos;);</span><br><span class="line">p1.sayHello();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>var o = new Function(&#39;alert(this)&#39;);</code> 中的 this：<br>和全局中的 this 一样，指全局对象。</p>
+</li>
+<li><p>eval() 中的 this:<br><code>eval(&#39;alert(this)&#39;);</code> 指代调用上下文中的 this。</p>
+</li>
+<li><p>小结：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图1.PNG" alt="this 小结"></p>
+</li>
+<li><p>apply 和 call：<br>改变其他构造函数中方法的 this 指代，改为参数中的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">point.move(1,1);  // 其他对象方法</span><br><span class="line"></span><br><span class="line">point.move.call(circle,1,1);  // 想使用其他对象的方法</span><br><span class="line">point.move.apply(circle,[1,1]);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="四-原型继承"><a href="#四-原型继承" class="headerlink" title="四 原型继承"></a>四 原型继承</h1><p>prototype，让创建的对象共享一个原型的值，不浪费空间（生成多个占用不同空间的值）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Teacher()&#123;</span><br><span class="line">	this.course = [];</span><br><span class="line">&#125;	</span><br><span class="line">Teacher.prototype = &#123;</span><br><span class="line">	job: &apos;teacher&apos;,</span><br><span class="line">	setName: function(name)&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;,</span><br><span class="line">	addCourse: function(course)&#123;</span><br><span class="line">		this.course.push(course);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="五-原型链"><a href="#五-原型链" class="headerlink" title="五 原型链"></a>五 原型链</h1><h2 id="1-属性查找"><a href="#1-属性查找" class="headerlink" title="1 属性查找"></a>1 属性查找</h2><p>在对象本身中找，没有则去其原型中找，没有再去 Object.prototype 中查找。<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图2.PNG" alt="属性查找"></p>
+<h2 id="2-属性修改"><a href="#2-属性修改" class="headerlink" title="2 属性修改"></a>2 属性修改</h2><p>永远只修改对象本身的属性，不管名字来源于对象本身还是其原型。<br>和原型上的属性相同只会在对象本身上创建一个属性，想修改原型的属性值必须用 <code>Teacher.prototype.job = &#39;XXX&#39;;</code></p>
+<h2 id="3-属性删除"><a href="#3-属性删除" class="headerlink" title="3 属性删除"></a>3 属性删除</h2><ol>
+<li><p>与修改类似，删除只能删除对象本身的属性，无法删除原型的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete teacher1.job;</span><br><span class="line">//删除对象 teacher1 上的 job 属性。如果这时访问该属性会去原型找到。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用 <code>techer1.hasOwnProperty(&#39;job&#39;);</code> 来判断其属性是否来自它本身（true）还是其原型(flase)。</p>
+</li>
+<li><p>ES5 中的原型继承：<br>直接从原型中创建一个对象，<code>Object.create(proto[,propertiesObject])</code> 。<br>eg. <code>var teacher2 = Object.create(teacher);</code> </p>
+</li>
+</ol>
+<h1 id="六-应用"><a href="#六-应用" class="headerlink" title="六 应用"></a>六 应用</h1><h2 id="1-全局变量"><a href="#1-全局变量" class="headerlink" title="1 全局变量"></a>1 全局变量</h2><ol>
+<li>全局变量的三种定义：</li>
+</ol>
+<ul>
+<li>在最外面定义 <code>var test = &#39;some value&#39;;</code></li>
+<li>window.变量名字 <code>window.test = &#39;some value&#39;;</code></li>
+<li>在程序内内直接给一个变量赋值，但不用 var 定义。<br>后两种定义在 window 对象上，可以用 delete 删除。</li>
+</ul>
+<ol start="2">
+<li>其他两种全局变量情况：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图3.PNG" alt="全局变量情况"></li>
+</ol>
+<h2 id="2-封装"><a href="#2-封装" class="headerlink" title="2 封装"></a>2 封装</h2><ol>
+<li><p>信息隐藏：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图4.PNG" alt="信息隐藏"></p>
+</li>
+<li><p>Java 中的封装权限：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图5.PNG" alt="Java 中的封装权限"></p>
+</li>
+<li><p>JavaScript 中的封装：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图6.PNG" alt="JavaScript 中的封装"></p>
+</li>
+</ol>
+<h2 id="3-继承"><a href="#3-继承" class="headerlink" title="3 继承"></a>3 继承</h2><ol>
+<li><p>原型继承：<br>类继承。<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图7.PNG" alt="原型继承"></p>
+</li>
+<li><p>原型继承结构：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图8.PNG" alt="原型继承结构"></p>
+</li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/06/23/页面制作之-Photoshop-切图/" data-toggle="tooltip" data-placement="top"
+                           title="页面制作之 Photoshop 切图">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/06/19/JavaScript-基础三-面向对象与事件处理/" data-toggle="tooltip" data-placement="top"
+                           title="JavaScript 基础三 面向对象与事件处理">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-面向对象概念"><span class="toc-text">一 面向对象概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-constructor-对象构造器"><span class="toc-text">二 constructor 对象构造器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-this"><span class="toc-text">三 this</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-原型继承"><span class="toc-text">四 原型继承</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-原型链"><span class="toc-text">五 原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-属性查找"><span class="toc-text">1 属性查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-属性修改"><span class="toc-text">2 属性修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-属性删除"><span class="toc-text">3 属性删除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-应用"><span class="toc-text">六 应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-全局变量"><span class="toc-text">1 全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-封装"><span class="toc-text">2 封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-继承"><span class="toc-text">3 继承</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/iapplestory">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
