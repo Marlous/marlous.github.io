@@ -86,14 +86,6 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -202,7 +202,64 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-表达式"><a href="#一-表达式" class="headerlink" title="一 表达式"></a>一 表达式</h1><h1 id="二-运算符"><a href="#二-运算符" class="headerlink" title="二 运算符"></a>二 运算符</h1><h1 id="三-语句"><a href="#三-语句" class="headerlink" title="三 语句"></a>三 语句</h1>
+                <h1 id="一-表达式"><a href="#一-表达式" class="headerlink" title="一 表达式"></a>一 表达式</h1><p>js 短语，解释器可以执行并生成一个值。</p>
+<h1 id="二-运算符"><a href="#二-运算符" class="headerlink" title="二 运算符"></a>二 运算符</h1><p><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图1.PNG" alt="运算符"></p>
+<ol>
+<li>关系运算：</li>
+</ol>
+<ul>
+<li><p>===<br>判断类型（主要是原始类型）和值是否相等。<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图2.PNG" alt="关系运算 1"></p>
+</li>
+<li><p>==<br>判断对象或值是否相等。（会类型转换）<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图3.PNG" alt="关系运算 2"></p>
+</li>
+</ul>
+<p>例外规则：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图4.PNG" alt="例外规则"></p>
+<ol start="3">
+<li>逻辑运算：</li>
+</ol>
+<ul>
+<li><p>！<br>取反。</p>
+</li>
+<li><p>&amp;&amp;<br>并。（注意短路）</p>
+</li>
+<li><p>||<br>或。（注意短路）</p>
+</li>
+</ul>
+<ol start="4">
+<li>运算符优先级：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图5.PNG" alt="运算符优先级"></li>
+</ol>
+<h1 id="三-语句"><a href="#三-语句" class="headerlink" title="三 语句"></a>三 语句</h1><h2 id="1-条件控制语句"><a href="#1-条件控制语句" class="headerlink" title="1 条件控制语句"></a>1 条件控制语句</h2><ul>
+<li><p>if else</p>
+</li>
+<li><p>switch：<br>与 C 语言不同在于，case 后可以跟字符串或是表达式，不仅仅是数字或单个字符。</p>
+</li>
+</ul>
+<h2 id="2-循环控制语句"><a href="#2-循环控制语句" class="headerlink" title="2 循环控制语句"></a>2 循环控制语句</h2><ul>
+<li><p>while</p>
+</li>
+<li><p>do while</p>
+</li>
+<li><p>for</p>
+</li>
+<li><p>for/in<br>遍历对象属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(var key in object)</span><br><span class="line">	&#123;</span><br><span class="line">		console.log(key + &quot;:&quot; + object[key]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">/*  type:benz</span><br><span class="line">	color:black</span><br><span class="line">	id:12345</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>避免遍历方法的情况：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图6.PNG" alt="避免遍历方法"></p>
+<h2 id="3-异常处理语句"><a href="#3-异常处理语句" class="headerlink" title="3 异常处理语句"></a>3 异常处理语句</h2><p><code>try/catch/finally  throw</code><br><a href="https://www.cnblogs.com/knightsu/p/7114914.html" target="_blank" rel="noopener">参考博文 1</a><br><a href="https://www.cnblogs.com/foodoir/p/5720752.html" target="_blank" rel="noopener">参考博文 2</a></p>
+<ul>
+<li><p>try块：负责捕获异常，一旦try中发现异常，程序的控制权将被移交给catch块中的异常处理程序。</p>
+</li>
+<li><p>catch块：如何处理？比如发出警告：提示、检查配置、网络连接，记录错误等。执行完catch块之后程序跳出catch块，继续执行后面的代码。(多个 catch 块处理的异常类,要按照先 catch 子类后 catch 父类的处理方式，因为会就近处理异常,由上自下。)</p>
+</li>
+<li><p>finally：最终执行的代码，用于关闭和释放资源。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">//一些会抛出的异常</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">catch（e）&#123;</span><br><span class="line">//第一个catch</span><br><span class="line">//处理该异常的代码块</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">catch（e）&#123;</span><br><span class="line">//第二个catch，可以有多个catch</span><br><span class="line">//处理该异常的代码块</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">finally&#123;</span><br><span class="line">//最终要执行的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">　　try&#123;</span><br><span class="line">　　　　var n = error; //人为引发一个错误，error 未定义就使用</span><br><span class="line">　　&#125;</span><br><span class="line">　　catch(e)&#123;</span><br><span class="line">　　　　alert((e.number&amp;0xFFFF) + &quot;号错误：&quot; + e.description); //错误处理：仅输出错误信息</span><br><span class="line">　　&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-with-语句"><a href="#4-with-语句" class="headerlink" title="4 with 语句"></a>4 with 语句</h2><p>通常不建议使用。可能会导致执行性能下降。<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图7.PNG" alt="with 语句"></p>
+<p>例子：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图8.PNG" alt="例子"></p>
+
                 <hr>
                 
 
@@ -232,7 +289,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-表达式"><span class="toc-text">一 表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-运算符"><span class="toc-text">二 运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-语句"><span class="toc-text">三 语句</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-表达式"><span class="toc-text">一 表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-运算符"><span class="toc-text">二 运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-语句"><span class="toc-text">三 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-条件控制语句"><span class="toc-text">1 条件控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-循环控制语句"><span class="toc-text">2 循环控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-异常处理语句"><span class="toc-text">3 异常处理语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-with-语句"><span class="toc-text">4 with 语句</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
