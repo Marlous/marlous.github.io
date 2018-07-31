@@ -79,20 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/tags/">tags</a>
                         </li>
@@ -101,8 +87,22 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -209,15 +209,52 @@
 </li>
 </ol>
 <ul>
-<li>getElementByTagName</li>
 <li>getElementById</li>
+<li>getElementByTagName</li>
 <li>getElementByClassName</li>
 <li>querySelector/All</li>
 </ul>
-<h2 id="2-各接口使用"><a href="#2-各接口使用" class="headerlink" title="2 各接口使用"></a>2 各接口使用</h2><ol>
-<li>getElementById：</li>
+<h2 id="2-各接口使用"><a href="#2-各接口使用" class="headerlink" title="2 各接口使用"></a>2 各接口使用</h2><p><img src="/2018/07/27/DOM-二-节点操作/图1.PNG" alt="示例"></p>
+<ol>
+<li><p>getElementById：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element=document.getElementById(id)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getElementByTagName:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">collection=element.getElementByTagName(tagName)</span><br><span class="line"></span><br><span class="line">collection=element.getElementByTagName(&quot;*&quot;)  //获取指定元素所有后代元素。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getElementByClassName：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">collection=element.getElementByClassName(className)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>querySelector/All:<br>其返回的值是静态的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var users=document.querySelector(&quot;#users&quot;)  //选择第一个 id 为 users 的节点。</span><br><span class="line">users.querySelectorAll(&quot;.user&quot;)  //选择所有类名为 user 的节点。</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h1 id="二-创建节点"><a href="#二-创建节点" class="headerlink" title="二 创建节点"></a>二 创建节点</h1><h1 id="三-修改节点"><a href="#三-修改节点" class="headerlink" title="三 修改节点"></a>三 修改节点</h1><h1 id="四-插入节点"><a href="#四-插入节点" class="headerlink" title="四 插入节点"></a>四 插入节点</h1><h1 id="五-删除节点"><a href="#五-删除节点" class="headerlink" title="五 删除节点"></a>五 删除节点</h1><h1 id="六-innerHTML"><a href="#六-innerHTML" class="headerlink" title="六 innerHTML"></a>六 innerHTML</h1>
+<h2 id="3-IE-兼容"><a href="#3-IE-兼容" class="headerlink" title="3 IE 兼容"></a>3 IE 兼容</h2><p><img src="/2018/07/27/DOM-二-节点操作/图2.PNG" alt="IE 兼容"></p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4 小结"></a>4 小结</h2><p><img src="/2018/07/27/DOM-二-节点操作/图3.PNG" alt="小结"></p>
+<h1 id="二-创建节点"><a href="#二-创建节点" class="headerlink" title="二 创建节点"></a>二 创建节点</h1><p>示例：<br><img src="/2018/07/27/DOM-二-节点操作/图4.PNG" alt="创建节点示例"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element=document.createElement(tagName)</span><br><span class="line"></span><br><span class="line">var li=document.creatElement(&quot;li&quot;)</span><br></pre></td></tr></table></figure>
+<h1 id="三-修改节点"><a href="#三-修改节点" class="headerlink" title="三 修改节点"></a>三 修改节点</h1><p>element.textContent 节点及其后代节点的文本内容。<br>element.innerText 节点及其后代节点的文本内容,不规范，ff 不支持。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=document.createElement(&quot;a&quot;);</span><br><span class="line">a.innerText=&quot;Xiaoming&quot;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="四-插入节点"><a href="#四-插入节点" class="headerlink" title="四 插入节点"></a>四 插入节点</h1><ol>
+<li>appendChild:<br>追加一个节点。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var achild=element.appendChild(achild);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/2018/07/27/DOM-二-节点操作/图5.PNG" alt="追加一个节点"></p>
+<ol start="2">
+<li><p>insertBefore:<br>在指定节点(referenceChild)前插入一个节点(achild)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var achild=element.insertBefore(achild,referenceChild);</span><br><span class="line"></span><br><span class="line">ul.insertBefore(li,ul.firstChild);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建，修改，插入，设置属性：<br><img src="/2018/07/27/DOM-二-节点操作/图6.PNG" alt="创建，修改，插入，设置属性"></p>
+</li>
+</ol>
+<h1 id="五-删除节点"><a href="#五-删除节点" class="headerlink" title="五 删除节点"></a>五 删除节点</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">child=element.removeChild(child)</span><br><span class="line"></span><br><span class="line">var user2=users.getElementByClassName(&apos;user&apos;)[1];  //先获取准备删除的节点。</span><br><span class="line">user2.parentNode.removeChild(user2);  //删除获取到的节点。</span><br></pre></td></tr></table></figure>
+<h1 id="六-innerHTML"><a href="#六-innerHTML" class="headerlink" title="六 innerHTML"></a>六 innerHTML</h1><p>修改某节点的 HTML。可以直接创建插入节点，批量删除节点。</p>
+<ol>
+<li><p>示例：<br>先追加一个空 li 节点，后向里加内容。<br><img src="/2018/07/27/DOM-二-节点操作/图7.PNG" alt="修改某节点的 HTML"></p>
+</li>
+<li><p>问题：<br><img src="/2018/07/27/DOM-二-节点操作/图8.PNG" alt="问题"><br>直接插入整个 HTML 代码会刷新页面，可能导致之前的效果失效。<br>也可能导致内存泄漏，安全问题。</p>
+</li>
+</ol>
+
                 <hr>
                 
 
@@ -242,7 +279,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-获取节点"><span class="toc-text">一 获取节点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-获取方法"><span class="toc-text">1 获取方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-各接口使用"><span class="toc-text">2 各接口使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-创建节点"><span class="toc-text">二 创建节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-修改节点"><span class="toc-text">三 修改节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-插入节点"><span class="toc-text">四 插入节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-删除节点"><span class="toc-text">五 删除节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-innerHTML"><span class="toc-text">六 innerHTML</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-获取节点"><span class="toc-text">一 获取节点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-获取方法"><span class="toc-text">1 获取方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-各接口使用"><span class="toc-text">2 各接口使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-IE-兼容"><span class="toc-text">3 IE 兼容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-小结"><span class="toc-text">4 小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-创建节点"><span class="toc-text">二 创建节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-修改节点"><span class="toc-text">三 修改节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-插入节点"><span class="toc-text">四 插入节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-删除节点"><span class="toc-text">五 删除节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-innerHTML"><span class="toc-text">六 innerHTML</span></a></li></ol>
                 </div>
             </div>
         </div>
