@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        前端开发与调试｜Mo&#39;s blog
+        C 语言程序小错误总结（持续更新）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/06/24/前端开发与调试/">
+    <link rel="canonical" href="https://marlous.github.io/2018/08/01/C-语言程序小错误总结（持续更新）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>前端开发与调试</h1>
+                    <h1>C 语言程序小错误总结（持续更新）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-06-24
+                          日期 2018-08-01
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#软件工程"
-                           title="软件工程">软件工程</a>
+                        <a class="tag" href="/tags/#Tips"
+                           title="Tips">Tips</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            前端开发与调试
+            C 语言程序小错误总结（持续更新）
         </span>
     </div>
 </header>
@@ -202,50 +202,20 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-开发工具"><a href="#一-开发工具" class="headerlink" title="一 开发工具"></a>一 开发工具</h1><p>开发工具分为文本编辑器，IDE。<br><img src="/2018/06/24/前端开发与调试/图1.PNG" alt="开发工具"></p>
-<h1 id="二-开发工具之-Sublime"><a href="#二-开发工具之-Sublime" class="headerlink" title="二 开发工具之 Sublime"></a>二 开发工具之 Sublime</h1><ol>
-<li>常用快捷键：</li>
-</ol>
-<ul>
-<li>查找（ctrl+p）</li>
-<li>命令面板（ctrl+shift+p）</li>
-<li>多行选择（ctrl+d,ctrl+shift+l）</li>
-</ul>
-<ol start="2">
-<li>常用插件（前端）</li>
-</ol>
-<ul>
-<li>Emmet</li>
-<li>DocBlockr</li>
-<li>SideBarEnhancements</li>
-<li>Terminal</li>
-</ul>
-<ol start="3">
-<li>Snippets<br>建立代码片段用来快速使用复用代码。（工具&gt;插件开发&gt;新建代码片段）<br><img src="/2018/06/24/前端开发与调试/图2.PNG" alt="开发工具"></li>
-</ol>
-<h1 id="三-调试工具"><a href="#三-调试工具" class="headerlink" title="三 调试工具"></a>三 调试工具</h1><ul>
-<li>Elements：用来调试 HTML，CSS。用来增删改的操作。</li>
-<li>Network：网络请求。</li>
-<li>Sources：网站的所有资源。</li>
-<li>Console：与 Sources 结合来调试 JS。</li>
-<li>Resources：可以看到网站的本地数据资源。</li>
-<li>Timeline，Profiles，Audits 用来调试页面性能。</li>
-</ul>
-
+                <h1 id="小结一"><a href="#小结一" class="headerlink" title="小结一"></a>小结一</h1><blockquote>
+<p>需要用多个数学函数求值时，类型最好用 double。<br>非整型求绝对值用 fabs() 函数，而不是 abs()。<br>二次方用 pow() 函数，而不是习惯性用 <code>^</code>。</p>
+</blockquote>
+<p>程序示例：<br>四个圆塔高10米，半径1米，圆心在四个象限绝对值为（2，2），判断任意点坐标所在处高度？<br>解：在圆外即满足 (2-|y|)^2 + (2-|x|)^2 &gt; 1 。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x,y;</span><br><span class="line">    <span class="keyword">double</span> r;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter site x,y value:\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"x=?\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;x);<span class="built_in">printf</span>(<span class="string">"x value:%lf\n"</span>,x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"y=?\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;y);<span class="built_in">printf</span>(<span class="string">"y value:%lf\n"</span>,y);</span><br><span class="line"></span><br><span class="line">    r=<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(y)),<span class="number">2</span>)+<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(x)),<span class="number">2</span>);</span><br><span class="line">    r=<span class="built_in">sqrt</span>(r);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nr=%lf\n"</span>,r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(y)),<span class="number">2</span>)+<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(x)),<span class="number">2</span>)&gt;<span class="number">1</span>) <span class="comment">//即 r&gt;1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\nHeight:0 M\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\nHeight:10 M\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/06/25/HTML-进阶/" data-toggle="tooltip" data-placement="top"
-                           title="HTML 进阶">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/06/23/页面制作之-Photoshop-切图/" data-toggle="tooltip" data-placement="top"
-                           title="页面制作之 Photoshop 切图">Next Post &rarr;</a>
+                        <a href="/2018/07/27/DOM-二-节点操作/" data-toggle="tooltip" data-placement="top"
+                           title="DOM 二 节点操作">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -261,7 +231,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-开发工具"><span class="toc-text">一 开发工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-开发工具之-Sublime"><span class="toc-text">二 开发工具之 Sublime</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-调试工具"><span class="toc-text">三 调试工具</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小结一"><span class="toc-text">小结一</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -283,8 +253,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#软件工程"
-                           title="软件工程">软件工程</a>
+                        <a class="tag" href="/tags/#Tips"
+                           title="Tips">Tips</a>
                         
                     </div>
                 </section>
