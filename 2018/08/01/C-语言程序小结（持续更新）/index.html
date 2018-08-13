@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        C 语言程序小结（持续更新）｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/08/01/C-语言程序小结（持续更新）/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>C 语言程序小结（持续更新）</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-08-01
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Tips"
+                           title="Tips">Tips</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            C 语言程序小结（持续更新）
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="小结一-某点与圆"><a href="#小结一-某点与圆" class="headerlink" title="小结一 某点与圆"></a>小结一 某点与圆</h1><blockquote>
+<ul>
+<li>需要用多个数学函数求值时，类型最好用 double。</li>
+<li>非整型求绝对值用 fabs() 函数，而不是 abs()。</li>
+<li>二次方用 pow() 函数，而不是习惯性用 <code>^2</code>。</li>
+</ul>
+</blockquote>
+<p>例：四个圆塔高10米，半径1米，圆心在四个象限绝对值为（2，2），判断任意点坐标所在处高度？</p>
+<p>解：某一点到圆心的距离大于圆的半径。<br>在圆外即满足 (2-|y|)^2 + (2-|x|)^2 &gt; 1 。</p>
+<p>程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x,y;</span><br><span class="line">    <span class="keyword">double</span> r;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Enter site x,y value:\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"x=?\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;x);<span class="built_in">printf</span>(<span class="string">"x value:%lf\n"</span>,x);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"y=?\n"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;y);<span class="built_in">printf</span>(<span class="string">"y value:%lf\n"</span>,y);</span><br><span class="line">    r=<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(y)),<span class="number">2</span>)+<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(x)),<span class="number">2</span>);</span><br><span class="line">    r=<span class="built_in">sqrt</span>(r);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\nr=%lf\n"</span>,r);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(y)),<span class="number">2</span>)+<span class="built_in">pow</span>((<span class="number">2</span>-<span class="built_in">fabs</span>(x)),<span class="number">2</span>)&gt;<span class="number">1</span>) <span class="comment">//即 r&gt;1</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\nHeight:0 M\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\nHeight:10 M\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>程序运行结果：<br><img src="/2018/08/01/C-语言程序小结（持续更新）/图1.PNG" alt="意点坐标所在处高度"></p>
+<h1 id="小结二-求根"><a href="#小结二-求根" class="headerlink" title="小结二 求根"></a>小结二 求根</h1><blockquote>
+<ul>
+<li>迭代法求平方根。公式为 <code>x2=(x1+a/x1)/2</code> ，x1 初值取任意值 (1)。</li>
+<li>牛顿迭代法求方程的根。公式为 <code>x2=x1-f(x1)/f&#39;(x1)</code> ，x1 初值取某数附近。</li>
+<li>二分法求方程的根。公式为取区间中点 <code>i=(a+b)/2</code> ，判断 <code>f(a)*f(i)&lt;0</code> 是区间改为 <code>[a,i]</code>，否则区间就在 <code>[i,b]</code> 。</li>
+</ul>
+</blockquote>
+<h2 id="1-迭代法求平方根"><a href="#1-迭代法求平方根" class="headerlink" title="1 迭代法求平方根"></a>1 迭代法求平方根</h2><p>例：求 x=a^(1/2) ？</p>
+<p>解：求平方根的迭代公式为 <code>x2=(x1+a/x1)/2</code>,x2 下标为 n+1，x1 下标为 n。<br>利用迭代公式，使两次值的差的绝对值小于 1e-5，注意初值可以取任意值，本例取 1。</p>
+<p>程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a,x1,x2,temp,num1,num2;</span><br><span class="line">    x1=<span class="number">1</span>;<span class="comment">//x1取一个初值。</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;a);</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        x2=<span class="number">0.5</span>*(x1+a/x1);<span class="comment">//迭代公式。</span></span><br><span class="line">        temp=x1;<span class="comment">//保存求出的x1值。</span></span><br><span class="line">        x1=x2;<span class="comment">//准备下一次循环x1的值。</span></span><br><span class="line"></span><br><span class="line">        num1=temp-x2;</span><br><span class="line">        num2=<span class="built_in">fabs</span>(num1);</span><br><span class="line">    &#125;<span class="keyword">while</span>(num2&gt;=<span class="number">10e-5</span>);<span class="comment">//满足一直循环。</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lf is root1=%lf,root2=%lf\n"</span>,a,temp);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>程序运行结果：<br><img src="/2018/08/01/C-语言程序小结（持续更新）/图2.PNG" alt="迭代法求平方根"></p>
+<h2 id="2-牛顿迭代法求方程的根"><a href="#2-牛顿迭代法求方程的根" class="headerlink" title="2 牛顿迭代法求方程的根"></a>2 牛顿迭代法求方程的根</h2><p>例：2x^3 - 4x^2 +3x - 6 = 0，求 1.5 附近的根？</p>
+<p>解：公式为 <code>x2=x1-f(x1)/f&#39;(x1)</code>，x2 下标为 n+1，x1 下标为 n。<br>利用迭代公式，使两次值的差的绝对值小于 1e-5，注意初值取 1.5。</p>
+<p>程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> x1,x2,temp,num;</span><br><span class="line">    x1=<span class="number">1.5</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        x2=x1-(<span class="number">2</span>*<span class="built_in">pow</span>(x1,<span class="number">3</span>)<span class="number">-4</span>*<span class="built_in">pow</span>(x1,<span class="number">2</span>)+<span class="number">3</span>*x1<span class="number">-6</span>)/(<span class="number">6</span>*<span class="built_in">pow</span>(x1,<span class="number">2</span>)<span class="number">-8</span>*x1+<span class="number">3</span>);</span><br><span class="line">        temp=x1;</span><br><span class="line">        x1=x2;</span><br><span class="line">        num=<span class="built_in">fabs</span>(temp-x2);</span><br><span class="line">    &#125;<span class="keyword">while</span>(num&gt;<span class="number">1e-5</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"2x^3 - 4x^2 +3x - 6 = 0 root at 1.5\n\nroot1=%lf\nroot2=%lf\nroot=%5.2lf\n"</span>,temp,x2,x2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>程序运行结果：<br><img src="/2018/08/01/C-语言程序小结（持续更新）/图3.PNG" alt="牛顿迭代法求方程的根"></p>
+<h2 id="3-二分法求方程的根"><a href="#3-二分法求方程的根" class="headerlink" title="3 二分法求方程的根"></a>3 二分法求方程的根</h2><p>例：求 2x^3 - 4x^2 + 3x - 6 = 0 在（-10，10）之间的根？</p>
+<p>解：取区间中点 <code>i=(a+b)/2</code>，如果 <code>f(a)*f(i) 小于 0，则区间就变为在 [a,i]，否则区间就在 [i,b]，将新的区间表示为 [a,b]</code></p>
+<p>程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a=<span class="number">-10</span>,b=<span class="number">10</span>,i,s;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        i=(a+b)/<span class="number">2</span>;</span><br><span class="line">        s=(<span class="number">2</span>*<span class="built_in">pow</span>(a,<span class="number">3</span>)<span class="number">-4</span>*<span class="built_in">pow</span>(a,<span class="number">2</span>)+<span class="number">3</span>*a<span class="number">-6</span>)*(<span class="number">2</span>*<span class="built_in">pow</span>(i,<span class="number">3</span>)<span class="number">-4</span>*<span class="built_in">pow</span>(i,<span class="number">2</span>)+<span class="number">3</span>*i<span class="number">-6</span>);</span><br><span class="line">        <span class="keyword">if</span>(s&lt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            b=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            a=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">while</span>(b-a&gt;<span class="number">1e-5</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"2x^3 - 4x^2 + 3x - 6 = 0 at(-10,10)\nroot1=%lf,root2=%lf\nroot=%5.2lf\n"</span>,a,b,b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>程序运行结果：<br><img src="/2018/08/01/C-语言程序小结（持续更新）/图4.PNG" alt="二分法求方程的根"></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/08/02/DOM-三-属性操作/" data-toggle="tooltip" data-placement="top"
+                           title="DOM 三 属性操作">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/07/27/DOM-二-节点操作/" data-toggle="tooltip" data-placement="top"
+                           title="DOM 二 节点操作">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小结一-某点与圆"><span class="toc-text">小结一 某点与圆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小结二-求根"><span class="toc-text">小结二 求根</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-迭代法求平方根"><span class="toc-text">1 迭代法求平方根</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-牛顿迭代法求方程的根"><span class="toc-text">2 牛顿迭代法求方程的根</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-二分法求方程的根"><span class="toc-text">3 二分法求方程的根</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Tips"
+                           title="Tips">Tips</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
