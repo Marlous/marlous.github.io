@@ -240,11 +240,13 @@
 </ol>
 </blockquote>
 <p>例：输出如图的图形（程序运行结果）。<br><img src="/2018/08/01/C-语言练习程序小结/图5.PNG" alt="如图的图形"></p>
-<p>解：按图形分析出有几行，几列；每一列由什么组成；行列之间的关系（规律）。如表：</p>
+<p>解：按图形分析出有几行，几列；每一列由什么组成；行列之间的关系（规律）。<br>图形上半部分，共 8 行，奇数行输出图形偶数行为空行，n 为上半部分图形空格初值。<br>图形下半部分，共 5 行，奇数行输出图形偶数行为空行，m 为下半部分图形空格初值。如表：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">图形上半部分，共 8 行，奇数行输出图形偶数行为空行</th>
+<th style="text-align:center">行 i</th>
+<th style="text-align:center">每一行中空格数</th>
+<th style="text-align:center">每一行中星号数</th>
 </tr>
 </thead>
 <tbody>
@@ -268,15 +270,14 @@
 <td style="text-align:center">0 空格</td>
 <td style="text-align:center">7 个 *</td>
 </tr>
-<tr>
-<td style="text-align:center">n 为上半部分图形空格初值。</td>
-</tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">图形下半部分，共 5 行，奇数行输出图形偶数行为空行</th>
+<th style="text-align:center">行 i</th>
+<th style="text-align:center">每一行中空格数</th>
+<th style="text-align:center">每一行中星号数</th>
 </tr>
 </thead>
 <tbody>
@@ -294,9 +295,6 @@
 <td style="text-align:center">第 5 行</td>
 <td style="text-align:center">3 空格</td>
 <td style="text-align:center">1 个 *</td>
-</tr>
-<tr>
-<td style="text-align:center">m 为下半部分图形空格初值。</td>
 </tr>
 </tbody>
 </table>
