@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -203,8 +203,12 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ol>
-<li>环境变量配置：</li>
+<li><p>Java 的三个体系：<br>JavaSE（J2SE)(Java2 Platform Standard Edition，java 平台标准版）<br>JavaEE(J2EE)(Java 2 Platform,Enterprise Edition，java 平台企业版)<br>JavaME(J2ME)(Java 2 Platform Micro Edition，java 平台微型版)</p>
+</li>
+<li><p>环境变量配置：<br>（Windows 10 安装 jdk1.8.0_172）<br>下载 JDK 安装。<br>新建变量名为 <code>JAVA_HOME</code> ，值为 <code>C:\Program Files\Java\jdk1.8.0_172</code> （JDK 的安装目录）。<br>新建变量名为 <code>CLASSPATH</code> ，值为 <code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code> 。<br>已有的变量名 <code>path</code> ，值为 <code>%JAVA_HOME%\bin</code> 和 <code>%JAVA_HOME%\jre\bin</code>。</p>
+</li>
 </ol>
+<p>验证成功添加和安装：<br>命令行分别输入 <code>java -version</code> 和 <code>javac -version</code> 。<br><img src="/2018/09/08/Java-语言学习（上）/图1.PNG" alt="验证成功"></p>
 
                 <hr>
                 
