@@ -86,6 +86,14 @@
                         
 							
                         <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -95,14 +103,6 @@
 							
                         <li>
                             <a href="/work/">works</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -221,7 +221,7 @@
 <h1 id="四-问题三之导航菜单文件夹小大写"><a href="#四-问题三之导航菜单文件夹小大写" class="headerlink" title="四 问题三之导航菜单文件夹小大写"></a>四 问题三之导航菜单文件夹小大写</h1><p>在配置 about 导航栏时遇到的问题，开始 new page 用的大写，导致生成了 ABOUT 文件夹，于是无法打开此页连接（模版中代码其生成的链接为小写，将对应代码改成小写也可以正常使用）。<br><img src="/2018/06/12/Hexo-踩坑记/图1.PNG" alt="图1 改导航栏生成路径代码"></p>
 <p>强迫症为保持一致还是删掉重建导航页。不知道是第一次错误的大写导致后来删掉后依然生成的是大写文件夹，还是 win 下文件夹大小写不敏感原因（总之 push 上去 GitHub 显示大写文件夹，本地为小写），反复删除生成重新 push，GitHub 上依然是大写文件夹，git 设置大小写不敏感也无济于事。这是个大坑啊。</p>
 <p>解决方案：将关于 about 文件夹删掉，手动在博客根目录 source 文件夹创建 about 文件夹，并手动创建 index.md 并将 layout 设置为 about，清理生成部署，完成！</p>
-<h1 id="五-遗留问题"><a href="#五-遗留问题" class="headerlink" title="五 遗留问题"></a>五 遗留问题</h1><p>问题：部署后只有 about 导航页用 PC 和手机蜂窝数据正常打开，手机连 Wi-Fi 就打不开，是 CDN 问题么，之后几小时又带不开了，唯独此页间歇性抽风，但换成蜂窝数据就能打开…</p>
+<h1 id="五-遗留问题（重新部署后已解决）"><a href="#五-遗留问题（重新部署后已解决）" class="headerlink" title="五 遗留问题（重新部署后已解决）"></a>五 遗留问题（重新部署后已解决）</h1><p>问题：部署后只有 about 导航页用 PC 和手机蜂窝数据正常打开，手机连 Wi-Fi 就打不开，是 CDN 问题么，之后几小时又带不开了，唯独此页间歇性抽风，但换成蜂窝数据就能打开…</p>
 
                 <hr>
                 
@@ -252,7 +252,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-安装"><span class="toc-text">一 安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-问题一之博文插入图片"><span class="toc-text">二 问题一之博文插入图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-问题二之导航菜单添加"><span class="toc-text">三 问题二之导航菜单添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-问题三之导航菜单文件夹小大写"><span class="toc-text">四 问题三之导航菜单文件夹小大写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-遗留问题"><span class="toc-text">五 遗留问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-安装"><span class="toc-text">一 安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-问题一之博文插入图片"><span class="toc-text">二 问题一之博文插入图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-问题二之导航菜单添加"><span class="toc-text">三 问题二之导航菜单添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-问题三之导航菜单文件夹小大写"><span class="toc-text">四 问题三之导航菜单文件夹小大写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-遗留问题（重新部署后已解决）"><span class="toc-text">五 遗留问题（重新部署后已解决）</span></a></li></ol>
                 </div>
             </div>
         </div>
