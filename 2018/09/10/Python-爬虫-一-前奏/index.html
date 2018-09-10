@@ -211,14 +211,34 @@
 <ol start="2">
 <li>Requests 库的七个主要方法：<br><img src="/2018/09/10/Python-爬虫-一-前奏/图2.PNG" alt="Requests 库的七个主要方法"></li>
 </ol>
-<h1 id="二-Request-库七个主要方法"><a href="#二-Request-库七个主要方法" class="headerlink" title="二 Request 库七个主要方法"></a>二 Request 库七个主要方法</h1><ol>
-<li>get() 方法：</li>
-</ol>
+<h1 id="二-Requests-库七个主要方法"><a href="#二-Requests-库七个主要方法" class="headerlink" title="二 Requests 库七个主要方法"></a>二 Requests 库七个主要方法</h1><ul>
+<li><p>主要方法为 <code>requests.request()</code> ，其他六个方法是这个方法的延伸。</p>
+</li>
+<li><p>结构： Response 对象（被赋值变量） = Request 对象</p>
+</li>
+<li><p>Response 对象属性：<br><img src="/2018/09/10/Python-爬虫-一-前奏/图3.PNG" alt="Response 对象属性"></p>
+</li>
+<li><p>Requests 库的异常：<br><img src="/2018/09/10/Python-爬虫-一-前奏/图4.PNG" alt="Requests 库的异常"></p>
+</li>
+<li><p>爬取网页的通用代码框架：让爬取更稳定可靠。<br><img src="/2018/09/10/Python-爬虫-一-前奏/图5.PNG" alt="爬取网页的通用代码框架"></p>
+</li>
+</ul>
+<h2 id="1-get-方法"><a href="#1-get-方法" class="headerlink" title="1 get() 方法"></a>1 get() 方法</h2><ul>
+<li><p><code>r = requests.get(url)</code></p>
+</li>
+<li><p>基本流程：先判断 r.status_code 是否为 200，是则成功，不是则失败。</p>
+</li>
+</ul>
 
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/09/10/Python-语言学习（下）/" data-toggle="tooltip" data-placement="top"
+                           title="Python 语言学习（下）">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
@@ -239,7 +259,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Requests-库入门"><span class="toc-text">一 Requests 库入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Request-库七个主要方法"><span class="toc-text">二 Request 库七个主要方法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Requests-库入门"><span class="toc-text">一 Requests 库入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Requests-库七个主要方法"><span class="toc-text">二 Requests 库七个主要方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-get-方法"><span class="toc-text">1 get() 方法</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
