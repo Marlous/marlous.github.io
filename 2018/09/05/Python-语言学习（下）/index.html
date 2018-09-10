@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Python 语言学习（上）｜Mo&#39;s blog
+        Python 语言学习（下）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/08/Python-语言学习（上）/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/05/Python-语言学习（下）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -171,12 +171,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Python 语言学习（上）</h1>
+                    <h1>Python 语言学习（下）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-09-08
+                          日期 2018-09-05
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Python 语言学习（上）
+            Python 语言学习（下）
         </span>
     </div>
 </header>
@@ -202,88 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>参考课程：<a href="http://www.icourse163.org/course/HIT-1001616002?tid=1002164016" target="_blank" rel="noopener">课程地址</a></p>
-</blockquote>
-<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ol>
-<li><p>使用的 IDE 为 PyCharm，其基本使用教程：<a href="https://blog.csdn.net/zhusongziye/article/details/79069233" target="_blank" rel="noopener">基本使用教程</a></p>
-</li>
-<li><p>验证正确安装及配置环境变量：<br>命令 <code>python</code><br><img src="/2018/09/08/Python-语言学习（上）/图0.PNG" alt="验证正确安装及配置环境变量"></p>
-</li>
-<li><p>行注释用 <code>#</code>，块注释用 <code>&quot;&quot;&quot;</code> 包裹。<br><img src="/2018/09/08/Python-语言学习（上）/图1.PNG" alt="注释"></p>
-</li>
-<li><p>命令行下运行程序：进入文件所在目录，命令 <code>python test.py</code> 。<br>命令行无需创建文件，立即看到运行结果，适用于语句功能测试；脚本可反复运行，易于编辑，适用于编写大型程序。</p>
-</li>
-</ol>
-<h1 id="二-Python-基础概念"><a href="#二-Python-基础概念" class="headerlink" title="二 Python 基础概念"></a>二 Python 基础概念</h1><h2 id="1-对象和类型"><a href="#1-对象和类型" class="headerlink" title="1 对象和类型"></a>1 对象和类型</h2><ol>
-<li>五种基本数据类型：</li>
-</ol>
-<ul>
-<li>字符串 str：用单引号或双引号表示。</li>
-<li>整数 int：如 21，025，0x15</li>
-<li>浮点数 float</li>
-<li>布尔型 bool：true false 两个值。</li>
-<li>复数：如 1+1j</li>
-</ul>
-<ol start="2">
-<li>查看数据类型函数： <code>type()</code></li>
-</ol>
-<h2 id="2-运算符与表达式"><a href="#2-运算符与表达式" class="headerlink" title="2 运算符与表达式"></a>2 运算符与表达式</h2><ol>
-<li>算术运算符：</li>
-</ol>
-<ul>
-<li><p><img src="/2018/09/08/Python-语言学习（上）/图2.PNG" alt="算术运算符"></p>
-</li>
-<li><p>自动类型转换：bool -&gt; int -&gt; float -&gt; complex<br>布尔值 true 为 1，false 为 0</p>
-</li>
-<li><p>使用其他运算：<br>引入模块（实现一定功能的脚本集合） <code>import module_name</code> ，<br>查看模块内容 <code>dir(module_name)</code> ,<br>查看帮助 <code>help(math.sin)</code> ,<br>使用其运算，如 <code>math.sin(100)</code> <code>math.pi</code> 。</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>关系运算符：<br><img src="/2018/09/08/Python-语言学习（上）/图3.PNG" alt="关系运算"></p>
-</li>
-<li><p>逻辑运算符：<br><img src="/2018/09/08/Python-语言学习（上）/图4.PNG" alt="逻辑运算符"></p>
-</li>
-<li><p>运算符优先级：<br><img src="/2018/09/08/Python-语言学习（上）/图5.PNG" alt="运算符优先级"></p>
-</li>
-</ol>
-<h2 id="3-变量与简单-I-O"><a href="#3-变量与简单-I-O" class="headerlink" title="3 变量与简单 I/O"></a>3 变量与简单 I/O</h2><ol>
-<li>变量：<br>用来绑定一个对象的标识符。<code>变量名=对象（数值，表达式等）</code></li>
-</ol>
-<p><img src="/2018/09/08/Python-语言学习（上）/图6.PNG" alt="标识符命名规则"></p>
-<ol start="2">
-<li><p>简单 I/O，输入：<br>输入函数 input，读取键盘输入，所有输入作为字符串看待。<code>input([prompt])</code> ，可选填提示。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r = float(input(<span class="string">'Enter r:'</span>))</span><br><span class="line">area = (math.pi ** <span class="number">2</span>) * r</span><br><span class="line">print(area)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>简单 I/O，输出：<br><code>print()</code> ，将对象值输出到控制台上，多个值用逗号隔开。<br>如 <code>print(&#39;area of the circle is:&#39;, area)</code> ，其输出结果为 <code>area of the circle is: 49.34802200544679</code></p>
-</li>
-</ol>
-<h1 id="三-程序控制结构"><a href="#三-程序控制结构" class="headerlink" title="三 程序控制结构"></a>三 程序控制结构</h1><h2 id="1-选择结构"><a href="#1-选择结构" class="headerlink" title="1 选择结构"></a>1 选择结构</h2><ol>
-<li>单分支结构：</li>
-</ol>
-<ul>
-<li><p>if 语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if 条件:</span><br><span class="line">	语句块</span><br><span class="line">其余语句</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>if-else 语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if 条件:</span><br><span class="line">	语句块</span><br><span class="line">else:</span><br><span class="line">	语句块</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>if 嵌套：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if 条件:</span><br><span class="line">	if 条件:</span><br><span class="line">	语句块</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol start="2">
-<li>多分支结构：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if 条件:</span><br><span class="line">	语句块</span><br><span class="line">elif 条件:</span><br><span class="line">	语句块</span><br><span class="line">elif 条件:</span><br><span class="line">	语句块</span><br><span class="line">elif 条件:</span><br><span class="line">	语句块</span><br><span class="line">else:</span><br><span class="line">	语句块</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="2-循环结构"><a href="#2-循环结构" class="headerlink" title="2 循环结构"></a>2 循环结构</h2><ol>
-<li><p>while 循环：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while 条件:</span><br><span class="line">	语句块</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>for 循环：<br>遍历对象 object 中的每个元素，并赋值给 anElement。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for anElement in object:</span><br><span class="line">	语句块</span><br><span class="line"></span><br><span class="line">例 1+2+3+...+10：</span><br><span class="line">s = 0</span><br><span class="line">for i in range(11)</span><br><span class="line">	s = s + i</span><br><span class="line">print(&apos;sum is:&apos;,s)</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+                <h1 id="一-函数与递归函数"><a href="#一-函数与递归函数" class="headerlink" title="一 函数与递归函数"></a>一 函数与递归函数</h1><h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1 函数"></a>1 函数</h2><h2 id="2-递归函数"><a href="#2-递归函数" class="headerlink" title="2 递归函数"></a>2 递归函数</h2><h1 id="二-字符串"><a href="#二-字符串" class="headerlink" title="二 字符串"></a>二 字符串</h1><h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h1 id="四-字典与集合"><a href="#四-字典与集合" class="headerlink" title="四 字典与集合"></a>四 字典与集合</h1>
                 <hr>
                 
 
@@ -296,8 +215,8 @@
                     
                     
                     <li class="next">
-                        <a href="/2018/08/12/《古希腊文明兴衰》学习笔记/" data-toggle="tooltip" data-placement="top"
-                           title="《古希腊文明兴衰》学习笔记">Next Post &rarr;</a>
+                        <a href="/2018/09/03/Python-语言学习（上）/" data-toggle="tooltip" data-placement="top"
+                           title="Python 语言学习（上）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -313,7 +232,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Python-基础概念"><span class="toc-text">二 Python 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对象和类型"><span class="toc-text">1 对象和类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运算符与表达式"><span class="toc-text">2 运算符与表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-变量与简单-I-O"><span class="toc-text">3 变量与简单 I/O</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-程序控制结构"><span class="toc-text">三 程序控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-选择结构"><span class="toc-text">1 选择结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-循环结构"><span class="toc-text">2 循环结构</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-函数与递归函数"><span class="toc-text">一 函数与递归函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数"><span class="toc-text">1 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归函数"><span class="toc-text">2 递归函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-字符串"><span class="toc-text">二 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-列表与元组"><span class="toc-text">三 列表与元组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-字典与集合"><span class="toc-text">四 字典与集合</span></a></li></ol>
                 </div>
             </div>
         </div>
