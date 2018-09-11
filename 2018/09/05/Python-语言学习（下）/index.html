@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -202,7 +202,45 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-函数与递归函数"><a href="#一-函数与递归函数" class="headerlink" title="一 函数与递归函数"></a>一 函数与递归函数</h1><h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1 函数"></a>1 函数</h2><h2 id="2-递归函数"><a href="#2-递归函数" class="headerlink" title="2 递归函数"></a>2 递归函数</h2><h1 id="二-字符串"><a href="#二-字符串" class="headerlink" title="二 字符串"></a>二 字符串</h1><h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h1 id="四-字典与集合"><a href="#四-字典与集合" class="headerlink" title="四 字典与集合"></a>四 字典与集合</h1>
+                <h1 id="一-函数与递归函数"><a href="#一-函数与递归函数" class="headerlink" title="一 函数与递归函数"></a>一 函数与递归函数</h1><h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1 函数"></a>1 函数</h2><ol>
+<li><p>概念：完成特定功能的语句组，作为一个单位使用。</p>
+</li>
+<li><p>函数定义与调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">定义：</span><br><span class="line">def 函数名(参数):</span><br><span class="line">	语句块</span><br><span class="line"></span><br><span class="line">调用：</span><br><span class="line">函数名(实参)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>变量作用域：局部变量修改并不改变全局变量，若想在函数体内对全局变量修改需添加关键字 global <code>global x = 2</code> 。</p>
+</li>
+<li><p>占位符 <code>pass</code> ，用来暂时占据位置。</p>
+</li>
+</ol>
+<h2 id="2-递归函数"><a href="#2-递归函数" class="headerlink" title="2 递归函数"></a>2 递归函数</h2><p>斐波那契额数列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fib(n):</span><br><span class="line">	if n == 1 or n == 2:</span><br><span class="line">		return 1</span><br><span class="line">	else:</span><br><span class="line">		return fib(n-1) + fib(n-2)</span><br></pre></td></tr></table></figure></p>
+<h1 id="二-字符串"><a href="#二-字符串" class="headerlink" title="二 字符串"></a>二 字符串</h1><ol>
+<li><p>成对的一个单引号或双引号（字符串内有相同的引号需加个 \ 作转义）。</p>
+</li>
+<li><p>成对的三个单引号或双引号，保留字符串的全部格式。</p>
+</li>
+<li><p>字符串相关函数：</p>
+</li>
+</ol>
+<ul>
+<li><p>求字符串长度，<code>len(str)</code> 。</p>
+</li>
+<li><p>字符串拼接，<code>+</code> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">str1 = &quot;hello&quot;</span><br><span class="line">str2 = str1 + &quot;world&quot;</span><br><span class="line">print(str2)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串重复，<code>*</code> ，如 <code>str2 * 3</code> 。</p>
+</li>
+<li><p>成员运算符，<code>in</code> ，判断一个字符串是否是另一个字符串的字串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">name = &quot;mike&quot;</span><br><span class="line">print(&quot;i&quot; in name) #返回值为 true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>枚举字符串中每个字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for char in str</span><br><span class="line">	print(char)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="4">
+<li>字符串索引：字符串中的每个字符都有一个索引值。<br>正着从 0 依次加一；或倒着从 -1 依次减一。<br><img src="/2018/09/05/Python-语言学习（下）/图1.PNG" alt="字符串中索引值"></li>
+</ol>
+<h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h1 id="四-字典与集合"><a href="#四-字典与集合" class="headerlink" title="四 字典与集合"></a>四 字典与集合</h1>
                 <hr>
                 
 
