@@ -240,7 +240,32 @@
 <ol start="4">
 <li>字符串索引：字符串中的每个字符都有一个索引值。<br>正着从 0 依次加一；或倒着从 -1 依次减一。<br><img src="/2018/09/05/Python-语言学习（下）/图1.PNG" alt="字符串中索引值"></li>
 </ol>
-<h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h1 id="四-字典与集合"><a href="#四-字典与集合" class="headerlink" title="四 字典与集合"></a>四 字典与集合</h1>
+<ul>
+<li><p>切片 <code>[start:finish:countBy]</code> 。<br>[开始位置：结束位置的下一个值:计数参数]，计数参数默认为 1。<code>str[::-1]</code> 则获得原字符串的逆序。<br>通过切片来赋给原变量来更改原字符串（不可以直接通过索引更改）。</p>
+</li>
+<li><p>字符替换函数 <code>str1.replace(old,new)</code> 。</p>
+</li>
+<li><p>字符查找函数 <code>str1.find(&quot;x&quot;)</code> 。</p>
+</li>
+<li><p>字符切分 <code>str1.split()</code> ，无参数则按空格切分 。</p>
+</li>
+<li><p>可以通过 <code>dir(str)</code> 来查看其他方法。</p>
+</li>
+</ul>
+<ol start="5">
+<li><p>字符串比较：<br>根据 ASCII 比较。</p>
+</li>
+<li><p>字符串格式化：</p>
+</li>
+</ol>
+<ul>
+<li><code>str.format(值)</code> ，如 <code>print(&quot;hello {} world&quot;).format(you)</code> ，会用 you 替换掉 {}，输出为 <code>hello you world</code> 。</li>
+</ul>
+<p>在 {} 内可加格式控制内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;PI is &#123;:.4f&#125;&quot;.format(math.pi)) #输出为四位小数。</span><br><span class="line">&#123;:9.4f&#125; #表示为占九个字符，小数部分四位。</span><br><span class="line">&#123;:e&#125; #用科学记数法输出。</span><br></pre></td></tr></table></figure></p>
+<ol start="7">
+<li>正则表达式：<br><img src="/2018/09/05/Python-语言学习（下）/图2.PNG" alt="正则表达式概念"><br><img src="/2018/09/05/Python-语言学习（下）/图3.PNG" alt="正则表达式示例"></li>
+</ol>
+<h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1 列表"></a>1 列表</h2><h1 id="四-字典与集合"><a href="#四-字典与集合" class="headerlink" title="四 字典与集合"></a>四 字典与集合</h1><h1 id="五-有关文件的操作"><a href="#五-有关文件的操作" class="headerlink" title="五 有关文件的操作"></a>五 有关文件的操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">打开文件：</span><br><span class="line">f = open(filename,mode) # r 为读，w 为写</span><br><span class="line"></span><br><span class="line">按行读取内容：</span><br><span class="line">for line in f:</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">关闭文件：</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">写文件：</span><br><span class="line">f.write(str)</span><br></pre></td></tr></table></figure>
                 <hr>
                 
 
@@ -270,7 +295,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-函数与递归函数"><span class="toc-text">一 函数与递归函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数"><span class="toc-text">1 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归函数"><span class="toc-text">2 递归函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-字符串"><span class="toc-text">二 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-列表与元组"><span class="toc-text">三 列表与元组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-字典与集合"><span class="toc-text">四 字典与集合</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-函数与递归函数"><span class="toc-text">一 函数与递归函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数"><span class="toc-text">1 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归函数"><span class="toc-text">2 递归函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-字符串"><span class="toc-text">二 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-列表与元组"><span class="toc-text">三 列表与元组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-列表"><span class="toc-text">1 列表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-字典与集合"><span class="toc-text">四 字典与集合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-有关文件的操作"><span class="toc-text">五 有关文件的操作</span></a></li></ol>
                 </div>
             </div>
         </div>
