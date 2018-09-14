@@ -265,7 +265,45 @@
 <ol start="7">
 <li>正则表达式：<br><img src="/2018/09/05/Python-语言学习（下）/图2.PNG" alt="正则表达式概念"><br><img src="/2018/09/05/Python-语言学习（下）/图3.PNG" alt="正则表达式示例"></li>
 </ol>
-<h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1 列表"></a>1 列表</h2><h1 id="四-字典与集合"><a href="#四-字典与集合" class="headerlink" title="四 字典与集合"></a>四 字典与集合</h1><h1 id="五-有关文件的操作"><a href="#五-有关文件的操作" class="headerlink" title="五 有关文件的操作"></a>五 有关文件的操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">打开文件：</span><br><span class="line">f = open(filename,mode) # r 为读，w 为写</span><br><span class="line"></span><br><span class="line">按行读取内容：</span><br><span class="line">for line in f:</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">关闭文件：</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">写文件：</span><br><span class="line">f.write(str)</span><br></pre></td></tr></table></figure>
+<h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1 列表"></a>1 列表</h2><ol>
+<li><p><code>lst = [5.2,&quot;hello&quot;,2]</code> ,列表也支持索引操作，与字符串索引相同。</p>
+</li>
+<li><p>列表与字符串相同与不同：<br><img src="/2018/09/05/Python-语言学习（下）/图4.PNG" alt="列表与字符串相同与不同"></p>
+</li>
+<li><p>有关列表的方法：<br><img src="/2018/09/05/Python-语言学习（下）/图5.PNG" alt="有关列表的方法"></p>
+</li>
+<li><p>列表赋值：</p>
+</li>
+</ol>
+<ul>
+<li><p>将一个被赋值的列表，赋给其他值，并不会生成一个新的，而是指向原来的。改成 <code>b = a[:]</code> 则可以重新开辟空间给变量 b。<br><img src="/2018/09/05/Python-语言学习（下）/图6.PNG" alt="列表赋值"></p>
+</li>
+<li><p>补充：赋值，浅拷贝，深拷贝。<a href="https://www.cnblogs.com/LetMe/p/6724555.html" target="_blank" rel="noopener">参考博文</a><br>赋值：变量初始化。<br>浅拷贝：不管是多么复杂的数据结构，浅拷贝只会拷贝第一层。<br>深拷贝：完全复制原变量的所有数据，在内存中生成一套完全一样的内容，我们对这两个变量中的一个进行任意修改都不会影响另一个变量。</p>
+</li>
+</ul>
+<ol start="5">
+<li><p>查找：<code>lst.index(2)</code> 返回第一个查找到值的下标，没有则抛出异常。</p>
+</li>
+<li><p>排序：<code>sorted() 函数</code> ，从小到大排序，不会改变原列表。<code>lst.sort() 方法</code> ，会改变原列表值。</p>
+</li>
+<li><p>嵌套列表：<code>x = [[2,3,4],[67,5,44]]</code> ，相当于二维数组。<br>例：这里的行直接用一个对象遍历了，只考虑列是哪个。<br><img src="/2018/09/05/Python-语言学习（下）/图7.PNG" alt="嵌套列表"></p>
+</li>
+<li><p>列表解析或推倒：<br><img src="/2018/09/05/Python-语言学习（下）/图8.PNG" alt="列表解析或推倒"></p>
+</li>
+<li><p>对列表排序：<br>使用 <code>sort(key,reverse) 函数</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">对列表中学生成绩排序（由姓名和成绩组成）：</span><br><span class="line">def f(a)</span><br><span class="line">	return a[1]</span><br><span class="line"></span><br><span class="line">students.sort(key = f,reverse = True) #sort() 函数的两个格参数。</span><br><span class="line"></span><br><span class="line">print(students)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">## 2 元组</span><br><span class="line">1. 概念：</span><br><span class="line">![元组概念](图9.PNG)</span><br><span class="line"></span><br><span class="line">2. 元组赋值：</span><br><span class="line">![元组赋值](图10.PNG)</span><br><span class="line"></span><br><span class="line">3. 函数与元组：返回的 `return max,min` 为元组。</span><br><span class="line">![函数与元组](图11.PNG)</span><br><span class="line"></span><br><span class="line">4. DSU 模式：</span><br><span class="line">装饰，排序，反装饰。</span><br><span class="line">例：长单词排前面。</span><br><span class="line">生成一个新的列表赋值（添加长度信息）；排序中间转换；生成新列表赋值（忽略长度信息）。</span><br><span class="line">![DSU 模式](图12.PNG)</span><br><span class="line">![直接而用 lambda 函数](图13.PNG)</span><br><span class="line"></span><br><span class="line">5. lambda 匿名函数：[参考博文](https://www.cnblogs.com/hf8051/p/8085424.html)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>add = lambda x, y : x+y<br>add(1,2)  #结果为3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 四 字典与集合</span><br><span class="line">## 1 字典</span><br><span class="line">1. 概念：由键和值组成。</span><br><span class="line"></span><br><span class="line">2. 创建访问字典：</span><br><span class="line">![创建字典](图14.PNG)</span><br><span class="line"></span><br><span class="line">3. 字典运算符和方法：</span><br><span class="line">![字典运算符和方法](图15.PNG)</span><br><span class="line"></span><br><span class="line">4. 例.用字典统计一个字符串中字符出现次数：</span><br></pre></td></tr></table></figure></p>
+<p>s = “bjhebvjwbvevbek”</p>
+<p>d = {} #生成一个空字典</p>
+<p>for i in s: #遍历字符串<br>    if i in d: #判断字符是否在字典中<br>        d[i] = d[i] + 1 #在字典中，则通过索引对值加一<br>    else<br>        d[i] = 1 #不在字典中，则创建索引并赋值为一</p>
+<p>print(d)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 五 有关文件的操作</span><br></pre></td></tr></table></figure></p>
+<p>打开文件：<br>f = open(filename,mode) # r 为读，w 为写</p>
+<p>按行读取内容：<br>for line in f:<br>    pass</p>
+<p>关闭文件：<br>f.close()</p>
+<p>写文件：<br>f.write(str)<br><code>`</code></p>
+
                 <hr>
                 
 
@@ -295,7 +333,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-函数与递归函数"><span class="toc-text">一 函数与递归函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数"><span class="toc-text">1 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归函数"><span class="toc-text">2 递归函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-字符串"><span class="toc-text">二 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-列表与元组"><span class="toc-text">三 列表与元组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-列表"><span class="toc-text">1 列表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-字典与集合"><span class="toc-text">四 字典与集合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-有关文件的操作"><span class="toc-text">五 有关文件的操作</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-函数与递归函数"><span class="toc-text">一 函数与递归函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数"><span class="toc-text">1 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归函数"><span class="toc-text">2 递归函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-字符串"><span class="toc-text">二 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-列表与元组"><span class="toc-text">三 列表与元组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-列表"><span class="toc-text">1 列表</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
