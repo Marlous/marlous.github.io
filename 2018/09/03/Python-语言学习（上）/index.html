@@ -281,8 +281,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while 条件:</span><br><span class="line">	语句块</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>for 循环：<br>遍历对象 object 中的每个元素，并赋值给 anElement。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for anElement in object:</span><br><span class="line">	语句块</span><br><span class="line"></span><br><span class="line">例 1+2+3+...+10：</span><br><span class="line">s = 0</span><br><span class="line">for i in range(11)</span><br><span class="line">	s = s + i</span><br><span class="line">print(&apos;sum is:&apos;,s)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for anElement in object:</span><br><span class="line">	语句块</span><br><span class="line"></span><br><span class="line">例 1+2+3+...+10：</span><br><span class="line">s = 0</span><br><span class="line">for i in range(11)</span><br><span class="line">	s = s + i</span><br><span class="line">print(&apos;sum is:&apos;,s)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<h1 id="四-函数与递归函数"><a href="#四-函数与递归函数" class="headerlink" title="四 函数与递归函数"></a>四 函数与递归函数</h1><h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1 函数"></a>1 函数</h2><ol>
+<li><p>概念：完成特定功能的语句组，作为一个单位使用。</p>
+</li>
+<li><p>函数定义与调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">定义：</span><br><span class="line">def 函数名(参数):</span><br><span class="line">	语句块</span><br><span class="line"></span><br><span class="line">调用：</span><br><span class="line">函数名(实参)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>变量作用域：局部变量修改并不改变全局变量，若想在函数体内对全局变量修改需添加关键字 global <code>global x = 2</code> 。</p>
+</li>
+<li><p>占位符 <code>pass</code> ，用来暂时占据位置。</p>
+</li>
+</ol>
+<h2 id="2-递归函数"><a href="#2-递归函数" class="headerlink" title="2 递归函数"></a>2 递归函数</h2><p>斐波那契额数列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fib(n):</span><br><span class="line">	if n == 1 or n == 2:</span><br><span class="line">		return 1</span><br><span class="line">	else:</span><br><span class="line">		return fib(n-1) + fib(n-2)</span><br></pre></td></tr></table></figure></p>
 
                 <hr>
                 
@@ -313,7 +326,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Python-基础概念"><span class="toc-text">二 Python 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对象和类型"><span class="toc-text">1 对象和类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运算符与表达式"><span class="toc-text">2 运算符与表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-变量与简单-I-O"><span class="toc-text">3 变量与简单 I/O</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-程序控制结构"><span class="toc-text">三 程序控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-选择结构"><span class="toc-text">1 选择结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-循环结构"><span class="toc-text">2 循环结构</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Python-基础概念"><span class="toc-text">二 Python 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对象和类型"><span class="toc-text">1 对象和类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运算符与表达式"><span class="toc-text">2 运算符与表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-变量与简单-I-O"><span class="toc-text">3 变量与简单 I/O</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-程序控制结构"><span class="toc-text">三 程序控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-选择结构"><span class="toc-text">1 选择结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-循环结构"><span class="toc-text">2 循环结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-函数与递归函数"><span class="toc-text">四 函数与递归函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数"><span class="toc-text">1 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归函数"><span class="toc-text">2 递归函数</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

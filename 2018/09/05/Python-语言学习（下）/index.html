@@ -202,19 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-函数与递归函数"><a href="#一-函数与递归函数" class="headerlink" title="一 函数与递归函数"></a>一 函数与递归函数</h1><h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1 函数"></a>1 函数</h2><ol>
-<li><p>概念：完成特定功能的语句组，作为一个单位使用。</p>
-</li>
-<li><p>函数定义与调用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">定义：</span><br><span class="line">def 函数名(参数):</span><br><span class="line">	语句块</span><br><span class="line"></span><br><span class="line">调用：</span><br><span class="line">函数名(实参)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>变量作用域：局部变量修改并不改变全局变量，若想在函数体内对全局变量修改需添加关键字 global <code>global x = 2</code> 。</p>
-</li>
-<li><p>占位符 <code>pass</code> ，用来暂时占据位置。</p>
-</li>
-</ol>
-<h2 id="2-递归函数"><a href="#2-递归函数" class="headerlink" title="2 递归函数"></a>2 递归函数</h2><p>斐波那契额数列：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fib(n):</span><br><span class="line">	if n == 1 or n == 2:</span><br><span class="line">		return 1</span><br><span class="line">	else:</span><br><span class="line">		return fib(n-1) + fib(n-2)</span><br></pre></td></tr></table></figure></p>
-<h1 id="二-字符串"><a href="#二-字符串" class="headerlink" title="二 字符串"></a>二 字符串</h1><ol>
+                <h1 id="一-字符串"><a href="#一-字符串" class="headerlink" title="一 字符串"></a>一 字符串</h1><ol>
 <li><p>成对的一个单引号或双引号（字符串内有相同的引号需加个 \ 作转义）。</p>
 </li>
 <li><p>成对的三个单引号或双引号，保留字符串的全部格式。</p>
@@ -265,7 +253,7 @@
 <ol start="7">
 <li>正则表达式：<br><img src="/2018/09/05/Python-语言学习（下）/图2.PNG" alt="正则表达式概念"><br><img src="/2018/09/05/Python-语言学习（下）/图3.PNG" alt="正则表达式示例"></li>
 </ol>
-<h1 id="三-列表与元组"><a href="#三-列表与元组" class="headerlink" title="三 列表与元组"></a>三 列表与元组</h1><h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1 列表"></a>1 列表</h2><ol>
+<h1 id="二-列表与元组"><a href="#二-列表与元组" class="headerlink" title="二 列表与元组"></a>二 列表与元组</h1><h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1 列表"></a>1 列表</h2><ol>
 <li><p><code>lst = [5.2,&quot;hello&quot;,2]</code> ,列表也支持索引操作，与字符串索引相同。</p>
 </li>
 <li><p>列表与字符串相同与不同：<br><img src="/2018/09/05/Python-语言学习（下）/图4.PNG" alt="列表与字符串相同与不同"></p>
@@ -307,7 +295,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add = lambda x, y : x+y</span><br><span class="line">add(1,2)  #结果为3</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="四-字典与集合"><a href="#四-字典与集合" class="headerlink" title="四 字典与集合"></a>四 字典与集合</h1><h2 id="1-字典"><a href="#1-字典" class="headerlink" title="1 字典"></a>1 字典</h2><ol>
+<h1 id="三-字典与集合"><a href="#三-字典与集合" class="headerlink" title="三 字典与集合"></a>三 字典与集合</h1><h2 id="1-字典"><a href="#1-字典" class="headerlink" title="1 字典"></a>1 字典</h2><ol>
 <li><p>概念：由键和值组成。</p>
 </li>
 <li><p>创建访问字典：<br><img src="/2018/09/05/Python-语言学习（下）/图14.PNG" alt="创建字典"></p>
@@ -317,8 +305,17 @@
 <li><p>例.用字典统计一个字符串中字符出现次数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s = &quot;bjhebvjwbvevbek&quot;</span><br><span class="line"></span><br><span class="line">d = &#123;&#125; #生成一个空字典</span><br><span class="line"></span><br><span class="line">for i in s: #遍历字符串</span><br><span class="line">	if i in d: #判断字符是否在字典中</span><br><span class="line">		d[i] = d[i] + 1 #在字典中，则通过索引对值加一</span><br><span class="line">	else</span><br><span class="line">		d[i] = 1 #不在字典中，则创建索引并赋值为一</span><br><span class="line"></span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>例.统计文本中单词词频：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">f = open(&quot;C:\\Users\\XXX\\Desktop\\emma.txt&quot;) #注意转义</span><br><span class="line"></span><br><span class="line">ws = &#123;&#125;</span><br><span class="line"></span><br><span class="line">for line in f:</span><br><span class="line">    words = line.strip().split() #取每行（去掉首尾换行空格）</span><br><span class="line">    for word in words: #遍历每行中的每个字</span><br><span class="line">        if word in ws:</span><br><span class="line">            ws[word] = ws[word] + 1 #字典中按这个字索引将值加一</span><br><span class="line">        else:</span><br><span class="line">            ws[word] = 1</span><br><span class="line"></span><br><span class="line">tj = [] #创建一个列表，将统计出的字典内容转为列表，好排序。</span><br><span class="line"></span><br><span class="line">for word, freq in ws.items(): #遍历字典中的每项</span><br><span class="line">    tj.append((freq, word))</span><br><span class="line"></span><br><span class="line">tj.sort(reverse = True) #对列表排序，升序</span><br><span class="line"></span><br><span class="line">for freq,word in tj[:10]: #输出前十项</span><br><span class="line">   print(freq,word)</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h1 id="五-有关文件的操作"><a href="#五-有关文件的操作" class="headerlink" title="五 有关文件的操作"></a>五 有关文件的操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">打开文件：</span><br><span class="line">f = open(filename,mode) # r 为读，w 为写</span><br><span class="line"></span><br><span class="line">按行读取内容：</span><br><span class="line">for line in f:</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">关闭文件：</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">写文件：</span><br><span class="line">f.write(str)</span><br></pre></td></tr></table></figure>
+<h2 id="2-集合"><a href="#2-集合" class="headerlink" title="2 集合"></a>2 集合</h2><ol>
+<li><p>概念，创建添加与删除，集合运算符：<br><img src="/2018/09/05/Python-语言学习（下）/图16.PNG" alt="概念，创建添加与删除，集合运算符"></p>
+</li>
+<li><p>例.中文分词：</p>
+</li>
+</ol>
+<h1 id="四-有关文件的操作"><a href="#四-有关文件的操作" class="headerlink" title="四 有关文件的操作"></a>四 有关文件的操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">打开文件：</span><br><span class="line">f = open(filename,mode) # r 为读，w 为写</span><br><span class="line"></span><br><span class="line">按行读取内容：</span><br><span class="line">for line in f:</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">关闭文件：</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">写文件：</span><br><span class="line">f.write(str)</span><br></pre></td></tr></table></figure>
                 <hr>
                 
 
@@ -348,7 +345,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-函数与递归函数"><span class="toc-text">一 函数与递归函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-函数"><span class="toc-text">1 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-递归函数"><span class="toc-text">2 递归函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-字符串"><span class="toc-text">二 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-列表与元组"><span class="toc-text">三 列表与元组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-列表"><span class="toc-text">1 列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-元组"><span class="toc-text">2 元组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-字典与集合"><span class="toc-text">四 字典与集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-字典"><span class="toc-text">1 字典</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-有关文件的操作"><span class="toc-text">五 有关文件的操作</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-字符串"><span class="toc-text">一 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-列表与元组"><span class="toc-text">二 列表与元组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-列表"><span class="toc-text">1 列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-元组"><span class="toc-text">2 元组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-字典与集合"><span class="toc-text">三 字典与集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-字典"><span class="toc-text">1 字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-集合"><span class="toc-text">2 集合</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-有关文件的操作"><span class="toc-text">四 有关文件的操作</span></a></li></ol>
                 </div>
             </div>
         </div>
