@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        《数据库系统概论》知识框架｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/09/17/《数据库系统概论》知识框架/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>《数据库系统概论》知识框架</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-09-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#数据库"
+                           title="数据库">数据库</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            《数据库系统概论》知识框架
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>本博文为知识清单，并不涉及具体知识。<br>具体知识点结合 《MySQL 学习笔记》 系列博文以 MySQL 具体实例讲解。</p>
+</blockquote>
+<blockquote>
+<p>参考课程视频：<br>数据库系统概论（基础篇）：<a href="http://www.icourse163.org/course/RUC-488001" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-488001</a><br>数据库系统概论（高级篇）：<a href="http://www.icourse163.org/course/RUC-1001655006" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-1001655006</a><br>数据库系统概论（新技术篇）：<a href="http://www.icourse163.org/course/RUC-1001965017" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-1001965017</a></p>
+</blockquote>
+<h1 id="一-数据库系统概论（基础篇）"><a href="#一-数据库系统概论（基础篇）" class="headerlink" title="一 数据库系统概论（基础篇）"></a>一 数据库系统概论（基础篇）</h1><h2 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1 绪论"></a>1 绪论</h2><ol>
+<li><p>初识数据库系统<br>引言；数据库的4个基本概念；数据库技术的产生和数据库系统的特点</p>
+</li>
+<li><p>数据库系统的核心：数据模型<br>概念模型；数据模型的组成要素；层次模型，网状模型，关系模型</p>
+</li>
+<li><p>数据库系统的结构<br>数据库系统的三级模式和二层映像</p>
+</li>
+<li><p>数据库系统的组成<br>数据库系统的组成</p>
+</li>
+</ol>
+<h2 id="2-关系数据库"><a href="#2-关系数据库" class="headerlink" title="2 关系数据库"></a>2 关系数据库</h2><ol start="5">
+<li><p>关系数据结构及关系的完整性<br>关系数据库与形式化定义；实体完整性、参照完整性、用户定义的完整性</p>
+</li>
+<li><p>关系代数–传统集合操作<br>传统的集合操作：并、差、交、笛卡尔积 4 种运算</p>
+</li>
+<li><p>关系代数–关系特有操作<br>专门的关系运算：选择、投影、连接、除运算</p>
+</li>
+<li><p>关系代数–综合训练<br>关系代数的综合练习</p>
+</li>
+<li><p>关系演算–元组关系演算<br>元组关系演算</p>
+</li>
+<li><p>关系演算–域关系演算语言QBE<br>域关系演算</p>
+</li>
+</ol>
+<h2 id="3-SQL"><a href="#3-SQL" class="headerlink" title="3 SQL"></a>3 SQL</h2><ol start="11">
+<li><p>SQL概述与数据定义<br>SQL的产生与发展;SQL的特点；SQL的基本概念；数据定义</p>
+</li>
+<li><p>数据查询–单表查询<br>SQL语句与单表查询</p>
+</li>
+<li><p>数据查询–连接查询<br>SQL语句与连接查询</p>
+</li>
+<li><p>数据查询–嵌套查询<br>SQL语句与嵌套查询</p>
+</li>
+<li><p>数据查询–集合查询<br>SQL语句与集合查询</p>
+</li>
+<li><p>数据的更新与空值的处理<br>数据的更新语句；空值的处理</p>
+</li>
+<li><p>视图<br>视图的定义、查询、更新、作用</p>
+</li>
+</ol>
+<h2 id="4-数据库安全性"><a href="#4-数据库安全性" class="headerlink" title="4 数据库安全性"></a>4 数据库安全性</h2><ol start="18">
+<li><p>数据库安全性概述<br>数据库安全性概述</p>
+</li>
+<li><p>数据库安全性控制<br>身份鉴别、存取控制、自主存取控制；数据库角色及强制存取控制</p>
+</li>
+<li><p>视图机制<br>视图、审计、数据加密及其他安全性保护</p>
+</li>
+</ol>
+<h2 id="5-数据库完整性"><a href="#5-数据库完整性" class="headerlink" title="5 数据库完整性"></a>5 数据库完整性</h2><ol start="21">
+<li><p>数据库的完整性<br>实体完整性、参照完整性和用户定义的完整性</p>
+</li>
+<li><p>约束命名子句及断言<br>约束命名子句；断言</p>
+</li>
+<li><p>触发器<br>触发器的概念、定义、执行、删除</p>
+</li>
+</ol>
+<h1 id="二-数据库系统概论（高级篇）"><a href="#二-数据库系统概论（高级篇）" class="headerlink" title="二 数据库系统概论（高级篇）"></a>二 数据库系统概论（高级篇）</h1><h2 id="1-绪论-amp-关系数据理论"><a href="#1-绪论-amp-关系数据理论" class="headerlink" title="1 绪论&amp;关系数据理论"></a>1 绪论&amp;关系数据理论</h2><ol>
+<li><p>关系数据理论<br>讲解为什么要学习关系数据理论，什么是数据依赖。关系数据理论是关系数据库的重要理论基础也是数据库设计的有力工具。</p>
+</li>
+<li><p>函数依赖及范式的概念<br>讲解什么是函数依赖，关系范式的概念及规范化的基本思想。</p>
+</li>
+<li><p>函数依赖公理系统<br>简单介绍函数依赖推理规则和最小覆盖的概念，关系模式分解的准则。</p>
+</li>
+</ol>
+<h2 id="2-数据库设计"><a href="#2-数据库设计" class="headerlink" title="2 数据库设计"></a>2 数据库设计</h2><ol start="4">
+<li><p>数据库设计<br>讲解数据库设计的方法和基本步骤。</p>
+</li>
+<li><p>数据库设计之需求分析<br>讨论需求分析的步骤和重要性，需求分析中的数据字典。</p>
+</li>
+<li><p>E-R模型及设计<br>讲解概念模型的主要方法—E-R模型，如何从应用语义抽象出E-R图，如何完成概念结构的设计。</p>
+</li>
+<li><p>数据库逻辑设计<br>讨论如何把E-R图转换为关系模型的方法。</p>
+</li>
+<li><p>数据库物理设计<br>数据库物理设计的主要内容和方法。</p>
+</li>
+<li><p>数据库的实施和维护<br>简单介绍数据库实施建设过程和运维工作的主要内容。</p>
+</li>
+</ol>
+<h2 id="3-数据库编程"><a href="#3-数据库编程" class="headerlink" title="3 数据库编程"></a>3 数据库编程</h2><ol start="10">
+<li><p>数据库编程之嵌入式SQL部分<br>突破SQL语言的限制，介绍从高级语言中如何访问和管理数据库中数据的方法。</p>
+</li>
+<li><p>数据库编程之过程化SQL<br>介绍将一些过程化语句引入SQL语言，从而扩展SQL语言表达能力的方法，包括存储过程和函数等。</p>
+</li>
+<li><p>数据库编程之ODBC<br>介绍ODBC编程的概念与方法，包括ODBC概念，ODBC API，ODBC工作流程以及实例等。</p>
+</li>
+</ol>
+<h2 id="4-关系查询处理和查询优化"><a href="#4-关系查询处理和查询优化" class="headerlink" title="4 关系查询处理和查询优化"></a>4 关系查询处理和查询优化</h2><ol start="13">
+<li><p>关系查询处理<br>通过一个例子介绍数据库管理系统在接收到一个SQL语句后，如何对其进行处理的完整的过程。包括对选择和连接两个原子操作的实现算法的介绍。</p>
+</li>
+<li><p>关系查询优化<br>通过一个例子介绍查询优化的概念以及查询优化的重要性，讲解代数优化和物理优化方法。</p>
+</li>
+</ol>
+<h2 id="5-数据库恢复技术"><a href="#5-数据库恢复技术" class="headerlink" title="5 数据库恢复技术"></a>5 数据库恢复技术</h2><ol start="15">
+<li><p>事务的基本概念以及数据库恢复概述<br>介绍什么是事务，事务的基本性质，什么是数据库的恢复技术。</p>
+</li>
+<li><p>故障的种类<br>介绍各种常见的故障以及各类故障的恢复原理。</p>
+</li>
+<li><p>恢复技术<br>讲解恢复的实现技术，包括转储和登记日志文件。讨论各类故障的具体恢复策略、具有检查点的恢复技术。</p>
+</li>
+<li><p>数据库镜像<br>简单介绍如何用数据库镜像应对介质故障。</p>
+</li>
+</ol>
+<h2 id="6-并发控制"><a href="#6-并发控制" class="headerlink" title="6 并发控制"></a>6 并发控制</h2><ol start="19">
+<li><p>并发控制概述<br>讨论并发操作带来的数据不一致性，包括丢失修改、不可重复读和读“脏”数据。</p>
+</li>
+<li><p>封锁<br>介绍两类基本锁，包括共享锁和排他锁；讲解三级封锁协议；讨论什么是活锁和死锁以及如何解决活锁和死锁问题。</p>
+</li>
+<li><p>并发调度的可串行性<br>介绍什么是可串行化调度，什么是冲突可串行化调度；讲解两段锁协议。</p>
+</li>
+<li><p>多粒度封锁<br>介绍什么是封锁的粒度，什么是多粒度封锁；讲解意向锁及其相容矩阵、具有意向锁的多粒度封锁方法。</p>
+</li>
+</ol>
+<h1 id="三-数据库系统概论（新技术篇）"><a href="#三-数据库系统概论（新技术篇）" class="headerlink" title="三 数据库系统概论（新技术篇）"></a>三 数据库系统概论（新技术篇）</h1><p>作为补充知识。<br>略。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/09/17/MySQL-学习笔记-一-介绍与安装/" data-toggle="tooltip" data-placement="top"
+                           title="MySQL 学习笔记 一 介绍与安装">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据库系统概论（基础篇）"><span class="toc-text">一 数据库系统概论（基础篇）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-绪论"><span class="toc-text">1 绪论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-关系数据库"><span class="toc-text">2 关系数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SQL"><span class="toc-text">3 SQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-数据库安全性"><span class="toc-text">4 数据库安全性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-数据库完整性"><span class="toc-text">5 数据库完整性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据库系统概论（高级篇）"><span class="toc-text">二 数据库系统概论（高级篇）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-绪论-amp-关系数据理论"><span class="toc-text">1 绪论&amp;关系数据理论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-数据库设计"><span class="toc-text">2 数据库设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据库编程"><span class="toc-text">3 数据库编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-关系查询处理和查询优化"><span class="toc-text">4 关系查询处理和查询优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-数据库恢复技术"><span class="toc-text">5 数据库恢复技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-并发控制"><span class="toc-text">6 并发控制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据库系统概论（新技术篇）"><span class="toc-text">三 数据库系统概论（新技术篇）</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#数据库"
+                           title="数据库">数据库</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
