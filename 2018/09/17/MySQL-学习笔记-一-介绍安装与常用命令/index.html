@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        MySQL 学习笔记 一 介绍与安装｜Mo&#39;s blog
+        MySQL 学习笔记 一 介绍安装与常用命令｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/17/MySQL-学习笔记-一-介绍与安装/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/17/MySQL-学习笔记-一-介绍安装与常用命令/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>MySQL 学习笔记 一 介绍与安装</h1>
+                    <h1>MySQL 学习笔记 一 介绍安装与常用命令</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            MySQL 学习笔记 一 介绍与安装
+            MySQL 学习笔记 一 介绍安装与常用命令
         </span>
     </div>
 </header>
@@ -207,7 +207,7 @@
 </blockquote>
 <h1 id="一-MySQL-介绍"><a href="#一-MySQL-介绍" class="headerlink" title="一 MySQL 介绍"></a>一 MySQL 介绍</h1><h2 id="1-MySQL-组件介绍"><a href="#1-MySQL-组件介绍" class="headerlink" title="1 MySQL 组件介绍"></a>1 MySQL 组件介绍</h2><p>开发者默认安装类型下的组件和插件，都在安装目录下。</p>
 <ol>
-<li>相关软件产品：<br><img src="/2018/09/17/MySQL-学习笔记-一-介绍与安装/图0.PNG" alt="相关软件产品"></li>
+<li>相关软件产品：<br><img src="/2018/09/17/MySQL-学习笔记-一-介绍安装与常用命令/图0.PNG" alt="相关软件产品"></li>
 </ol>
 <ul>
 <li>MySQL Server：MySQL Server.</li>
@@ -218,7 +218,7 @@
 <li>Documentation：Allows you to read the documentation offline.</li>
 </ul>
 <ol start="2">
-<li>相关组件：<br><img src="/2018/09/17/MySQL-学习笔记-一-介绍与安装/图1.PNG" alt="相关组件"></li>
+<li>相关组件：<br><img src="/2018/09/17/MySQL-学习笔记-一-介绍安装与常用命令/图1.PNG" alt="相关组件"></li>
 </ol>
 <ul>
 <li>MySQL Server：MySQL 服务程序。</li>
@@ -227,7 +227,61 @@
 <li>MySQL Documents：一些类似于帮助文件的的东西。</li>
 <li>MySQL Examples and Samples：一些数据库案例，可以不要。</li>
 </ul>
-<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h2><p>旧版本配置文件在安装目录下。<br>MySQL 5.7 的配置文件在 <code>C:\ProgramData\MySQL\MySQL Server 5.7\my.ini</code> ，可在 MySQL Workbench 中默认的数据库中查看。<br><img src="/2018/09/17/MySQL-学习笔记-一-介绍与安装/图2.PNG" alt="MySQL 5.7 的配置文件查看"></p>
+<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h2><p>旧版本配置文件在安装目录下。<br>MySQL 5.7 的配置文件在 <code>C:\ProgramData\MySQL\MySQL Server 5.7\my.ini</code> ，可在 MySQL Workbench 中默认的数据库中查看。<br><img src="/2018/09/17/MySQL-学习笔记-一-介绍安装与常用命令/图2.PNG" alt="MySQL 5.7 的配置文件查看"></p>
+<h2 id="3-服务启动与停止"><a href="#3-服务启动与停止" class="headerlink" title="3 服务启动与停止"></a>3 服务启动与停止</h2><ol>
+<li><p>启动命令 <code>net start mysql</code> （注意服务名是否无效，在服务中看正确的服务名，为 mysql57，拒绝访问用管理员。）;</p>
+</li>
+<li><p>关闭服务 <code>net stop mysql</code> 。</p>
+</li>
+</ol>
+<h2 id="4-登陆与退出"><a href="#4-登陆与退出" class="headerlink" title="4 登陆与退出"></a>4 登陆与退出</h2><ol>
+<li><p>登陆：<code>mysql 参数</code> ，如 <code>mysql -uroot -p -P3306 -h127.0.0.1</code><br>参数：<img src="/2018/09/17/MySQL-学习笔记-一-介绍安装与常用命令/图3.PNG" alt="登陆参数"></p>
+</li>
+<li><p>退出：<code>exit 或 quit 或 \q</code></p>
+</li>
+</ol>
+<h2 id="5-修改提示符"><a href="#5-修改提示符" class="headerlink" title="5 修改提示符"></a>5 修改提示符</h2><p>参数：<img src="/2018/09/17/MySQL-学习笔记-一-介绍安装与常用命令/图4.PNG" alt="提示符参数"></p>
+<ul>
+<li>连接时通过参数指定：<code>mysql -uroot -p --prompt 提示符</code></li>
+<li>连接上后：<code>prompt 提示符</code></li>
+</ul>
+<h2 id="6-MySQL-常用命令及语句规范"><a href="#6-MySQL-常用命令及语句规范" class="headerlink" title="6 MySQL 常用命令及语句规范"></a>6 MySQL 常用命令及语句规范</h2><ol>
+<li>常用命令：<a href="https://www.cnblogs.com/wanghetao/p/3806888.html" target="_blank" rel="noopener">参考博文</a></li>
+</ol>
+<p>PART 1</p>
+<ul>
+<li>显示当前服务器版本 <code>SELECT VERSION();</code></li>
+<li>显示当前日期时间 <code>SELECT NOW();</code></li>
+<li>显示当前用户 <code>SELECT USER();</code></li>
+</ul>
+<p>PART 2</p>
+<ul>
+<li>列出所有数据库 <code>SHOW DATABASES;</code></li>
+<li>切换数据库 <code>USE &#39;数据库名&#39;;</code></li>
+<li>列出所有表 <code>SHOW TABLES;</code></li>
+<li>显示数据表结构 <code>DESCRIBE 表名;</code></li>
+<li>删除数据库，数据表 <code>DROP DATABASE 数据库名;</code> 和 <code>DROP TABLE 数据表名;</code></li>
+</ul>
+<p>PART 3</p>
+<ul>
+<li>未进入修改密码 <code>mysqladmin -u用户名 -p旧密码 password 新密码</code></li>
+<li>进入后修改密码 <code>UPDATE mysql.user SET password=PASSWORD(&#39;新密码&#39;) WHERE User=&#39;root&#39;;</code> ，刷新 <code>FLUSH PRIVILEGES;</code></li>
+</ul>
+<p>PART 4</p>
+<ul>
+<li>创建用户并授权 <code>GRANT SELECT ON 数据库.* TO 用户名@登录主机 IDENTIFIED BY &quot;密码&quot;;</code></li>
+<li>撤销授权 <code>REVOKE ALL ON *.* FROM user@localhost;</code> ，刷新 <code>FLUSH PRIVILEGES;</code></li>
+<li>显示所有用户 <code>SELECT user,host FROM mysql.user;</code></li>
+<li>删除用户 <code>DELETE FROM user WHERE User=&#39;test&#39; AND Host=&#39;localhost&#39;;</code> ，刷新 <code>FLUSH PRIVILEGES;</code> ，删除 <code>DROP DATABASE 该用户数据库名;</code></li>
+</ul>
+<ol start="2">
+<li>语句规范：</li>
+</ol>
+<ul>
+<li>关键字与函数名全部大写。</li>
+<li>数据库、表、字段名称全部小写。</li>
+<li>SQL 语句全部以分号结尾。</li>
+</ul>
 <h1 id="二-MySQL-安装"><a href="#二-MySQL-安装" class="headerlink" title="二 MySQL 安装"></a>二 MySQL 安装</h1><ol>
 <li>注意：MySQL 5.7 版本与之前版本存在一些不同。</li>
 </ol>
@@ -268,7 +322,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-MySQL-介绍"><span class="toc-text">一 MySQL 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MySQL-组件介绍"><span class="toc-text">1 MySQL 组件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置文件"><span class="toc-text">2 配置文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-MySQL-安装"><span class="toc-text">二 MySQL 安装</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-MySQL-介绍"><span class="toc-text">一 MySQL 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MySQL-组件介绍"><span class="toc-text">1 MySQL 组件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置文件"><span class="toc-text">2 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-服务启动与停止"><span class="toc-text">3 服务启动与停止</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-登陆与退出"><span class="toc-text">4 登陆与退出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-修改提示符"><span class="toc-text">5 修改提示符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-MySQL-常用命令及语句规范"><span class="toc-text">6 MySQL 常用命令及语句规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-MySQL-安装"><span class="toc-text">二 MySQL 安装</span></a></li></ol>
                 </div>
             </div>
         </div>
