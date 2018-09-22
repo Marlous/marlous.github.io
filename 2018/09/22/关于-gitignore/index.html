@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        前端开发与调试｜Mo&#39;s blog
+        关于 .gitignore｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/06/24/前端开发与调试/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/22/关于-gitignore/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>前端开发与调试</h1>
+                    <h1>关于 .gitignore</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-06-24
+                          日期 2018-09-22
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#软件工程"
-                           title="软件工程">软件工程</a>
+                        <a class="tag" href="/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            前端开发与调试
+            关于 .gitignore
         </span>
     </div>
 </header>
@@ -202,34 +202,38 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-开发工具"><a href="#一-开发工具" class="headerlink" title="一 开发工具"></a>一 开发工具</h1><p>开发工具分为文本编辑器，IDE。<br><img src="/2018/06/24/前端开发与调试/图1.PNG" alt="开发工具"></p>
-<h1 id="二-开发工具之-Sublime"><a href="#二-开发工具之-Sublime" class="headerlink" title="二 开发工具之 Sublime"></a>二 开发工具之 Sublime</h1><ol>
-<li>常用快捷键：</li>
+                <blockquote>
+<p> Git 忽略文件<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013758404317281e54b6f5375640abbb11e67be4cd49e0000" target="_blank" rel="noopener">参考博文</a></p>
+</blockquote>
+<p>将不需要上传的文件写在 .gitignore 文件中。</p>
+<ol>
+<li><p>GitHub 上提供的配置文件可以直接使用：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
+</li>
+<li><p>一个工程项目中需要忽略的文件：</p>
+</li>
 </ol>
 <ul>
-<li>查找（ctrl+p）</li>
-<li>命令面板（ctrl+shift+p）</li>
-<li>多行选择（ctrl+d,ctrl+shift+l）</li>
-</ul>
-<ol start="2">
-<li>常用插件（前端）</li>
-</ol>
-<ul>
-<li>Emmet</li>
-<li>DocBlockr</li>
-<li>SideBarEnhancements</li>
-<li>Terminal</li>
+<li>忽略操作系统自动生成的文件。</li>
+<li>忽略编译生成的中间文件、可执行文件等。</li>
+<li>忽略你自己的带有敏感信息的配置文件。</li>
 </ul>
 <ol start="3">
-<li>Snippets<br>建立代码片段用来快速使用复用代码。（工具&gt;插件开发&gt;新建代码片段）<br><img src="/2018/06/24/前端开发与调试/图2.PNG" alt="开发工具"></li>
+<li>.gitignore 文件具体格式：<br><a href="https://www.jianshu.com/p/e56ab8ca6243" target="_blank" rel="noopener">参考博文</a><br>Git 对于 .gitignore 配置文件是按行（从上到下）进行规则匹配的，这意味着如果前面的规则匹配的范围更大，则后面的规则将不会生效。</li>
 </ol>
-<h1 id="三-调试工具"><a href="#三-调试工具" class="headerlink" title="三 调试工具"></a>三 调试工具</h1><ul>
-<li>Elements：用来调试 HTML，CSS。用来增删改的操作。</li>
-<li>Network：网络请求。</li>
-<li>Sources：网站的所有资源。</li>
-<li>Console：与 Sources 结合来调试 JS。</li>
-<li>Resources：可以看到网站的本地数据资源。</li>
-<li>Timeline，Profiles，Audits 用来调试页面性能。</li>
+<ul>
+<li>以斜杠 <code>/</code> 开头表示目录；</li>
+<li>以星号 <code>*</code> 通配多个字符；</li>
+<li>以问号 <code>?</code> 通配单个字符；</li>
+<li>以方括号 <code>[]</code> 包含单个字符的匹配列表；</li>
+<li>以叹号 <code>!</code> 表示不忽略(跟踪)匹配到的文件或目录；</li>
+</ul>
+<ol start="4">
+<li>.gitignore 文件写法：</li>
+</ol>
+<ul>
+<li>忽略目录（按目录名忽略）：<code>documentname/*</code></li>
+<li>忽略指定目录下所有文件：<code>/documentname/*</code></li>
+<li>反选，在最前面加 <code>!</code></li>
 </ul>
 
                 <hr>
@@ -237,15 +241,10 @@
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/06/25/HTML-进阶/" data-toggle="tooltip" data-placement="top"
-                           title="HTML 进阶">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/06/23/页面制作之-Photoshop-切图/" data-toggle="tooltip" data-placement="top"
-                           title="页面制作之 Photoshop 切图">Next Post &rarr;</a>
+                        <a href="/2018/09/18/MySQL-学习笔记-二-SQL-功能及其对象/" data-toggle="tooltip" data-placement="top"
+                           title="MySQL 学习笔记 二 SQL 功能及其对象">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -261,7 +260,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-开发工具"><span class="toc-text">一 开发工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-开发工具之-Sublime"><span class="toc-text">二 开发工具之 Sublime</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-调试工具"><span class="toc-text">三 调试工具</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
@@ -283,8 +282,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#软件工程"
-                           title="软件工程">软件工程</a>
+                        <a class="tag" href="/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </section>
