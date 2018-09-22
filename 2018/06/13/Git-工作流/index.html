@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Git 使用小结｜Mo&#39;s blog
+        Git 工作流｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/06/13/Git-使用小结/">
+    <link rel="canonical" href="https://marlous.github.io/2018/06/13/Git-工作流/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Git 使用小结</h1>
+                    <h1>Git 工作流</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Git 使用小结
+            Git 工作流
         </span>
     </div>
 </header>
@@ -212,7 +212,7 @@
 <li><p>合并分支，然后部署。<br>大家审核了 pull request并通过测试，后合并到主分支上。</p>
 </li>
 </ol>
-<h1 id="二-具体核心流程"><a href="#二-具体核心流程" class="headerlink" title="二 具体核心流程"></a>二 具体核心流程</h1><p>教程：<a href="http://blog.jobbole.com/76867/" target="_blank" rel="noopener">参考教程</a><br><img src="/2018/06/13/Git-使用小结/图1.png" alt="图1 具体流程"></p>
+<h1 id="二-具体核心流程"><a href="#二-具体核心流程" class="headerlink" title="二 具体核心流程"></a>二 具体核心流程</h1><p>教程：<a href="http://blog.jobbole.com/76867/" target="_blank" rel="noopener">参考教程</a><br><img src="/2018/06/13/Git-工作流/图1.png" alt="图1 具体流程"></p>
 <ol>
 <li><p>master 分支作为中央仓库主分支，并且功能分支不是从 master 分支上拉出新分支，而是使用 develop 分支作为父分支。</p>
 </li>
@@ -223,7 +223,7 @@
 <li><p>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，这是唯一可以直接从 master 分支 fork 出来的分支。修复完成，修改应该马上合并回 master 分支和 develop 分支（当前的发布分支），master 分支应该用新的版本号打好Tag。</p>
 </li>
 </ol>
-<h1 id="三-Pull-Request-完整流程图"><a href="#三-Pull-Request-完整流程图" class="headerlink" title="三 Pull Request 完整流程图"></a>三 Pull Request 完整流程图</h1><p><img src="/2018/06/13/Git-使用小结/图2.PNG" alt="图2 Pull Request 完整流程图"></p>
+<h1 id="三-Pull-Request-完整流程图"><a href="#三-Pull-Request-完整流程图" class="headerlink" title="三 Pull Request 完整流程图"></a>三 Pull Request 完整流程图</h1><p><img src="/2018/06/13/Git-工作流/图2.PNG" alt="图2 Pull Request 完整流程图"></p>
 
                 <hr>
                 
