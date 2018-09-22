@@ -79,6 +79,12 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -87,14 +93,8 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -258,7 +258,34 @@
 </ol>
 <h2 id="4-布尔表达式"><a href="#4-布尔表达式" class="headerlink" title="4 布尔表达式"></a>4 布尔表达式</h2><p>布尔操作符：<code>and or not</code> 。短路运算符，从左向右扫描表达式，一旦知道结果立即返回值。</p>
 <h1 id="三-函数"><a href="#三-函数" class="headerlink" title="三 函数"></a>三 函数</h1><p>略。</p>
-<h1 id="四-文件与字典"><a href="#四-文件与字典" class="headerlink" title="四 文件与字典"></a>四 文件与字典</h1>
+<h1 id="四-文件与字典"><a href="#四-文件与字典" class="headerlink" title="四 文件与字典"></a>四 文件与字典</h1><h2 id="1-文件"><a href="#1-文件" class="headerlink" title="1 文件"></a>1 文件</h2><ol>
+<li>基本概念：</li>
+</ol>
+<ul>
+<li><p>Python 中字符串类型是未编码的。使用 encode() 编码，decode() 解码，如 <code>s = &quot;hello&quot;</code> <code>b = s.encode(&quot;utf-8&quot;)</code> 。</p>
+</li>
+<li><p>文件数据：分为文本文件（ASCII 码存储的文件，英文数字等）、二进制文件。 / 文本文件基于定长的 ASCII；二进制文件编码是变长的，不同的二进制文件解码方式不同。</p>
+</li>
+</ul>
+<ol start="2">
+<li>文件基本处理：</li>
+</ol>
+<ul>
+<li><p>文件打开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = open(filename,mode) # r 为只读，w 为只写，a 为追加；rb 为只读二进制文件，wb 为只写二进制文件，ab 为追加。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件读取：<br><img src="/2018/09/08/Python-语言学习-强化/图13.PNG" alt="文件读取"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">遍历文件所有行模板：</span><br><span class="line">flie = open(filename,&quot;r&quot;)</span><br><span class="line">for line in f:</span><br><span class="line">	pass</span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写文件：<br><img src="/2018/09/08/Python-语言学习-强化/图14.PNG" alt="写文件"></p>
+</li>
+<li><p>文件关闭：<br>f.close()</p>
+</li>
+</ul>
+<ol start="3">
+<li>文件拷贝代码示例：<br><img src="/2018/09/08/Python-语言学习-强化/图15.PNG" alt="文件拷贝代码示例"></li>
+</ol>
+<h2 id="2-字典"><a href="#2-字典" class="headerlink" title="2 字典"></a>2 字典</h2>
                 <hr>
                 
 
@@ -288,7 +315,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据类型"><span class="toc-text">一 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#补充：math-库和-random-库"><span class="toc-text">补充：math 库和 random 库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-控制结构"><span class="toc-text">二 控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-三种控制结构"><span class="toc-text">1 三种控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-异常处理"><span class="toc-text">2 异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-循环"><span class="toc-text">3 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-布尔表达式"><span class="toc-text">4 布尔表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-函数"><span class="toc-text">三 函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-文件与字典"><span class="toc-text">四 文件与字典</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据类型"><span class="toc-text">一 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#补充：math-库和-random-库"><span class="toc-text">补充：math 库和 random 库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-控制结构"><span class="toc-text">二 控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-三种控制结构"><span class="toc-text">1 三种控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-异常处理"><span class="toc-text">2 异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-循环"><span class="toc-text">3 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-布尔表达式"><span class="toc-text">4 布尔表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-函数"><span class="toc-text">三 函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-文件与字典"><span class="toc-text">四 文件与字典</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文件"><span class="toc-text">1 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字典"><span class="toc-text">2 字典</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
