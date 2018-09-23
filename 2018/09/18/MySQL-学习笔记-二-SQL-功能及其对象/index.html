@@ -247,7 +247,7 @@
 <li>TIMESTAMP 范围为 1970 年 1 月 1 日 0 点到 2037 年中的一个值。</li>
 </ul>
 <ol start="2">
-<li>约束：</li>
+<li>主键约束：</li>
 </ol>
 <ul>
 <li>PRIMARY KEY 主码，自动设为 NOT NULL，UNIQUE。</li>
@@ -255,6 +255,12 @@
 <li>UNIQUE 确保非主码列值不重复，可以为空。</li>
 <li>NOT NULL 该属性不为空。</li>
 </ul>
+<ol start="3">
+<li><p>外键约束的参照操作：<br><img src="/2018/09/18/MySQL-学习笔记-二-SQL-功能及其对象/图2.PNG" alt="外键约束的参照操作"></p>
+</li>
+<li><p>列级约束与表级约束：<br>对一个数据列的约束，为列级约束，列定义时或定义后声明。<br>对多个数据列的约束，为表级约束，只能定义后声明。</p>
+</li>
+</ol>
 <h2 id="1-模式定义"><a href="#1-模式定义" class="headerlink" title="1 模式定义"></a>1 模式定义</h2><ol>
 <li>MySQL:<br>注：MySQL 中创建 scheme 和创建 database 相同。</li>
 </ol>
@@ -271,14 +277,14 @@
 <li>删除：<code>DROP SCHEME &lt;模式名&gt; &lt;CASCADE|RESTRICT&gt;</code> ，CASCADE 级联，全部删除；RESTRICT 限制，若有对象拒绝删除。</li>
 </ul>
 <h2 id="2-表定义"><a href="#2-表定义" class="headerlink" title="2 表定义"></a>2 表定义</h2><p>注：创建完 database 需要 <code>use 数据库名;</code> ;名称可不加单引号；结尾一定要双引号。</p>
-<ol>
-<li>MySQL:</li>
-</ol>
 <ul>
 <li><p>定义： <code>CREATE TABLE table_name (column_name column_type,...);</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">CREATE TABLE IF NOT EXISTS student(</span><br><span class="line">s_id int,</span><br><span class="line">c_id int,</span><br><span class="line">s_name char(10),</span><br><span class="line">s_gender char(2),</span><br><span class="line">s_age tinyint,</span><br><span class="line">PRIMARY KEY(s_id),</span><br><span class="line">FOREIGN KEY(c_id) REFERENCES course(c_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改：</p>
+<li><p>修改（列与约束）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name</span><br><span class="line">[ADD &lt;新列名&gt; &lt;数据类型&gt; [完整型约束] [FIRST|AFTER 列名]],</span><br><span class="line">[ADD [CONSTRAINT 约束名] &lt;完整型约束(列名) [ON DELETE 外键约束参照操作]&gt;],</span><br><span class="line"></span><br><span class="line">[ALTER &lt;列名&gt; &lt;数据类型&gt;],</span><br><span class="line">[ALTER &lt;SET DEFAULT 值|DROP DEFAULT&gt;],</span><br><span class="line"></span><br><span class="line">[DROP &lt;列名|完整型性约束名&gt;],</span><br><span class="line">[DROP &lt;PRIMARY KEY|FOREIGN KEY(列名)|KEY 列名&gt;]；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除：<code>DROP TABLE &lt;表名&gt; [外键约束参照操作];</code></p>
 </li>
 </ul>
 <h2 id="3-视图定义"><a href="#3-视图定义" class="headerlink" title="3 视图定义"></a>3 视图定义</h2><h2 id="4-索引定义"><a href="#4-索引定义" class="headerlink" title="4 索引定义"></a>4 索引定义</h2><h1 id="三-数据操纵"><a href="#三-数据操纵" class="headerlink" title="三 数据操纵"></a>三 数据操纵</h1><h2 id="1-表操纵"><a href="#1-表操纵" class="headerlink" title="1 表操纵"></a>1 表操纵</h2><h1 id="四-数据控制"><a href="#四-数据控制" class="headerlink" title="四 数据控制"></a>四 数据控制</h1><h1 id="五-数据查询"><a href="#五-数据查询" class="headerlink" title="五 数据查询"></a>五 数据查询</h1><p>表和视图的查询相同。</p>
