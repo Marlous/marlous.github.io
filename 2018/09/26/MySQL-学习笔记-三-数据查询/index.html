@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        开源项目的 README 与 gitignore｜Mo&#39;s blog
+        MySQL 学习笔记 三 数据查询｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/22/开源项目的 README 与 gitignore/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/26/MySQL-学习笔记-三-数据查询/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>开源项目的 README 与 gitignore</h1>
+                    <h1>MySQL 学习笔记 三 数据查询</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-09-22
+                          日期 2018-09-26
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Git"
-                           title="Git">Git</a>
+                        <a class="tag" href="/tags/#数据库"
+                           title="数据库">数据库</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            开源项目的 README 与 gitignore
+            MySQL 学习笔记 三 数据查询
         </span>
     </div>
 </header>
@@ -202,59 +202,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-README-通用模板"><a href="#一-README-通用模板" class="headerlink" title="一 README 通用模板"></a>一 README 通用模板</h1><blockquote>
-<p>README 介绍 1：<a href="https://zhuanlan.zhihu.com/p/29136209" target="_blank" rel="noopener">参考文章</a><br>README 介绍 2：<a href="https://python.freelycode.com/contribution/detail/482" target="_blank" rel="noopener">参考文章</a><br>为 README 添加徽章：<a href="https://shikieiki.github.io/2017/03/01/%E4%B8%BA%E4%BD%A0%E7%9A%84Github%E7%94%9F%E6%88%90%E6%BC%82%E4%BA%AE%E7%9A%84%E5%BE%BD%E7%AB%A0%E5%92%8C%E8%BF%9B%E5%BA%A6%E6%9D%A1/" target="_blank" rel="noopener">参考博文</a><br>生成徽章的服务：<a href="https://shields.io/#/" target="_blank" rel="noopener">https://shields.io/#/</a></p>
-</blockquote>
-<p>内容清单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[icon]</span><br><span class="line"></span><br><span class="line"># Name</span><br><span class="line"></span><br><span class="line">[Badges]</span><br><span class="line"></span><br><span class="line">## Introduction - 介绍</span><br><span class="line">### Summary - 概要</span><br><span class="line">### Features - 特性</span><br><span class="line"></span><br><span class="line">## Requirements - 必要条件</span><br><span class="line">环境，对所有项目，和所有子模块和库的描述。</span><br><span class="line"></span><br><span class="line">## Configuration - 配置</span><br><span class="line">配置信息。</span><br><span class="line"></span><br><span class="line">## Installation - 安装</span><br><span class="line">如何安装。</span><br><span class="line"></span><br><span class="line">## Usage - 用法</span><br><span class="line">用法。</span><br><span class="line"></span><br><span class="line">## Development - 开发</span><br><span class="line">关于怎样开发的文档信息。（API 等。）</span><br><span class="line"></span><br><span class="line">## Changelog - 更新日志</span><br><span class="line">一个简短的历史记录（更改，替换或者其他）。</span><br><span class="line"></span><br><span class="line">## FAQ - 常见问题</span><br><span class="line">常见问题。</span><br><span class="line"></span><br><span class="line">## Support - 支持</span><br><span class="line">### Dos - 文档</span><br><span class="line">更多文档。</span><br><span class="line">### Contact - 联系</span><br><span class="line">其他联系信息（电子邮件地址，网站，公司名称，地址等）。</span><br><span class="line">提交bug，功能要求，提交补丁，加入邮件列表，得到通知，或加入用户或开发开发区群的介绍。</span><br><span class="line"></span><br><span class="line">## Authors and acknowledgment - 贡献者和感谢</span><br><span class="line">作者列表和鸣谢。</span><br><span class="line"></span><br><span class="line">## License - 版权信息</span><br><span class="line">版权和许可信息（或阅读许可证）、法律声明。</span><br></pre></td></tr></table></figure></p>
-<h1 id="二-关于-gitignore"><a href="#二-关于-gitignore" class="headerlink" title="二 关于 gitignore"></a>二 关于 gitignore</h1><blockquote>
-<p> Git 忽略文件：<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013758404317281e54b6f5375640abbb11e67be4cd49e0000" target="_blank" rel="noopener">参考博文</a></p>
-</blockquote>
-<p>将不需要上传的文件写在 .gitignore 文件中。</p>
-<ol>
-<li><p>GitHub 上提供的配置文件可以直接使用：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
-</li>
-<li><p>一个工程项目中需要忽略的文件：</p>
-</li>
-</ol>
-<ul>
-<li>忽略操作系统自动生成的文件。</li>
-<li>忽略编译生成的中间文件、可执行文件等。</li>
-<li>忽略你自己的带有敏感信息的配置文件。</li>
-</ul>
-<ol start="3">
-<li>.gitignore 文件具体格式：<br><a href="https://www.jianshu.com/p/e56ab8ca6243" target="_blank" rel="noopener">参考博文</a><br>Git 对于 .gitignore 配置文件是按行（从上到下）进行规则匹配的，这意味着如果前面的规则匹配的范围更大，则后面的规则将不会生效。</li>
-</ol>
-<ul>
-<li>以斜杠 <code>/</code> 开头表示目录；</li>
-<li>以星号 <code>*</code> 通配多个字符；</li>
-<li>以问号 <code>?</code> 通配单个字符；</li>
-<li>以方括号 <code>[]</code> 包含单个字符的匹配列表；</li>
-<li>以叹号 <code>!</code> 表示不忽略(跟踪)匹配到的文件或目录；</li>
-</ul>
-<ol start="4">
-<li>.gitignore 文件写法：</li>
-</ol>
-<ul>
-<li>忽略目录（按目录名忽略）：<code>documentname/*</code> （或不加星号。）</li>
-<li>忽略指定目录下所有文件：<code>/documentname/*</code></li>
-<li>仅忽略当前目录下的文件，不包含子目录：<code>/documentname</code></li>
-<li>反选，在最前面加 <code>!</code></li>
-</ul>
-
+                <h1 id="一-数据查询"><a href="#一-数据查询" class="headerlink" title="一 数据查询"></a>一 数据查询</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/09/26/MySQL-学习笔记-四-安全性与完整性/" data-toggle="tooltip" data-placement="top"
-                           title="MySQL 学习笔记 四 安全性与完整性">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/09/18/MySQL-学习笔记-二-SQL-概述、补充、数据定义及操纵/" data-toggle="tooltip" data-placement="top"
-                           title="MySQL 学习笔记 二 SQL 概述、补充、数据定义及操纵">Next Post &rarr;</a>
+                        <a href="/2018/09/26/MySQL-学习笔记-四-安全性与完整性/" data-toggle="tooltip" data-placement="top"
+                           title="MySQL 学习笔记 四 安全性与完整性">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -270,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-README-通用模板"><span class="toc-text">一 README 通用模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-关于-gitignore"><span class="toc-text">二 关于 gitignore</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据查询"><span class="toc-text">一 数据查询</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -292,8 +249,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Git"
-                           title="Git">Git</a>
+                        <a class="tag" href="/tags/#数据库"
+                           title="数据库">数据库</a>
                         
                     </div>
                 </section>

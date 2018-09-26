@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        MySQL 学习笔记 二 SQL 功能及其对象｜Mo&#39;s blog
+        MySQL 学习笔记 二 SQL 概述、补充、数据定义及操纵｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/18/MySQL-学习笔记-二-SQL-功能及其对象/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/18/MySQL-学习笔记-二-SQL-概述、补充、数据定义及操纵/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>MySQL 学习笔记 二 SQL 功能及其对象</h1>
+                    <h1>MySQL 学习笔记 二 SQL 概述、补充、数据定义及操纵</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            MySQL 学习笔记 二 SQL 功能及其对象
+            MySQL 学习笔记 二 SQL 概述、补充、数据定义及操纵
         </span>
     </div>
 </header>
@@ -208,10 +208,12 @@
 <h1 id="一-SQL-概述"><a href="#一-SQL-概述" class="headerlink" title="一 SQL 概述"></a>一 SQL 概述</h1><ol>
 <li><p>SQL 语言集数据定义语言（DDL）、数据操纵语言（DML）、数据控制语言（DCL）功能于一体。</p>
 </li>
-<li><p>SQL 功能及其作用对象：<br><img src="/2018/09/18/MySQL-学习笔记-二-SQL-功能及其对象/图1.PNG" alt="SQL 功能及其作用对象"></p>
+<li><p>SQL 功能及其作用对象：<br>数据定义，数据操作见本博文，数据控制见本系列第四篇博文（安全性），数据查询见本系列第三篇博文。<br><img src="/2018/09/18/MySQL-学习笔记-二-SQL-概述、补充、数据定义及操纵/图1.PNG" alt="SQL 功能及其作用对象"></p>
+</li>
+<li><p>内容小结：三个层次。定义、操作、控制、查询；索引、表、视图；增、删、改。</p>
 </li>
 </ol>
-<h1 id="二-数据定义"><a href="#二-数据定义" class="headerlink" title="二 数据定义"></a>二 数据定义</h1><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<h1 id="二-补充"><a href="#二-补充" class="headerlink" title="二 补充"></a>二 补充</h1><ol>
 <li>数据类型：</li>
 </ol>
 <p>PART 整型</p>
@@ -256,40 +258,38 @@
 <li>NOT NULL 该属性不为空。</li>
 </ul>
 <ol start="3">
-<li><p>外键约束的参照操作：<br><img src="/2018/09/18/MySQL-学习笔记-二-SQL-功能及其对象/图2.PNG" alt="外键约束的参照操作"></p>
+<li><p>外键约束的参照操作：<br><img src="/2018/09/18/MySQL-学习笔记-二-SQL-概述、补充、数据定义及操纵/图2.PNG" alt="外键约束的参照操作"></p>
 </li>
 <li><p>列级约束与表级约束：<br>对一个数据列的约束，为列级约束，列定义时或定义后声明。<br>对多个数据列的约束，为表级约束，只能定义后声明。</p>
 </li>
 </ol>
-<h2 id="1-模式定义"><a href="#1-模式定义" class="headerlink" title="1 模式定义"></a>1 模式定义</h2><ol>
-<li>MySQL:<br>注：MySQL 中创建 scheme 和创建 database 相同。</li>
-</ol>
-<ul>
+<h1 id="三-数据定义"><a href="#三-数据定义" class="headerlink" title="三 数据定义"></a>三 数据定义</h1><h2 id="1-模式定义"><a href="#1-模式定义" class="headerlink" title="1 模式定义"></a>1 模式定义</h2><p>注：MySQL 中创建 scheme 和创建 database 相同。</p>
+<ol>
 <li>定义： <code>CREATE DATABASE &lt;数据库名&gt;;</code></li>
 <li>修改：用图形界面修改。或 <code>ALTER DATABASE ...;</code></li>
 <li>删除： <code>DROP DATABASE &lt;数据库名&gt;;</code></li>
-</ul>
-<ol start="2">
-<li>SQL：</li>
 </ol>
-<ul>
+<blockquote>
+<p>补充： 关于 SQL 的定义与删除。</p>
+<ol>
 <li>定义： <code>CREATE SCHEME &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</code> ,可在下面加表、视图、授权定义子句。</li>
 <li>删除：<code>DROP SCHEME &lt;模式名&gt; &lt;CASCADE|RESTRICT&gt;</code> ，CASCADE 级联，全部删除；RESTRICT 限制，若有对象拒绝删除。</li>
-</ul>
+</ol>
+</blockquote>
 <h2 id="2-表定义"><a href="#2-表定义" class="headerlink" title="2 表定义"></a>2 表定义</h2><p>注：创建完 database 需要 <code>use 数据库名;</code> ;名称可不加单引号；结尾一定要双引号。</p>
-<ul>
+<ol>
 <li><p>定义： <code>CREATE TABLE table_name (column_name column_type,...);</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">CREATE TABLE IF NOT EXISTS student(</span><br><span class="line">s_id int,</span><br><span class="line">c_id int,</span><br><span class="line">s_name char(10),</span><br><span class="line">s_gender char(2),</span><br><span class="line">s_age tinyint,</span><br><span class="line">PRIMARY KEY(s_id),</span><br><span class="line">FOREIGN KEY(c_id) REFERENCES course(c_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改（列与约束）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name</span><br><span class="line">ADD &lt;新列名&gt; &lt;数据类型&gt; [完整型约束] [FIRST|AFTER 列名],</span><br><span class="line">ADD [CONSTRAINT 约束名] &lt;完整型约束(列名) [ON DELETE 外键约束参照操作]&gt;,</span><br><span class="line"></span><br><span class="line">ALTER &lt;列名&gt; &lt;数据类型&gt;,</span><br><span class="line">ALTER &lt;列名&gt; &lt;SET DEFAULT 值|DROP DEFAULT&gt;,</span><br><span class="line">CHANGE &lt;原列名&gt; &lt;现列名&gt; &lt;类型&gt;,</span><br><span class="line"></span><br><span class="line">DROP &lt;列名|完整型性约束名&gt;,</span><br><span class="line">DROP &lt;PRIMARY KEY|FOREIGN KEY(列名)|KEY 列名&gt;；</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NOT NULL 约束的添加，删除：(其他约束也可用 MODIFY)</span><br><span class="line">ALTER TABLE table_name MODIFY &lt;列名&gt; &lt;数据类型&gt; NOT NULL;</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name MODIFY &lt;列名&gt; &lt;数据类型&gt;;</span><br></pre></td></tr></table></figure>
-<ul>
+<ol start="3">
 <li>删除：<code>DROP TABLE &lt;表名&gt; [外键约束参照操作];</code></li>
-</ul>
-<h2 id="3-视图定义"><a href="#3-视图定义" class="headerlink" title="3 视图定义"></a>3 视图定义</h2><h2 id="4-索引定义"><a href="#4-索引定义" class="headerlink" title="4 索引定义"></a>4 索引定义</h2><h1 id="三-数据操纵"><a href="#三-数据操纵" class="headerlink" title="三 数据操纵"></a>三 数据操纵</h1><h2 id="1-表操纵"><a href="#1-表操纵" class="headerlink" title="1 表操纵"></a>1 表操纵</h2><ul>
+</ol>
+<h2 id="3-视图定义"><a href="#3-视图定义" class="headerlink" title="3 视图定义"></a>3 视图定义</h2><h2 id="4-索引定义"><a href="#4-索引定义" class="headerlink" title="4 索引定义"></a>4 索引定义</h2><h1 id="三-数据操纵"><a href="#三-数据操纵" class="headerlink" title="三 数据操纵"></a>三 数据操纵</h1><h2 id="1-表操纵"><a href="#1-表操纵" class="headerlink" title="1 表操纵"></a>1 表操纵</h2><ol>
 <li><p>增：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">对特定列赋值：</span><br><span class="line">INSERT </span><br><span class="line">INTO &lt;表名&gt; (&lt;列 1&gt;,...)</span><br><span class="line">VALUES (&lt;常量 1&gt;,...);</span><br><span class="line"></span><br><span class="line">使用子查询：用 SET。</span><br><span class="line">INSERT </span><br><span class="line">INTO &lt;表名&gt; (&lt;列 1&gt;,...)</span><br><span class="line">SET &lt;子查询&gt;；</span><br><span class="line"></span><br><span class="line">对所有列赋值：必须对所有列赋值，可以用 NULL 或 DEFAULT 为值。</span><br><span class="line">INSERT</span><br><span class="line">&lt;表名&gt;</span><br><span class="line">VALUES (&lt;常量 1&gt;,...);</span><br></pre></td></tr></table></figure>
 </li>
@@ -301,8 +301,7 @@
 </li>
 <li><p>补充：<br>通常可以先分组再排序。<br>GROUP BY：对结果分组，<code>GROUP BY &lt;列名&gt; [ASC|DESC]</code> (升序，降序)。<br>ORDER BY：对结果分组，<code>ORDER BY &lt;列名&gt; [ASC|DESC]</code> (升序，降序)。<br>HAVING：分组的条件，<code>HAVING &lt;条件&gt;</code><br>LIMIT：限制返回的数量，<code>LIMIT 开始位置 条数</code> ，从头开始可不写开始位置。</p>
 </li>
-</ul>
-<h1 id="四-数据控制"><a href="#四-数据控制" class="headerlink" title="四 数据控制"></a>四 数据控制</h1><h1 id="五-数据查询"><a href="#五-数据查询" class="headerlink" title="五 数据查询"></a>五 数据查询</h1><p>表和视图的查询相同。</p>
+</ol>
 
                 <hr>
                 
@@ -333,7 +332,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SQL-概述"><span class="toc-text">一 SQL 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据定义"><span class="toc-text">二 数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-text">补充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-模式定义"><span class="toc-text">1 模式定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-表定义"><span class="toc-text">2 表定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-视图定义"><span class="toc-text">3 视图定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-索引定义"><span class="toc-text">4 索引定义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据操纵"><span class="toc-text">三 数据操纵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-表操纵"><span class="toc-text">1 表操纵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-数据控制"><span class="toc-text">四 数据控制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-数据查询"><span class="toc-text">五 数据查询</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SQL-概述"><span class="toc-text">一 SQL 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-补充"><span class="toc-text">二 补充</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据定义"><span class="toc-text">三 数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-模式定义"><span class="toc-text">1 模式定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-表定义"><span class="toc-text">2 表定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-视图定义"><span class="toc-text">3 视图定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-索引定义"><span class="toc-text">4 索引定义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据操纵"><span class="toc-text">三 数据操纵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-表操纵"><span class="toc-text">1 表操纵</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
