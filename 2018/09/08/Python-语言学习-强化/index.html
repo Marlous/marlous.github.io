@@ -285,7 +285,54 @@
 <ol start="3">
 <li>文件拷贝代码示例：<br><img src="/2018/09/08/Python-语言学习-强化/图15.PNG" alt="文件拷贝代码示例"></li>
 </ol>
-<h2 id="2-字典"><a href="#2-字典" class="headerlink" title="2 字典"></a>2 字典</h2>
+<h2 id="2-字典"><a href="#2-字典" class="headerlink" title="2 字典"></a>2 字典</h2><ol>
+<li><p>概念：<br><code>zd = {&quot;key&quot;:&quot;value&quot;,...}</code> 键-值，通过键来找到对应的值。会自动优化排列顺序，字典是无序的。</p>
+</li>
+<li><p>关于字典的操作：</p>
+</li>
+</ol>
+<ul>
+<li>建立字典：<code>zd = {}</code> 或 <code>zd = {&quot;key&quot;:&quot;value&quot;,...}</code></li>
+<li>为字典增加一项：<code>zd[key]=value</code></li>
+<li>访问字典中的值：<code>zd[key]</code></li>
+<li>删除某值：<code>del zd[key]</code></li>
+<li>字典的遍历：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for key in zd:</span><br><span class="line">	print(key + &quot;:&quot; + str(zd[key]))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/09/08/Python-语言学习-强化/图16.PNG" alt="字典的遍历类型"></p>
+<ul>
+<li>判断一个键是否在字典中：<code>in 或 not in</code> 例 <code>keyname in zd</code> 返回 True 或 False</li>
+</ul>
+<ol start="3">
+<li><p>字典标准操作符：<br><img src="/2018/09/08/Python-语言学习-强化/图17.PNG" alt="字典标准操作符"></p>
+</li>
+<li><p>字典方法：<br><img src="/2018/09/08/Python-语言学习-强化/图18.PNG" alt="字典方法"></p>
+</li>
+</ol>
+<h1 id="五-程序开发"><a href="#五-程序开发" class="headerlink" title="五 程序开发"></a>五 程序开发</h1><h2 id="1-程序设计"><a href="#1-程序设计" class="headerlink" title="1 程序设计"></a>1 程序设计</h2><ol>
+<li><p>IPO 模式：<br>输入，处理，输出。</p>
+</li>
+<li><p>自顶向下求解问题：<br>将一个大问题，分解为许多小问题，最后把这些解决的小问题汇总。<br><img src="/2018/09/08/Python-语言学习-强化/图19.PNG" alt="自顶向下设计思想"><br>例：<img src="/2018/09/08/Python-语言学习-强化/图20.PNG" alt="自顶向下设计思想 例"></p>
+</li>
+<li><p>自底向上测试问题：<br>从底层模块开始一个个测试。<br>通过调用库函数方法，将 <code>import matchsim</code> 加载到交互环境对函数测试。</p>
+</li>
+</ol>
+<h2 id="2-软件开发方法"><a href="#2-软件开发方法" class="headerlink" title="2 软件开发方法"></a>2 软件开发方法</h2><ol>
+<li><p>内容：程序、数据、文档。</p>
+</li>
+<li><p>软件开发生命周期：<br><img src="/2018/09/08/Python-语言学习-强化/图21.PNG" alt="软件开发生命周期"></p>
+</li>
+<li><p>敏捷开发：<br>拆分为多个相互联系、独立运行的小项目。软件一直除余可使用的状态。迭代增量开发。<br><img src="/2018/09/08/Python-语言学习-强化/图22.PNG" alt="敏捷开发过程 1"> <img src="/2018/09/08/Python-语言学习-强化/图23.PNG" alt="敏捷开发过程 2"></p>
+</li>
+</ol>
+<h2 id="3-面向过程-对象的程序设计"><a href="#3-面向过程-对象的程序设计" class="headerlink" title="3 面向过程\对象的程序设计"></a>3 面向过程\对象的程序设计</h2><ol>
+<li><p>面向过程程序设计：<br><img src="/2018/09/08/Python-语言学习-强化/图24.PNG" alt="面向过程程序设计"></p>
+</li>
+<li><p>面向对象程序设计：<br>内容：对象、状态、行为。（类、属性、方法。）<br>特点：封装（属性和方法相对独立）、多态（同一函数名启用不同方法）、继承（提升代码复用程度）。</p>
+</li>
+</ol>
+<p>实列：（创建类、对象、属性、方法）<br><img src="/2018/09/08/Python-语言学习-强化/图25.PNG" alt="实列 类定义 1"><br><img src="/2018/09/08/Python-语言学习-强化/图26.PNG" alt="实列 类定义 2"><br><img src="/2018/09/08/Python-语言学习-强化/图27.PNG" alt="实列 建立方法"></p>
+<h1 id="六-交互式图形编程"><a href="#六-交互式图形编程" class="headerlink" title="六 交互式图形编程"></a>六 交互式图形编程</h1><h1 id="七-Python-之面向对象"><a href="#七-Python-之面向对象" class="headerlink" title="七 Python 之面向对象"></a>七 Python 之面向对象</h1><h1 id="八-数学库使用基础"><a href="#八-数学库使用基础" class="headerlink" title="八 数学库使用基础"></a>八 数学库使用基础</h1>
                 <hr>
                 
 
@@ -315,7 +362,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据类型"><span class="toc-text">一 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#补充：math-库和-random-库"><span class="toc-text">补充：math 库和 random 库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-控制结构"><span class="toc-text">二 控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-三种控制结构"><span class="toc-text">1 三种控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-异常处理"><span class="toc-text">2 异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-循环"><span class="toc-text">3 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-布尔表达式"><span class="toc-text">4 布尔表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-函数"><span class="toc-text">三 函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-文件与字典"><span class="toc-text">四 文件与字典</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文件"><span class="toc-text">1 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字典"><span class="toc-text">2 字典</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据类型"><span class="toc-text">一 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#补充：math-库和-random-库"><span class="toc-text">补充：math 库和 random 库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-控制结构"><span class="toc-text">二 控制结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-三种控制结构"><span class="toc-text">1 三种控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-异常处理"><span class="toc-text">2 异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-循环"><span class="toc-text">3 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-布尔表达式"><span class="toc-text">4 布尔表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-函数"><span class="toc-text">三 函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-文件与字典"><span class="toc-text">四 文件与字典</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-文件"><span class="toc-text">1 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字典"><span class="toc-text">2 字典</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-程序开发"><span class="toc-text">五 程序开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-程序设计"><span class="toc-text">1 程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-软件开发方法"><span class="toc-text">2 软件开发方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-面向过程-对象的程序设计"><span class="toc-text">3 面向过程\对象的程序设计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-交互式图形编程"><span class="toc-text">六 交互式图形编程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-Python-之面向对象"><span class="toc-text">七 Python 之面向对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-数学库使用基础"><span class="toc-text">八 数学库使用基础</span></a></li></ol>
                 </div>
             </div>
         </div>

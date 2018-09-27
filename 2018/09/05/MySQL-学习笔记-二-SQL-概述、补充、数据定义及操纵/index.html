@@ -282,26 +282,57 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">CREATE TABLE IF NOT EXISTS student(</span><br><span class="line">s_id int,</span><br><span class="line">c_id int,</span><br><span class="line">s_name char(10),</span><br><span class="line">s_gender char(2),</span><br><span class="line">s_age tinyint,</span><br><span class="line">PRIMARY KEY(s_id),</span><br><span class="line">FOREIGN KEY(c_id) REFERENCES course(c_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改（列与约束）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name</span><br><span class="line">ADD &lt;新列名&gt; &lt;数据类型&gt; [完整型约束] [FIRST|AFTER 列名],</span><br><span class="line">ADD [CONSTRAINT 约束名] &lt;完整型约束(列名) [ON DELETE 外键约束参照操作]&gt;,</span><br><span class="line"></span><br><span class="line">ALTER &lt;列名&gt; &lt;数据类型&gt;,</span><br><span class="line">ALTER &lt;列名&gt; &lt;SET DEFAULT 值|DROP DEFAULT&gt;,</span><br><span class="line">CHANGE &lt;原列名&gt; &lt;现列名&gt; &lt;类型&gt;,</span><br><span class="line"></span><br><span class="line">DROP &lt;列名|完整型性约束名&gt;,</span><br><span class="line">DROP &lt;PRIMARY KEY|FOREIGN KEY(列名)|KEY 列名&gt;；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name</span><br><span class="line">ADD &lt;新列名&gt; &lt;数据类型&gt; [完整型约束] [FIRST|AFTER 列名],</span><br><span class="line">ADD [CONSTRAINT 约束名] &lt;完整型约束&gt;(列名) [ON DELETE 外键约束参照操作],</span><br><span class="line"></span><br><span class="line">ALTER &lt;列名&gt; &lt;数据类型&gt;,</span><br><span class="line">ALTER &lt;列名&gt; &lt;SET DEFAULT 值|DROP DEFAULT&gt;,</span><br><span class="line">CHANGE &lt;原列名&gt; &lt;现列名&gt; &lt;类型&gt;,</span><br><span class="line"></span><br><span class="line">DROP &lt;列名|完整型性约束名&gt;,</span><br><span class="line">DROP &lt;PRIMARY KEY|FOREIGN KEY(列名)|KEY 列名&gt;；</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NOT NULL 约束的添加，删除：(其他约束也可用 MODIFY)</span><br><span class="line">ALTER TABLE table_name MODIFY &lt;列名&gt; &lt;数据类型&gt; NOT NULL;</span><br><span class="line"></span><br><span class="line">ALTER TABLE table_name MODIFY &lt;列名&gt; &lt;数据类型&gt;;</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>删除：<code>DROP TABLE &lt;表名&gt; [外键约束参照操作];</code></li>
 </ol>
-<h2 id="3-视图定义"><a href="#3-视图定义" class="headerlink" title="3 视图定义"></a>3 视图定义</h2><h2 id="4-索引定义"><a href="#4-索引定义" class="headerlink" title="4 索引定义"></a>4 索引定义</h2><h1 id="三-数据操纵"><a href="#三-数据操纵" class="headerlink" title="三 数据操纵"></a>三 数据操纵</h1><h2 id="1-表操纵"><a href="#1-表操纵" class="headerlink" title="1 表操纵"></a>1 表操纵</h2><ol>
+<h2 id="3-视图定义"><a href="#3-视图定义" class="headerlink" title="3 视图定义"></a>3 视图定义</h2><p>视图是从一个或几个基本表或视图导出的表，只存放定义，不存放数据。</p>
+<ol>
+<li><p>定义：<br>AS 后面是子查询。<br><code>[WITH [CASCADED|LOCAL] CHECK OPTION]</code> 决定了是否允许更新数据记录不再满足视图的条件。local 只要满足本视图的条件就可以更新,cascaded 必须满足所有针对该视图的所有视图的条件才可以更新，默认是 cascaded。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW &lt;视图名&gt;(列1，列2...)</span><br><span class="line">AS [SELECT 表名.列1,表名.列2...) FROM 表名]</span><br><span class="line">[WITH [CASCADED|LOCAL] CHECK OPTION]; </span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line">CREATE VIEW student_view(id,name)</span><br><span class="line">AS SELECT student.s_id,student.s_name</span><br><span class="line">FROM student;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE OR REPLACE VIEW &lt;视图名&gt;(列1，列2...)</span><br><span class="line">AS [SELECT 表名.列1,表名.列2...) FROM 表名]</span><br><span class="line">[WITH [CASCADED|LOCAL] CHECK OPTION];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除：<br>该视图还导出其他视图可级联删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP VIEW &lt;视图名&gt; [CASCADE];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="4-索引定义"><a href="#4-索引定义" class="headerlink" title="4 索引定义"></a>4 索引定义</h2><p>通过 BTREE、HASH 算法来建立索引（对某列等），加快查询速度。</p>
+<ol>
+<li><p>定义：<br>如果是 CHAR，VARCHAR 类型，length 可以小于字段实际长度；如果是 BLOB 和 TEXT 类型，必须指定 length。<br><code>[UNIQUE|CLUSTER]</code> 前者指每个索引值对应唯一数据记录，后者指索引项顺序与表中物理顺序一致。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE [UNIQUE|CLUSTER] INDEX &lt;索引名&gt; ON &lt;表名&gt;(&lt;列名&gt;(长度));</span><br><span class="line">或</span><br><span class="line">ALTER TABLE &lt;表名&gt; ADD INDEX &lt;索引名&gt;(&lt;列名&gt;(长度));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP INDEX &lt;索引名&gt;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="三-数据操纵"><a href="#三-数据操纵" class="headerlink" title="三 数据操纵"></a>三 数据操纵</h1><h2 id="1-表、视图操纵"><a href="#1-表、视图操纵" class="headerlink" title="1 表、视图操纵"></a>1 表、视图操纵</h2><ol>
 <li><p>增：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">对特定列赋值：</span><br><span class="line">INSERT </span><br><span class="line">INTO &lt;表名&gt; (&lt;列 1&gt;,...)</span><br><span class="line">VALUES (&lt;常量 1&gt;,...);</span><br><span class="line"></span><br><span class="line">使用子查询：用 SET。</span><br><span class="line">INSERT </span><br><span class="line">INTO &lt;表名&gt; (&lt;列 1&gt;,...)</span><br><span class="line">SET &lt;子查询&gt;；</span><br><span class="line"></span><br><span class="line">对所有列赋值：必须对所有列赋值，可以用 NULL 或 DEFAULT 为值。</span><br><span class="line">INSERT</span><br><span class="line">&lt;表名&gt;</span><br><span class="line">VALUES (&lt;常量 1&gt;,...);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &lt;表名&gt;</span><br><span class="line">SET &lt;列名&gt;=&lt;表达式&gt;,...</span><br><span class="line">&lt;条件&gt;；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE &lt;表名&gt;</span><br><span class="line">SET &lt;列名&gt;=&lt;表达式&gt;,...</span><br><span class="line">WHERE &lt;条件&gt;；</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM &lt;表名&gt;</span><br><span class="line">WHERE &lt;条件&gt;;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>补充：<br>通常可以先分组再排序。<br>GROUP BY：对结果分组，<code>GROUP BY &lt;列名&gt; [ASC|DESC]</code> (升序，降序)。<br>ORDER BY：对结果分组，<code>ORDER BY &lt;列名&gt; [ASC|DESC]</code> (升序，降序)。<br>HAVING：分组的条件，<code>HAVING &lt;条件&gt;</code><br>LIMIT：限制返回的数量，<code>LIMIT 开始位置 条数</code> ，从头开始可不写开始位置。</p>
+<li><p>表补充：<br>通常可以先分组再排序。<br>GROUP BY：对结果分组，<code>GROUP BY &lt;列名&gt; [ASC|DESC]</code> (升序，降序)。<br>ORDER BY：对结果分组，<code>ORDER BY &lt;列名&gt; [ASC|DESC]</code> (升序，降序)。<br>HAVING：分组的条件，<code>HAVING &lt;条件&gt;</code><br>LIMIT：限制返回的数量，<code>LIMIT 开始位置 条数</code> ，从头开始可不写开始位置。</p>
+</li>
+<li><p>视图特点：<a href="https://blog.csdn.net/dyushuo6230/article/details/80413082" target="_blank" rel="noopener">参考博文</a><br>视图的可更新性和视图中查询的定义有关系，以下类型的视图是不可更新的。</p>
 </li>
 </ol>
+<ul>
+<li>包含一下关键字的 sql 语句：聚合函数（sum,min,max,count 等）,distinct,group by,having,union 或者 union all。</li>
+<li>常亮视图。</li>
+<li>select中包含子查询。</li>
+<li>jion。</li>
+<li>from 一个不能更新的视图。</li>
+<li>where 句子的子查询引用了 from 句子中的表。</li>
+</ul>
 
                 <hr>
                 
@@ -332,7 +363,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SQL-概述"><span class="toc-text">一 SQL 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-补充"><span class="toc-text">二 补充</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据定义"><span class="toc-text">三 数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-模式定义"><span class="toc-text">1 模式定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-表定义"><span class="toc-text">2 表定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-视图定义"><span class="toc-text">3 视图定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-索引定义"><span class="toc-text">4 索引定义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据操纵"><span class="toc-text">三 数据操纵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-表操纵"><span class="toc-text">1 表操纵</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SQL-概述"><span class="toc-text">一 SQL 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-补充"><span class="toc-text">二 补充</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据定义"><span class="toc-text">三 数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-模式定义"><span class="toc-text">1 模式定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-表定义"><span class="toc-text">2 表定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-视图定义"><span class="toc-text">3 视图定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-索引定义"><span class="toc-text">4 索引定义</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据操纵"><span class="toc-text">三 数据操纵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-表、视图操纵"><span class="toc-text">1 表、视图操纵</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
