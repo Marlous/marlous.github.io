@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        XXX分析/记录等！暂未完成！｜Mo&#39;s blog
+        Python 语言学习 强化（下）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/09/XXX分析-记录等！暂未完成！/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/28/Python-语言学习-强化（下）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>XXX分析/记录等！暂未完成！</h1>
+                    <h1>Python 语言学习 强化（下）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-09-09
+                          日期 2018-09-28
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#我的文章"
-                           title="我的文章">我的文章</a>
+                        <a class="tag" href="/tags/#Python"
+                           title="Python">Python</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            XXX分析/记录等！暂未完成！
+            Python 语言学习 强化（下）
         </span>
     </div>
 </header>
@@ -202,22 +202,51 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>此分类用来记录XXX技术类分析博文</p>
-
+                <h1 id="一-程序开发"><a href="#一-程序开发" class="headerlink" title="一 程序开发"></a>一 程序开发</h1><h2 id="1-程序设计"><a href="#1-程序设计" class="headerlink" title="1 程序设计"></a>1 程序设计</h2><ol>
+<li><p>IPO 模式：<br>输入，处理，输出。</p>
+</li>
+<li><p>自顶向下求解问题：<br>将一个大问题，分解为许多小问题，最后把这些解决的小问题汇总。<br><img src="/2018/09/28/Python-语言学习-强化（下）/图1.PNG" alt="自顶向下设计思想"><br>例：<img src="/2018/09/28/Python-语言学习-强化（下）/图2.PNG" alt="自顶向下设计思想 例"></p>
+</li>
+<li><p>自底向上测试问题：<br>从底层模块开始一个个测试。<br>通过调用库函数方法，将 <code>import matchsim</code> 加载到交互环境对函数测试。</p>
+</li>
+</ol>
+<h2 id="2-软件开发方法"><a href="#2-软件开发方法" class="headerlink" title="2 软件开发方法"></a>2 软件开发方法</h2><ol>
+<li><p>内容：程序、数据、文档。</p>
+</li>
+<li><p>软件开发生命周期：<br><img src="/2018/09/28/Python-语言学习-强化（下）/图3.PNG" alt="软件开发生命周期"></p>
+</li>
+<li><p>敏捷开发：<br>拆分为多个相互联系、独立运行的小项目。软件一直除余可使用的状态。迭代增量开发。<br><img src="/2018/09/28/Python-语言学习-强化（下）/图4.PNG" alt="敏捷开发过程 1"> <img src="/2018/09/28/Python-语言学习-强化（下）/图5.PNG" alt="敏捷开发过程 2"></p>
+</li>
+</ol>
+<h2 id="3-面向过程-对象的程序设计"><a href="#3-面向过程-对象的程序设计" class="headerlink" title="3 面向过程\对象的程序设计"></a>3 面向过程\对象的程序设计</h2><ol>
+<li><p>面向过程程序设计：<br><img src="/2018/09/28/Python-语言学习-强化（下）/图6.PNG" alt="面向过程程序设计"></p>
+</li>
+<li><p>面向对象程序设计：<br>内容：对象、状态、行为。（类、属性、方法。）<br>特点：封装（属性和方法相对独立）、多态（同一函数名启用不同方法）、继承（提升代码复用程度）。</p>
+</li>
+</ol>
+<p>实列：（创建类、对象、属性、方法）<br><img src="/2018/09/28/Python-语言学习-强化（下）/图7.PNG" alt="实列 类定义 1"><br><img src="/2018/09/28/Python-语言学习-强化（下）/图8.PNG" alt="实列 类定义 2"><br><img src="/2018/09/28/Python-语言学习-强化（下）/图9.PNG" alt="实列 建立方法"></p>
+<h1 id="二-Python-之面向对象"><a href="#二-Python-之面向对象" class="headerlink" title="二 Python 之面向对象"></a>二 Python 之面向对象</h1><ol>
+<li>Python 官方库索引与安装：<br>PyPI <a href="https://pypi.python.org/" target="_blank" rel="noopener">https://pypi.python.org/</a></li>
+</ol>
+<p><img src="/2018/09/28/Python-语言学习-强化（下）/图10.PNG" alt="python 库安装"><br><img src="/2018/09/28/Python-语言学习-强化（下）/图11.PNG" alt="pip 子命令"></p>
+<ol start="2">
+<li>OS 编程：<br>目录文件的操作（OS 库）:<br>不安装 python 环境运行 py 文件，OS 库是自带的库，处理操作系统相关问题。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd() 获得当前工作目录</span><br><span class="line">os.listdir(path) 返回指定目录下的所有文件和目录名</span><br><span class="line">os.remove() 删除一个文件</span><br><span class="line">os.removedirs(path) 删除多个目录</span><br><span class="line">os.chdir(path) 更改当前目录到指定目录</span><br><span class="line">os.mkdir(path) 新建一个目录</span><br><span class="line">os.rmdir(name) 删除一个目录</span><br><span class="line">os.rename(src, dst) 更改文</span><br><span class="line"></span><br><span class="line">Os.path 处理操作系统目录的一个子库</span><br><span class="line">Os.path.isfile() 检验路径是否是一个文件</span><br><span class="line">Os.path.isdir() 判断是否是文件夹</span><br><span class="line">Os.path.exists() 判断路径是否存在</span><br><span class="line">Os.path.split() 返回一个路径的目录名和文件名</span><br><span class="line">os.path.splitext() 分离扩展名</span><br><span class="line">Os.path.dirname 获得路径名</span><br><span class="line">Os.path.basename() 获得文件名</span><br><span class="line">Os.path.getsize() 获得文件大小</span><br><span class="line">Os.path.join(path, name) 返回绝对路径</span><br><span class="line"></span><br><span class="line">os.walk(path)用于遍历一个目录，返回一个三元组</span><br><span class="line">root, dirs, files = os.walk(path)</span><br><span class="line">其中，root 是字符串，dirs 和 files 是列表类型，表示 root </span><br><span class="line">中的所有目录和所有文件</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>程序定时执行（sched 库）：<br>sched 库用来进行任务调度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s = sched.scheduler() 用来创建一个调度任务。</span><br><span class="line">当需要对一个任务进行时间调度时，用这个库</span><br><span class="line">s.enter(delay, priority, action, argument=()) 创建一个调度事件，argument 中是 action() 的参数部分。</span><br><span class="line"></span><br><span class="line">scheduler.run() 运行调度任务中的全部调度事件</span><br><span class="line">scheduler.cancel(event) 取消某个调度事件</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>Office 编程：</li>
+</ol>
+<h1 id="三-交互式图形编程"><a href="#三-交互式图形编程" class="headerlink" title="三 交互式图形编程"></a>三 交互式图形编程</h1><h1 id="四-数学库使用基础"><a href="#四-数学库使用基础" class="headerlink" title="四 数学库使用基础"></a>四 数学库使用基础</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/09/10/Python-爬虫-一-前奏/" data-toggle="tooltip" data-placement="top"
-                           title="Python 爬虫 一 前奏">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/09/08/Python-语言学习-强化（上）/" data-toggle="tooltip" data-placement="top"
-                           title="Python 语言学习 强化（上）">Next Post &rarr;</a>
+                        <a href="/2018/09/22/开源项目的 README 与 gitignore/" data-toggle="tooltip" data-placement="top"
+                           title="开源项目的 README 与 gitignore">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -233,7 +262,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-程序开发"><span class="toc-text">一 程序开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-程序设计"><span class="toc-text">1 程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-软件开发方法"><span class="toc-text">2 软件开发方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-面向过程-对象的程序设计"><span class="toc-text">3 面向过程\对象的程序设计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Python-之面向对象"><span class="toc-text">二 Python 之面向对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-交互式图形编程"><span class="toc-text">三 交互式图形编程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-数学库使用基础"><span class="toc-text">四 数学库使用基础</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -255,8 +284,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#我的文章"
-                           title="我的文章">我的文章</a>
+                        <a class="tag" href="/tags/#Python"
+                           title="Python">Python</a>
                         
                     </div>
                 </section>
