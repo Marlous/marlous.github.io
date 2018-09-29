@@ -205,18 +205,14 @@
                 <h1 id="一-数据查询"><a href="#一-数据查询" class="headerlink" title="一 数据查询"></a>一 数据查询</h1><p>一般格式：<br>DISTINCT 为去掉重复列。<br>HAVING 为满足条件才输出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT [ALL|DISTINCT] &lt;目标列表达式&gt;,... </span><br><span class="line">FROM &lt;表名或视图名&gt;,...</span><br><span class="line">WHERE &lt;条件表达式&gt;</span><br><span class="line">GROUP BY &lt;列名&gt; HAVING &lt;条件表达式&gt;</span><br><span class="line">ORDER BY &lt;列名&gt; [ASC|DESC];</span><br></pre></td></tr></table></figure></p>
 <h2 id="1-单表查询（仅涉及一个表）"><a href="#1-单表查询（仅涉及一个表）" class="headerlink" title="1 单表查询（仅涉及一个表）"></a>1 单表查询（仅涉及一个表）</h2><p>&lt;目标列表达式&gt; 可以为 * 星号、可以为算术表达式、字符串常量、函数等（原来没有的列会新增显示出来）。<br>如 <code>SELECT sname,&quot;year of birthday&quot;,2004-sage,LOWER(sdept)</code></p>
 <ol>
-<li>常用查询条件（WHERE）：</li>
-</ol>
-<ul>
-<li><img src="/2018/09/10/MySQL-学习笔记-三-数据查询/图1.PNG" alt="常用查询条件"></li>
-</ul>
-<ol start="2">
+<li><p>常用查询条件（WHERE）：<br><img src="/2018/09/10/MySQL-学习笔记-三-数据查询/图1.PNG" alt="常用查询条件"></p>
+</li>
 <li><p>确定集合：查找属性值属于指定集合的元组。<br><code>WHERE sdept IN(&quot;CS&quot;,&quot;MA&quot;)</code></p>
 </li>
 <li><p>字符匹配：<br><code>[NOT] LIKE &quot;&lt;匹配串&gt;&quot; [ESCAPE &quot;&lt;换码字符&gt;&quot;]</code><br>任意长度字符用 <code>%</code> ,单个字符用 <code>_</code> ；<br>查询内容中有百分号或下划线须在前加 <code>\</code> 转义，并加上 <code>ESCAPE 转义符号</code> 。</p>
 </li>
 </ol>
-<p>例：查询 cname 列以 DB_ 开头，倒数第三个字符为 i 的情况，<code>WHERE LIKE &quot;DB\_%I__&quot; escape &quot;\&quot;</code> 。</p>
+<p>例：查询 cname 列以 DB_ 开头，倒数第三个字符为 i 的情况，<code>WHERE cname LIKE &quot;DB\_%I__&quot; escape &quot;\&quot;</code> 。</p>
 <ol start="4">
 <li><p>多重条件：<br>用 AND、OR 来联结多个查询条件。</p>
 </li>
