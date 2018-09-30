@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -209,10 +209,10 @@
 </li>
 <li><p>确定集合：查找属性值属于指定集合的元组。<br><code>WHERE sdept IN(&quot;CS&quot;,&quot;MA&quot;)</code></p>
 </li>
-<li><p>字符匹配：<br><code>[NOT] LIKE &quot;&lt;匹配串&gt;&quot; [ESCAPE &quot;&lt;换码字符&gt;&quot;]</code><br>任意长度字符用 <code>%</code> ,单个字符用 <code>_</code> ；<br>查询内容中有百分号或下划线须在前加 <code>\</code> 转义，并加上 <code>ESCAPE 转义符号</code> 。</p>
+<li><p>字符匹配：<br><code>[NOT] LIKE &quot;&lt;匹配串&gt;&quot; [ESCAPE &quot;&lt;换码字符&gt;&quot;]</code> ；<br>任意长度字符用 <code>%</code> ,单个字符用 <code>_</code> ；<br>查询内容中有百分号或下划线须在前加 <code>\</code> 转义，并加上 <code>ESCAPE 转义符号</code> 。</p>
 </li>
 </ol>
-<p>例：查询 cname 列以 DB_ 开头，倒数第三个字符为 i 的情况，<code>WHERE cname LIKE &quot;DB\_%I__&quot; escape &quot;\&quot;</code> 。</p>
+<p>例：查询 cname 列以 DB_ 开头，倒数第三个字符为 i 的情况，<code>WHERE cname LIKE &quot;DB\_%I__&quot; ESCAPE &quot;\&quot;</code> 。</p>
 <ol start="4">
 <li><p>多重条件：<br>用 AND、OR 来联结多个查询条件。</p>
 </li>
@@ -220,17 +220,37 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">COUNT([DISTINCT|ALL] *) 统计元组个数</span><br><span class="line">COUNT([DISTINCT|ALL] &lt;列名&gt;) 统计列中值的个数</span><br><span class="line">SUM([DISTINCT|ALL] &lt;列名&gt;) 计算一列值的总和</span><br><span class="line">AVG([DISTINCT|ALL] &lt;列名&gt;) 一列平均值</span><br><span class="line">MAX([DISTINCT|ALL] &lt;列名&gt;) 一列中最大值</span><br><span class="line">MIN([DISTINCT|ALL] &lt;列名&gt;) 一列中最小值</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="2-连接查询"><a href="#2-连接查询" class="headerlink" title="2 连接查询"></a>2 连接查询</h2><ol>
+<h2 id="2-连接查询"><a href="#2-连接查询" class="headerlink" title="2 连接查询"></a>2 连接查询</h2><p>条件中使用等于号的为等值连接，其他为非等值连接；<br>连接中列名类型必须是可比的；<br>列属性名唯一可省略表名；<br>去掉重复列为自然连接。</p>
+<ol>
 <li><p>等值与非等值连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">SELECT student.sno,sname,cno</span><br><span class="line">FROM student,course</span><br><span class="line">WHERE student.sno=course.cno;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>自身连接：</p>
-</li>
-<li><p>外连接：</p>
-</li>
-<li><p>复合条件：</p>
+<li><p>自身连接：<br>把自身虚拟为两张表操作。</p>
 </li>
 </ol>
-<h2 id="3-嵌套查询"><a href="#3-嵌套查询" class="headerlink" title="3 嵌套查询"></a>3 嵌套查询</h2><h2 id="4-集合查询"><a href="#4-集合查询" class="headerlink" title="4 集合查询"></a>4 集合查询</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例：</span><br><span class="line">SELECT &lt;虚拟表名1.列名1&gt;,&lt;虚拟表名2.列名2&gt;</span><br><span class="line">FROM &lt;表名&gt; &lt;虚拟表名1&gt;,&lt;表名&gt; &lt;虚拟表名2&gt;</span><br><span class="line">WHERE &lt;虚拟表名1.列名1&gt; = &lt;虚拟表名2.列名2&gt;;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>外连接：<br>保留属性为空的元组。<br>LEFT OUT JOIN 为保留左表值（表名1）。<br>USING(列名) 为去掉该列重复值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT &lt;列&gt;,...</span><br><span class="line">FROM &lt;表名1&gt;</span><br><span class="line">LEFT OUT JOIN &lt;表名2&gt; ON (条件);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复合条件：<br>多个条件用 AND 连接。</p>
+</li>
+</ol>
+<h2 id="3-嵌套查询"><a href="#3-嵌套查询" class="headerlink" title="3 嵌套查询"></a>3 嵌套查询</h2><p>一个 SELECT-FROM-WHERE 为一个查询块，将查询块嵌套在另一个查询块 WHERE 子句或 HAVING 短语条件中查询。</p>
+<ol>
+<li><p>带有 IN 谓词的子查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT &lt;列名&gt;,...</span><br><span class="line">FROM &lt;表名&gt;</span><br><span class="line">WHERE &lt;列名&gt; IN</span><br><span class="line">(一个查询块);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>带有比较运算符的子查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT &lt;列名&gt;,...</span><br><span class="line">FROM &lt;表名&gt;</span><br><span class="line">WHERE &lt;列名&gt; &gt;=</span><br><span class="line">(一个查询块);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>带有 ANY、SOME、ALL 谓词的子查询：</p>
+</li>
+<li><p>带有 EXIXTS 谓词的子查询：</p>
+</li>
+</ol>
+<h2 id="4-集合查询"><a href="#4-集合查询" class="headerlink" title="4 集合查询"></a>4 集合查询</h2><p>将多个查询块结果进行集合操作。<br>并：UNION、交：INTERSECT、差：EXCEPT。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查询块1</span><br><span class="line">UNION</span><br><span class="line">查询块2</span><br></pre></td></tr></table></figure>
                 <hr>
                 
 
