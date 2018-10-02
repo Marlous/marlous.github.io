@@ -238,19 +238,19 @@
 </ol>
 <h2 id="3-嵌套查询"><a href="#3-嵌套查询" class="headerlink" title="3 嵌套查询"></a>3 嵌套查询</h2><p>一个 SELECT-FROM-WHERE 为一个查询块，将查询块嵌套在另一个查询块 WHERE 子句或 HAVING 短语条件中查询。</p>
 <ol>
-<li><p>带有 IN 谓词的子查询：</p>
+<li><p>带有 IN 谓词的子查询（不相关子查询）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT &lt;列名&gt;,...</span><br><span class="line">FROM &lt;表名&gt;</span><br><span class="line">WHERE &lt;列名&gt; IN</span><br><span class="line">(一个查询块);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>带有比较运算符的子查询：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT &lt;列名&gt;,...</span><br><span class="line">FROM &lt;表名&gt;</span><br><span class="line">WHERE &lt;列名&gt; &gt;=</span><br><span class="line">(一个查询块);</span><br></pre></td></tr></table></figure>
+<li><p>带有比较运算符的子查询（相关子查询例子）：<br>子查询的查询条件依赖于父查询。<br>取外查询值传入内查询，通过内查询筛选外查询值；再接着取下一个外查询的值，循环。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">例：找出每个学生超过他选修课程的平均成绩。 // x y 是表 SC 的别名，从外查询取出 SC 的一个元组 x，将元组 x 的值传给内查询。</span><br><span class="line"></span><br><span class="line">SELECT sno,cno</span><br><span class="line">FROM SC x</span><br><span class="line">WHERE grade &gt;=</span><br><span class="line">(SELECT AVG(grade)</span><br><span class="line">FROM SC y</span><br><span class="line">WHERE y.sno=x.sno);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>带有 ANY、SOME、ALL 谓词的子查询：</p>
-</li>
-<li><p>带有 EXIXTS 谓词的子查询：</p>
+<li><p>带有 ANY、SOME、ALL 谓词的子查询：<br>用 ANY、ALL 来修饰子查询结果返回值。</p>
 </li>
 </ol>
-<h2 id="4-集合查询"><a href="#4-集合查询" class="headerlink" title="4 集合查询"></a>4 集合查询</h2><p>将多个查询块结果进行集合操作。<br>并：UNION、交：INTERSECT、差：EXCEPT。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查询块1</span><br><span class="line">UNION</span><br><span class="line">查询块2</span><br></pre></td></tr></table></figure>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; ANY 表示大于子查询结果中的某个值。</span><br><span class="line">&gt; ALL 表示大于子查询结果的全部值。</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>等价：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">=ANY 等价 IN</span><br><span class="line">&lt;ANY 等价 &lt;MAX</span><br><span class="line">&lt;&gt; 等价 NOT IN</span><br><span class="line">&lt;ALL 等价 &lt;MIN</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">4. 带有 EXIXTS 谓词的子查询：</span><br><span class="line">带有 EXISTS 或 NOT EXISTS 的子查询不返回任何数据，只产生逻辑值 True 或 False。</span><br><span class="line">其子查询通常用 SELECT * 因为只返回真假，给出列名无意义。</span><br><span class="line"></span><br><span class="line">## 4 集合查询</span><br><span class="line">将多个查询块结果进行集合操作。</span><br><span class="line">并：UNION、交：INTERSECT、差：EXCEPT。</span><br></pre></td></tr></table></figure></p>
+<p>查询块1<br>UNION<br>查询块2<br><code>`</code></p>
+
                 <hr>
                 
 
@@ -280,7 +280,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据查询"><span class="toc-text">一 数据查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-单表查询（仅涉及一个表）"><span class="toc-text">1 单表查询（仅涉及一个表）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-连接查询"><span class="toc-text">2 连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-嵌套查询"><span class="toc-text">3 嵌套查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-集合查询"><span class="toc-text">4 集合查询</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据查询"><span class="toc-text">一 数据查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-单表查询（仅涉及一个表）"><span class="toc-text">1 单表查询（仅涉及一个表）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-连接查询"><span class="toc-text">2 连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-嵌套查询"><span class="toc-text">3 嵌套查询</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
