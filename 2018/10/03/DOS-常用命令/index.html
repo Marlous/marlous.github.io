@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        DOS 常用命令｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/10/03/DOS-常用命令/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>DOS 常用命令</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-10-03
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#操作系统命令与脚本"
+                           title="操作系统命令与脚本">操作系统命令与脚本</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            DOS 常用命令
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-DOS-常用命令"><a href="#一-DOS-常用命令" class="headerlink" title="一 DOS 常用命令"></a>一 DOS 常用命令</h1><h2 id="1-目录命令"><a href="#1-目录命令" class="headerlink" title="1 目录命令"></a>1 目录命令</h2><ul>
+<li><p><code>命令 /?</code><br>作用：查看该命令帮助。</p>
+</li>
+<li><p><code>md/mkdir</code><br>作用：创建一个子目录（make directory）。<br>语法：<code>md[C:][path]〈subPath〉</code></p>
+</li>
+<li><p><code>cd</code><br>作用：改变或显示当前目录（change directory）。<br>语法：<code>cd [C:][path]</code><br>PS：路径可以使用绝对路径和相对路径两种。<br>cd\ 表示退回到根目录。<br>cd.. 表示退回到上级目录。<br>如果只有cd而没有参数，则只显示当前路径。<br>注意：子目录中一定有两个“特殊目录”，即“.”“..”，其中一点表示当前目录，两点表示上一层目录。<br>从简单实用的角度来看，我们只要学会逐层进入（cd 下一层某目录名），和逐层退出（cd..）就可以解决所有问题。</p>
+</li>
+<li><p><code>rd /s /q</code><br>作用：删除文件夹及文件。</p>
+</li>
+<li><p><code>rd</code><br>作用：删除空子目录（remove directory）。<br>语法：<code>rd [c:][path]</code><br>PS：rd是专门删除空子目录的命令。</p>
+</li>
+<li><p><code>del</code><br>作用：删除文件命令。<br>注意两条：一是不能删除非空目录；二是不能删除当前目录。</p>
+</li>
+<li><p><code>dir</code><br>作用：主要用来显示一个目录下的文件和子目录。(directory)<br>语法：<code>dir [C:][path][filename][/o][/s][/p][/w][/a]</code><br>PS：斜杠表示后面的内容是参数。<br>/p 显示信息满一屏时，暂停显示，按任意键后显示下一屏<br>/o 排序显示。o后面可以接不同意义的字母<br>/w 只显示文件名目录名，每行五个文件名。即宽行显示<br>/s 将目录及子目录的全部目录文件都显示<br>/a 显示隐藏文件</p>
+</li>
+<li><p><code>path</code><br>作用：设置可执行文件的搜索路径，只对文件有效。<br>语法：<code>path[盘符1：][路径1][盘符2：][路径2]…</code><br>PS：当运行一个可执行文件时，dos会先在当前目录中搜索该文件，若找到则运行之；若找不到该文件，则根据path命令所设置的路径，顺序逐条地到目录中搜索该文件</p>
+</li>
+<li><p><code>tree</code><br>作用：显示指定驱动器上所有目录路径和这些目录下的所有文件名。<br>语法：<code>tree [盘符：][/f][&gt;prn]</code></p>
+</li>
+<li><p><code>deltree</code><br>作用：删除目录树。<br>语法：<code>DELTREE [C1:][path1]</code><br>PS：这个命令将整个指定目录树全部消灭，而不管它是否是只读、隐藏与否。使用应特别小心。它是一个危险命令。</p>
+</li>
+</ul>
+<h2 id="2-磁盘命令"><a href="#2-磁盘命令" class="headerlink" title="2 磁盘命令"></a>2 磁盘命令</h2><ul>
+<li><p><code>format</code><br>作用：磁盘格式化。<br>语法：<code>format〈盘符：〉[/s][/4][/q]</code></p>
+</li>
+<li><p><code>unformat</code><br>作用：对进行过格式化误操作丢失数据的磁盘进行恢复。<br>语法：<code>unformat〈盘符〉[/l][/u][/p][/test]</code></p>
+</li>
+<li><p><code>chkdsk</code><br>作用：显示磁盘状态、内存状态和指定路径下指定文件的不连续数目。<br>语法：<code>chkdsk [盘符：][路径][文件名][/f][/v]</code><br>PS：PS：例如要检查A盘使用情况，就输入chkdsk　A: ，检查c盘使用情况，就输入chkdsk　C: ，如果直接输入chkdsk，就检查当前磁盘的使用情况。</p>
+</li>
+<li><p><code>diskcopy</code>　<br>作用：复制格式和内容完全相同的软盘。<br>语法：<code>diskcopy[盘符1：][盘符2：]</code></p>
+</li>
+<li><p><code>label</code><br>作用：建立、更改、删除磁盘卷标。<br>语法：<code>label[盘符：][卷标名]</code></p>
+</li>
+<li><p><code>vol</code><br>作用：查看磁盘卷标号。<br>语法：<code>vol[盘符：]</code></p>
+</li>
+<li><p><code>scandisk</code><br>作用：检测磁盘的fat表、目录结构、文件系统等是否有问题，并可将检测出的问题加以修复。<br>语法：<code>scandisk[盘符1：]{[盘符2：]…}[/all]</code></p>
+</li>
+</ul>
+<p><code>defrag</code><br>作用：整理磁盘，消除磁盘碎块。<br>语法：<code>defrag[盘符：][/f]</code><br>PS：选用/f参数，将文件中存在盘上的碎片消除，并调整磁盘文件的安排，确保文件之间毫无空隙。从而加快读盘速度和节省磁盘空间。</p>
+<h2 id="3-文件命令"><a href="#3-文件命令" class="headerlink" title="3 文件命令"></a>3 文件命令</h2><ul>
+<li><p><code>copy</code><br>作用：拷贝一个或多个文件到指定盘上。<br>语法：<code>copy [源盘][路径]（源文件名） [目标盘][路径](目标文件名）</code></p>
+</li>
+<li><p><code>xcopy</code><br>作用：复制指定的目录和目录下的所有文件连同目录结构。<br>语法：<code>xcopy [源盘：]〈源路径名〉[目标盘符：][目标路径名][/s][/v][/e]</code><br>PS：xcopy是copy的扩展，可以把指定的目录连文件和目录结构一并拷贝，但不能拷贝隐藏文件和系统文件。</p>
+</li>
+<li><p><code>move</code><br>作用：移动或重名名文件夹，移动文件。（不能跨盘符，跨盘符可先复制再删除）。</p>
+</li>
+<li><p><code>type</code><br>作用：显示ascii码文件的内容。<br>语法：<code>type [C:][path][filename.ext]</code><br>PS：type命令用来在屏幕上快速、简便地显示文本文件的内容，扩展名为TXT的文件是文本文件。</p>
+</li>
+<li><p><code>ren</code><br>作用：对指定磁盘、目录中的一个文件或一组文件更改名称（rename）。<br>语法：<code>ren[盘符：][路径]〈旧文件名〉〈新文件名〉</code><br>PS：改名操作只限于某个文件某组文件的名称，它不会更改文件所在的目录。</p>
+</li>
+<li><p><code>fc</code><br>作用：比较文件的异同，并列出差异处。<br>语法：<code>fc[盘符：][路径名]〈文件名〉[盘符：][路径名][文件名][/a][/c][/n]</code></p>
+</li>
+<li><p><code>attrib</code><br>作用：修改指定文件的属性。<br>语法：<code>attrib[文件名][r][—r][a][—a][h][—h][—s]</code></p>
+</li>
+<li><p><code>del</code><br>作用：删除指定的文件。<br>语法：<code>del[盘符：][路径]〈文件名〉[/p]</code></p>
+</li>
+</ul>
+<h2 id="4-程序状态与配置"><a href="#4-程序状态与配置" class="headerlink" title="4 程序状态与配置"></a>4 程序状态与配置</h2><ul>
+<li><p><code>ipconfig</code><br>作用：ipconfig这个命令查看计算机当前的网络配置信息。<br>ps：Ipconfig /all：完全显示计算机的网络信息，IP地址、MAC地址及其他相关的信息，都可以显示出来。<br>　　Ipconfig /release：释放计算机当前获得的IP地址。对于使用动态IP地址的单位来说，如果发现机器无法上网，而计算机从DHCP服务器处获得的IP地址等相关信息不完全，可以将该地址释放。<br>　　Ipconfig /renew：从DHCP服务器重新获得IP地址。释放了IP地址及相关信息之后，必须重新获得一个IP地址，直接输入此命令之后，便可以从DHCP服务器处获得一个IP地址。如果不用此命令，要想重新获得一个IP地址信息，需要重新启动计算机或注销计算机才行。</p>
+</li>
+<li><p><code>netstat</code><br>作用：netstat命令可以查看单位的网络是否被攻击。<br>语法：<code>netstat [-a][-n][-b]</code><br>PS：-a：显示所有连接和监听端口<br>　　-n：以数字形式显示地址和端口号<br>　　-b：显示包含于创建每个连接或监听端口的可执行组件。另外，使用该参数之后，还可以显示占用TCP协议端口的一些程序名称。</p>
+</li>
+<li><p><code>netstat -aon|findstr &quot;80&quot;</code><br>查看特定端口。</p>
+</li>
+<li><p><code>tasklist|findstr &quot;2448&quot;</code><br>查看此 pid 的进程。</p>
+</li>
+<li><p><code>tasklist</code><br>作用：将整个计算机的进程显示出来，同任务管理器。<br>语法：tasklist</p>
+</li>
+<li><p><code>kill -f 进程名</code> 加-f参数后强制结束某进程（为系统的附加工具，默认是没有安装的，在安装目录的support/tools文件夹内）</p>
+</li>
+<li><p><code>ntsd</code><br>作用：ntsd 是一条dos命令，功能是用于结束一些常规下结束不了的死进程。<br>使用：<br>1.利用进程的PID结束进程<br>命令格式：ntsd -c q -p pid<br>命令范例：ntsd -c q -p 1332 （结束explorer.exe进程）<br>2.利用进程名结束进程<br>命令格式：ntsd -c q -pn .exe （.exe 为进程名，exe不能省）<br>命令范例：ntsd -c q -pn explorer.exe<br>3.taskkill结束进程<br>命令格式：taskkill /pid 1234 /f （ 也可以达到同样的效果）</p>
+</li>
+</ul>
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5 其他"></a>5 其他</h2><ul>
+<li><p><code>ping</code></p>
+</li>
+<li><p><code>tracert</code></p>
+</li>
+<li><p><code>arp</code></p>
+</li>
+<li><p><code>shutdown</code></p>
+</li>
+<li><p><code>net</code><br><code>net view</code>:使用此命令查看远程主机的所有共享资源。命令格式为net view \IP。<br><code>net use</code>：把远程主机的某个共享资源影射为本地盘符，图形界面方便使用。命令格式为net use x: \IP\sharename。<br><code>net start</code>：使用它来启动远程主机上的服务。用法：net start servername<br><code>net stop</code>：入侵后发现远程主机的某个服务碍手碍脚，怎么办？利用这个命令停掉就ok了，用法和net start同。<br><code>net user</code>：查看和帐户有关的情况，包括新建帐户、删除帐户、查看特定帐户、激活帐户、帐户禁用等。<br>1，net user abcd 1234 /add，新建一个用户名为abcd，密码为1234的帐户，默认为user组成员。<br>2，net user abcd /del，将用户名为abcd的用户删除。<br>3，net user abcd /active:no，将用户名为abcd的用户禁用。<br>4，net user abcd /active:yes，激活用户名为abcd的用户。<br>5，net user abcd，查看用户名为abcd的用户的情况<br><code>net localgroup</code>：查看所有和用户组有关的信息和进行相关操作。<br><code>net time</code>：这个命令可以查看远程主机当前的时间。</p>
+</li>
+<li><p><code>at</code><br>必须正在开启Task scheduler服务才能使用 at 命令。可以在命令窗口中输入net start schedule启动它。<br>作用：这个命令的作用是安排在特定日期或时间执行某个特定的命令和程序。<br>用法：at time command \computer</p>
+</li>
+<li><p><code>ftp</code><br>作用：首先在命令行键入ftp回车，出现ftp的提示符，这时候可以键入“help”来查看帮助（任何DOS命令都可以使用此方法查看其帮助）。<br>1.ftp<br>2.open 主机IP ftp端口<br>3.录入用户名和密码，就可以进行相应操作了。<br>dir 跟DOS命令一样，用于查看服务器的文件，直接敲上dir回车，就可以看到此ftp服务器上的文件。<br>cd 进入某个文件夹。<br>get 下载文件到本地机器。<br>put 上传文件到远程服务器。这就要看远程ftp服务器是否给了你可写的权限了，如果可以，呵呵，该怎么 利用就不多说了，大家就自由发挥去吧。<br>delete 删除远程ftp服务器上的文件。这也必须保证你有可写的权限。<br>bye 退出当前连接。<br>quit 同上。</p>
+</li>
+<li><p><code>telnet</code></p>
+</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/10/06/Windows-批处理/" data-toggle="tooltip" data-placement="top"
+                           title="Windows 批处理">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/09/28/Python-语言学习-强化（下）/" data-toggle="tooltip" data-placement="top"
+                           title="Python 语言学习 强化（下）">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-DOS-常用命令"><span class="toc-text">一 DOS 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-目录命令"><span class="toc-text">1 目录命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-磁盘命令"><span class="toc-text">2 磁盘命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-文件命令"><span class="toc-text">3 文件命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-程序状态与配置"><span class="toc-text">4 程序状态与配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-其他"><span class="toc-text">5 其他</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#操作系统命令与脚本"
+                           title="操作系统命令与脚本">操作系统命令与脚本</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
