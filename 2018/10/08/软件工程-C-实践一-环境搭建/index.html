@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -213,7 +213,7 @@
 </li>
 <li><p>让 Ubuntu 以 root 身份登陆：<a href="https://jingyan.baidu.com/article/fedf0737a7d77835ac897796.html" target="_blank" rel="noopener">参考文章</a> 。</p>
 </li>
-<li><p>更改命令行的提示符颜色</p>
+<li><p>更改命令行的提示符颜色：将配置放在 <code>~/.bashrc</code> 文件中。 <a href="https://jingyan.baidu.com/article/ac6a9a5e2e2e852b653eac0b.html" target="_blank" rel="noopener">参考教程</a></p>
 </li>
 </ul>
 <ol start="2">
@@ -237,9 +237,19 @@
 </ol>
 <ul>
 <li>先将宿主机建立用于练习的工程文件夹，在属性中设置为共享（查看本机的共享文件夹在，计算机&gt;管理&gt;共享文件夹）；</li>
-<li>可能要修复破损的依赖关系 <code>apt-get -f install</code>；安装 sambaclient <code>sudo apt-get install smbclient</code>、<code>apt-get install cifs-utils</code>；</li>
+<li>可能要修复破损的依赖关系 <code>apt-get -f install</code>；安装 sambaclient 等 <code>sudo apt-get install smbclient</code>、<code>apt-get install cifs-utils</code>；</li>
 <li>然后将此文件夹挂载到虚拟机中,先在 /mnt 目录下创建挂载文件夹 <code>mkdir sharecode</code>，挂载命令 <code>mount -t cifs //192.168.50.114/secode /mnt/sharecode/ -o username=mo,password=12345</code>，不行加上 <code>,vers=2.0</code>。</li>
 <li>卸载 <code>umount /mnt/sharecode</code> ；自动挂载，在文件 /etc/rc.local 添加 <code>mount -t cifs //192.168.50.114/secode /mnt/sharecode/ -o username=mo,password=12345,vers=2.0</code></li>
+</ul>
+<ol start="5">
+<li>创建一个 c 文件，编译输出 Hello World。</li>
+</ol>
+<ul>
+<li>创建编辑文件写程序 <code>vi test.c</code> ，保存退出；</li>
+<li>编译成可执行文件 <code>gcc test.c -o hello</code> ；</li>
+<li>执行该文件 <code>./hello</code>（点代表当前目录。）；</li>
+<li>打包 <code>tar -cvzf mywork.tar.gz ./hello</code> ;</li>
+<li>解压 <code>tar -xvzf mywork.tar.gz</code> 。</li>
 </ul>
 
                 <hr>
