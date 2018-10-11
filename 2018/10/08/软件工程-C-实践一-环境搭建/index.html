@@ -79,7 +79,9 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
 							
 						
                     
@@ -93,9 +95,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -223,9 +223,9 @@
 <ul>
 <li><code>ssh localhost</code> 查看是否安装了 SSH；</li>
 <li>没安装用 <code>apt-get install openssh-server</code> 安装；</li>
-<li>注意源是否可用 <code>apt-get update</code>、<code>apt-get upgrade</code> 来更新升级，还不行在网上找源添加 <code>vi /etc/apt/sources.list</code> 后再次更新升级；</li>
+<li>注意源是否可用 <code>apt-get update</code>、<code>apt-get upgrade</code> 来更新升级，还不行在网上找源添加 <code>vi /etc/apt/sources.list</code> 后再次更新升级（多半是源的问题，找到对应操作系统版本的源，推荐清华大学的镜像。）；</li>
 <li>开启服务与查看状态用 <code>service ssh start</code>、<code>ps -s | grep ssh</code>；</li>
-<li>允许 root 用户远程登陆 <code>vi /etc/ssh/sshd_config</code> 加入一行 <code>PermitRootLogin yes</code>；</li>
+<li>允许 root 用户远程登陆 <code>vi /etc/ssh/sshd_config</code> 加入一行 <code>PermitRootLogin yes</code> 并注释掉不用密码登陆；</li>
 <li>将 SSH 加入开机自启，打开 <code>/etc/rc.local</code> 文件，在 exit 0 语句前加入<br><code>/etc/init.d/ssh start</code>；</li>
 <li>使用命令 <code>ip addr</code> 查看 ip 地址，用 Termius 填入相关信息后登陆。</li>
 </ul>
