@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        有关文档与说明的工具｜Mo&#39;s blog
+        项目管理协作与文档｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/11/有关文档与说明的工具/">
+    <link rel="canonical" href="https://marlous.github.io/2018/06/12/项目管理协作与文档/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,12 +171,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>有关文档与说明的工具</h1>
+                    <h1>项目管理协作与文档</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-10-11
+                          日期 2018-06-12
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            有关文档与说明的工具
+            项目管理协作与文档
         </span>
     </div>
 </header>
@@ -202,20 +202,63 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>用 Doxygen 自动生成项目开发文档。<br>接口管理工具。</p>
+                <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><h2 id="1-完整实践流程"><a href="#1-完整实践流程" class="headerlink" title="1 完整实践流程"></a>1 完整实践流程</h2><ol>
+<li>项目管理与协作：</li>
+</ol>
+<ul>
+<li>用项目管理软件（如禅道）管理项目；</li>
+<li>或用 slack、trello （还有如 Teambition 等）等用于敏捷开发项目管理；</li>
+<li>或项目管理软件与 slack、trello 配合使用。</li>
+</ul>
+<ol start="2">
+<li>文档编写：</li>
+</ol>
+<ul>
+<li>编写软件开发过程中的文档（详见软件开发文档完整版文档模板），不同开发阶段不同版本的文档。</li>
+<li>编写软件项目具体的产品文档；用 Doxygen、API 管理工具等方法（详见有关文档与说明的工具）。</li>
+</ul>
+<h2 id="2-项目管理工作流"><a href="#2-项目管理工作流" class="headerlink" title="2 项目管理工作流"></a>2 项目管理工作流</h2><p><img src="/2018/06/12/项目管理协作与文档/图1.PNG" alt="项目管理"></p>
+<h1 id="二-项目管理协作"><a href="#二-项目管理协作" class="headerlink" title="二 项目管理协作"></a>二 项目管理协作</h1><h2 id="1-项目管理"><a href="#1-项目管理" class="headerlink" title="1 项目管理"></a>1 项目管理</h2><p>禅道 <a href="https://www.zentao.net/" target="_blank" rel="noopener">https://www.zentao.net/</a></p>
+<h2 id="2-协作"><a href="#2-协作" class="headerlink" title="2 协作"></a>2 协作</h2><ol>
+<li><p>Trello<br>Trello 官方教程：<a href="https://trello.com/guide/getting-started.html" target="_blank" rel="noopener">参考教程</a><br>Trello 视频教程：<a href="https://www.bilibili.com/video/av24923748?from=search&amp;seid=2170617053234298395" target="_blank" rel="noopener">参考教程</a></p>
+</li>
+<li><p>Slack<br>Slack 教程：<a href="https://get.slack.help/hc/en-us/categories/360000049043-getting-started" target="_blank" rel="noopener">参考教程</a><br>Slack 中文教程：<a href="http://www.360doc.com/content/16/0320/22/3710471_543918615.shtml" target="_blank" rel="noopener">参考教程</a></p>
+</li>
+<li><p>补充 Trello 与 Slack 协作</p>
+</li>
+</ol>
+<ul>
+<li><p>添加：<br>将 Trello 的某个团队添加到一个 Slack 的 Workspaces，<a href="https://trello.com/platforms/slack" target="_blank" rel="noopener">https://trello.com/platforms/slack</a><br>在 Slack 中的 Apps 添加 Trello（Trello bot）。<br><img src="/2018/06/12/项目管理协作与文档/图2.PNG" alt="添加 Trello bot"></p>
+</li>
+<li><p>可以在 Trello 中选择看板通知发送到 Slack 中的某个 channels。<br><img src="/2018/06/12/项目管理协作与文档/图3.PNG" alt="trello 通知到 channels"></p>
+</li>
+</ul>
+<h1 id="三-文档"><a href="#三-文档" class="headerlink" title="三 文档"></a>三 文档</h1><h2 id="1-软件开发文档"><a href="#1-软件开发文档" class="headerlink" title="1 软件开发文档"></a>1 软件开发文档</h2><blockquote>
+<p>参考文档：<a href="https://wenku.baidu.com/view/fdcb8993d5bbfd0a79567358.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/fdcb8993d5bbfd0a79567358.html</a></p>
 </blockquote>
-<h1 id="用-Doxygen-自动生成项目开发文档"><a href="#用-Doxygen-自动生成项目开发文档" class="headerlink" title="用 Doxygen 自动生成项目开发文档"></a>用 Doxygen 自动生成项目开发文档</h1><h1 id="接口管理工具"><a href="#接口管理工具" class="headerlink" title="接口管理工具"></a>接口管理工具</h1><p>RAP 接口管理工具。<br>crapApi 接口管理工具。</p>
+<p>文档分类（项目包括如下几类文档）:<br>项目管理文档：《软件项目计划》、《项目进度报告》、《项目开发总结报告》<br>软件开发文档：《需求规格说明》、《概要设计说明》、《详细设计说明》、《测试计划》、《软件测试分析报告》。<br>产品文档：《用户操作手册》、《演示文件》。</p>
+<h2 id="2-软件源码文档"><a href="#2-软件源码文档" class="headerlink" title="2 软件源码文档"></a>2 软件源码文档</h2><p>一些自动化工具。</p>
+<ol>
+<li><p>用 Doxygen 自动生成项目开发文档<br>教程参考博文：<a href="https://blog.csdn.net/chenyujing1234/article/details/19115319" target="_blank" rel="noopener">https://blog.csdn.net/chenyujing1234/article/details/19115319</a></p>
+</li>
+<li><p>接口管理工具<br>RAP 接口管理工具。 <a href="https://github.com/thx/RAP" target="_blank" rel="noopener">https://github.com/thx/RAP</a><br>crapApi 接口管理工具。</p>
+</li>
+</ol>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
+                    <li class="previous">
+                        <a href="/2018/06/13/Git-工作流/" data-toggle="tooltip" data-placement="top"
+                           title="Git 工作流">&larr; Previous Post</a>
+                    </li>
+                    
                     
                     <li class="next">
-                        <a href="/2018/10/11/软件开发文档完整模板/" data-toggle="tooltip" data-placement="top"
-                           title="软件开发文档完整模板">Next Post &rarr;</a>
+                        <a href="/2018/06/12/HTML-基础/" data-toggle="tooltip" data-placement="top"
+                           title="HTML 基础">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -231,7 +274,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用-Doxygen-自动生成项目开发文档"><span class="toc-text">用 Doxygen 自动生成项目开发文档</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#接口管理工具"><span class="toc-text">接口管理工具</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-完整实践流程"><span class="toc-text">1 完整实践流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目管理工作流"><span class="toc-text">2 项目管理工作流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-项目管理协作"><span class="toc-text">二 项目管理协作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-项目管理"><span class="toc-text">1 项目管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-协作"><span class="toc-text">2 协作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-文档"><span class="toc-text">三 文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-软件开发文档"><span class="toc-text">1 软件开发文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-软件源码文档"><span class="toc-text">2 软件源码文档</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
