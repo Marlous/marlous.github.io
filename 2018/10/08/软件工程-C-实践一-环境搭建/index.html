@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        JavaScript 进阶二 内置对象｜Mo&#39;s blog
+        软件工程 C 实践一 环境搭建｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/07/07/JavaScript-进阶二-内置对象/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/08/软件工程-C-实践一-环境搭建/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>JavaScript 进阶二 内置对象</h1>
+                    <h1>软件工程 C 实践一 环境搭建</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-07-07
+                          日期 2018-10-08
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#JavaScript"
-                           title="JavaScript">JavaScript</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            JavaScript 进阶二 内置对象
+            软件工程 C 实践一 环境搭建
         </span>
     </div>
 </header>
@@ -202,151 +202,36 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一 简介"></a>一 简介</h1><p><img src="/2018/07/07/JavaScript-进阶二-内置对象/图1.PNG" alt="简介"><br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图2.PNG" alt="内容"><br>以下“常用方法”指“常用的原型方法”。</p>
-<h1 id="二-Object"><a href="#二-Object" class="headerlink" title="二 Object"></a>二 Object</h1><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图3.PNG" alt="Object"></p>
-</li>
-<li><p>常用方法：</p>
-</li>
+                <blockquote>
+<p>此笔记的公开课程为中国科学技术大学的《软件工程（C 编码实战）》</p>
+</blockquote>
+<ol>
+<li>准备：VM VirtualBox，及安装好的 Ubuntu 操作系统。</li>
 </ol>
 <ul>
-<li><p>Object.create<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图4.PNG" alt="Object.create"></p>
+<li><p>新安装的系统没给 root 设置密码会切换用户失败。<code>sudo passwd root</code> 给 root 设置密码，后 <code>su - root</code> 切换为 root 用户。</p>
 </li>
-<li><p>Object.prototype.toString<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图5.PNG" alt="Object.prototype.toString"></p>
-</li>
-<li><p>Object.prototype.hasOwnProperty<br>判断一个属性是自身属性，还是原型链上的属性。<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图6.PNG" alt="Object.prototype.hasOwnProperty"></p>
-</li>
-</ul>
-<h1 id="三-String、Number、Boolean"><a href="#三-String、Number、Boolean" class="headerlink" title="三 String、Number、Boolean"></a>三 String、Number、Boolean</h1><h2 id="1-Boolean"><a href="#1-Boolean" class="headerlink" title="1 Boolean"></a>1 Boolean</h2><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图7.PNG" alt="Boolean"></p>
-</li>
-<li><p>其他类型向布尔型转换：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图8.PNG" alt="其他类型向布尔型转换"></p>
-</li>
-</ol>
-<h2 id="2-String"><a href="#2-String" class="headerlink" title="2 String"></a>2 String</h2><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图9.PNG" alt="String"></p>
-</li>
-<li><p>常用方法：</p>
-</li>
-</ol>
-<ul>
-<li><p>String.prototype.indexOf<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图10.PNG" alt="String.prototype.indexOf"></p>
-</li>
-<li><p>String.prototype.replace<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图11.PNG" alt="String.prototype.replace"></p>
-</li>
-<li><p>String.prototype.split<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图12.PNG" alt="String.prototype.split"></p>
-</li>
-</ul>
-<h2 id="3-Number"><a href="#3-Number" class="headerlink" title="3 Number"></a>3 Number</h2><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图13.PNG" alt="Number"></p>
-</li>
-<li><p>常用方法：</p>
-</li>
-</ol>
-<ul>
-<li>Number.prototype.toFixed<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图14.PNG" alt="Number.prototype.toFixed"></li>
-</ul>
-<h1 id="四-Array"><a href="#四-Array" class="headerlink" title="四 Array"></a>四 Array</h1><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图15.PNG" alt="Array"></p>
-</li>
-<li><p>常用方法：</p>
-</li>
-</ol>
-<ul>
-<li><p>Array.prototype.splice<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图16.PNG" alt="Array.prototype.splice"></p>
-</li>
-<li><p>Array.prototype.forEach<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图17.PNG" alt="Array.prototype.forEach"></p>
-</li>
-</ul>
-<h1 id="五-Function"><a href="#五-Function" class="headerlink" title="五 Function"></a>五 Function</h1><ol>
-<li>概念：</li>
-</ol>
-<ul>
-<li><p><img src="/2018/07/07/JavaScript-进阶二-内置对象/图18.PNG" alt="Function"></p>
-</li>
-<li><p>自定义对象构造器：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图19.PNG" alt="自定义对象构造器"></p>
+<li><p>让 Ubuntu 以 root 身份登陆：<a href="https://jingyan.baidu.com/article/fedf0737a7d77835ac897796.html" target="_blank" rel="noopener">参考文章</a> 。</p>
 </li>
 </ul>
 <ol start="2">
-<li>常用方法：</li>
-</ol>
-<ul>
-<li><p>Function.prototype.apply<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图20.PNG" alt="Function.prototype.apply"></p>
+<li><p>注意虚拟机在网络设置里使用桥接（不使用 Host-only 和 NAT 模式），让虚拟机与主机处于同一局域网，让相互访问更加方便。</p>
 </li>
-<li><p>Function.prototype.bind<br>通过把返回值赋给变量 circlemove，然后用 setTimeout 函数让点推迟一定时间移动。<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图21.PNG" alt="Function.prototype.bind"></p>
-</li>
-</ul>
-<ol start="3">
-<li><p>子类构造器：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图22.PNG" alt="子类构造器"></p>
-</li>
-<li><p>函数调用的三种方式：</p>
+<li><p>使用 Termius 等客户端远程 SSH 登陆虚拟机来使用命令行，更加方便：</p>
 </li>
 </ol>
 <ul>
-<li>()</li>
-<li>apply，call 。指定函数调用者和参数。</li>
+<li><code>ssh localhost</code> 查看是否安装了 SSH；</li>
+<li>没安装用 <code>apt-get install openssh-server</code> 安装；</li>
+<li>注意源是否可用 <code>apt-get update</code>、<code>apt-get upgrade</code> 来更新升级，还不行在网上找源添加 <code>vi /etc/apt/sources.list</code> 后再次更新升级；</li>
+<li>开启服务与查看状态用 <code>service ssh start</code>、<code>ps -s | grep ssh</code>；</li>
+<li>允许 root 用户远程登陆 <code>vi /etc/ssh/sshd_config</code> 加入一行 <code>PermitRootLogin yes</code>；</li>
+<li>将 SSH 加入开机自启，打开 <code>/etc/rc.local</code> 文件，在 exit 0 语句前加入<br><code>/etc/init.d/ssh start</code>；</li>
+<li>使用命令 <code>ip addr</code> 查看 ip 地址，用 Termius 填入相关信息后登陆。</li>
 </ul>
-<ol start="5">
-<li><p>函数参数特点：<br>形参个数不一定等于实参个数。<br>值传递。<br>通过参数类型检查实现函数重载。</p>
-</li>
-<li><p>arguments<br>arguments 对象是在函数执行时函数内部生成的。<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图23.PNG" alt="arguments"></p>
-</li>
-<li><p>值传递：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图24.PNG" alt="值传递"></p>
-</li>
+<ol start="4">
+<li>搭建实验环境：</li>
 </ol>
-<h1 id="六-RegExp、Date、Error"><a href="#六-RegExp、Date、Error" class="headerlink" title="六 RegExp、Date、Error"></a>六 RegExp、Date、Error</h1><h2 id="1-RegExp"><a href="#1-RegExp" class="headerlink" title="1 RegExp"></a>1 RegExp</h2><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图25.PNG" alt="RegExp"></p>
-</li>
-<li><p>常用方法：</p>
-</li>
-</ol>
-<ul>
-<li>RegExp.protorype.test<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图26.PNG" alt="RegExp.protorype.test"></li>
-</ul>
-<h2 id="2-Date"><a href="#2-Date" class="headerlink" title="2 Date"></a>2 Date</h2><ol>
-<li>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图27.PNG" alt="Date"></li>
-</ol>
-<h2 id="3-Error"><a href="#3-Error" class="headerlink" title="3 Error"></a>3 Error</h2><p>N/A</p>
-<h1 id="七-Math、JSON"><a href="#七-Math、JSON" class="headerlink" title="七 Math、JSON"></a>七 Math、JSON</h1><h2 id="1-Math"><a href="#1-Math" class="headerlink" title="1 Math"></a>1 Math</h2><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图28.PNG" alt="Math"></p>
-</li>
-<li><p>常用方法：</p>
-</li>
-</ol>
-<ul>
-<li><p>Math.floor<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图29.PNG" alt="Math.floor"></p>
-</li>
-<li><p>Math.random<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图30.PNG" alt="Math.random"></p>
-</li>
-</ul>
-<h2 id="2-JSON"><a href="#2-JSON" class="headerlink" title="2 JSON"></a>2 JSON</h2><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图31.PNG" alt="JSON"></p>
-</li>
-<li><p>常用方法：</p>
-</li>
-</ol>
-<ul>
-<li><p>JSON.stringify<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图32.PNG" alt="JSON.stringify"></p>
-</li>
-<li><p>JSON.parse<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图33.PNG" alt="JSON.parse"></p>
-</li>
-</ul>
-<h1 id="八-全局对象"><a href="#八-全局对象" class="headerlink" title="八 全局对象"></a>八 全局对象</h1><ol>
-<li><p>概念：<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图34.PNG" alt="全局对象"></p>
-</li>
-<li><p>几个重要的属性和方法：</p>
-</li>
-</ol>
-<ul>
-<li><p>NaN<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图35.PNG" alt="NaN"></p>
-</li>
-<li><p>parseInt<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图36.PNG" alt="parseInt"></p>
-</li>
-<li><p>eval<br>示例代码，将字符串转成 JSON 对象。<br>通常不建议使用此函数。<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图37.PNG" alt="eval"></p>
-</li>
-<li><p>encodedURIComponent<br><img src="/2018/07/07/JavaScript-进阶二-内置对象/图38.PNG" alt="encodedURIComponent"></p>
-</li>
-</ul>
 
                 <hr>
                 
@@ -354,14 +239,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/07/12/JavaScript-进阶三-变量作用域/" data-toggle="tooltip" data-placement="top"
-                           title="JavaScript 进阶三 变量作用域">&larr; Previous Post</a>
+                        <a href="/2018/10/10/计算机专业职业路径与技能树（持续更新）/" data-toggle="tooltip" data-placement="top"
+                           title="计算机专业职业路径与技能树（持续更新）">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/07/05/JavaScript-进阶一-概述/" data-toggle="tooltip" data-placement="top"
-                           title="JavaScript 进阶一 概述">Next Post &rarr;</a>
+                        <a href="/2018/10/06/Windows-批处理（Windows-平台）/" data-toggle="tooltip" data-placement="top"
+                           title="Windows 批处理（Windows 平台）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -377,7 +262,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-简介"><span class="toc-text">一 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Object"><span class="toc-text">二 Object</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-String、Number、Boolean"><span class="toc-text">三 String、Number、Boolean</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Boolean"><span class="toc-text">1 Boolean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-String"><span class="toc-text">2 String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Number"><span class="toc-text">3 Number</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Array"><span class="toc-text">四 Array</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-Function"><span class="toc-text">五 Function</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-RegExp、Date、Error"><span class="toc-text">六 RegExp、Date、Error</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-RegExp"><span class="toc-text">1 RegExp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Date"><span class="toc-text">2 Date</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Error"><span class="toc-text">3 Error</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-Math、JSON"><span class="toc-text">七 Math、JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Math"><span class="toc-text">1 Math</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-JSON"><span class="toc-text">2 JSON</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-全局对象"><span class="toc-text">八 全局对象</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
@@ -399,8 +284,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#JavaScript"
-                           title="JavaScript">JavaScript</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </section>
