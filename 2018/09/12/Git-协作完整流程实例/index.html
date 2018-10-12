@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        计算机专业本科课程体系汇总｜Mo&#39;s blog
+        Git 协作完整流程实例｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/11/计算机专业本科课程体系汇总/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/12/Git-协作完整流程实例/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>计算机专业本科课程体系汇总</h1>
+                    <h1>Git 协作完整流程实例</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-09-11
+                          日期 2018-09-12
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#知识图谱与方法论"
-                           title="知识图谱与方法论">知识图谱与方法论</a>
+                        <a class="tag" href="/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            计算机专业本科课程体系汇总
+            Git 协作完整流程实例
         </span>
     </div>
 </header>
@@ -202,41 +202,57 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>本课程体系知识图谱来自网易云课堂：<a href="https://study.163.com/curricula/cs.htm" target="_blank" rel="noopener">https://study.163.com/curricula/cs.htm</a> 。<br>本博文所选其对应的具体课程不完全和网易云课堂相同；<br>选取了添加了部分个人认为更加简洁易懂使用，更加全面或更有深度的同类课程。</p>
-</blockquote>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="1-数学课程小结"><a href="#1-数学课程小结" class="headerlink" title="1 数学课程小结"></a>1 数学课程小结</h2><ul>
-<li>高等数学</li>
-<li>线性代数</li>
-<li>概率论与数理统计</li>
-<li>离散数学</li>
-</ul>
-<h2 id="2-专业课核心课程小结"><a href="#2-专业课核心课程小结" class="headerlink" title="2 专业课核心课程小结"></a>2 专业课核心课程小结</h2><p>可直接使用王道考研辅导系列教材。</p>
+                <h1 id="一-实例描述"><a href="#一-实例描述" class="headerlink" title="一 实例描述"></a>一 实例描述</h1><p>现有 A、B 两个程序员合作写一个 Hello World 程序。<br>A 创建主库，B 为协作者。<br>A 写的程序为 Hello Word；B 将获取后修改为 Hello World 提交；A 创建分支测试，成功后合并到主分支。</p>
+<h1 id="二-具体流程"><a href="#二-具体流程" class="headerlink" title="二 具体流程"></a>二 具体流程</h1><p>已安装好 git，并设置好用户名称、邮箱，SSH 公钥已添加至 GitHub。</p>
+<ol>
+<li>程序员 A 本地创建仓库 AREP，远端创建仓库并关联后推送远端,作为中心仓库：</li>
+</ol>
 <ul>
-<li>计算机组成原理</li>
-<li>操作系统</li>
-<li>数据结构</li>
-<li>计算机网络</li>
+<li>本地创建仓库：创建文件夹 AREP，在文件夹内用 Git Bash，<code>git init</code>。</li>
+<li>远端创建仓库：登陆 GitHub 使用网页创建仓库 AREPTEST。</li>
+<li>本地仓库与远端仓库关联：<code>git remote add origin git@github.com:Marlous/AREPTEST.git</code> (一个项目可以同时拥有好几个远端仓库为了能够区分，通常会起不同的名字。通常主远端仓库被称为 origin。</li>
+<li>获取合并：<code>git pull origin master 如（git pull [remote-name] [branch-name]）</code>。</li>
+<li>编写程序、提交并做成版本：<code>git add -A 多次添加某个文件（git add &lt;file&gt;）</code>、<code>git commit -m &quot;fixed&quot;</code>。</li>
+<li>推送到远端：<code>git push origin master 如（git push [remote-name] [branch-name]）</code>。</li>
 </ul>
-<h2 id="3-专业课通识课程小结"><a href="#3-专业课通识课程小结" class="headerlink" title="3 专业课通识课程小结"></a>3 专业课通识课程小结</h2><ul>
-<li>数据库系统概论</li>
-<li>软件工程</li>
+<ol start="2">
+<li>程序员 B 直接将其 clone 到本地，直接提交 A 的远程仓库(或 fork 一份自己的远程仓库，克隆到本地，提交到自己的远程仓库，然后 pull request 到 A 的远程仓库)：</li>
+</ol>
+<ul>
+<li>克隆 A 的仓库：<code>git clone git@github.com:Marlous/AREPTEST.git</code>。</li>
 </ul>
-<h1 id="一-大一课程"><a href="#一-大一课程" class="headerlink" title="一 大一课程"></a>一 大一课程</h1><h2 id="1-C-语言程序设计"><a href="#1-C-语言程序设计" class="headerlink" title="1 C 语言程序设计"></a>1 C 语言程序设计</h2><ol>
-<li><p>程序设计入门—C语言：<a href="https://mooc.study.163.com/course/1000002011#/info" target="_blank" rel="noopener">https://mooc.study.163.com/course/1000002011#/info</a></p>
+<ol start="3">
+<li>程序员 B 创建特性分支，修改文件和提交分支，pull request：</li>
+</ol>
+<ul>
+<li>程序员 B 创建特性分支并切换分支：<code>git branch fix</code>、<code>git checkout fix</code>。</li>
+<li>修改了文件后提交到远端：<code>git push -u origin fix</code>，-u 标记将它添加为远程跟踪的分支。（记得 add 和 commit）。</li>
+<li>如果完成了本次任务再次提交：<code>git push</code>。</li>
+<li>然后在 Git 界面上发起了一个 pull request，一起讨论审核代码。</li>
+</ul>
+<ol start="4">
+<li>测试 pull request，并确认合并：</li>
+</ol>
+<ul>
+<li>A 程序员切换到将要被合并的分支（确保代码是最新的用 <code>git pull</code>）直接合并 <code>git pull origin fix</code>，结束；或创建临时测试分支并切换到临时测试分支。</li>
+<li>获取同时合并到临时测试分支 <code>git pull origin fix</code>（或从 B 的远程仓库获取）。</li>
+<li>测试没问题后将 fix 分支合并到想要接受合并的分支（同意 pull request），删除临时分支；有问题则反馈问题等待修改完成。</li>
+</ul>
+<ol start="5">
+<li>注意：<br>搞清楚分支情况，搞清楚哪些分支需要更新合并，搞清楚哪个分支向哪个分支更新合并，<code>git log --graph</code>。</li>
+</ol>
+<h1 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h1><p><img src="/2018/09/12/Git-协作完整流程实例/图1.PNG" alt="流程图"></p>
+<ol>
+<li><p>项目管理者创建 master 分支，在 master 分支上创建 dev 分支。</p>
 </li>
-<li><p>C语言程序设计进阶：<a href="https://mooc.study.163.com/course/1000004000#/info" target="_blank" rel="noopener">https://mooc.study.163.com/course/1000004000#/info</a></p>
+<li><p>任务分配给不同的人员（不同特性），不同人员克隆 dev 分支（或克隆此项目），在此 dev 分支上创建自己的分支（然后可以提交自己的分支到 dev 上备份，远程跟踪分支 <code>git push -u origin feature</code>）。</p>
+</li>
+<li><p>完成自己的任务，更新本地 dev 分支，将任务分支与本地 dev 分支合并，测试完成，然后推到远端 dev 分支。（团队需要 pull request 的话，完成自己的任务后，发起任务分支与远端 dev 分支合并的 pull request 等被合并即可，然后更新本地 dev 分支；或者有问题，需要先更新本地 dev 分支合并到自己的任务分支，处理完问题后再 pull request，见 4）。</p>
 </li>
 </ol>
-<h2 id="2-Python-语言程序设计"><a href="#2-Python-语言程序设计" class="headerlink" title="2 Python 语言程序设计"></a>2 Python 语言程序设计</h2><ul>
-<li>程序设计入门—Python：<a href="https://mooc.study.163.com/course/1000002017#/info" target="_blank" rel="noopener">https://mooc.study.163.com/course/1000002017#/info</a></li>
-<li>Python 语言程序设计：<a href="http://www.icourse163.org/learn/BIT-268001?tid=1002235009#/learn/announce" target="_blank" rel="noopener">http://www.icourse163.org/learn/BIT-268001?tid=1002235009#/learn/announce</a></li>
-</ul>
-<h2 id="3-Java-语言程序设计"><a href="#3-Java-语言程序设计" class="headerlink" title="3 Java 语言程序设计"></a>3 Java 语言程序设计</h2><ol>
-<li><p>程序设计入门—Java语言：<a href="https://mooc.study.163.com/course/1000002014#/info" target="_blank" rel="noopener">https://mooc.study.163.com/course/1000002014#/info</a></p>
-</li>
-<li><p>Java语言程序设计进阶：<a href="https://mooc.study.163.com/course/1000004001#/info" target="_blank" rel="noopener">https://mooc.study.163.com/course/1000004001#/info</a></p>
-</li>
+<p>注意：不需要 pull request 时，将自己的任务分支合并到更新的本地 dev 分支，然后推到远端主 dev 分支;需要 pull request 时，将更新的本地 dev 分支合并到自己的任务分支，然后请求合并到远端主 dev 分支。</p>
+<ol start="4">
+<li>团队需要 pull request 的话，管理者收到 pull request，先在主 dev 分支上创建临时分支，然后获取请求的分支并与临时分支合并，测试没问题即接受请求，有问题则在 pull request 中讨论和解决问题，然后管理者接受合并到主 dev 分支。</li>
 </ol>
 
                 <hr>
@@ -245,14 +261,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/09/12/Git-协作完整流程实例/" data-toggle="tooltip" data-placement="top"
-                           title="Git 协作完整流程实例">&larr; Previous Post</a>
+                        <a href="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/" data-toggle="tooltip" data-placement="top"
+                           title="MySQL 学习笔记 四 安全性与完整性">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/09/10/MySQL-学习笔记-三-数据查询/" data-toggle="tooltip" data-placement="top"
-                           title="MySQL 学习笔记 三 数据查询">Next Post &rarr;</a>
+                        <a href="/2018/09/11/计算机专业本科课程体系汇总/" data-toggle="tooltip" data-placement="top"
+                           title="计算机专业本科课程体系汇总">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -268,7 +284,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数学课程小结"><span class="toc-text">1 数学课程小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-专业课核心课程小结"><span class="toc-text">2 专业课核心课程小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-专业课通识课程小结"><span class="toc-text">3 专业课通识课程小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一-大一课程"><span class="toc-text">一 大一课程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-C-语言程序设计"><span class="toc-text">1 C 语言程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Python-语言程序设计"><span class="toc-text">2 Python 语言程序设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Java-语言程序设计"><span class="toc-text">3 Java 语言程序设计</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-实例描述"><span class="toc-text">一 实例描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-具体流程"><span class="toc-text">二 具体流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-总结"><span class="toc-text">三 总结</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -290,8 +306,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#知识图谱与方法论"
-                           title="知识图谱与方法论">知识图谱与方法论</a>
+                        <a class="tag" href="/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </section>
