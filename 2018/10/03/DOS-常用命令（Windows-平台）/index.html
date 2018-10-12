@@ -205,6 +205,12 @@
                 <h1 id="一-DOS-常用命令"><a href="#一-DOS-常用命令" class="headerlink" title="一 DOS 常用命令"></a>一 DOS 常用命令</h1><h2 id="1-目录命令"><a href="#1-目录命令" class="headerlink" title="1 目录命令"></a>1 目录命令</h2><ul>
 <li><p><code>命令 /?</code><br>作用：查看该命令帮助。</p>
 </li>
+<li><p>将旧文件夹 A 替换为新文件夹 A：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rd /S /Q D:\A</span><br><span class="line">D:</span><br><span class="line">cd D:\document</span><br><span class="line">mkdir A </span><br><span class="line">xcopy /E C:\A D:\document\A</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>先删除整个 D 盘旧 A 文件夹；进入 D 盘并创建文件夹 A；将新 A 文件夹中的所有内容复制过去（命令可以删除整个文件夹，但复制只能复制某个文件夹中的全部内容）。</p>
+<ul>
 <li><p><code>md/mkdir</code><br>作用：创建一个子目录（make directory）。<br>语法：<code>md[C:][path]〈subPath〉</code></p>
 </li>
 <li><p><code>cd</code><br>作用：改变或显示当前目录（change directory）。<br>语法：<code>cd [C:][path]</code><br>PS：路径可以使用绝对路径和相对路径两种。<br>cd\ 表示退回到根目录。<br>cd.. 表示退回到上级目录。<br>如果只有cd而没有参数，则只显示当前路径。<br>注意：子目录中一定有两个“特殊目录”，即“.”“..”，其中一点表示当前目录，两点表示上一层目录。<br>从简单实用的角度来看，我们只要学会逐层进入（cd 下一层某目录名），和逐层退出（cd..）就可以解决所有问题。</p>
