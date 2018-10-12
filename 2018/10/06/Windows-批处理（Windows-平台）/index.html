@@ -203,9 +203,59 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考文章：<a href="http://www.cn-dos.net/newdos/dosuse.htm#dosbat" target="_blank" rel="noopener">http://www.cn-dos.net/newdos/dosuse.htm#dosbat</a></p>
+<p>参考文章：<a href="http://www.cn-dos.net/newdos/dosuse.htm#dosbat" target="_blank" rel="noopener">http://www.cn-dos.net/newdos/dosuse.htm#dosbat</a><br>参考文章：<a href="https://baike.baidu.com/item/%E6%89%B9%E5%A4%84%E7%90%86/1448600?fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
 </blockquote>
-
+<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><p>批处理是一种简化的脚本语言，也称作宏。它应用于 DOS 和 Windows 系统中，它是由 DOS 或者 Windows 系统内嵌的命令解释器（通常是 COMMAND. COM 或者 CMD.EXE）解释运行。类似于 Unix 中的 Shell 脚本。</p>
+<h1 id="二-具体命令"><a href="#二-具体命令" class="headerlink" title="二 具体命令"></a>二 具体命令</h1><h2 id="1-命令"><a href="#1-命令" class="headerlink" title="1 命令"></a>1 命令</h2><ul>
+<li><p><code>echo</code>：<br><code>echo on 或 echo off</code> 来打开或关闭回显，<code>echo off</code> 等效 <code>@</code>，但它是一个单独的命令，而不能像@那样放在其它命令之前，常在开头用 <code>@echo off</code> 不显示批处理过程。<br>显示指定的信息。通常显示在屏幕上。在实际应用中我们会把这条命令和重定向符号结合来实现输入一些命令到特定的文件中。</p>
+</li>
+<li><p><code>rem</code>：<br>用来注释。</p>
+</li>
+<li><p><code>pause</code>：<br>暂停，会挂起批处理。显示 Press any key to continue</p>
+</li>
+<li><p><code>call</code>：<br>从一个批处理程序调用另一个批处理程序，调用完后继续执行原来的批文件,是调用，可以相互传值。<br>例 <code>call c:\document\test.bat</code></p>
+</li>
+<li><p><code>start</code><br>调用外部程序，所有的 DOS 命令和命令行程序都可以由 start 命令来调用，是执行，只能单向传值给被调用程序。<br>例 <code>start calc.exe</code></p>
+</li>
+<li><p><code>goto</code>：<br>程序指针跳转到指定的标签，从标签后的第一条命令开始继续执行批处理程序。<br>例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">goto labeltest</span><br><span class="line">:labeltest</span><br><span class="line">XXX</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>set</code>：<br>显示、设置或删除变量。<br>显示变量：set 或 set s 前者显示批处理当前已定义的所有变量及其值，后者显示所有以 s 开头的变量及值。<br>设置和调用变量：<code>set a=7</code>，调用变量加百分号 <code>echo %a%</code></p>
+</li>
+<li><p><code>choice</code>:<br>选择语句。<br>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set /p choice=是否显示当前时间？（y/n)</span><br><span class="line">if /i not %choice% EQU n echo 当前时间是：%date% %time%</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-符号"><a href="#2-符号" class="headerlink" title="2 符号"></a>2 符号</h2><ul>
+<li><p><code>@</code>：<br>不显示此条命令。<code>echo off</code> 不显示所有命令。</p>
+</li>
+<li><p><code>&gt; 和 &gt;&gt;</code>：<br>将输出信息重定向到指定的设备或文件。系统默认输出到显示器。后者为追加。</p>
+</li>
+<li><p><code>&lt;</code>：<br>将输入信息来源重定向为指定的设备或文件。系统默认从显示器读取输入信息。<br>例：从 a.txt 文件输入给变量 input，注意 set 命令有个参数 /p</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">set /p input=&lt;a.txt</span><br><span class="line">echo content:</span><br><span class="line">echo %input%</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>|</code>：<br>管道命令，将管道符号前面命令的输出结果重定向输出到管道符号后面的命令中去，作为后面命令的输入。</p>
+</li>
+<li><p><code>^</code>：<br>转义符。<br>例 <code>echo aaaa^&gt;test.txt</code></p>
+</li>
+<li><p><code>&amp;、&amp;&amp;、||</code>：<br><code>&amp;</code>：它的作用是用来连接多个 DOS 命令，并把这些命令按顺序执行，而不管是否有命令执行失败。<br><code>&amp;&amp;</code>：当 <code>&amp;&amp;</code> 前面的命令成功执行时，执行 <code>&amp;&amp;</code> 后面的命令，否则不执行。<br><code>||</code>：当 <code>||</code> 前面的命令失败时，执行 <code>||</code> 后面的命令，否则不执行。</p>
+</li>
+</ul>
+<h1 id="三-语句结构"><a href="#三-语句结构" class="headerlink" title="三 语句结构"></a>三 语句结构</h1><h2 id="1-if-语句"><a href="#1-if-语句" class="headerlink" title="1 if 语句"></a>1 if 语句</h2><ol>
+<li><p>字符串比较：<br><code>/i</code> 则不区分字符串大小写；选择 <code>not</code> 项，则对判断结果进行逻辑非。<br>== 等于，EQU 等于，NEQ 不等于，LSS 小于，LEQ 小于或等于，GTR 大于，GEQ 大于或等于。<br>也可以用数学符号，但注意要转义。</p>
+</li>
+<li><p>存在判断：<br>存在判断的功能是判断文件或文件夹是否存在。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if not exist filename (command1) else (command2)</span><br><span class="line">rem 单个命令可不加括号。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义判断：<br>定义判断的功能是判断变量是否存在，即是否已被定义。<br>例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set var=111</span><br><span class="line">if defined var (echo var=%var%) else echo var尚未定义！</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果判断:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">masm test.asm</span><br><span class="line">if errorlevel 1 pause &amp; edit test.asm</span><br><span class="line">link %1.obj</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>先对源代码进行汇编，如果失败则暂停显示错误信息，并在按任意键后自动进入编辑界面；否则用 link 程序连接生成的 obj 文件，这种用法是先判断前一个命令执行后的返回码（也叫错误码，DOS 程序在运行完后都有返回码），如果和定义的错误码符合（这里定义的错误码为 1），则执行相应的操作（这里相应的操作为 pause &amp; edit %1.asm 部分）。</p>
+<h2 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h2>
                 <hr>
                 
 
@@ -235,7 +285,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-具体命令"><span class="toc-text">二 具体命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-命令"><span class="toc-text">1 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-符号"><span class="toc-text">2 符号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-语句结构"><span class="toc-text">三 语句结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-if-语句"><span class="toc-text">1 if 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for-语句"><span class="toc-text">for 语句</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
