@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/13/双系统原理与安装（Windows、Deepin）/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/14/双系统原理与安装（Windows、Deepin）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -176,7 +176,7 @@
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-10-13
+                          日期 2018-10-14
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -214,7 +214,7 @@
 <ol start="2">
 <li>分区：一块硬盘进行高级格式化（逻辑分区），方便管理。（低级格式化为分磁道扇区）。主流分区机制为 MBR、GPT 两种。分区个数取决于分区表所能存储的描述磁盘分区的情况。</li>
 </ol>
-<p>MBR：最多 4 个主分区，或者 3 个主分区加 1 个扩展分区，扩展分区中的逻辑分区可分多个。由磁盘操作系统对硬盘进行初始化时产生的。<br><img src="/2018/10/13/双系统原理与安装（Windows、Deepin）/图1.PNG" alt="MBR 结构"></p>
+<p>MBR：最多 4 个主分区，或者 3 个主分区加 1 个扩展分区，扩展分区中的逻辑分区可分多个。由磁盘操作系统对硬盘进行初始化时产生的。<br><img src="/2018/10/14/双系统原理与安装（Windows、Deepin）/图1.PNG" alt="MBR 结构"></p>
 <p>GPT：一个较新的分区机制，解决了 MBR 很多缺点。向后兼容 MBR，必须在 UEFI 硬件上使用，必须为 64 位系统，Mac、Linux 都支持 GPT 分区格式。</p>
 <ol start="3">
 <li>Linux 分区：<br>/ 根分区、swap 交换分区。<br>可以给根分区加密保证物理安全，会丧失性能；可以给引导加密码（可进入单用户模式清除 root 密码）。</li>
@@ -239,14 +239,23 @@
 <li>Wubi 安装：不需要考虑引导，如支持 Wubi 安装。如同 Windows 操作系统里的其他软件一样安装卸载 Linux。</li>
 </ul>
 <ol start="3">
-<li>补充用 U 盘安装后，改为 MBR 引导 GRUB：<a href="https://www.cnblogs.com/sikewang/p/4609527.html" target="_blank" rel="noopener">参考教程</a></li>
+<li>补充用 U 盘安装后，改为 MBR 引导 GRUB：<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=133745" target="_blank" rel="noopener">参考教程</a></li>
 </ol>
 <ul>
-<li>打开 EasyBCD 软件（手动加载备份的引导文件，装双系统前备份的）。</li>
-<li>用 EasyBCD 配置，添加 GRUB 条目。调整 Windows 引导、GRUB 顺序，保存。<br><img src="/2018/10/13/双系统原理与安装（Windows、Deepin）/图2.PNG" alt="EasyBCD 配置 1"><br><img src="/2018/10/13/双系统原理与安装（Windows、Deepin）/图3.PNG" alt="EasyBCD 配置 2"></li>
-<li>用 MbrFix.exe 将 GRUB 覆盖掉。进入 MbrFix.exe 所在位置，管理员权限命令行 <code>MbrFix /drive 0 fixmbr /yes</code>。</li>
+<li>先恢复 MBR 引导。使用 U 启动盘（老毛桃 PE）进入 PE，用 NTBOOTautofix 修复 MBR；然后用 DiskGenius，选择 C 盘，分区 &gt; 激活当前分区 &gt; 保存更改。</li>
+<li>用 EasyBCD 配置，添加 GRUB 条目。（调整 Windows 引导、GRUB 顺序）保存。<br><img src="/2018/10/14/双系统原理与安装（Windows、Deepin）/图2.PNG" alt="EasyBCD 配置 1"><br><img src="/2018/10/14/双系统原理与安装（Windows、Deepin）/图3.PNG" alt="EasyBCD 配置 2"></li>
 </ul>
 <p>（删除 Linux 导致 windows 进入不了，也可以进入 PE 系统用 diskgenius 重建 MBR 解决。）</p>
+<ol start="4">
+<li>实测情况：</li>
+</ol>
+<ul>
+<li>用 U 盘安装后正常，改为 MBR 引导（第 3 点的方法第一条，恢复 MBR 引导）正常进入 Windows，但进入后用 EasyBCD 添加 Linux 引导后并未出现在开机管理程序选项中（无选项直接进入 Windows）失败。如果不想改为 MBR 引导直接用，下次在删除 Linux 前，依然使用恢复 MBR 引导的方法，然后删除其分区。</li>
+<li>可改用第二种方法不用 U 盘安装，<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=158334&amp;extra=" target="_blank" rel="noopener">教程文档</a>。</li>
+</ul>
+<ol start="5">
+<li>总结：用 U 盘安装，下次不想使用 Linux 前，用 PE 恢复 MBR 引导或用 EasyUEFI 删除其启动项（前 BIOS+MBR，后 UEFI+GPT 情况），然后进 Windows 删除其分区。参考：<a href="https://wiki.deepin.org/wiki/%E7%B3%BB%E7%BB%9F%E5%8D%B8%E8%BD%BD" target="_blank" rel="noopener">Windows 下卸载</a></li>
+</ol>
 
                 <hr>
                 
