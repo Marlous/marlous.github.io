@@ -227,20 +227,26 @@
 </ol>
 <ul>
 <li>一般先安装 Windows，后装 Linux，安装 Linux 会自动配置好引导，反过来 Windows 比较霸道会覆盖掉 Linux 的引导。</li>
-<li>最好用 MBR 去引导 GRUB，以免反过来在删除 Linux 后（由于 GRUB 被删除）出问题,U 盘安装方法会导致反过来。（用 EasyBCD 配置，添加条目，调整 Windows 引导、GRUB 顺序，MbrFix.exe 将 GRUB 覆盖掉。<a href="https://www.cnblogs.com/sikewang/p/4609527.html" target="_blank" rel="noopener">参考教程</a>；删除 Linux 导致 windows 进入不了，也可以进入 PE 系统用 diskgenius 重建 MBR 解决。）</li>
+<li>最好用 MBR 去引导 GRUB，以免反过来在删除 Linux 后（由于 GRUB 被删除）出问题,U 盘安装方法会导致反过来。</li>
 <li>用 EasyBCD 备份好引导文件。</li>
 </ul>
 <ol start="2">
 <li>安装过程：Wubi 安装最简单稳妥；U 盘安装其次简单；不用 U 盘比较复杂和 Wubi 一样稳妥。</li>
 </ol>
 <ul>
-<li>U 盘安装：Windows 下准备好划分出一定的磁盘空间；用 UltraISO 解压出其中的 deepin-boot-maker.exe，用它来制作 U 盘映像；设置 BIOS 启动顺序等其他配置；安装 Linux 后重启；进入 Windows 用 EasyBCD 配置好引导问题（如果无法进入 Linux 的话需此步，U 盘安装是 Grub 引导 MBR，可用 EasyBCD 重新设置顺序<a href="https://www.cnblogs.com/sikewang/p/4609527.html" target="_blank" rel="noopener">参考教程</a>）。</li>
+<li>U 盘安装：Windows 下准备好划分出一定的磁盘空间；用 UltraISO 解压出其中的 deepin-boot-maker.exe，用它来制作 U 盘映像；设置 BIOS 启动顺序等其他配置；安装 Linux 后重启；进入 Windows 用 EasyBCD 配置好引导问题（如果无法进入 Linux 的话需此步。U 盘安装是 Grub 引导 MBR，可用 EasyBCD 重新设置顺序）。</li>
 <li>不用 U 盘（参见安装教程 2）：Windows 下准备好划分出一定的磁盘空间；用 EasyBCD 配置好引导问题；重启电脑，就可以找到新添加的 NeoGrub 启动项，选中它启动 live 版本 deepin 安装。</li>
 <li>Wubi 安装：不需要考虑引导，如支持 Wubi 安装。如同 Windows 操作系统里的其他软件一样安装卸载 Linux。</li>
 </ul>
 <ol start="3">
-<li>补充引导问题解决方法（EasyBCD 使用）：<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=158334&amp;extra=" target="_blank" rel="noopener">参考 1</a>、<a href="https://www.cnblogs.com/bluestorm/p/3310941.html" target="_blank" rel="noopener">参考 2</a> </li>
+<li>补充用 U 盘安装后，改为 MBR 引导 GRUB：<a href="https://www.cnblogs.com/sikewang/p/4609527.html" target="_blank" rel="noopener">参考教程</a></li>
 </ol>
+<ul>
+<li>打开 EasyBCD 软件（手动加载备份的引导文件，装双系统前备份的）。</li>
+<li>用 EasyBCD 配置，添加 GRUB 条目。调整 Windows 引导、GRUB 顺序，保存。<br><img src="/2018/10/13/双系统原理与安装（Windows、Deepin）/图2.PNG" alt="EasyBCD 配置 1"><br><img src="/2018/10/13/双系统原理与安装（Windows、Deepin）/图3.PNG" alt="EasyBCD 配置 2"></li>
+<li>用 MbrFix.exe 将 GRUB 覆盖掉。进入 MbrFix.exe 所在位置，管理员权限命令行 <code>MbrFix /drive 0 fixmbr /yes</code>。</li>
+</ul>
+<p>（删除 Linux 导致 windows 进入不了，也可以进入 PE 系统用 diskgenius 重建 MBR 解决。）</p>
 
                 <hr>
                 
