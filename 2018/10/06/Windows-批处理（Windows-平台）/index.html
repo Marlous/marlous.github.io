@@ -79,6 +79,14 @@
                     
                         
 							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
 								
 							
 						
@@ -87,14 +95,6 @@
 							
                         <li>
                             <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -203,7 +203,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考文章：<a href="http://www.cn-dos.net/newdos/dosuse.htm#dosbat" target="_blank" rel="noopener">http://www.cn-dos.net/newdos/dosuse.htm#dosbat</a><br>参考文章：<a href="https://baike.baidu.com/item/%E6%89%B9%E5%A4%84%E7%90%86/1448600?fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
+<p>参考文章：<a href="http://www.cn-dos.net/newdos/dosuse.htm#dosbat" target="_blank" rel="noopener">http://www.cn-dos.net/newdos/dosuse.htm#dosbat</a><br>参考文章：<a href="https://baike.baidu.com/item/%E6%89%B9%E5%A4%84%E7%90%86/1448600?fr=aladdin" target="_blank" rel="noopener">百度百科</a><br>参考文章：<a href="https://www.jb51.net/article/93171.htm" target="_blank" rel="noopener">脚本之家</a></p>
 </blockquote>
 <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><p>批处理是一种简化的脚本语言，也称作宏。它应用于 DOS 和 Windows 系统中，它是由 DOS 或者 Windows 系统内嵌的命令解释器（通常是 COMMAND. COM 或者 CMD.EXE）解释运行。类似于 Unix 中的 Shell 脚本。</p>
 <h1 id="二-具体命令"><a href="#二-具体命令" class="headerlink" title="二 具体命令"></a>二 具体命令</h1><h2 id="1-命令"><a href="#1-命令" class="headerlink" title="1 命令"></a>1 命令</h2><ul>
@@ -255,7 +255,26 @@
 </li>
 </ol>
 <p>先对源代码进行汇编，如果失败则暂停显示错误信息，并在按任意键后自动进入编辑界面；否则用 link 程序连接生成的 obj 文件，这种用法是先判断前一个命令执行后的返回码（也叫错误码，DOS 程序在运行完后都有返回码），如果和定义的错误码符合（这里定义的错误码为 1），则执行相应的操作（这里相应的操作为 pause &amp; edit %1.asm 部分）。</p>
-<h2 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h2>
+<h2 id="2-for-语句"><a href="#2-for-语句" class="headerlink" title="2 for 语句"></a>2 for 语句</h2><p><code>for /参数 %%变量 in (集) do 命令</code>（命令行用一个百分号，批处理中一定用两个。），分四种参数 D L R F，并且有的参数还可附加另外的选项。</p>
+<p>for 命令会在每次循环中，把 in (集) 中读取到的值赋于这个变量，以便其后的命令中引用。<br>由系列文件、字符串或由命令产生的内容形成的集合（当然可用通配符 * ？，还可引用环境变量），for 命令是按一定顺序和规律分次读取集中内容，赋值给变量，并执行 do 后的命令，进行循环下一轮，直至集中内容读取完毕。</p>
+<ul>
+<li>/d 参数是指定仅对目录而不是文件。例 <code>for /d %%a in (c:\*) do echo %a</code> 表示列出 c 盘根目录下的目录。</li>
+<li>/r 此参数后可以带有路径，在 /r 之后的那个路径，指包含它之下的整个目录树。</li>
+<li>/l <code>for /L %%变量 in (起始值，每次增值，结束时的比较值) do 命令</code>，例:在 D 盘建立 aa1~ aa5 五个文件夹 <code>for /L %%i in (1,1,5) do mk d:\aa%%i</code>。</li>
+<li>/f 会打开（集）里的文件，使 for 命令能处理文本文件的读取和添加删除替换等编辑性的操作。 /f 后还可跟参数，无则默认以空格为分隔。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">假定d:\abc.txt内容如下：</span><br><span class="line">姓名 性别 年龄 等-级</span><br><span class="line">张三 男 36   A-1</span><br><span class="line">李四 男 29   B-2</span><br><span class="line">赵六 女 31   A-2</span><br><span class="line"></span><br><span class="line">/f 后无参数：</span><br><span class="line">for /f %c in (d:\abc.txt) do @echo %c</span><br><span class="line">则屏幕上显示：</span><br><span class="line">姓名</span><br><span class="line">张三</span><br><span class="line">李四</span><br><span class="line">赵六</span><br><span class="line"></span><br><span class="line">/f 后有参数：</span><br><span class="line">for /f “skip=1 tokens=1,4 delims= ” %c in (d:\abc.txt) do @echo %c %d</span><br><span class="line">显示为：</span><br><span class="line">张三 A-1</span><br><span class="line">李四 B-2</span><br><span class="line">赵六 A-2</span><br><span class="line"></span><br><span class="line">按需要是否“忽略几行”（skip=）、“用什么刀来切分”（delims= ）始终空格都会被切分、“最多只需取哪几段”（tokens=）将集里形成的字符串,逐行地分段赋给 % 或 %% 后的变量及可能顺延扩展出的变量，以执行 do 后的命令，每一行即为一轮循环。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="四-字符串"><a href="#四-字符串" class="headerlink" title="四 字符串"></a>四 字符串</h1><ul>
+<li>截取字符串：<code>%string:~0,5%</code> 表示从第 0 个字符开始，长度为 5。</li>
+<li>替换字符串中的某个字符：<code>%string:hi=hello%</code> 表示将 string 变量的字符串中的 hi 换成 hello。</li>
+<li>字符串合并：直接写在一起，<code>%string1%%string2%</code>。</li>
+<li>扩充字符串：扩充”这个词汇来自于微软自己的翻译，意思就是对表示文件路径的字符串进行特殊的处理，该路径字符串变量用 <code>%x</code> 表示，例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">echo 完全路径：%0</span><br><span class="line">echo 去掉引号：%~0</span><br><span class="line">echo 所在分区：%~d0</span><br><span class="line">echo 所处路径：%~p0</span><br><span class="line">echo 文件名：%~n0</span><br><span class="line">echo 扩展名：%~x0</span><br><span class="line">echo 文件属性：%~a0</span><br><span class="line">echo 修改时间：%~t0</span><br><span class="line">echo 文件大小：%~z0</span><br><span class="line">其中的 %0 是批处理里面的参数，代表当前运行的批处理的完全路径。类似的还有 %1-%9，分别代表传递来的第 1-9 个参数。</span><br><span class="line"></span><br><span class="line">凡是 %~ 打头的操作符，都是文件名或环境变量的分离操作。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="五-数值计算"><a href="#五-数值计算" class="headerlink" title="五 数值计算"></a>五 数值计算</h1><p>和 C 语言类似。</p>
+<h1 id="六-传递参数"><a href="#六-传递参数" class="headerlink" title="六 传递参数"></a>六 传递参数</h1><p>传参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例：把参数传给 test.bat</span><br><span class="line">call test.bat a b c</span><br></pre></td></tr></table></figure></p>
+<p>接收参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">例：test.bat 的内容，用 %1 %2 ... %9 来对应传入的参数。</span><br><span class="line">rem 输出传入的参数 a b c</span><br><span class="line">echo %1 %2 %3</span><br></pre></td></tr></table></figure></p>
+
                 <hr>
                 
 
@@ -285,7 +304,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-具体命令"><span class="toc-text">二 具体命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-命令"><span class="toc-text">1 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-符号"><span class="toc-text">2 符号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-语句结构"><span class="toc-text">三 语句结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-if-语句"><span class="toc-text">1 if 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for-语句"><span class="toc-text">for 语句</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-具体命令"><span class="toc-text">二 具体命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-命令"><span class="toc-text">1 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-符号"><span class="toc-text">2 符号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-语句结构"><span class="toc-text">三 语句结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-if-语句"><span class="toc-text">1 if 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-for-语句"><span class="toc-text">2 for 语句</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-字符串"><span class="toc-text">四 字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-数值计算"><span class="toc-text">五 数值计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-传递参数"><span class="toc-text">六 传递参数</span></a></li></ol>
                 </div>
             </div>
         </div>
