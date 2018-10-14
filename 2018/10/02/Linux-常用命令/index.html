@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,11 +202,20 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-用户与用户组"><a href="#一-用户与用户组" class="headerlink" title="一 用户与用户组"></a>一 用户与用户组</h1><h1 id="二-文件权限"><a href="#二-文件权限" class="headerlink" title="二 文件权限"></a>二 文件权限</h1><h1 id="三-目录"><a href="#三-目录" class="headerlink" title="三 目录"></a>三 目录</h1><h1 id="四-磁盘"><a href="#四-磁盘" class="headerlink" title="四 磁盘"></a>四 磁盘</h1><h1 id="五-软件管理"><a href="#五-软件管理" class="headerlink" title="五 软件管理"></a>五 软件管理</h1><ol>
+                <h1 id="一-用户与用户组"><a href="#一-用户与用户组" class="headerlink" title="一 用户与用户组"></a>一 用户与用户组</h1><h1 id="二-文件权限"><a href="#二-文件权限" class="headerlink" title="二 文件权限"></a>二 文件权限</h1><h1 id="三-目录"><a href="#三-目录" class="headerlink" title="三 目录"></a>三 目录</h1><ul>
+<li>压缩与解压：tar<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tar</span><br><span class="line">-c 创建.tar格式的文件</span><br><span class="line">-x 解开.tar格式的文件</span><br><span class="line">-f 使用归档文件</span><br><span class="line">-v 显示详细信息</span><br><span class="line">-t 查看包内文件</span><br><span class="line">-j 使用baip2程序</span><br><span class="line">-z 使用gzip程序</span><br><span class="line"></span><br><span class="line">-p 打包时保留文件及目录的权限</span><br><span class="line">-P 打包时保留文件及目录的绝对路径</span><br><span class="line">-C 释放的目的地</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="四-磁盘"><a href="#四-磁盘" class="headerlink" title="四 磁盘"></a>四 磁盘</h1><h1 id="五-软件管理"><a href="#五-软件管理" class="headerlink" title="五 软件管理"></a>五 软件管理</h1><ol>
 <li>源码包安装软件：解压、编译、安装：</li>
 </ol>
 <ul>
-<li></li>
+<li><p>解压：<a href="https://blog.csdn.net/xiongchun11/article/details/53939402" target="_blank" rel="noopener">参考博文</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">*.tar 用 tar –xvf 解压</span><br><span class="line">*.gz 用 gzip -d 或者 gunzip 解压</span><br><span class="line">*.tar.gz 和 *.tgz 用 tar –xzf 解压</span><br><span class="line">*.bz2 用 bzip2 -d 或者用 bunzip2 解压</span><br><span class="line">*.tar.bz2 用 tar –xjf 解压</span><br><span class="line">*.Z 用 uncompress 解压</span><br><span class="line">*.tar.Z 用 tar –xZf 解压</span><br><span class="line">*.rar 用 unrar e 解压</span><br><span class="line">*.zip 用 unzip 解压</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译与安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">先进入目标软件的文件夹</span><br><span class="line">./configure --prefix=/opt/filename</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <ol start="2">
 <li><p>编译好的软件压缩包：直接解压后放入 /opt 目录，运行该软件文件夹中的可执行文件。</p>
