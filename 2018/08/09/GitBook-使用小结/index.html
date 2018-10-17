@@ -203,12 +203,9 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>此小结是使用 GUI 的小结，不使用命令行。<br>GitBook 的使用和 GitHub 的使用非常相似，其客户端为 GitBook Editor。<br>以下用制作一本书从零到发布到 GitBook 全过程为例介绍怎样使用 GitBook。<br>我的 GitBook 主页：<a href="https://legacy.gitbook.com/@marlous" target="_blank" rel="noopener">https://legacy.gitbook.com/@marlous</a></p>
-</blockquote>
-<blockquote>
 <p>网页版使用教程：<a href="https://www.jianshu.com/p/4731abc562e7" target="_blank" rel="noopener">参考博文</a><br>本地 GUI 使用教程：<a href="https://blog.csdn.net/duanbiren123/article/details/80190489" target="_blank" rel="noopener">参考博文</a><br>本地命令行使用及生成 PDF 教程：<a href="https://www.jianshu.com/p/09a1cac0a0d0" target="_blank" rel="noopener">参考博文</a><br>本地编译成 PDF 或其他格式：<a href="https://www.jianshu.com/p/d8286217b401" target="_blank" rel="noopener">参考博文</a></p>
 </blockquote>
-<h1 id="一-准备"><a href="#一-准备" class="headerlink" title="一 准备"></a>一 准备</h1><ol>
+<h1 id="一-网站与客户端生成"><a href="#一-网站与客户端生成" class="headerlink" title="一 网站与客户端生成"></a>一 网站与客户端生成</h1><h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1 准备"></a>1 准备</h2><ol>
 <li><p>注册 GitBook，安装 GitBook Editor 并登陆。</p>
 </li>
 <li><p>可以直接使用网页版创建并发布；可以在本地创建并在网页版创建后使用 Git HTTPS 将本地与远程仓库关联；可以远端创建后直接在 GitBook Editor 客户端中打开。<br><img src="/2018/08/09/GitBook-使用小结/图0.PNG" alt="网页版创建"><br><img src="/2018/08/09/GitBook-使用小结/图1.PNG" alt="Git HTTPS"></p>
@@ -216,13 +213,38 @@
 <li><p>注：title 下的路径即为本书面向公共的访问路径（直接访问本书内容）。本地客户端和网页版均无法输入中文的书名（title），在网页版的书主页设置中可更改为中文书名。<br><img src="/2018/08/09/GitBook-使用小结/图2.PNG" alt="更改为中文书名"></p>
 </li>
 </ol>
-<h1 id="二-使用"><a href="#二-使用" class="headerlink" title="二 使用"></a>二 使用</h1><ol>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><ol>
 <li><p>在编辑中右上角 Publish 为发布。<br><img src="/2018/08/09/GitBook-使用小结/图3.PNG" alt="Publish 发布"></p>
 </li>
 <li><p>若发布失败可在书主页的 UPDATES 中按哈希选择重新发布。<br><img src="/2018/08/09/GitBook-使用小结/图4.PNG" alt="Restart this build"></p>
 </li>
 </ol>
-<h1 id="三-补充之本地编译"><a href="#三-补充之本地编译" class="headerlink" title="三 补充之本地编译"></a>三 补充之本地编译</h1>
+<h1 id="二-本地编译生成"><a href="#二-本地编译生成" class="headerlink" title="二 本地编译生成"></a>二 本地编译生成</h1><h2 id="1-安装、更新与卸载"><a href="#1-安装、更新与卸载" class="headerlink" title="1 安装、更新与卸载"></a>1 安装、更新与卸载</h2><ul>
+<li><p>安装环境：Node.js</p>
+</li>
+<li><p>安装 GitBook：<code>npm install -g gitbook-cli</code></p>
+</li>
+<li><p>检查是否安装成功：<code>gitbook -V</code></p>
+</li>
+<li><p>更新 GitBook：<code>gitbook update</code></p>
+</li>
+<li><p>卸载 GitBook：<code>npm uninstall -g gitbook</code></p>
+</li>
+<li><p>安装 GitBook Editor，用于图形化编辑文档。</p>
+</li>
+<li><p>安装 Calibre：用于生成 PDF（用到此软件的 ebook-convert）。配置环境变量，Calibre 安装目录，（Windows 下会自动配置好）。</p>
+</li>
+</ul>
+<h2 id="2-编译"><a href="#2-编译" class="headerlink" title="2 编译"></a>2 编译</h2><p>用 GitBook Editor 编写完成后。</p>
+<ul>
+<li><p>命令行进入该书目录，Windows 下默认为 <code>C:\Users\UserX\GitBook\Library\Import\XXX</code></p>
+</li>
+<li><p>预览测试：<code>gitbook serve</code>，浏览器打开 <code>http://localhost:4000</code>（control + c 停止）。</p>
+</li>
+<li><p>生成 PDF：<code>gitbook pdf</code></p>
+</li>
+</ul>
+
                 <hr>
                 
 
@@ -252,7 +274,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-准备"><span class="toc-text">一 准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-使用"><span class="toc-text">二 使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-补充之本地编译"><span class="toc-text">三 补充之本地编译</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-网站与客户端生成"><span class="toc-text">一 网站与客户端生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-准备"><span class="toc-text">1 准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用"><span class="toc-text">2 使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-本地编译生成"><span class="toc-text">二 本地编译生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装、更新与卸载"><span class="toc-text">1 安装、更新与卸载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-编译"><span class="toc-text">2 编译</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
