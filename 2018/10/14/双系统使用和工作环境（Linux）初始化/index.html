@@ -79,6 +79,12 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -98,12 +104,6 @@
                         <li>
                             <a href="/work/">works</a>
                         </li>
-							
-						
-                    
-                        
-							
-								
 							
 						
                     
@@ -212,6 +212,13 @@
 <h2 id="2-需要的最基本配置"><a href="#2-需要的最基本配置" class="headerlink" title="2 需要的最基本配置"></a>2 需要的最基本配置</h2><ul>
 <li><p>新安装的系统没给 root 设置密码会切换用户失败。<code>sudo passwd root</code> 给 root 设置密码，后 <code>su</code> 提升权限为 root 用户（<code>su - root</code> 切换为全新的 root 用户）。</p>
 </li>
+<li><p>更改 Grub 默认启动顺序，找到 Grub 配置文件（位置可能不同 Ubuntu 在 <code>/etc/default/grub</code>，CentOS 在 <code>/etc/grub.conf</code>）；GRUB_DEFAULT=0 设置（大同小异） ，如在选择界面查看为 N，则改为 N-1；设置完 <code>update-grub</code> 重新生成启动配置文件。</p>
+</li>
+<li><p>Grub 加密：CentOS 下，生成 md5 值 <code>grub-md5-crypt</code>（旧版本），在 <code>/etc/grub.conf</code> 中添加 <code>password --md5 生成的md5值</code>；新版本 Ubuntu 下，生成密码 <code>grub-mkpasswd-pbkdf2</code>，在 <code>/etc/grub.d/00_header</code> 中修改，<a href="https://help.ubuntu.com/community/Grub2/Passwords" target="_blank" rel="noopener">参考教程</a>。</p>
+</li>
+</ul>
+<p>打开/boot/grub/grub.cfg文件，找到想修改的地方，然后根据注释找到相应的/etc/default/grub或/etc/grub.d/ (folder)进行修改</p>
+<ul>
 <li><p>由于网络原因，可能需要更换源。推荐清华大学镜像（如 Ubuntu 的）：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
 </li>
 <li><p>更新源与更新软件：<code>apt-get update</code>、<code>apt-get upgrade</code></p>
