@@ -207,8 +207,8 @@
 <li>操作系统启动过程（双系统）：先执行 BIOS 程序去找硬盘；执行硬盘第一个扇区中 MBR 中的引导代码（boot loader 开机管理程序，其功能直接载入操作系统，提供不同开机选项，转交其他 loader）；MBR 中的 引导代码去执行用来引导 Linux 的 boot loader。</li>
 </ol>
 <ul>
-<li>双系统 Linux 大致启动过程：BIOS &gt; MBR（boot loader）&gt; Grub &gt; 装载 Linux 操作系统。</li>
-<li>Windows 大致启动过程：BIOS &gt; MBR（boot loader）&gt; 装载 Windows 操作系统。</li>
+<li>双系统 Linux 大致启动过程：BIOS &gt; MBR &gt; Grub &gt; 装载 Linux 操作系统（Grub 像 bootloader 一样装在 MBR）。</li>
+<li>Windows 大致启动过程：BIOS &gt; MBR &gt; bootloader &gt; 装载 Windows 操作系统。</li>
 <li>Windows 启动具体过程：BIOS &gt; MBR &gt; DPT &gt; pbr &gt; Bootmgr &gt; bcd &gt; Winload.exe &gt; 内核加载 &gt; 整个 Windows。</li>
 </ul>
 <ol start="2">
