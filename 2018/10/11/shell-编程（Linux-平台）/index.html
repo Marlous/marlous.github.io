@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -224,9 +224,9 @@
 <li><p>单行注释：<code>#</code></p>
 </li>
 <li><p>多行注释：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:&lt;&lt;符号</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">符号</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:&lt;&lt;符号</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">符号</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 例：EOF 也可以是 !、&apos;（感叹号、反引号等） 。</span><br><span class="line">:&lt;&lt;EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 <h2 id="2-接收参数"><a href="#2-接收参数" class="headerlink" title="2 接收参数"></a>2 接收参数</h2><ul>
 <li><p>$0 为执行的文件名，$1 到 $n 为第一个参数到第 n 个参数。</p>
@@ -236,31 +236,26 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$#   传递到脚本的参数个数。</span><br><span class="line">$*   以一个单字符串显示所有向脚本传递的参数。</span><br><span class="line">$$   脚本运行的当前进程 ID 号。</span><br><span class="line">$!   后台运行的最后一个进程的 ID 号。</span><br><span class="line">$@   与 $* 相同，但是使用时加引号，并在引号中返回每个参数。</span><br><span class="line">$-   显示 Shell 使用的当前选项，与 set 命令功能相同。</span><br><span class="line">$?   显示最后命令的退出状态。0 表示没有错误，其他任何值表明有错误。</span><br></pre></td></tr></table></figure>
 <h2 id="3-运算符"><a href="#3-运算符" class="headerlink" title="3 运算符"></a>3 运算符</h2><ol>
-<li>算术运算：</li>
-</ol>
+<li><p>算术运算：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加、减、乘、除、取模、赋值、相等、不相等。</span><br><span class="line">+ - * / % = == !=</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>关系运算符：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eq   检测两个数是否相等，相等返回 true。</span><br><span class="line">ne   检测两个数是否相等，相等返回 true。</span><br><span class="line">gt   检测左边的数是否大于右边的，如果是，则返回 true。</span><br><span class="line">lt   检测左边的数是否小于右边的，如果是，则返回 true。</span><br><span class="line">ge   检测左边的数是否大于等于右边的，如果是，则返回 true。</span><br><span class="line">le   检测左边的数是否小于等于右边的，如果是，则返回 true。</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>布尔运算符:</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!   非运算，表达式为 true 则返回 false，否则返回 true。</span><br><span class="line">o   或运算，有一个表达式为 true 则返回 true。</span><br><span class="line">a   与运算，两个表达式都为 true 才返回 true。</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>逻辑运算符:</li>
-</ol>
+</li>
+<li><p>关系运算符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-eq   检测两个数是否相等，相等返回 true。</span><br><span class="line">-ne   检测两个数是否相等，相等返回 true。</span><br><span class="line">-gt   检测左边的数是否大于右边的，如果是，则返回 true。</span><br><span class="line">-lt   检测左边的数是否小于右边的，如果是，则返回 true。</span><br><span class="line">-ge   检测左边的数是否大于等于右边的，如果是，则返回 true。</span><br><span class="line">-le   检测左边的数是否小于等于右边的，如果是，则返回 true。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>布尔（逻辑）运算符:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-!   非运算，表达式为 true 则返回 false，否则返回 true。</span><br><span class="line">-o   或运算，有一个表达式为 true 则返回 true。</span><br><span class="line">-a   与运算，两个表达式都为 true 才返回 true。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>逻辑运算符:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&amp;&amp;   逻辑与</span><br><span class="line">||   逻辑或</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>字符串运算符：</li>
-</ol>
+</li>
+<li><p>字符串运算符：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">=     检测两个字符串是否相等，相等返回 true。</span><br><span class="line">!=    检测两个字符串是否相等，不相等返回 true。</span><br><span class="line">-z    检测字符串长度是否为 0，为 0 返回 true。</span><br><span class="line">-n    检测字符串长度是否为 0，不为 0 返回 true。</span><br><span class="line">str   检测字符串是否为空，不为空返回 true。</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>文件测试运算符:</li>
-</ol>
+</li>
+<li><p>文件测试运算符:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-b file 	检测文件是否是块设备文件，如果是，则返回 true。   例： [-b $file] 或 test -b $file</span><br><span class="line">-c file 	检测文件是否是字符设备文件，如果是，则返回 true。</span><br><span class="line">-d file 	检测文件是否是目录，如果是，则返回 true。</span><br><span class="line">-f file 	检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。</span><br><span class="line">-g file 	检测文件是否设置了 SGID 位，如果是，则返回 true。</span><br><span class="line">-k file 	检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。</span><br><span class="line">-p file 	检测文件是否是有名管道，如果是，则返回 true。</span><br><span class="line">-u file 	检测文件是否设置了 SUID 位，如果是，则返回 true。</span><br><span class="line">-r file 	检测文件是否可读，如果是，则返回 true。</span><br><span class="line">-w file 	检测文件是否可写，如果是，则返回 true。</span><br><span class="line">-x file 	检测文件是否可执行，如果是，则返回 true。</span><br><span class="line">-s file 	检测文件是否为空（文件大小是否大于0），不为空返回 true。</span><br><span class="line">-e file 	检测文件（包括目录）是否存在，如果是，则返回 true。</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>shell 中的运算小结：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 用 expr 改变运算顺序</span><br><span class="line">echo `expr 1+2`</span><br><span class="line"></span><br><span class="line"># 用 let 指示数学运算</span><br><span class="line">b=let 1+2</span><br><span class="line"></span><br><span class="line"># 用 $[] 表示数学运算</span><br><span class="line">echo $[1+2]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>shell 中的运算小结：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 用 expr 改变运算顺序</span><br><span class="line">echo `expr 1+2`</span><br><span class="line"></span><br><span class="line"># 用 let 指示数学运算</span><br><span class="line">b=let 1+2</span><br><span class="line"></span><br><span class="line"># 用 $[] 表示数学运算</span><br><span class="line">echo $[1+2]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>示例：计算 S=3(xy)+4x2+5y+6<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">s=0              # 初始化一个变量</span><br><span class="line">t=`expr$1**$2`   # 用 expr 改变运算顺序，求x的y次</span><br><span class="line">t=$[t*3]         # t 乘以 3</span><br><span class="line">s=$[s+t]         # 结果相加</span><br><span class="line">t=$[$1**2]       # 求x的平方</span><br><span class="line">t=$[t*4]         # 结果乘以 4</span><br><span class="line">s=$[s+t]         # 结果相加</span><br><span class="line">t=`expr$2*5`     # 求5y的值</span><br><span class="line">s=$[s+t]         # 结果相加</span><br><span class="line">s=$[s+6]         # 结果加上 6</span><br><span class="line">echo$s           # 输出结果</span><br><span class="line">echo$((a%b))     # 取余</span><br></pre></td></tr></table></figure></p>
@@ -291,7 +286,7 @@
 </li>
 </ul>
 <ol start="2">
-<li>一些符号：</li>
+<li>一些符号：<a href="https://www.jb51.net/article/123081.htm" target="_blank" rel="noopener">参考资料</a></li>
 </ol>
 <ul>
 <li><p>表达式中包含了空格或其他特殊字符，则必须引起来。</p>
@@ -299,8 +294,13 @@
 <li><p>分号：多个语句之间的分割符号，当只有一个语句（或多行）的时候，末尾无需分号。</p>
 </li>
 <li><p>单小括号 <code>()</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">命令组:</span><br><span class="line">括号中的命令将会新开一个子 shell 顺序执行，所以括号中的变量不能够被脚本余下的部分使用。括号中多个命令之间用分号隔开，最后一个命令可以没有分号。</span><br><span class="line"></span><br><span class="line">命令替换:</span><br><span class="line">等同于 `cmd`，执行命令，用输出替换原命令位置。</span><br><span class="line"></span><br><span class="line">用于初始化数组:</span><br><span class="line">如：array=(a b c d)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>单中括号 <code>[]</code>：等同于 test 命令。</p>
+<li><p>双小括号 <code>(())</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单中括号 <code>[]</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bash 内部命令：</span><br><span class="line">等同于 test 命令。</span><br><span class="line">[] 中关系（整数）比较只能使用 -eq 这种形式。</span><br><span class="line">[] 中的逻辑与和逻辑或使用- a 和 -o 表示。</span><br><span class="line">[] 中可用字符串比较运算符只有 == 和 != 两种。</span><br><span class="line">无论是字符串比较还是整数比较都不支持大于号小于号。如果实在想用，对于字符串比较可以使用转义形式，如果比较 &quot;ab&quot; 和 &quot;bc&quot; 为 [ ab \&lt; bc ]，结果为真，也就是返回状态为 0。</span><br><span class="line"></span><br><span class="line">字符范围：</span><br><span class="line">用作正则表达式的一部分，test 中不能用正则。</span><br><span class="line"></span><br><span class="line">引用数组元素：</span><br><span class="line">引用数组中每个元素的编号。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="5-控制结构"><a href="#5-控制结构" class="headerlink" title="5 控制结构"></a>5 控制结构</h2><p>不可为空，else 无操作则不写。</p>
@@ -332,10 +332,9 @@
 <ol start="3">
 <li>break 与 continue</li>
 </ol>
-<h2 id="6-文件包含"><a href="#6-文件包含" class="headerlink" title="6 文件包含"></a>6 文件包含</h2><p>可以包含外部脚本。被包含的文件不需要可执行权限。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># filename 为含路径的文件名或当前文件夹 ./filename</span><br><span class="line">. filename</span><br><span class="line">或</span><br><span class="line">source filename</span><br></pre></td></tr></table></figure></p>
-<h2 id="7-输入输出与重定向"><a href="#7-输入输出与重定向" class="headerlink" title="7 输入输出与重定向"></a>7 输入输出与重定向</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 文件描述符 0 通常是标准输入（STDIN），1 是标准输出（STDOUT），2 是标准错误输出（STDERR）。</span><br><span class="line">command &gt; file 	  将输出重定向到 file。</span><br><span class="line">command &lt; file 	  将输入重定向到 file。</span><br><span class="line">command &gt;&gt; file   将输出以追加的方式重定向到 file。</span><br><span class="line">n &gt; file 	      将文件描述符为 n 的文件重定向到 file。</span><br><span class="line">n &gt;&gt; file 	      将文件描述符为 n 的文件以追加的方式重定向到 file。</span><br><span class="line">n &gt;&amp; m 	          将输出文件 m 和 n 合并。</span><br><span class="line">n &lt;&amp; m            将输入文件 m 和 n 合并。</span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line">&lt;&lt; tag         	  将开始标记 tag 和结束标记 tag 之间的内容作为输入。</span><br><span class="line">例：</span><br><span class="line">command &lt;&lt; tag</span><br><span class="line">    document</span><br><span class="line">tag</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------</span><br><span class="line">重定向到 /dev/null</span><br><span class="line">&gt; /dev/null</span><br><span class="line">command &gt; /dev/null 2&gt;&amp;1  # 屏蔽 stdout 和 stderr</span><br></pre></td></tr></table></figure>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">funname()</span><br><span class="line">&#123;</span><br><span class="line">    action;</span><br><span class="line">    return int;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="调用脚本"><a href="#调用脚本" class="headerlink" title="调用脚本"></a>调用脚本</h2><ul>
+<h2 id="6-输入输出与重定向"><a href="#6-输入输出与重定向" class="headerlink" title="6 输入输出与重定向"></a>6 输入输出与重定向</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 文件描述符 0 通常是标准输入（STDIN），1 是标准输出（STDOUT），2 是标准错误输出（STDERR）。</span><br><span class="line">command &gt; file 	  将输出重定向到 file。</span><br><span class="line">command &lt; file 	  将输入重定向到 file。</span><br><span class="line">command &gt;&gt; file   将输出以追加的方式重定向到 file。</span><br><span class="line">n &gt; file 	      将文件描述符为 n 的文件重定向到 file。</span><br><span class="line">n &gt;&gt; file 	      将文件描述符为 n 的文件以追加的方式重定向到 file。</span><br><span class="line">n &gt;&amp; m 	          将输出文件 m 和 n 合并。</span><br><span class="line">n &lt;&amp; m            将输入文件 m 和 n 合并。</span><br><span class="line"></span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line">&lt;&lt; tag         	  将开始标记 tag 和结束标记 tag 之间的内容作为输入。</span><br><span class="line">例：</span><br><span class="line">command &lt;&lt; tag</span><br><span class="line">    document</span><br><span class="line">tag</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------</span><br><span class="line">重定向到 /dev/null</span><br><span class="line">&gt; /dev/null</span><br><span class="line">command &gt; /dev/null 2&gt;&amp;1  # 屏蔽 stdout 和 stderr</span><br></pre></td></tr></table></figure>
+<h2 id="7-函数"><a href="#7-函数" class="headerlink" title="7 函数"></a>7 函数</h2><p>调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">funname()</span><br><span class="line">&#123;</span><br><span class="line">    action;</span><br><span class="line">    return int;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="8-调用脚本"><a href="#8-调用脚本" class="headerlink" title="8 调用脚本"></a>8 调用脚本</h2><ul>
 <li><p>fork: 如果脚本有执行权限的话为 <code>path/to/test.sh</code>；如果没有为 <code>sh path/to/test.sh</code>，子 Shell 中执行，子从父 Shell 单向继承环境变量，执行完返回。（类似于批处理中的 start）</p>
 </li>
 <li><p>source: <code>source path/to/test.sh</code>，同一个 Shell 中执行，环境变量可双向获取。（类似于批处理中的 call）</p>
@@ -373,7 +372,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-shell-注释模板"><span class="toc-text">一 shell 注释模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-运行-shell-脚本"><span class="toc-text">二 运行 shell 脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-shell-编程"><span class="toc-text">三 shell 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-变量"><span class="toc-text">1 变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接收参数"><span class="toc-text">2 接收参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-运算符"><span class="toc-text">3 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-一些命令与符号"><span class="toc-text">4 一些命令与符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-控制结构"><span class="toc-text">5 控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-文件包含"><span class="toc-text">6 文件包含</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-输入输出与重定向"><span class="toc-text">7 输入输出与重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用脚本"><span class="toc-text">调用脚本</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-shell-注释模板"><span class="toc-text">一 shell 注释模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-运行-shell-脚本"><span class="toc-text">二 运行 shell 脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-shell-编程"><span class="toc-text">三 shell 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-变量"><span class="toc-text">1 变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接收参数"><span class="toc-text">2 接收参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-运算符"><span class="toc-text">3 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-一些命令与符号"><span class="toc-text">4 一些命令与符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-控制结构"><span class="toc-text">5 控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-输入输出与重定向"><span class="toc-text">6 输入输出与重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-函数"><span class="toc-text">7 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-调用脚本"><span class="toc-text">8 调用脚本</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
