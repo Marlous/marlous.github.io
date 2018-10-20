@@ -79,6 +79,20 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/work/">works</a>
                         </li>
@@ -89,20 +103,6 @@
 							
                         <li>
                             <a href="/tags/">tags</a>
-                        </li>
-							
-						
-                    
-                        
-							
-								
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -254,7 +254,7 @@
 </li>
 <li><p>任务分配给不同的人员（不同特性），不同人员克隆 dev 分支（或克隆此项目），在此 dev 分支上创建自己的分支（然后可以提交自己的分支到远端备份让其他成员知道进度，远程跟踪分支 <code>git push -u origin feature</code>）。</p>
 </li>
-<li><p>不需要 pull request 时，将自己的任务分支合并到更新的本地 dev 分支，然后推到远端主 dev 分支;需要 pull request 时，将更新的本地 dev 分支合并到自己的任务分支，然后请求合并到远端主 dev 分支，然后见 4。<br>注：在开始下个任务前或任务中需注意更新自己本地的 dev 分支。</p>
+<li><p>更新本地 dev 分支，将更新的本地 dev 分支合并到自己的任务分支，得到要推送的分支，然（请求）合并到远端主 dev 分支；也可以 rebase 得到要推送的分支（rebase 和 merge 效果一样，但让之前的分支提交记录消失，让分支线看起来更清晰）。然后见 4。<br>注：在开始下个任务前或任务中需注意更新自己本地的 dev 分支。</p>
 </li>
 <li><p>团队需要 pull request 的话，管理者收到 pull request，先在主 dev 分支上创建临时分支，然后获取请求的分支并与临时分支合并，测试没问题即接受请求，有问题则在 pull request 中讨论和解决问题，然后管理者接受合并到主 dev 分支。</p>
 </li>
