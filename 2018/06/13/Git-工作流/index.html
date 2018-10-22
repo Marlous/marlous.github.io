@@ -79,6 +79,12 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -87,14 +93,8 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -220,7 +220,7 @@
 <li><p>合并分支，然后部署。<br>大家审核了 pull request 并通过测试，后合并到主分支上。</p>
 </li>
 </ol>
-<h1 id="三-详细-Github-flow"><a href="#三-详细-Github-flow" class="headerlink" title="三 详细 Github flow"></a>三 详细 Github flow</h1><ol>
+<h1 id="三-详细-Git-flow"><a href="#三-详细-Git-flow" class="headerlink" title="三 详细 Git flow"></a>三 详细 Git flow</h1><ol>
 <li><p>项目管理者创建 master 分支，在 master 分支上创建 dev 分支。</p>
 </li>
 <li><p>任务分配给不同的人员（不同特性）：</p>
@@ -239,10 +239,10 @@
 </li>
 </ol>
 <ul>
-<li>从远端主仓库获取，更新本地的 dev 分支；</li>
+<li>从远端主仓库获取，更新本地的 dev 分支，注意区别，<code>git pull</code>=<code>git fetch + git merge(rebase)</code>；</li>
 <li>可能要处理冲突；</li>
 <li>处理完冲突 commit，将更新后的本地 dev 分支 merge 到自己的任务分支，得到要推送的分支。也可以用 rebase 来将更新的本地 dev 分支与自己的特性分支合并，得到要推送的分支（rebase 和 merge 效果一样，但让之前的分支提交记录消失，让分支线看起来更清晰）。</li>
-<li>然后 pull request（然后进入第 5 点中第一步）；或由管理者创建临时分支合并测试，合并特性分支与被合并分支，删除临时分支，结束；或直接合并到远端主 dev 分支，结束。<br>注：在开始下个任务前或任务中需注意更新自己本地的 dev 分支。</li>
+<li>或然后 pull request（然后进入第 5 点中第一步）；<br>或等待由管理者创建临时分支合并测试，合并特性分支与被合并分支，删除临时分支，结束；<br>或直接合并到远端主 dev 分支（可能要加上 –force 参数强制推送代码，改变提交历史记录，慎用），结束。</li>
 </ul>
 <ol start="5">
 <li>团队需要 pull request，管理者收到 pull request：</li>
@@ -254,6 +254,9 @@
 <li>测试没问题后删除临时分支，接受 pull request。</li>
 <li>有问题则在 pull request 中讨论和解决问题，要求请求者解决，或管理者在临时分支上测试并解决后将此临时分支与被请求合并的分支合并，删除临时分支。</li>
 </ul>
+<ol start="6">
+<li>注：在开始下个任务前或任务中需注意更新自己本地的 dev 分支。</li>
+</ol>
 <h1 id="四-各分支使用"><a href="#四-各分支使用" class="headerlink" title="四 各分支使用"></a>四 各分支使用</h1><blockquote>
 <p>GitFlow：git 的最佳实践。<br>项目地址：<a href="https://github.com/nvie/gitflow" target="_blank" rel="noopener">https://github.com/nvie/gitflow</a><br>文章：<a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">https://nvie.com/posts/a-successful-git-branching-model/</a></p>
 </blockquote>
@@ -298,7 +301,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-两种开发合作模式"><span class="toc-text">一 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-概述-Github-flow"><span class="toc-text">二 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-详细-Github-flow"><span class="toc-text">三 详细 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-各分支使用"><span class="toc-text">四 各分支使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践"><span class="toc-text">五 实践</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-两种开发合作模式"><span class="toc-text">一 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-概述-Github-flow"><span class="toc-text">二 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-详细-Git-flow"><span class="toc-text">三 详细 Git flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-各分支使用"><span class="toc-text">四 各分支使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践"><span class="toc-text">五 实践</span></a></li></ol>
                 </div>
             </div>
         </div>
