@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -297,7 +297,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 开发完后提交</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;fixed&quot;  # 可以添加一些注释</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新本地 dev 分支；解决冲突；合并到自己的分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 更新本地 dev 分支</span><br><span class="line">git fetch origin dev</span><br><span class="line"></span><br><span class="line">解决冲突。</span><br><span class="line"></span><br><span class="line"># 合并到自己的分支</span><br><span class="line">确认在自己的特性分支上。</span><br><span class="line">git merge dev   # 合并 dev 到自己的特性分支。 merge 由三种参数方式；或使用 rebase。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 更新本地 dev 分支（大家往上合并功能的分支）</span><br><span class="line">git checkout dev</span><br><span class="line">git fetch origin dev</span><br><span class="line">解决冲突。</span><br><span class="line">git merge origin/dev</span><br><span class="line"></span><br><span class="line"># 更新后的 dev 合并到自己的特性分支</span><br><span class="line">git checkout feature   # 切换到自己的特性分支上。</span><br><span class="line">git merge dev   # 合并 dev 到自己的特性分支。 merge 由三种参数方式；或使用 git rebase dev。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>发 pull request。或直接推送合并：<code>git push origin dev</code></p>
 </li>
@@ -319,13 +319,17 @@
 <ul>
 <li>测试成功，接受合并到远端主仓库。<br>或修复后将此临时分支（PRx）推送到主仓库：<code>git push origin master</code>。</li>
 </ul>
-<h1 id="六-总结"><a href="#六-总结" class="headerlink" title="六 总结"></a>六 总结</h1><p>拉代码 -&gt;（创建特性分支/临时分支） -&gt; 开发和获取新代码 -&gt;（合并进特性分支/临时分支） -&gt; 推送代码</p>
+<h2 id="准备下轮特性开发"><a href="#准备下轮特性开发" class="headerlink" title="准备下轮特性开发"></a>准备下轮特性开发</h2><ul>
+<li>让本地主分支代码最新：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch  #下载一下远程代码</span><br><span class="line">gti checkout master</span><br><span class="line">git merge orgin/master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="六-总结"><a href="#六-总结" class="headerlink" title="六 总结"></a>六 总结</h1><p>拉代码 -&gt;（创建特性分支/临时分支） -&gt; 开发和更新代码 -&gt;（合并进特性分支/临时分支） -&gt; 推送代码</p>
 <ul>
 <li><p>克隆仓库代码到本地，在此基础上创建特性分支（可设置追踪分支）。</p>
 </li>
 <li><p>完成特性的开发做成版本。</p>
 </li>
-<li><p>更新本地 dev 分支并解决冲突，合并到自己的特性分支上（可 rebase）。</p>
+<li><p>更新本地 dev 分支（远程 dev 合并到本地 dev）并解决冲突；然后将其合并到自己的特性分支上（或 rebase 更新后的本地 dev）。<br>注：可以直接从远程 dev 分支获取更新合并到本地特性分支，不需要本地 dev 分支中转。</p>
 </li>
 <li><p>发 pull request，或直接推送到远端主仓库。</p>
 </li>
@@ -364,7 +368,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-两种开发合作模式"><span class="toc-text">一 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-概述-Github-flow"><span class="toc-text">二 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-详细-Git-flow"><span class="toc-text">三 详细 Git flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-各分支使用"><span class="toc-text">四 各分支使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践（从零到一）"><span class="toc-text">五 实践（从零到一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主开发者创建项目"><span class="toc-text">主开发者创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参与开发者"><span class="toc-text">参与开发者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主开发者测试、合并到主仓库某（dev）分支"><span class="toc-text">主开发者测试、合并到主仓库某（dev）分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-总结"><span class="toc-text">六 总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-两种开发合作模式"><span class="toc-text">一 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-概述-Github-flow"><span class="toc-text">二 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-详细-Git-flow"><span class="toc-text">三 详细 Git flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-各分支使用"><span class="toc-text">四 各分支使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践（从零到一）"><span class="toc-text">五 实践（从零到一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主开发者创建项目"><span class="toc-text">主开发者创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参与开发者"><span class="toc-text">参与开发者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主开发者测试、合并到主仓库某（dev）分支"><span class="toc-text">主开发者测试、合并到主仓库某（dev）分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备下轮特性开发"><span class="toc-text">准备下轮特性开发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-总结"><span class="toc-text">六 总结</span></a></li></ol>
                 </div>
             </div>
         </div>
