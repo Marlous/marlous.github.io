@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        shell 编程（Linux 平台）｜Mo&#39;s blog
+        shell 编程学习笔记｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/11/shell-编程（Linux-平台）/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/11/shell-编程学习笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>shell 编程（Linux 平台）</h1>
+                    <h1>shell 编程学习笔记</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            shell 编程（Linux 平台）
+            shell 编程学习笔记
         </span>
     </div>
 </header>
@@ -203,11 +203,12 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p><a href="http://www.runoob.com/linux/linux-shell-variable.html" target="_blank" rel="noopener">参考教程 1</a><br><a href="https://www.jb51.net/article/123081.htm" target="_blank" rel="noopener">参考博文 1</a><br><a href="https://blog.csdn.net/zwx19921215/article/details/21098391?utm_source=blogxgwz1" target="_blank" rel="noopener">参考博文 2</a><br><a href="https://blog.csdn.net/simple_the_best/article/details/76285429" target="_blank" rel="noopener">参数博文 3</a></p>
+<p><a href="http://www.runoob.com/linux/linux-shell-variable.html" target="_blank" rel="noopener">参考教程 1</a><br><a href="https://www.jb51.net/article/123081.htm" target="_blank" rel="noopener">参考博文 1</a><br><a href="https://blog.csdn.net/zwx19921215/article/details/21098391?utm_source=blogxgwz1" target="_blank" rel="noopener">参考博文 2</a><br><a href="https://blog.csdn.net/simple_the_best/article/details/76285429" target="_blank" rel="noopener">参考博文 3</a><br><a href="">慕课网课程 shell 编程系列</a></p>
 </blockquote>
-<h1 id="一-shell-注释模板"><a href="#一-shell-注释模板" class="headerlink" title="一 shell 注释模板"></a>一 shell 注释模板</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># -------------------------------------------------------------------</span><br><span class="line"># name: login.sh</span><br><span class="line"># version: 1.0 </span><br><span class="line"># createTime: 2018/10/12 </span><br><span class="line"># description: shell 脚本的功能描述 </span><br><span class="line"># author: Marlous</span><br><span class="line"># email: example@gmail.com</span><br><span class="line"># github: https://github.com/test</span><br><span class="line"># --------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
-<h1 id="二-运行-shell-脚本"><a href="#二-运行-shell-脚本" class="headerlink" title="二 运行 shell 脚本"></a>二 运行 shell 脚本</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd 到该脚本目录下</span><br><span class="line">chmod +x ./test.sh   #给脚本执行权限</span><br><span class="line">./test.sh            #执行该脚本</span><br></pre></td></tr></table></figure>
-<h1 id="三-shell-编程"><a href="#三-shell-编程" class="headerlink" title="三 shell 编程"></a>三 shell 编程</h1><h2 id="1-变量"><a href="#1-变量" class="headerlink" title="1 变量"></a>1 变量</h2><ol>
+<h1 id="一-shell-注释模板与运行"><a href="#一-shell-注释模板与运行" class="headerlink" title="一 shell 注释模板与运行"></a>一 shell 注释模板与运行</h1><h2 id="1-注释模板"><a href="#1-注释模板" class="headerlink" title="1 注释模板"></a>1 注释模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># -------------------------------------------------------------------</span><br><span class="line"># name: login.sh</span><br><span class="line"># version: 1.0 </span><br><span class="line"># createTime: 2018/10/12 </span><br><span class="line"># description: shell 脚本的功能描述 </span><br><span class="line"># author: Marlous</span><br><span class="line"># email: example@gmail.com</span><br><span class="line"># github: https://github.com/test</span><br><span class="line"># --------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<h2 id="2-运行-shell-脚本"><a href="#2-运行-shell-脚本" class="headerlink" title="2 运行 shell 脚本"></a>2 运行 shell 脚本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd 到该脚本目录下</span><br><span class="line">chmod +x ./test.sh   #给脚本执行权限</span><br><span class="line">./test.sh            #执行该脚本</span><br></pre></td></tr></table></figure>
+<h1 id="二-shell-编程"><a href="#二-shell-编程" class="headerlink" title="二 shell 编程"></a>二 shell 编程</h1><h2 id="1-变量"><a href="#1-变量" class="headerlink" title="1 变量"></a>1 变量</h2><p>分为用户自定义变量、环境变量、预定义变量。<br>shell 中默认为字符串类型。</p>
+<ol>
 <li><p>变量赋值与引用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">给变量赋值： num=12 或 string=&quot;zifuchuan&quot;</span><br><span class="line"></span><br><span class="line">引用变量： $&#123;num&#125;  用花括号把变量包裹起来，看情况也可以不加，推荐加。</span><br><span class="line"></span><br><span class="line">只读变量： readonly num</span><br><span class="line"></span><br><span class="line">删除变量： unset num</span><br><span class="line"></span><br><span class="line"># 系统环境变量使用</span><br><span class="line">curTime=$(date &quot;+%H%M%S&quot;)   #将时间  时 分 秒 赋给变量 curTime，注意 date 和 双引号之间有空格。</span><br><span class="line">curDate=$(date &quot;+%Y%m%d&quot;)   #将时间  年 月 日 赋给变量 curDate。</span><br></pre></td></tr></table></figure>
 </li>
@@ -280,8 +281,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">用于数值计算：</span><br><span class="line"># 例子：计算（2＋3）×4 的值。（必须要有空格，乘法要在星号前有个斜杠。）</span><br><span class="line">分步计算：</span><br><span class="line">s=`expr 2 + 3`</span><br><span class="line">expr $s \* 4</span><br><span class="line">一步完成计算：</span><br><span class="line">expr  `expr 2 + 3 `  \* 4 </span><br><span class="line"></span><br><span class="line">增量计数：</span><br><span class="line"># 例子：</span><br><span class="line">$LOOP=0</span><br><span class="line">$LOOP=`expr $LOOP + 1`</span><br><span class="line"></span><br><span class="line">数值测试：</span><br><span class="line"># 将一个值赋予变量，进行运算，并将输出导入 dev/null；然后测试最后命令状态，如果为 0，证明这是一个数，其他则表明为非数值。</span><br><span class="line">$rr=2</span><br><span class="line">$expr $rr + 1</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">模式匹配：</span><br><span class="line"># 使用 expr 通过指定冒号选项计算字符串中字符数。 .* 即任何字符重复 0 次或多次。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>补充模式匹配处理（见 expr 命令）：<br><img src="/2018/10/11/shell-编程（Linux-平台）/图1.PNG" alt="模式匹配"></p>
-<p>补充字符串提取与替换处理（见 expr 命令）：<br><img src="/2018/10/11/shell-编程（Linux-平台）/图2.PNG" alt="字符串提取与替换"></p>
+<p>补充模式匹配处理（见 expr 命令）：<br><img src="/2018/10/11/shell-编程学习笔记/图1.PNG" alt="模式匹配"></p>
+<p>补充字符串提取与替换处理（见 expr 命令）：<br><img src="/2018/10/11/shell-编程学习笔记/图2.PNG" alt="字符串提取与替换"></p>
 <h2 id="5-一些符号"><a href="#5-一些符号" class="headerlink" title="5 一些符号"></a>5 一些符号</h2><p><a href="https://www.jb51.net/article/123081.htm" target="_blank" rel="noopener">参考资料</a></p>
 <ul>
 <li><p>表达式中包含了空格或其他特殊字符，则必须引起来。</p>
@@ -386,7 +387,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-shell-注释模板"><span class="toc-text">一 shell 注释模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-运行-shell-脚本"><span class="toc-text">二 运行 shell 脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-shell-编程"><span class="toc-text">三 shell 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-变量"><span class="toc-text">1 变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接收参数"><span class="toc-text">2 接收参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-运算符"><span class="toc-text">3 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-一些命令"><span class="toc-text">4 一些命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-一些符号"><span class="toc-text">5 一些符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-符号使用小结"><span class="toc-text">6 符号使用小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-控制结构"><span class="toc-text">7 控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-输入输出与重定向"><span class="toc-text">8 输入输出与重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-函数"><span class="toc-text">9 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-调用脚本"><span class="toc-text">10 调用脚本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-shell-脚本示例"><span class="toc-text">四 shell 脚本示例</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-shell-注释模板与运行"><span class="toc-text">一 shell 注释模板与运行</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-注释模板"><span class="toc-text">1 注释模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运行-shell-脚本"><span class="toc-text">2 运行 shell 脚本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-shell-编程"><span class="toc-text">二 shell 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-变量"><span class="toc-text">1 变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接收参数"><span class="toc-text">2 接收参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-运算符"><span class="toc-text">3 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-一些命令"><span class="toc-text">4 一些命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-一些符号"><span class="toc-text">5 一些符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-符号使用小结"><span class="toc-text">6 符号使用小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-控制结构"><span class="toc-text">7 控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-输入输出与重定向"><span class="toc-text">8 输入输出与重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-函数"><span class="toc-text">9 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-调用脚本"><span class="toc-text">10 调用脚本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-shell-脚本示例"><span class="toc-text">四 shell 脚本示例</span></a></li></ol>
                 </div>
             </div>
         </div>

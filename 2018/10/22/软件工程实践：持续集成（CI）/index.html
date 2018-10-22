@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Git 协作完整流程实例｜Mo&#39;s blog
+        软件工程实践：持续集成（CI）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/12/Git-协作完整流程实例/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/22/软件工程实践：持续集成（CI）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Git 协作完整流程实例</h1>
+                    <h1>软件工程实践：持续集成（CI）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-09-12
+                          日期 2018-10-22
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#版本控制"
-                           title="版本控制">版本控制</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Git 协作完整流程实例
+            软件工程实践：持续集成（CI）
         </span>
     </div>
 </header>
@@ -202,78 +202,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-实例描述与大致流程"><a href="#一-实例描述与大致流程" class="headerlink" title="一 实例描述与大致流程"></a>一 实例描述与大致流程</h1><p>现有 A、B 两个程序员合作写一个 Hello World 程序。<br>A 创建主库，B 为协作者。<br>A 写的程序为 Hello Word；B 将获取后修改为 Hello World 提交；A 创建分支测试，成功后合并到主分支。</p>
-<p>已安装好 git，并设置好用户名称、邮箱，SSH 公钥已添加至 GitHub。</p>
-<ol>
-<li>程序员 A 本地创建仓库 AREP，远端创建仓库并关联后推送远端,作为中心仓库：</li>
-</ol>
-<ul>
-<li>本地创建仓库：创建文件夹 AREP，在文件夹内用 Git Bash，<code>git init</code>。</li>
-<li>远端创建仓库：登陆 GitHub 使用网页创建仓库 AREPTEST。</li>
-<li>本地仓库与远端仓库关联：<code>git remote add origin git@github.com:Marlous/AREPTEST.git</code> (一个项目可以同时拥有好几个远端仓库为了能够区分，通常会起不同的名字。通常主远端仓库被称为 origin。</li>
-<li>获取合并：<code>git pull origin master 如（git pull [remote-name] [branch-name]）</code>。</li>
-<li>编写程序、提交并做成版本：<code>git add -A 多次添加某个文件（git add &lt;file&gt;）</code>、<code>git commit -m &quot;fixed&quot;</code>。</li>
-<li>推送到远端：<code>git push origin master 如（git push [remote-name] [branch-name]）</code>。</li>
-</ul>
-<ol start="2">
-<li>程序员 B 直接将其 clone 到本地，直接提交 A 的远程仓库（或 fork 一份自己的远程仓库，克隆到本地，提交到自己的远程仓库，然后 pull request 到 A 的远程仓库）</li>
-</ol>
-<ul>
-<li>克隆 A 的仓库：<code>git clone git@github.com:Marlous/AREPTEST.git</code>。</li>
-</ul>
-<ol start="3">
-<li>程序员 B 创建特性分支，修改文件和提交分支，pull request：</li>
-</ol>
-<ul>
-<li>程序员 B 创建特性分支并切换分支：<code>git branch fix</code>、<code>git checkout fix</code>。</li>
-<li>修改了文件后提交到远端：<code>git push -u origin fix</code>，-u 标记将它添加为远程跟踪的分支。（记得 add 和 commit）。</li>
-<li>如果完成了本次任务再次提交：<code>git push</code>。</li>
-<li>然后在 Git 界面上发起了一个 pull request，一起讨论审核代码。</li>
-</ul>
-<ol start="4">
-<li>测试 pull request，并确认合并：</li>
-</ol>
-<ul>
-<li>A 程序员切换到将要被合并的分支（确保代码是最新的用 <code>git pull</code>）直接合并 <code>git pull origin fix</code>，结束；或创建临时测试分支并切换到临时测试分支。</li>
-<li>获取同时合并到临时测试分支 <code>git pull origin fix</code>（或从 B 的远程仓库获取）。</li>
-<li>测试没问题后将 fix 分支合并到想要接受合并的分支（同意 pull request），删除临时分支；有问题则反馈问题等待修改完成。</li>
-</ul>
-<ol start="5">
-<li>注意：<br>搞清楚分支情况，搞清楚哪些分支需要更新合并，搞清楚哪个分支向哪个分支更新合并，<code>git log --graph</code>。</li>
-</ol>
-<h1 id="二-两种开发合作模式"><a href="#二-两种开发合作模式" class="headerlink" title="二 两种开发合作模式"></a>二 两种开发合作模式</h1><p>参考：<a href="https://segmentfault.com/q/1010000004362882/a-1020000004415897" target="_blank" rel="noopener">参考问题回答</a></p>
-<ol>
-<li><p>大家使用同一个仓库进行合作开发，分支开发功能，开发完毕，建立 merge request，进行 code review，最终合并到 develop 分支。</p>
-</li>
-<li><p>大家 fork 仓库，开发完毕后，建立 pull request 到主仓库，由管理代码的人进行合并。</p>
-</li>
-</ol>
-<h1 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h1><p><img src="/2018/09/12/Git-协作完整流程实例/图1.png" alt="流程图"><br>注：两种开发合作模式。<br>当自己属于主仓库团队项目贡献者一员时，可选择是否 pull request；<br>不是其中一员则必须 fork 一份到自己的远端仓库，本地修改完，提交到自己的远端仓库，然后从自己的远端仓库通过 pull request 向主仓库贡献代码。</p>
-<ol>
-<li><p>项目管理者创建 master 分支，在 master 分支上创建 dev 分支。</p>
-</li>
-<li><p>任务分配给不同的人员（不同特性），不同人员克隆 dev 分支（或克隆此项目），在此 dev 分支上创建自己的分支（然后可以提交自己的分支到远端备份让其他成员知道进度，远程跟踪分支 <code>git push -u origin feature</code>）。</p>
-</li>
-<li><p>更新本地 dev 分支，将更新的本地 dev 分支合并到自己的任务分支，得到要推送的分支，然（请求）合并到远端主 dev 分支；也可以 rebase 得到要推送的分支（rebase 和 merge 效果一样，但让之前的分支提交记录消失，让分支线看起来更清晰）。然后见 4。<br>注：在开始下个任务前或任务中需注意更新自己本地的 dev 分支。</p>
-</li>
-<li><p>团队需要 pull request 的话，管理者收到 pull request，先在主 dev 分支上创建临时分支，然后获取请求的分支并与临时分支合并，测试没问题即接受请求，有问题则在 pull request 中讨论和解决问题，然后管理者接受合并到主 dev 分支。</p>
-</li>
-</ol>
-
+                <h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一 基本概念"></a>一 基本概念</h1><h1 id="二-实践流程"><a href="#二-实践流程" class="headerlink" title="二 实践流程"></a>二 实践流程</h1><h1 id="三-实例"><a href="#三-实例" class="headerlink" title="三 实例"></a>三 实例</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/" data-toggle="tooltip" data-placement="top"
-                           title="MySQL 学习笔记 四 安全性与完整性">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/09/11/计算机专业本科课程体系汇总/" data-toggle="tooltip" data-placement="top"
-                           title="计算机专业本科课程体系汇总">Next Post &rarr;</a>
+                        <a href="/2018/10/18/About-Docs-My-Wiki/" data-toggle="tooltip" data-placement="top"
+                           title="About Docs - My Wiki">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -289,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-实例描述与大致流程"><span class="toc-text">一 实例描述与大致流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-两种开发合作模式"><span class="toc-text">二 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-总结"><span class="toc-text">三 总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-基本概念"><span class="toc-text">一 基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-实践流程"><span class="toc-text">二 实践流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-实例"><span class="toc-text">三 实例</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -311,8 +249,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#版本控制"
-                           title="版本控制">版本控制</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </section>

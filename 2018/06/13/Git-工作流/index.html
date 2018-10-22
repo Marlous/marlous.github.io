@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -202,29 +202,73 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-概述-Github-flow"><a href="#一-概述-Github-flow" class="headerlink" title="一 概述 Github flow"></a>一 概述 Github flow</h1><ol>
+                <h1 id="一-两种开发合作模式"><a href="#一-两种开发合作模式" class="headerlink" title="一 两种开发合作模式"></a>一 两种开发合作模式</h1><p>参考：<a href="https://segmentfault.com/q/1010000004362882/a-1020000004415897" target="_blank" rel="noopener">参考问题回答</a></p>
+<p>当自己属于主仓库团队项目贡献者一员时，可选择是否 pull request 或 code review；<br>不是其中一员则必须 fork 一份到自己的远端仓库，从自己的远端仓库请求 pull request 到主仓库。</p>
+<ol>
+<li><p>大家使用同一个仓库进行合作开发。分支开发功能，开发完毕，建立 merge request，进行 code review，最终合并到 dev 分支。</p>
+</li>
+<li><p>大家 fork 仓库。开发完毕后，从自己的远端仓库建立 pull request 到主仓库的 dev 分支，由管理代码的人进行合并。</p>
+</li>
+</ol>
+<h1 id="二-概述-Github-flow"><a href="#二-概述-Github-flow" class="headerlink" title="二 概述 Github flow"></a>二 概述 Github flow</h1><ol>
 <li><p>创建一个新分支。<br>同一时刻多个想法，创建分支来进行管理。</p>
 </li>
 <li><p>添加新版本。<br>不断做新功能出来。</p>
 </li>
 <li><p>开启一个 pull request。<br>发起对做的各个版本的讨论，代码审核。</p>
 </li>
-<li><p>合并分支，然后部署。<br>大家审核了 pull request并通过测试，后合并到主分支上。</p>
+<li><p>合并分支，然后部署。<br>大家审核了 pull request 并通过测试，后合并到主分支上。</p>
 </li>
 </ol>
-<h1 id="二-具体核心流程"><a href="#二-具体核心流程" class="headerlink" title="二 具体核心流程"></a>二 具体核心流程</h1><p>教程：<a href="http://blog.jobbole.com/76867/" target="_blank" rel="noopener">参考教程</a><br><img src="/2018/06/13/Git-工作流/图1.png" alt="图1 具体流程"></p>
-<ol>
-<li><p>master 分支作为中央仓库主分支，并且功能分支不是从 master 分支上拉出新分支，而是使用 develop 分支作为父分支。</p>
+<h1 id="三-详细-Github-flow"><a href="#三-详细-Github-flow" class="headerlink" title="三 详细 Github flow"></a>三 详细 Github flow</h1><ol>
+<li><p>项目管理者创建 master 分支，在 master 分支上创建 dev 分支。</p>
 </li>
-<li><p>一旦 develop 分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从 develop 分支上 fork 一个发布分支，即 release。新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上,这个分支只应该做 Bug 修复、文档生成和其它面向发布任务。一旦对外发布的工作都完成了，发布分支合并到 master 分支并分配一个版本号打好Tag。另外，这些从新建发布分支以来的做的修改要合并回 develop 分支。</p>
+<li><p>任务分配给不同的人员（不同特性）：</p>
+</li>
+</ol>
+<ul>
+<li><p>不同人员克隆主仓库到本地，在克隆的仓库的 dev 分支上创建自己的特性分支（或 fork 此项目后，克隆到本地，在其 dev 分支上创建自己的特性分支）。</p>
+</li>
+<li><p>然后可以提交自己的分支到远端主仓库备份，让其他成员知道进度，远程跟踪分支 <code>git push -u origin feature</code>（或提交自己的分支到自己 fork 的远端主仓库）。</p>
+</li>
+</ul>
+<ol start="3">
+<li><p>进行自己特性分支上的开发。</p>
+</li>
+<li><p>更新、合并、推送：</p>
+</li>
+</ol>
+<ul>
+<li>从远端主仓库获取，更新本地的 dev 分支；</li>
+<li>可能要处理冲突；</li>
+<li>处理完冲突 commit，将更新后的本地 dev 分支 merge 到自己的任务分支，得到要推送的分支。也可以用 rebase 来将更新的本地 dev 分支与自己的特性分支合并，得到要推送的分支（rebase 和 merge 效果一样，但让之前的分支提交记录消失，让分支线看起来更清晰）。</li>
+<li>然后 pull request（然后进入第 5 点中第一步）；或由管理者创建临时分支合并测试，合并特性分支与被合并分支，删除临时分支，结束；或直接合并到远端主 dev 分支，结束。<br>注：在开始下个任务前或任务中需注意更新自己本地的 dev 分支。</li>
+</ul>
+<ol start="5">
+<li>团队需要 pull request，管理者收到 pull request：</li>
+</ol>
+<ul>
+<li>将自己的本地仓库与请求者 fork 的远程仓库关联，并获取代码。（同仓库合作开发则直接下一步。）</li>
+<li>在 dev 分支上创建并切换到临时分支。</li>
+<li>将请求分支（部分）与临时分支合并，进行测试。</li>
+<li>测试没问题后删除临时分支，接受 pull request。</li>
+<li>有问题则在 pull request 中讨论和解决问题，要求请求者解决，或管理者在临时分支上测试并解决后将此临时分支与被请求合并的分支合并，删除临时分支。</li>
+</ul>
+<h1 id="四-各分支使用"><a href="#四-各分支使用" class="headerlink" title="四 各分支使用"></a>四 各分支使用</h1><blockquote>
+<p>GitFlow：git 的最佳实践。<br>项目地址：<a href="https://github.com/nvie/gitflow" target="_blank" rel="noopener">https://github.com/nvie/gitflow</a><br>文章：<a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">https://nvie.com/posts/a-successful-git-branching-model/</a></p>
+</blockquote>
+<p>git 的最佳实践简化图：<br><img src="/2018/06/13/Git-工作流/图1.PNG" alt="git 的最佳实践简化图"></p>
+<ol>
+<li><p>master 分支作为中央仓库主分支，并且功能分支不是从 master 分支上拉出新分支，而是使用 deve 分支作为父分支。</p>
+</li>
+<li><p>一旦 develop 分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从 develop 分支上 fork 一个发布分支，即 release。新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上,这个分支只应该做 Bug 修复、文档生成和其它面向发布任务。一旦对外发布的工作都完成了，发布分支合并到 master 分支并分配一个版本号打好 Tag。另外，这些从新建发布分支以来的做的修改要合并回 develop 分支。</p>
 </li>
 <li><p>预发布分支命名: release-</p>
 </li>
-<li><p>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，这是唯一可以直接从 master 分支 fork 出来的分支。修复完成，修改应该马上合并回 master 分支和 develop 分支（当前的发布分支），master 分支应该用新的版本号打好Tag。</p>
+<li><p>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，这是唯一可以直接从 master 分支 fork 出来的分支。修复完成，修改应该马上合并回 master 分支和 dev 分支（当前的发布分支），master 分支应该用新的版本号打好 Tag。</p>
 </li>
 </ol>
-<h1 id="三-Pull-Request-完整流程图"><a href="#三-Pull-Request-完整流程图" class="headerlink" title="三 Pull Request 完整流程图"></a>三 Pull Request 完整流程图</h1><p><img src="/2018/06/13/Git-工作流/图2.PNG" alt="图2 Pull Request 完整流程图"></p>
-
+<h1 id="五-实践"><a href="#五-实践" class="headerlink" title="五 实践"></a>五 实践</h1>
                 <hr>
                 
 
@@ -254,7 +298,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述-Github-flow"><span class="toc-text">一 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-具体核心流程"><span class="toc-text">二 具体核心流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Pull-Request-完整流程图"><span class="toc-text">三 Pull Request 完整流程图</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-两种开发合作模式"><span class="toc-text">一 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-概述-Github-flow"><span class="toc-text">二 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-详细-Github-flow"><span class="toc-text">三 详细 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-各分支使用"><span class="toc-text">四 各分支使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践"><span class="toc-text">五 实践</span></a></li></ol>
                 </div>
             </div>
         </div>

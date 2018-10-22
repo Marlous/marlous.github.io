@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -236,6 +236,7 @@
 <li>合并分支：先切到要合并到的分支，<code>git merge [name]</code></li>
 <li>删除分支：<code>git branch -d [name]</code></li>
 </ul>
+<p>补充：分支合并（merge）的三种方式。<a href="https://www.cnblogs.com/charlesblc/p/6132384.html" target="_blank" rel="noopener">参考博文</a><br><code>--no-ff</code> 是强行关闭 fast-forward 方式。<br><code>squash</code> 是用来把一些不必要 commit 进行压缩，进行一次额外的 commit 来总结一下，然后完成最终的合并。<br><code>fast-forward</code>，如果删除分支，则会丢失分支信息。因为在这个过程中没有创建 commit。<br><img src="/2018/06/16/Git-常用命令/图1.PNG" alt="分支合并（merge）的三种方式"></p>
 <h2 id="2-查看文件"><a href="#2-查看文件" class="headerlink" title="2 查看文件"></a>2 查看文件</h2><ul>
 <li>查看文件状态用 <code>git status</code> 命令。</li>
 <li>查看具体修改了什么地方，可以用 <code>git diff</code> 命令。</li>
