@@ -203,11 +203,10 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="一-两种开发合作模式"><a href="#一-两种开发合作模式" class="headerlink" title="一 两种开发合作模式"></a>一 两种开发合作模式</h1><p>参考：<a href="https://segmentfault.com/q/1010000004362882/a-1020000004415897" target="_blank" rel="noopener">参考问题回答</a></p>
-<p>当自己属于主仓库团队项目贡献者一员时，可选择是否 pull request 或 code review；<br>不是其中一员则必须 fork 一份到自己的远端仓库，从自己的远端仓库请求 pull request 到主仓库。</p>
 <ol>
-<li><p>大家使用同一个仓库进行合作开发。分支开发功能，开发完毕，建立 merge request，进行 code review，最终合并到 dev 分支。</p>
+<li><p>属于主仓库团队项目贡献者一员，大家使用同一个仓库进行合作开发。分支开发功能，开发完毕，建立 pull request，进行 code review，最终合并到主仓库 dev 分支。</p>
 </li>
-<li><p>大家 fork 仓库。开发完毕后，从自己的远端仓库建立 pull request 到主仓库的 dev 分支，由管理代码的人进行合并。</p>
+<li><p>不是主仓库团队项目贡献者一员，则必须大家 fork 仓库。开发完毕后，从自己的远端仓库建立 pull request 到主仓库的 dev 分支，由管理代码的人进行合并。</p>
 </li>
 </ol>
 <h1 id="二-概述-Github-flow"><a href="#二-概述-Github-flow" class="headerlink" title="二 概述 Github flow"></a>二 概述 Github flow</h1><ol>
@@ -242,15 +241,15 @@
 <li>从远端主仓库获取，更新本地的 dev 分支，注意区别，<code>git pull</code>=<code>git fetch + git merge(rebase)</code>；</li>
 <li>可能要处理冲突；</li>
 <li>处理完冲突 commit，将更新后的本地 dev 分支 merge 到自己的任务分支，得到要推送的分支。也可以用 rebase 来将更新的本地 dev 分支与自己的特性分支合并，得到要推送的分支（rebase 和 merge 效果一样，但让之前的分支提交记录消失，让分支线看起来更清晰）。</li>
-<li>或然后 pull request（然后进入第 5 点中第一步）；<br>或等待由管理者创建临时分支合并测试，合并特性分支与被合并分支，删除临时分支，结束；<br>或直接合并到远端主 dev 分支（可能要加上 –force 参数强制推送代码，改变提交历史记录，慎用），结束。</li>
+<li>需 code review：发起 pull request，然后进入第 5 步；或等管理者对代码直接 review，然后推送到远端与目标分支合并，结束。<br>不需要 code review：（如个人项目）直接将特性分支与远端目标分支合并，结束。</li>
 </ul>
 <ol start="5">
 <li>团队需要 pull request，管理者收到 pull request：</li>
 </ol>
 <ul>
-<li>将自己的本地仓库与请求者 fork 的远程仓库关联，并获取代码。（同仓库合作开发则直接下一步。）</li>
-<li>在 dev 分支上创建并切换到临时分支。</li>
-<li>将请求分支（部分）与临时分支合并，进行测试。</li>
+<li>不同仓库合作开发：获取 patch 文件，或从远端分支关联获取；同仓库则省略此步。</li>
+<li>在 dev 分支（将要被合并的分支）上创建并切换到临时分支。</li>
+<li>将请求合并分支与临时分支合并，进行测试。</li>
 <li>测试没问题后删除临时分支，接受 pull request。</li>
 <li>有问题则在 pull request 中讨论和解决问题，要求请求者解决，或管理者在临时分支上测试并解决后将此临时分支与被请求合并的分支合并，删除临时分支。</li>
 </ul>
@@ -271,7 +270,55 @@
 <li><p>维护分支或说是热修复（hotfix）分支用于生成快速给产品发布版本（production releases）打补丁，这是唯一可以直接从 master 分支 fork 出来的分支。修复完成，修改应该马上合并回 master 分支和 dev 分支（当前的发布分支），master 分支应该用新的版本号打好 Tag。</p>
 </li>
 </ol>
-<h1 id="五-实践"><a href="#五-实践" class="headerlink" title="五 实践"></a>五 实践</h1>
+<h1 id="五-实践（从零到一）"><a href="#五-实践（从零到一）" class="headerlink" title="五 实践（从零到一）"></a>五 实践（从零到一）</h1><h2 id="主开发者创建项目"><a href="#主开发者创建项目" class="headerlink" title="主开发者创建项目"></a>主开发者创建项目</h2><ul>
+<li><p>注册 GitHub 账号，安装 Git。</p>
+</li>
+<li><p>本地设置，Git 中设置可以登陆到 GitHub：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 设置用户名、邮箱</span><br><span class="line">$ git config --global user.name &quot;you account name&quot;</span><br><span class="line">$ git config --global user.email youemail@example.com</span><br><span class="line"></span><br><span class="line"># 生成公钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;youemail@example.com&quot;</span><br><span class="line">ssh git@github.com  //测试是否成功。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将公钥添加至自己的 GitHub 中。</p>
+</li>
+<li><p>在远端设置好项目仓库。</p>
+</li>
+<li><p>本地初始化，关联、获取合并、推送。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line"></span><br><span class="line">git remote add origin git@server-name:path/repo-name.git</span><br><span class="line"></span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>切换并创建分支：<code>git checkout -b [name]</code>，创建某分支，然后 push。</p>
+</li>
+</ul>
+<h2 id="参与开发者"><a href="#参与开发者" class="headerlink" title="参与开发者"></a>参与开发者</h2><ul>
+<li><p>fork 或 clone 项目到本地：<code>git clone git://github.com/User/project.git</code>（项目链接）</p>
+</li>
+<li><p>切换并创建自己的特性分支：<code>git checkout -b myfeature</code></p>
+</li>
+<li><p>备份自己的特性分支：<br>可以提交自己的分支到远端主仓库备份，让其他成员知道进度，远程跟踪分支 <code>git push -u origin feature</code>。<br>或提交自己的分支到自己 fork 的远端主仓库 <code>git push -u origin feature</code>。<br>（如果当前分支只有一个追踪分支，那么主机名都可以省略。git push，默认只推送当前分支。 -u 为指定 origin 为默认主机，之后可直接使用 git push。）</p>
+</li>
+<li><p>在特性分支上做开发工作。</p>
+</li>
+<li><p>开发完后提交，更新本地 dev 分支；解决冲突；合并到自己的分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 开发完后提交</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;fixed&quot;  # 可以添加一些注释</span><br><span class="line"></span><br><span class="line"># 更新本地 dev 分支</span><br><span class="line">git fetch origin dev</span><br><span class="line"></span><br><span class="line">解决冲突。</span><br><span class="line"></span><br><span class="line"># 合并到自己的分支</span><br><span class="line">确认在自己的特性分支上。</span><br><span class="line">git merge dev   # 合并 dev 到自己的特性分支。 merge 由三种参数方式；或使用 rebase。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发 pull request。或直接推送合并：<code>git push origin dev</code></p>
+</li>
+</ul>
+<h2 id="主开发者测试、合并到主仓库某（dev）分支"><a href="#主开发者测试、合并到主仓库某（dev）分支" class="headerlink" title="主开发者测试、合并到主仓库某（dev）分支"></a>主开发者测试、合并到主仓库某（dev）分支</h2><ul>
+<li><p>先创建测试用的临时分支：<code>git checkout -b PRx</code> （x 为 pull request 号）</p>
+</li>
+<li><p>两种方法获取来测试、合并。<a href="https://www.ruanyifeng.com/blog/2017/07/pull_request.html" target="_blank" rel="noopener">参考文章</a>：</p>
+</li>
+</ul>
+<ol>
+<li><p>下载 PR 生成的 patch 文件，合并进临时分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 获取 pull request 的 patch，-L 参数表示如果有 302 跳转，curl 会自动跟进；pull/8 表示该仓库收到的第 8 个 PR。</span><br><span class="line">curl -L http://github.com/User/project/pull/8.patch | git am</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为 PR 创建一个远程分支，追踪提交者的仓库。合并进临时分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git remote add 远程仓库名 git@server-name:path/repo-name.git  # 为区分远程仓库名不用 origin，取个其它名字。</span><br><span class="line"></span><br><span class="line">git fetch 远程仓库名 请求的分支名</span><br><span class="line"></span><br><span class="line"># 将请求合并的分支与自己的临时分支合并</span><br><span class="line">git checkout PRx</span><br><span class="line">git merge 请求的分支名</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>测试成功，接受 pull request 合并到远端主仓库。<br>或修复后将此临时分支（PRx），推送到主仓库：<code>git push origin master</code>。</li>
+</ul>
+
                 <hr>
                 
 
@@ -301,7 +348,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-两种开发合作模式"><span class="toc-text">一 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-概述-Github-flow"><span class="toc-text">二 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-详细-Git-flow"><span class="toc-text">三 详细 Git flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-各分支使用"><span class="toc-text">四 各分支使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践"><span class="toc-text">五 实践</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-两种开发合作模式"><span class="toc-text">一 两种开发合作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-概述-Github-flow"><span class="toc-text">二 概述 Github flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-详细-Git-flow"><span class="toc-text">三 详细 Git flow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-各分支使用"><span class="toc-text">四 各分支使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践（从零到一）"><span class="toc-text">五 实践（从零到一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主开发者创建项目"><span class="toc-text">主开发者创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参与开发者"><span class="toc-text">参与开发者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主开发者测试、合并到主仓库某（dev）分支"><span class="toc-text">主开发者测试、合并到主仓库某（dev）分支</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
