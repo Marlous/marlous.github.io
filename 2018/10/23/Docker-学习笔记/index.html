@@ -215,7 +215,7 @@
 <li><p>Tips：<br>点击 Docker Quickstart Terminal，如果先安装过 git，会出现 “windows 正在查找 bash.exe” 问题，是因为快捷方式路径不对，因为需要 Git bash.exe 来执行 docker star.sh（git bash 是 Windows 下的命令行工具，基于 msys GNU 环境）。<br>快捷方式目标的正确路径书写示例：<code>&quot;D:\Program Files\Git\bin\bash.exe&quot; --login -i &quot;C:\Program Files\Docker Toolbox\start.sh&quot;</code></p>
 </li>
 </ol>
-<h1 id="三-Docker"><a href="#三-Docker" class="headerlink" title="三 Docker"></a>三 Docker</h1><h2 id="虚拟化种类"><a href="#虚拟化种类" class="headerlink" title="虚拟化种类"></a>虚拟化种类</h2><ul>
+<h1 id="三-Docker"><a href="#三-Docker" class="headerlink" title="三 Docker"></a>三 Docker</h1><h2 id="1-虚拟化种类"><a href="#1-虚拟化种类" class="headerlink" title="1 虚拟化种类"></a>1 虚拟化种类</h2><ul>
 <li><p>全虚拟化：应用程序实现。<br><img src="/2018/10/23/Docker-学习笔记/图1.PNG" alt="全虚拟化"></p>
 </li>
 <li><p>OS 层虚拟化：<br><img src="/2018/10/23/Docker-学习笔记/图2.PNG" alt="OS 层虚拟化"></p>
@@ -223,7 +223,7 @@
 <li><p>硬件层虚拟化：<br><img src="/2018/10/23/Docker-学习笔记/图3.PNG" alt="硬件层虚拟化"></p>
 </li>
 </ul>
-<h2 id="Docker-原理与组成"><a href="#Docker-原理与组成" class="headerlink" title="Docker 原理与组成"></a>Docker 原理与组成</h2><ol>
+<h2 id="2-Docker-原理与组成"><a href="#2-Docker-原理与组成" class="headerlink" title="2 Docker 原理与组成"></a>2 Docker 原理与组成</h2><ol>
 <li><p>组成：Docker Client 客户端、Docker Daemon 守护进程、Docker Image 镜像、Docker Container 容器。</p>
 </li>
 <li><p>原理：容器技术类似 OS 层虚拟化（不等同），容器本质上是基于应用的，虚拟出运行环境。容器相当于一个个运行的小操作系统，但它是共享宿主机操作系统内核的。</p>
@@ -259,17 +259,17 @@
 <li>制作镜像：</li>
 </ol>
 <ul>
-<li><p>将容器保存为镜像：</p>
+<li><p>将容器制作为镜像：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器名 起个镜像名</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>用 dockerfile 构建一个镜像:<a href="https://blog.csdn.net/qq_29999343/article/details/78318397" target="_blank" rel="noopener">参考博文</a></p>
+<li><p>用 dockerfile 构建一个镜像：类似于安装脚本。<br>选一个空目录；编写 dockerfile； 在 Dockerfile 文件所在目录执行构建命令。<br><a href="https://blog.csdn.net/qq_29999343/article/details/78318397" target="_blank" rel="noopener">参考博文 1</a> <a href="https://blog.csdn.net/wo18237095579/article/details/80540571" target="_blank" rel="noopener">参考博文 2</a></p>
 </li>
 </ul>
 <ol start="2">
-<li><p>镜像备份：</p>
+<li><p>镜像备份：<br>备份及恢复（导出导入）的镜像都在宿主机执行 docker 命令所在位置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o 压缩包名.tar 镜像名</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>镜像恢复：</p>
+<li><p>镜像恢复：<br>备份及恢复（导出导入）的镜像都在宿主机执行 docker 命令所在位置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i 压缩包名.tar</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -315,7 +315,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟化种类"><span class="toc-text">虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-原理与组成"><span class="toc-text">Docker 原理与组成</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本命令"><span class="toc-text">1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-制作、备份与迁移"><span class="toc-text">2 制作、备份与迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-部署运行实例"><span class="toc-text">3 部署运行实例</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-虚拟化种类"><span class="toc-text">1 虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Docker-原理与组成"><span class="toc-text">2 Docker 原理与组成</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本命令"><span class="toc-text">1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-制作、备份与迁移"><span class="toc-text">2 制作、备份与迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-部署运行实例"><span class="toc-text">3 部署运行实例</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
