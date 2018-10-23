@@ -79,9 +79,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -95,7 +93,9 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
 							
 						
                     
@@ -231,7 +231,64 @@
 <li><p>架构：C/S 架构。客户端提供交互界面，与守护进程（服务程序）交互，运行一个镜像的实例（容器）。<br><img src="/2018/10/23/Docker-学习笔记/图4.jpg" alt="架构"></p>
 </li>
 </ol>
-<h1 id="四-Docker-快速上手"><a href="#四-Docker-快速上手" class="headerlink" title="四 Docker 快速上手"></a>四 Docker 快速上手</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 列出镜像</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure>
+<h1 id="四-Docker-快速上手"><a href="#四-Docker-快速上手" class="headerlink" title="四 Docker 快速上手"></a>四 Docker 快速上手</h1><p><a href="http://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">参考资料</a></p>
+<h2 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1 基本命令"></a>1 基本命令</h2><ol>
+<li>镜像操作：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 列出镜像</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"># 搜索镜像</span><br><span class="line">docker search</span><br><span class="line"></span><br><span class="line"># 拉取镜像，docker hub 中拉取（下载）</span><br><span class="line">docker pull</span><br><span class="line"></span><br><span class="line"># 删除镜像</span><br><span class="line">docker rmi 镜像ID</span><br><span class="line"># 删除全部镜像</span><br><span class="line">docker rmi `docker images -q`</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>容器操作：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看正在运行的容器</span><br><span class="line">docker ps</span><br><span class="line">-a    # 参数查看全部</span><br><span class="line">-l    # 参数查看最后一次运行的</span><br><span class="line">-f status=exited   # 查看停止的</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>创建与启动容器：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">docker run</span><br><span class="line">-i   # 运行容器</span><br><span class="line">-t   # 启动后进入命令行</span><br><span class="line">-it</span><br><span class="line">--name=名称   # 为创建的容器命名</span><br><span class="line">-d    # 后台启动（启动后不进去）。</span><br><span class="line">-v    # 目录映射，前者为宿主机目录，后者为容器目录。通过宿主机操作容器，--v 可做多个映射。</span><br><span class="line">-p    # 端口映射，前者为宿主机端口，后者为容器端口。 --p 做多个端口映射。</span><br><span class="line"></span><br><span class="line"># 退出容器</span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------</span><br><span class="line">交互式容器启动：进容器运行，退出停止运行。</span><br><span class="line">docker run -it --name=起个容器名 镜像名:标签 [命令解释器路径]</span><br><span class="line"></span><br><span class="line">守护式容器启动：</span><br><span class="line">docker run -id --name=起个容器名 镜像名:标签</span><br><span class="line">docker exec -it 容器名   # 进入守护式容器</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------</span><br><span class="line">docker start  # 运行容器</span><br><span class="line">docker stop   # 停止容器</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>文件拷贝：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker cp 源文件目录 容器名:容器目录</span><br><span class="line">docker cp 容器名:容器目录 目标文件目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>目录挂载：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -di --name=容器名 -v 宿主机目录路径:容器内目录路径 镜像名称:标签</span><br><span class="line">--priviledged=true  # 获取特权，访问共享的目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看 IP 地址与删除容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器名</span><br><span class="line"></span><br><span class="line">docker rm 容器名</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="2-部署运行"><a href="#2-部署运行" class="headerlink" title="2 部署运行"></a>2 部署运行</h2><p>实例：部署运行 MySql</p>
+<ol>
+<li>部署：</li>
+</ol>
+<ul>
+<li><p>通过 pull 镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br><span class="line">docker pull mysql:5.6</span><br><span class="line">docker images |grep mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过 Dockerfile 构建镜像：<br>用 Dockerfile 脚本做镜像的定制，实际上就是定制每一层所添加的配置、文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 先创建准备存放文件的文件夹</span><br><span class="line">mkdir -p ~/mysql/data ~/mysql/logs ~/mysql/conf</span><br><span class="line"></span><br><span class="line">data 目录将映射为 mysql 容器配置的数据文件存放路径</span><br><span class="line">logs 目录将映射为 mysql 容器的日志目录</span><br><span class="line">conf 目录里的配置文件将映射为 mysql 容器的配置文件</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------</span><br><span class="line">进入创建的 mysql 目录，创建 Dockerfile</span><br><span class="line">编写脚本。</span><br><span class="line">docker build -t mysql</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>使用镜像：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name [mymysql] -v [$PWD/conf:/etc/mysql/conf.d] -v [$PWD/logs:/logs] -v [$PWD/data:/var/lib/mysql] -e MYSQL_ROOT_PASSWORD=[123456] -d [mysql:5.6]</span><br><span class="line"></span><br><span class="line"># 参数</span><br><span class="line">-p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。</span><br><span class="line">-v -v $PWD/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。</span><br><span class="line">-v $PWD/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。</span><br><span class="line">-v $PWD/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="3-备份与迁移"><a href="#3-备份与迁移" class="headerlink" title="3 备份与迁移"></a>3 备份与迁移</h2><ol>
+<li>制作镜像：</li>
+</ol>
+<ul>
+<li><p>将容器保存为镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器名 起个镜像名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用 dockerfile 构建镜像:<a href="https://blog.csdn.net/wo18237095579/article/details/80540571" target="_blank" rel="noopener">参考博文</a></p>
+</li>
+</ul>
+<ol start="2">
+<li><p>镜像备份：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o 压缩包名.tar 镜像名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>镜像恢复：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i 压缩包名.tar</span><br></pre></td></tr></table></figure></li>
+</ol>
+
                 <hr>
                 
 
@@ -256,7 +313,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟化种类"><span class="toc-text">虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-原理与组成"><span class="toc-text">Docker 原理与组成</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟化种类"><span class="toc-text">虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-原理与组成"><span class="toc-text">Docker 原理与组成</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本命令"><span class="toc-text">1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-部署运行"><span class="toc-text">2 部署运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-备份与迁移"><span class="toc-text">3 备份与迁移</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
