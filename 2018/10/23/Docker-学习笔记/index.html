@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        JavaScript 进阶五 闭包｜Mo&#39;s blog
+        Docker 学习笔记｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/07/22/JavaScript-进阶五-闭包/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/23/Docker-学习笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>JavaScript 进阶五 闭包</h1>
+                    <h1>Docker 学习笔记</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-07-22
+                          日期 2018-10-23
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#JavaScript"
-                           title="JavaScript">JavaScript</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            JavaScript 进阶五 闭包
+            Docker 学习笔记
         </span>
     </div>
 </header>
@@ -202,39 +202,45 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="noopener">闭包参考文档</a><br><a href="http://web.jobbole.com/94343/" target="_blank" rel="noopener">闭包概念参考博文 1</a><br><a href="https://www.cnblogs.com/qieguo/p/5457040.html" target="_blank" rel="noopener">闭包概念参考博文 2</a></p>
-<blockquote>
-<p>闭包就是能够读取其他函数内部变量的函数。例如在javascript中，只有函数内部的子函数才能读取局部变量，所以闭包可以理解成“定义在一个函数内部的函数“。在本质上，闭包是将函数内部和函数外部连接起来的桥梁。</p>
+                <blockquote>
+<p><a href="https://www.cnblogs.com/SzeCheng/p/6822905.html" target="_blank" rel="noopener">参考文章</a></p>
 </blockquote>
-<blockquote>
-<p>闭包就是一个函数引用另外一个函数的变量，因为变量被引用着所以不会被回收，因此可以用来封装一个私有变量。他就像一个静态私有变量一样。</p>
-</blockquote>
-<blockquote>
-<p>函数带()才是执行函数！ 单纯的一句 var f = function() { alert(‘Hi’); }; 是不会弹窗的，后面接一句 f(); 才会执行函数内部的代码。</p>
-</blockquote>
-<ol>
-<li><p>闭包概念：<br><img src="/2018/07/22/JavaScript-进阶五-闭包/图1.PNG" alt="闭包概念"></p>
+<h1 id="一-Docker-概念与作用"><a href="#一-Docker-概念与作用" class="headerlink" title="一 Docker 概念与作用"></a>一 Docker 概念与作用</h1><p>“Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化，容器是完全使用沙箱机制，相互之间不会有任何接口。”</p>
+<p>开发、测试、上线（运维）过程中，将环境打包到容器中，方便部署，开箱即用；<br>可以直接使用现成的容器（打包好的环境）；<br>可以制作自己的容器。</p>
+<h1 id="二-安装运行"><a href="#二-安装运行" class="headerlink" title="二 安装运行"></a>二 安装运行</h1><ol>
+<li><p>去 Docker 官网下载安装包安装。下载前需要注册，因为注册用的 Google 人机验证，所以可能无法显示点击 sign up 按钮。</p>
 </li>
-<li><p>闭包作用-保存变量现场<br><img src="/2018/07/22/JavaScript-进阶五-闭包/图2.PNG" alt="保存变量现场"></p>
+<li><p>Docker for Windows Installer（需要 Windows 10 专业版本或企业版，具体见官网。）使用的是微软的 hyper-V，由于 Hyper-V 与 VirtualBox 冲突导致安装上无法使用的情况（如果安装过 virtualbox，32 位的可以和 Hyper-V 共存），可换为 DockerToolbox，后者利用 virtualbox。</p>
 </li>
-<li><p>闭包作用-封装<br><img src="/2018/07/22/JavaScript-进阶五-闭包/图3.PNG" alt="封装"></p>
+<li><p>Tips：<br>点击 Docker Quickstart Terminal，如果先安装过 git，会出现 “windows 正在查找 bash.exe” 问题，是因为快捷方式路径不对，因为需要 Git bash.exe 来执行 docker star.sh（git bash 是 Windows 下的命令行工具，基于 msys GNU 环境）。<br>快捷方式目标的正确路径书写示例：<code>&quot;D:\Program Files\Git\bin\bash.exe&quot; --login -i &quot;C:\Program Files\Docker Toolbox\start.sh&quot;</code></p>
 </li>
 </ol>
-
+<h1 id="三-Docker"><a href="#三-Docker" class="headerlink" title="三 Docker"></a>三 Docker</h1><h2 id="虚拟化种类"><a href="#虚拟化种类" class="headerlink" title="虚拟化种类"></a>虚拟化种类</h2><ul>
+<li><p>全虚拟化：应用程序实现。<br><img src="/2018/10/23/Docker-学习笔记/图1.PNG" alt="全虚拟化"></p>
+</li>
+<li><p>OS 层虚拟化：<br><img src="/2018/10/23/Docker-学习笔记/图2.PNG" alt="OS 层虚拟化"></p>
+</li>
+<li><p>硬件层虚拟化：<br><img src="/2018/10/23/Docker-学习笔记/图3.PNG" alt="硬件层虚拟化"></p>
+</li>
+</ul>
+<h2 id="Docker-原理与组成"><a href="#Docker-原理与组成" class="headerlink" title="Docker 原理与组成"></a>Docker 原理与组成</h2><ol>
+<li><p>组成：Docker Client 客户端、Docker Daemon 守护进程、Docker Image 镜像、Docker Container 容器。</p>
+</li>
+<li><p>原理：容器技术类似 OS 层虚拟化（不等同），容器本质上是基于应用的，虚拟出运行环境。容器相当于一个个运行的小操作系统，但它是共享宿主机操作系统内核的。</p>
+</li>
+<li><p>架构：C/S 架构。客户端提供交互界面，与守护进程（服务程序）交互，运行一个镜像的实例（容器）。<br><img src="/2018/10/23/Docker-学习笔记/图4.jpg" alt="架构"></p>
+</li>
+</ol>
+<h1 id="四-Docker-快速上手"><a href="#四-Docker-快速上手" class="headerlink" title="四 Docker 快速上手"></a>四 Docker 快速上手</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 列出镜像</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/07/22/DOM-一-文档树/" data-toggle="tooltip" data-placement="top"
-                           title="DOM 一 文档树">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/07/18/MySql-安装后问题记录/" data-toggle="tooltip" data-placement="top"
-                           title="MySql 安装后问题记录">Next Post &rarr;</a>
+                        <a href="/2018/10/23/运维：用户、组及相关权限管理/" data-toggle="tooltip" data-placement="top"
+                           title="运维：用户、组及相关权限管理">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -250,7 +256,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟化种类"><span class="toc-text">虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-原理与组成"><span class="toc-text">Docker 原理与组成</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -272,8 +278,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#JavaScript"
-                           title="JavaScript">JavaScript</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </section>
