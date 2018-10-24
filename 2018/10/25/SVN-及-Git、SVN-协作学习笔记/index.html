@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        SVN 及 Git、SVN 协作学习笔记｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/10/25/SVN-及-Git、SVN-协作学习笔记/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>SVN 及 Git、SVN 协作学习笔记</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-10-25
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#版本控制"
+                           title="版本控制">版本控制</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            SVN 及 Git、SVN 协作学习笔记
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-SVN-与-Git-区别联系"><a href="#一-SVN-与-Git-区别联系" class="headerlink" title="一 SVN 与 Git 区别联系"></a>一 SVN 与 Git 区别联系</h1><blockquote>
+<p><a href="https://www.cnblogs.com/kevingrace/p/5904595.html" target="_blank" rel="noopener">参考博文</a></p>
+</blockquote>
+<p>SVN 比 Git 概念更简单。</p>
+<p>SVN 为集中式版本控制系统，从中央服务器取得最新的版本后开始本地工作，然后推到中央服务器，必须联网才能工作。适合小团队协作，其他部门协作使用。</p>
+<p>Git 为分布式，不需要中央服务器，每个人本地都有一份完整的版本库，无需联网（实际会有一台“中央服务器”来让交换代码更方便）。适合大团队协作。</p>
+<h1 id="二-SVN"><a href="#二-SVN" class="headerlink" title="二 SVN"></a>二 SVN</h1><h2 id="1-SVN-概念"><a href="#1-SVN-概念" class="headerlink" title="1 SVN 概念"></a>1 SVN 概念</h2><blockquote>
+<p>SVN 服务端，客户端软件教程：<a href="https://www.cnblogs.com/0zcl/p/7309766.html" target="_blank" rel="noopener">参考</a></p>
+</blockquote>
+<ol>
+<li><p>SVN 即 Subversion（分为服务端、客户端）。<br>Windows 平台：服务端软件有 VisualSVN server，客户端软件有 TortoiseSVN。<br>Linux 平台：服务端软件有 CollabNet Subversion Edge（GUI），客户端软件有 RapidSVN。</p>
+</li>
+<li><p>服务端与客户端使用流程：</p>
+</li>
+</ol>
+<ul>
+<li>服务端使用流程：建立仓库；添加用户；建立组并添加用户（可同时设置权限）。</li>
+<li>客户端使用流程：checkout（拷贝到本地，链接在服务器端获得）；update（更新本地仓库）；commit（提交）。</li>
+</ul>
+<h2 id="2-SVN-使用（命令行与图形界面）"><a href="#2-SVN-使用（命令行与图形界面）" class="headerlink" title="2 SVN 使用（命令行与图形界面）"></a>2 SVN 使用（命令行与图形界面）</h2><h3 id="服务端："><a href="#服务端：" class="headerlink" title="服务端："></a>服务端：</h3><ul>
+<li>初次配置，创建版本库根目录：<code>mkdir /opt/svn</code></li>
+<li>创建一个仓库：<code>svnadmin create /opt/svn/demo</code>，具体文件 SVN 会以自己的格式存储。</li>
+<li>此创建的仓库目录中，修改默认配置文件配置，包括 svnserve.conf、passwd、authz 配置相关用户和权限。<a href="http://www.runoob.com/svn/svn-create-repo.html" target="_blank" rel="noopener">配置教程</a></li>
+</ul>
+<p>svnserve.conf 配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[general]</span><br><span class="line">anon-access = none</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = /opt/svn/demo/conf/passwd</span><br><span class="line">authz-db = /opt/svn/demo/conf/authz</span><br><span class="line">realm = Ubuntu_SVN</span><br></pre></td></tr></table></figure></p>
+<p>passwd 配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[users]</span><br><span class="line">admin = admin</span><br><span class="line">mo = 12345</span><br></pre></td></tr></table></figure></p>
+<p>authz 配置 1：一个 svnserve 可以为一个仓库工作 <code>svnserve -d -r /opt/svn/demo</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[groups]</span><br><span class="line">admin = mo</span><br><span class="line">dev = user1</span><br><span class="line"></span><br><span class="line">[/]</span><br><span class="line">@admin = rw</span><br><span class="line">user1 = r</span><br></pre></td></tr></table></figure></p>
+<p>authz 配置 2：一个 svnserve 可以为多个仓库工作 <code>svnserve -d -r /opt/svn/</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[groups]</span><br><span class="line">admin = mo</span><br><span class="line">dev = user1</span><br><span class="line"></span><br><span class="line"># [库名:路径] ，服务器运行多个仓库，需写出仓库名。</span><br><span class="line"># 此时还用 [/]，则表示所有库的根目录，同理，[/src] 表示所有库的根目录下的 src 目录。</span><br><span class="line">[demo:/]</span><br><span class="line">@admin = rw</span><br><span class="line">user1 = r</span><br><span class="line"></span><br><span class="line">[demo2:/tags]</span><br><span class="line">mo = rw</span><br><span class="line">user1 = r</span><br></pre></td></tr></table></figure></p>
+<p>客户端通过前缀为 svn:// 或 svn+ssh:// 的 URL 访问版本库有效，而对通过前缀 http://、https:// 或 file:/// 的 URL 无效。</p>
+<ul>
+<li><p>启动服务：<code>svnserve -d -r 目录 --listen-port 端口号</code>，如 <code>svnserve -d -r /opt/svn</code>,（此为启动多个仓库；启动某一个仓库，目录为下一级 <code>/opt/svn/demo</code>，不加端口号默认 3690）。</p>
+</li>
+<li><p>重启服务：查找后 kill <code>ps -ef|grep svn</code>，然后 <code>svnserve -d -r 目录</code>。</p>
+</li>
+</ul>
+<h3 id="客户端："><a href="#客户端：" class="headerlink" title="客户端："></a>客户端：</h3><p><a href="https://www.cnblogs.com/webrun/p/5460641.html" target="_blank" rel="noopener">SVN 常用命令参考</a></p>
+<ul>
+<li><p>补充常用目录结构：可以在 demo 仓库文件夹中建立多个文件夹区分功能，如 scr 文件夹等。<br>标准目录为 /trunk 主分支，是日常开发进行的地方； /branches 分支，一些阶段性的 release 版本； /tags 一般是只读的，这里存储阶段性的发布版本，作为一个里程碑的版本进行存档。</p>
+</li>
+<li><p>检出操作，初次从服务器拉代码：<br>在文件夹（SVN 根目录）上面右键 checkout（使用 TortoiseSVN 客户端）。服务端运行多个仓库，填入 svn 服务器及目标仓库 <code>svn://192.168.50.214/demo</code>，服务器运行一个仓库填 <code>svn://192.168.50.214/</code>；。<br>命令行为 <code>svn checkout svn://192.168.50.214/demo --username=mo</code>。</p>
+</li>
+<li><p>补充检入操作，初次提交服务器：文件夹右键 <code>Import</code>。<br>命令行为 <code>svn import -m &quot;init import&quot; http://192.168.50.214/svn/test/</code></p>
+</li>
+<li><p>更新：<code>svn update</code>。</p>
+</li>
+<li><p>解决冲突。</p>
+</li>
+<li><p>做成版本：<code>svn add</code>，<code>svn status</code>，<code>svn diff -r 旧修订版序号:新修订版序号</code>，<code>svn commit -m &quot;xxx&quot;</code>。</p>
+</li>
+<li><p>对提交但未推送的回滚：<code>svn revert</code>。对已经推送的回滚：<code>svn merge -r 22:21 readme</code>（22 为当前版本，21 为幺恢复的，后面为文件名）。</p>
+</li>
+<li><p>退回与更新：<code>svn log</code>，<code>svn merge -r 版本号</code>。更新到某处 <code>svn update -r 版本号</code>。</p>
+</li>
+<li><p>推送：<code>svn update</code>。</p>
+</li>
+<li><p>删除文件：<code>svn delete [path] -m &quot;注释&quot;</code>。</p>
+</li>
+<li><p>创建分支：<code>svn copy trunk/ branches/my_branch</code>，然后 commit，update。</p>
+</li>
+<li><p>合并分支：先进入要合并的分支 trunk 目录，<code>svn merge ../branches/my_branch/</code>。</p>
+</li>
+<li><p>标签：<code>svn copy trunk/ tags/v1.0</code>，然后 commit。</p>
+</li>
+</ul>
+<h1 id="三-Git-与-SVN-协作"><a href="#三-Git-与-SVN-协作" class="headerlink" title="三 Git 与 SVN 协作"></a>三 Git 与 SVN 协作</h1><blockquote>
+<p><a href="https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion" target="_blank" rel="noopener">官方参考文档</a><br><a href="https://my.oschina.net/strongduanmu/blog/1863110" target="_blank" rel="noopener">参考博文</a></p>
+</blockquote>
+<h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h2><p>git-svn 工具把 Git 变成了 Subversion 服务的客户端，在本地享受到 Git 所有的功能，而后直接向 Subversion 服务器推送内容。Git 中所有 Subversion 桥接命令的基础是 <code>git svn</code>。所有的命令都从它开始，它实际是在与 Subversion 交互。</p>
+<h2 id="2-流程"><a href="#2-流程" class="headerlink" title="2 流程"></a>2 流程</h2><p>软件工程师本地库使用 Git，通过 git-svn -&gt; 公司 SVN 库（软件工程师直接与公司的 SVN 库打交道）。 </p>
+<h2 id="3-git-svn-工作流（Windows-使用方法）"><a href="#3-git-svn-工作流（Windows-使用方法）" class="headerlink" title="3 git-svn 工作流（Windows 使用方法）"></a>3 git-svn 工作流（Windows 使用方法）</h2><ul>
+<li><p>克隆远程 SVN 的仓库变为 git-svn 协作仓库。Windows 下使创建要使用的文件夹，Git Bash Here，<code>git svn clone svn://192.168.50.214/demo -T trunk -b branches -t tags</code>，或用 -s 参数。注：SVN 服务器该仓库 authz 配置目录权限下一定要加上 <code>* = r</code>，否则无法被克隆会报错！下图表明成功克隆。<br><img src="/2018/10/25/SVN-及-Git、SVN-协作学习笔记/图1.PNG" alt="克隆成功"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 项目太大也可以同 init、fetch 代替 clone</span><br><span class="line"></span><br><span class="line"># 初始化仓库</span><br><span class="line">git svn init &lt;svn-url&gt;</span><br><span class="line"># 拉取指定版本之后的记录</span><br><span class="line">git svn fetch -r &lt;svn-version&gt;</span><br><span class="line"># 拉取最新版本</span><br><span class="line">git svn fetch -r HEAD</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建本地工作分支并在其上工作：<code>git checkout -b work</code>。</p>
+</li>
+<li><p>正常使用 Git 做开发，add、commit。完成阶段性工作。</p>
+</li>
+<li><p>更新 master 分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git svn rebase # 同步远程代码</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新 work 分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout work</span><br><span class="line">git rebase master     # 手工解决可能的冲突</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 master、work 分支合并：<code>git checkout master</code>，<code>git merge work</code>。</p>
+</li>
+<li><p>向 Subversion 服务器推送：<code>git svn dcommit</code>。</p>
+</li>
+</ul>
+<p>注：</p>
+<ul>
+<li>将在主线分支外进行的开发通通衍合回主线，避免直接合并。离线状态下进行多次提交然后一次性的推送到 Subversion 的服务器上。</li>
+<li>不要单独建立和使用一个 Git 服务器来搞合作。可以为了加速新开发者的克隆进程建立一个，但是不要向它提供任何不包含 git-svn-id 条目的内容。甚至可以添加一个 pre-receive 挂钩来在每一个提交信息中查找 git-svn-id 并拒绝提交那些不包含它的 commit。</li>
+</ul>
+<p>补充：需要克隆多个远程 SVN 分支情况，参考博文配置 <a href="https://my.oschina.net/strongduanmu/blog/1863110" target="_blank" rel="noopener">博文</a>。<br>修改 <code>.git/config</code> 文件，添加新的远程分支；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[svn-remote &quot;svn-trunk&quot;]</span><br><span class="line">        url = &lt;trunk-svn-url&gt;</span><br><span class="line">        fetch = :refs/remotes/git-svn-trunk</span><br></pre></td></tr></table></figure></p>
+<p>然后使用 <code>git svn fetch svn-trunk -r HEAD</code> 来获取。<br>切换到本地创建的分支工作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 切换到远程分支git-svn-trunk</span><br><span class="line">git checkout git-svn-trunk</span><br><span class="line"># 创建本地分支</span><br><span class="line">git checkout -b master-trunk</span><br></pre></td></tr></table></figure></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/10/24/我的博客概述/" data-toggle="tooltip" data-placement="top"
+                           title="我的博客概述">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SVN-与-Git-区别联系"><span class="toc-text">一 SVN 与 Git 区别联系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-SVN"><span class="toc-text">二 SVN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SVN-概念"><span class="toc-text">1 SVN 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SVN-使用（命令行与图形界面）"><span class="toc-text">2 SVN 使用（命令行与图形界面）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端："><span class="toc-text">服务端：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端："><span class="toc-text">客户端：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Git-与-SVN-协作"><span class="toc-text">三 Git 与 SVN 协作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概念"><span class="toc-text">1 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-流程"><span class="toc-text">2 流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-git-svn-工作流（Windows-使用方法）"><span class="toc-text">3 git-svn 工作流（Windows 使用方法）</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#版本控制"
+                           title="版本控制">版本控制</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
