@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        SVN 及 git-svn 学习笔记｜Mo&#39;s blog
+        SVN 及 Git、SVN 协作学习笔记｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/18/SVN-及-git-svn-学习笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/18/SVN-及-Git、SVN-协作学习笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>SVN 及 git-svn 学习笔记</h1>
+                    <h1>SVN 及 Git、SVN 协作学习笔记</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            SVN 及 git-svn 学习笔记
+            SVN 及 Git、SVN 协作学习笔记
         </span>
     </div>
 </header>
@@ -202,7 +202,60 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-SVN-与-Git-区别联系"><a href="#一-SVN-与-Git-区别联系" class="headerlink" title="一 SVN 与 Git 区别联系"></a>一 SVN 与 Git 区别联系</h1><h1 id="二-SVN"><a href="#二-SVN" class="headerlink" title="二 SVN"></a>二 SVN</h1><h1 id="三-git-svn"><a href="#三-git-svn" class="headerlink" title="三 git-svn"></a>三 git-svn</h1>
+                <h1 id="一-SVN-与-Git-区别联系"><a href="#一-SVN-与-Git-区别联系" class="headerlink" title="一 SVN 与 Git 区别联系"></a>一 SVN 与 Git 区别联系</h1><blockquote>
+<p><a href="https://www.cnblogs.com/kevingrace/p/5904595.html" target="_blank" rel="noopener">参考博文</a><br>SVN 为集中式版本控制系统，从中央服务器取得最新的版本后开始本地工作，然后推到中央服务器，必须联网才能工作。适合小团队协作，其他部门协作使用。</p>
+</blockquote>
+<p>Git 为分布式，不需要中央服务器，每个人本地都有一份完整的版本库，无需联网（实际会有一台“中央服务器”来让交换代码更方便）。适合大团队协作。</p>
+<h1 id="二-SVN"><a href="#二-SVN" class="headerlink" title="二 SVN"></a>二 SVN</h1><h2 id="SVN-概念"><a href="#SVN-概念" class="headerlink" title="SVN 概念"></a>SVN 概念</h2><blockquote>
+<p>SVN 服务端，客户端软件教程：<a href="https://www.cnblogs.com/0zcl/p/7309766.html" target="_blank" rel="noopener">参考</a></p>
+</blockquote>
+<ol>
+<li><p>SVN 即 Subversion（分为服务端、客户端）。<br>Windows 平台：服务端软件有 VisualSVN server，客户端软件有 TortoiseSVN。<br>Linux 平台：服务端软件有 CollabNet Subversion Edge（GUI），客户端软件有 RapidSVN。</p>
+</li>
+<li><p>服务端与客户端使用流程：</p>
+</li>
+</ol>
+<ul>
+<li>服务端使用流程：建立仓库；添加用户；建立组并添加用户（可同时设置权限）。</li>
+<li>客户端使用流程：checkout（拷贝到本地，链接在服务器端获得）；update（更新本地仓库）；commit（提交）。</li>
+</ul>
+<h2 id="SVN-使用（命令行与图形界面）"><a href="#SVN-使用（命令行与图形界面）" class="headerlink" title="SVN 使用（命令行与图形界面）"></a>SVN 使用（命令行与图形界面）</h2><ol>
+<li>服务端：</li>
+</ol>
+<ul>
+<li>初次配置，创建版本库目录：<code>mkdir /opt/svn</code></li>
+<li>创建一个版本库：<code>svnadmin create /opt/svn/demo</code></li>
+<li>此创建的版本库，修改默认配置文件配置，包括 svnserve.conf、passwd、authz 配置相关用户和权限。<a href="http://www.runoob.com/svn/svn-create-repo.html" target="_blank" rel="noopener">配置</a></li>
+<li>启动服务：<code>svnserve -d -r 目录 --listen-port 端口号</code>（启动某个版本库，目录为此库；启动该多个版本库，目录为 <code>/opt/svn</code>）</li>
+</ul>
+<ol start="2">
+<li>客户端：</li>
+</ol>
+<ul>
+<li><h1 id="三-Git-与-SVN-协作"><a href="#三-Git-与-SVN-协作" class="headerlink" title="三 Git 与 SVN 协作"></a>三 Git 与 SVN 协作</h1><blockquote>
+<p><a href="https://git-scm.com/book/zh/v1/Git-%E4%B8%8E%E5%85%B6%E4%BB%96%E7%B3%BB%E7%BB%9F-Git-%E4%B8%8E-Subversion" target="_blank" rel="noopener">参考文档</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>git-svn 工具把 Git 变成了 Subversion 服务的客户端，在本地享受到 Git 所有的功能，而后直接向 Subversion 服务器推送内容。Git 中所有 Subversion 桥接命令的基础是 <code>git svn</code>。所有的命令都从它开始，它实际是在与 Subversion 交互。</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>软件工程师本地库使用 Git，通过 git-svn -&gt; 公司 SVN 库（软件工程师直接与公司的 SVN 库打交道）。 </p>
+<h2 id="git-svn-工作流"><a href="#git-svn-工作流" class="headerlink" title="git-svn 工作流"></a>git-svn 工作流</h2><ol>
+<li>注：</li>
+</ol>
+<ul>
+<li>将在主线分支外进行的开发通通衍合回主线，避免直接合并。离线状态下进行多次提交然后一次性的推送到 Subversion 的服务器上。</li>
+<li>不要单独建立和使用一个 Git 服务器来搞合作。可以为了加速新开发者的克隆进程建立一个，但是不要向它提供任何不包含 git-svn-id 条目的内容。甚至可以添加一个 pre-receive 挂钩来在每一个提交信息中查找 git-svn-id 并拒绝提交那些不包含它的 commit。</li>
+</ul>
+<ol start="2">
+<li>服务端工作流：</li>
+</ol>
+<ul>
+<li></li>
+</ul>
+<ol start="3">
+<li>客户端工作流：</li>
+</ol>
+
                 <hr>
                 
 
@@ -232,7 +285,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SVN-与-Git-区别联系"><span class="toc-text">一 SVN 与 Git 区别联系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-SVN"><span class="toc-text">二 SVN</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-git-svn"><span class="toc-text">三 git-svn</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SVN-与-Git-区别联系"><span class="toc-text">一 SVN 与 Git 区别联系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-SVN"><span class="toc-text">二 SVN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SVN-概念"><span class="toc-text">SVN 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVN-使用（命令行与图形界面）"><span class="toc-text">SVN 使用（命令行与图形界面）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Git-与-SVN-协作"><span class="toc-text">三 Git 与 SVN 协作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-text">流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-svn-工作流"><span class="toc-text">git-svn 工作流</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
