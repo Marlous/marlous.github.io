@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        双系统使用和工作环境（Linux）初始化｜Mo&#39;s blog
+        工作环境（Linux）初始化｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/14/双系统使用和工作环境（Linux）初始化/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/14/工作环境（Linux）初始化/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>双系统使用和工作环境（Linux）初始化</h1>
+                    <h1>工作环境（Linux）初始化</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            双系统使用和工作环境（Linux）初始化
+            工作环境（Linux）初始化
         </span>
     </div>
 </header>
@@ -202,9 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-双系统使用"><a href="#一-双系统使用" class="headerlink" title="一 双系统使用"></a>一 双系统使用</h1><p>双系统工作环境（Windows 10 与 Deepin Linux）；Windows 10 环境为主，Deepin Linux 环境为辅。</p>
-<p>Deepin Linux 使用 Win 下磁盘存储的目录及文件（Deepin Linux 单工作环境则把存储的目录及文件放在 /home/user 的 Document 文件夹下）。</p>
-<h1 id="二-工作环境（Linux）初始化"><a href="#二-工作环境（Linux）初始化" class="headerlink" title="二 工作环境（Linux）初始化"></a>二 工作环境（Linux）初始化</h1><h2 id="1-需要安装的最基本软件"><a href="#1-需要安装的最基本软件" class="headerlink" title="1 需要安装的最基本软件"></a>1 需要安装的最基本软件</h2><ul>
+                <h1 id="一-工作环境（Linux）初始化"><a href="#一-工作环境（Linux）初始化" class="headerlink" title="一 工作环境（Linux）初始化"></a>一 工作环境（Linux）初始化</h1><h2 id="1-需要安装的最基本软件"><a href="#1-需要安装的最基本软件" class="headerlink" title="1 需要安装的最基本软件"></a>1 需要安装的最基本软件</h2><ul>
 <li>蓝牙相关：blueZ、blueman</li>
 <li>openssh-server</li>
 <li>samba 共享相关：sambaclient、cifs-utils</li>
@@ -233,8 +231,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo service bluetooth start</span><br><span class="line">bluetoothctl</span><br><span class="line">power on</span><br><span class="line">agent on</span><br><span class="line">default-agent</span><br><span class="line">scan on</span><br><span class="line">pair [yourDeviceMAC] # 记得输入完授权码后回车。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置文件共享（samba）相关：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">安装：（Ubuntu）</span><br><span class="line">可能要修复破损的依赖关系 apt-get -f install；</span><br><span class="line">安装 sambaclient 等 sudo apt-get install smbclient、apt-get install cifs-utils；</span><br><span class="line">或安装 samba（共享自己的文件夹）。</span><br><span class="line"></span><br><span class="line">使用其他共享文件夹：</span><br><span class="line">1、然后将此文件夹挂载到虚拟机中，先在 /mnt 目录下创建挂载文件夹 mkdir sharecode；</span><br><span class="line">2、挂载命令 mount -t cifs //192.168.50.114/secode /mnt/sharecode/ -o username=mo,password=12345，不行加上 ,vers=2.0。</span><br><span class="line">3、自动挂载，在文件 /etc/rc.local 添加 mount -t cifs //192.168.50.114/secode /mnt/sharecode/ -o username=mo,password=12345,vers=2.0</span><br><span class="line">4、卸载 umount /mnt/sharecode</span><br><span class="line"></span><br><span class="line">共享自己的文件夹:</span><br><span class="line">安装 samba：安装；配置共享文件夹（注意服务和操作系统对文件夹权限问题）；可以添加用户后设置对应的 samba 用户授权（用户需密码才能访问），注意禁止其登陆操作系统只使用 samba 服务。</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">安装：（Ubuntu）</span><br><span class="line">可能要修复破损的依赖关系 apt-get -f install；</span><br><span class="line">安装 sambaclient 等 sudo apt-get install smbclient、apt-get install cifs-utils；</span><br><span class="line">或安装 samba（共享自己的文件夹）。</span><br><span class="line"></span><br><span class="line">使用其他共享文件夹：</span><br><span class="line">1、然后将此文件夹挂载到虚拟机中，先在 /mnt 目录下创建挂载文件夹 mkdir sharecode；</span><br><span class="line">2、挂载命令 mount -t cifs //192.168.50.114/secode /mnt/sharecode/ -o username=mo,password=12345，不行加上 ,vers=2.0。</span><br><span class="line">3、自动挂载，在文件 /etc/rc.local 添加 mount -t cifs //192.168.50.114/secode /mnt/sharecode/ -o username=mo,password=12345,vers=2.0</span><br><span class="line">4、卸载 umount /mnt/sharecode</span><br><span class="line"></span><br><span class="line">共享自己的文件夹:</span><br><span class="line">安装 samba：安装；配置共享文件夹（注意服务和操作系统对文件夹权限问题）；可以添加用户后设置对应的 samba 用户授权（用户需密码才能访问），注意禁止其登陆操作系统只使用 samba 服务。</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<h1 id="二-补充：双系统使用"><a href="#二-补充：双系统使用" class="headerlink" title="二 补充：双系统使用"></a>二 补充：双系统使用</h1><p>双系统工作环境（Windows 10 与 Deepin Linux）；Windows 10 环境为主，Deepin Linux 环境为辅。</p>
+<p>Deepin Linux 使用 Win 下磁盘存储的目录及文件（Deepin Linux 单工作环境则把存储的目录及文件放在 /home/user 的 Document 文件夹下）。</p>
 
                 <hr>
                 
@@ -265,7 +266,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-双系统使用"><span class="toc-text">一 双系统使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-工作环境（Linux）初始化"><span class="toc-text">二 工作环境（Linux）初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-需要安装的最基本软件"><span class="toc-text">1 需要安装的最基本软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-需要的最基本配置"><span class="toc-text">2 需要的最基本配置</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-工作环境（Linux）初始化"><span class="toc-text">一 工作环境（Linux）初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-需要安装的最基本软件"><span class="toc-text">1 需要安装的最基本软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-需要的最基本配置"><span class="toc-text">2 需要的最基本配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-补充：双系统使用"><span class="toc-text">二 补充：双系统使用</span></a></li></ol>
                 </div>
             </div>
         </div>
