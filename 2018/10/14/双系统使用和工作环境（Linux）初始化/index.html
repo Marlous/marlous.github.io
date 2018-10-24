@@ -210,7 +210,9 @@
 <li>samba 共享相关：sambaclient、cifs-utils</li>
 </ul>
 <h2 id="2-需要的最基本配置"><a href="#2-需要的最基本配置" class="headerlink" title="2 需要的最基本配置"></a>2 需要的最基本配置</h2><ul>
-<li><p>新安装的系统没给 root 设置密码会切换用户失败。<code>sudo passwd root</code> 给 root 设置密码，后 <code>su</code> 提升权限为 root 用户（<code>su - root</code> 切换为全新的 root 用户）。<br>Ubuntu 下启用 root 登陆，<code>sudo gedit /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf</code>,添加 <code>greeter-show-manual-login=true</code> 保存；然后 <code>gedit /root/.profile</code> 将文件末尾一句 mesg n 更改为<br><code>tty -s &amp;&amp; mesg n</code>。</p>
+<li><p>新安装的系统没给 root 设置密码会切换用户失败。<code>sudo passwd root</code> 给 root 设置密码，后 <code>su</code> 提升权限为 root 用户（<code>su - root</code> 切换为全新的 root 用户）。</p>
+</li>
+<li><p>Ubuntu 下启用 root 登陆，<code>sudo gedit /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf</code>,添加 <code>greeter-show-manual-login=true</code> 保存；然后 <code>gedit /root/.profile</code> 将文件末尾一句 mesg n 更改为<br><code>tty -s &amp;&amp; mesg n</code>。</p>
 </li>
 <li><p>更改 Grub 默认启动顺序，找到 Grub 配置文件（位置可能不同 Ubuntu 在 <code>/etc/default/grub</code>，CentOS 在 <code>/etc/grub.conf</code>）；GRUB_DEFAULT=0 设置（大同小异） ，如在选择界面查看为 N，则改为 N-1；设置完 <code>update-grub</code> 重新生成启动配置文件。</p>
 </li>
