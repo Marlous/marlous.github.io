@@ -86,14 +86,6 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -223,7 +223,16 @@
 <li><p>停止 xfce 会话，返回使用 CMD：<br>在图形界面点击 log out；<br>CMD 命令 <code>sudo /etc/init.d/xrdp stop</code>。</p>
 </li>
 </ol>
-<h1 id="四-补充"><a href="#四-补充" class="headerlink" title="四 补充"></a>四 补充</h1><p>开启 SSH，自启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">修改 sshd 配置文件：</span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">去掉允许授权登陆前的注释；加上 PermitRootLogin yes。</span><br><span class="line"></span><br><span class="line">开机自启动：</span><br><span class="line">update-rc.d ssh enable</span><br></pre></td></tr></table></figure></p>
+<h1 id="四-xfce-桌面美化"><a href="#四-xfce-桌面美化" class="headerlink" title="四 xfce 桌面美化"></a>四 xfce 桌面美化</h1><p><a href="https://www.linuxdashen.com/xfce%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B" target="_blank" rel="noopener">美化教程</a></p>
+<ul>
+<li><p>下载主题：<a href="https://www.xfce-look.org/browse/ord/top/" target="_blank" rel="noopener">https://www.xfce-look.org/browse/ord/top/</a></p>
+</li>
+<li><p>下载完后，主题解压到到 /usr/share/themes/ 目录下；图标解压到 /usr/share/icons/ 目录下；字体目录 /usr/share/fonts/ 。</p>
+</li>
+<li><p>设置（settings）-&gt; 窗口管理器（window manager）</p>
+</li>
+</ul>
+<h1 id="五-补充"><a href="#五-补充" class="headerlink" title="五 补充"></a>五 补充</h1><p>开启 SSH，自启动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">修改 sshd 配置文件：</span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">去掉允许授权登陆前的注释；加上 PermitRootLogin yes。</span><br><span class="line"></span><br><span class="line">开机自启动：</span><br><span class="line">update-rc.d ssh enable</span><br></pre></td></tr></table></figure></p>
 
                 <hr>
                 
@@ -249,7 +258,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-WSL-概念"><span class="toc-text">一 WSL 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装子系统-Kali"><span class="toc-text">二 安装子系统 Kali</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-安装使用-GUI"><span class="toc-text">三 安装使用 GUI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-补充"><span class="toc-text">四 补充</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-WSL-概念"><span class="toc-text">一 WSL 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装子系统-Kali"><span class="toc-text">二 安装子系统 Kali</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-安装使用-GUI"><span class="toc-text">三 安装使用 GUI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-xfce-桌面美化"><span class="toc-text">四 xfce 桌面美化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充"><span class="toc-text">五 补充</span></a></li></ol>
                 </div>
             </div>
         </div>
