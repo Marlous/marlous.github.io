@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        多操作系统安装与引导原理（Windows、Deepin）｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/10/14/多操作系统安装与引导原理（Windows、Deepin）/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>多操作系统安装与引导原理（Windows、Deepin）</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-10-14
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#记录小结"
+                           title="记录小结">记录小结</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            多操作系统安装与引导原理（Windows、Deepin）
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-双系统原理"><a href="#一-双系统原理" class="headerlink" title="一 双系统原理"></a>一 双系统原理</h1><p><a href="https://wenku.baidu.com/view/a153663583c4bb4cf6ecd101.html?from=search" target="_blank" rel="noopener">参考资料</a></p>
+<ol>
+<li>操作系统启动过程：</li>
+</ol>
+<p>双系统，Grub 来引导：</p>
+<ul>
+<li>Linux 大致启动过程：BIOS &gt; MBR &gt; Grub &gt; 装载 Linux 操作系统。</li>
+<li>Windows 大致启动过程：BIOS &gt; MBR &gt; Grub &gt; BOOTMGR &gt; 装载 Windows 操作系统。</li>
+</ul>
+<p>双系统，BOOTMGR 来引导：</p>
+<ul>
+<li>Linux 大致启动过程：BIOS &gt; MBR &gt; BOOTMGR &gt; Grub &gt; 装载 Linux 操作系统。</li>
+<li>Windows 大致启动过程：BIOS &gt; MBR &gt; BOOTMGR &gt; 装载 Windows 操作系统。</li>
+</ul>
+<p>解释：<br>先执行 BIOS 程序去找硬盘；<br>执行硬盘第一个扇区中 MBR 中的引导代码 boot loader（boot loader 为开机管理程序，Windows 的是 BOOTMGR，Linux 的是 Grub，其功能有三点：直接载入操作系统，提供不同开机选项，转交其他 loader）；<br>引导操作系统。</p>
+<p>补充：<br>Grub 装在 MBR，即用 Grub 引导（Win 下安装 Linux 的默认方式，会自动修复 Win 的引导问题）；装在其它地方即用 Windows 的来引导的话，需要用 EasyBCD 来设置添加 Linux 的启动项。</p>
+<ol start="2">
+<li>分区：</li>
+</ol>
+<ul>
+<li><p>一块硬盘进行高级格式化（逻辑分区），方便管理。（低级格式化为分磁道扇区）。主流分区机制为 MBR、GPT 两种。分区个数取决于分区表所能存储的描述磁盘分区的情况。</p>
+</li>
+<li><p>两种模式：BIOS + MBR 或 UEFI + GPT。</p>
+</li>
+<li><p>MBR：最多 4 个主分区，或者 3 个主分区加 1 个扩展分区，扩展分区中的逻辑分区可分多个。由磁盘操作系统对硬盘进行初始化时产生的。<br><img src="/2018/10/14/多操作系统安装与引导原理（Windows、Deepin）/图1.PNG" alt="MBR 结构"></p>
+</li>
+<li><p>GPT：一个较新的分区机制，解决了 MBR 很多缺点。向后兼容 MBR，必须在 UEFI 硬件上使用，必须为 64 位系统，Mac、Linux 都支持 GPT 分区格式。</p>
+</li>
+</ul>
+<ol start="3">
+<li>Linux 分区：</li>
+</ol>
+<ul>
+<li>/ 根分区、swap 交换分区。</li>
+<li>可以给根分区加密保证物理安全，会丧失性能；可以给引导加密码（可进入单用户模式清除 root 密码）。</li>
+</ul>
+<h1 id="二-Windows-与-Deepin-双系统安装"><a href="#二-Windows-与-Deepin-双系统安装" class="headerlink" title="二 Windows 与 Deepin 双系统安装"></a>二 Windows 与 Deepin 双系统安装</h1><blockquote>
+<p>Deepin 官方文档：<a href="https://wiki.deepin.org/wiki/%E5%8E%9F%E7%94%9F%E5%AE%89%E8%A3%85#.E5.A4.9A.E7.A1.AC.E7.9B.98.E6.97.B6.E5.AE.89.E8.A3.85_deepin_.E5.87.BA.E7.8E.B0.E7.9A.84.E6.97.A0.E6.B3.95.E5.BC.95.E5.AF.BC.E7.9A.84.E9.97.AE.E9.A2.98" target="_blank" rel="noopener">文档</a><br>安装教程 1 不需要设置引导：<a href="https://jingyan.baidu.com/article/17bd8e524527a985ab2bb82e.html" target="_blank" rel="noopener">文档</a><br>安装教程 2 需设置引导：<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=158334&amp;extra=" target="_blank" rel="noopener">文档</a></p>
+</blockquote>
+<ol>
+<li>注意：</li>
+</ol>
+<ul>
+<li>安装 Linux 时会选择 Grub 安装位置。往 MBR 上装，往 Linux 系统所在的分区的第一个扇区里装。本文是前者，一般前者不会出问题。</li>
+<li>一般先安装 Windows，后装 Linux，安装 Linux 会自动配置好引导，反过来 Windows 比较霸道会覆盖掉 Linux 的引导。</li>
+<li>Grub 开机启动管理软件更加方便进行多操作系统引导。</li>
+<li>可用 EasyBCD 备份好引导文件。</li>
+<li>可以用 Grub 引导；或用 BOOTMGR 引导。</li>
+</ul>
+<ol start="2">
+<li>安装过程：Wubi 安装最简单稳妥；U 盘安装；不用 U 盘安装。</li>
+</ol>
+<ul>
+<li>U 盘安装（用 Grub 引导）：Windows 下准备好划分出一定的磁盘空间；用 UltraISO 解压出其中的 deepin-boot-maker.exe，用它来制作 U 盘映像；设置 BIOS 启动顺序等其他配置；安装 Linux 后重启；进入 Windows 用 EasyBCD 配置好引导问题（如果无法进入 Linux 的话需此步）。</li>
+<li>不用 U 盘（用 BOOTMGR 引导）：（参见安装教程 2）Windows 下准备好划分出一定的磁盘空间；用 EasyBCD 配置好引导问题；重启电脑，就可以找到新添加的 NeoGrub 启动项，选中它启动 live 版本 deepin 安装。</li>
+<li>Wubi 安装：不需要考虑引导，如支持 Wubi 安装。如同 Windows 操作系统里的其他软件一样安装卸载 Linux。</li>
+</ul>
+<ol start="3">
+<li>补充：用 U 盘安装后，改为用 BOOTMGR 引导。<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=44261" target="_blank" rel="noopener">启动引导设置、用 BOOTMGR 引导参考文章</a></li>
+</ol>
+<ul>
+<li>进入 windows，可以设置当前引导为 Bootmgr（已经是的不用），也就是主引导记录 MBR 设置为：Windows NT 6.x MBR，分区引导记录为：BOOTMGR 引导程序，通过用 EasyBCD 和 BOOTICE 都可以。</li>
+<li>使用 EasyBCD，添加 Linux 启动项。</li>
+</ul>
+<ol start="4">
+<li>补充：卸载 Linux。<br>用 U 盘安装，下次不想使用 Linux 前，用 PE 恢复 MBR 引导（如第三点）或用 EasyUEFI 删除其启动项（前 BIOS + MBR，后 UEFI + GPT 情况），然后进 Windows 删除其分区。参考：<a href="https://wiki.deepin.org/wiki/%E7%B3%BB%E7%BB%9F%E5%8D%B8%E8%BD%BD" target="_blank" rel="noopener">Windows 下卸载</a></li>
+</ol>
+<h1 id="三-引导修复及卸载问题"><a href="#三-引导修复及卸载问题" class="headerlink" title="三 引导修复及卸载问题"></a>三 引导修复及卸载问题</h1><blockquote>
+<p><a href="https://blog.csdn.net/s_gy_zetrov/article/details/51958484" target="_blank" rel="noopener">参考博文</a><br><a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=44261" target="_blank" rel="noopener">启动引导设置、用 BOOTMGR 引导参考文章</a></p>
+</blockquote>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><p>Linux 引导出问题：用 Linux 的 U 盘挂载上 Linux 所在分区，安装 Grub（会自动配置好 Windows 的启动项）；<br>Windows 引导出问题或两个都出问题：（用 Grub 引导的方式）用 PE 先修复 MBR，后安装 Grub，和配置 Grub 中的 Windows 引导。</p>
+<h2 id="2-具体实践"><a href="#2-具体实践" class="headerlink" title="2 具体实践"></a>2 具体实践</h2><ol>
+<li><p>U 盘 PE 恢复 MBR 引导：<br>使用 U 启动盘（老毛桃 PE）进入 PE，用 NTBOOTautofix 修复 MBR；然后用 DiskGenius，选择 C 盘，分区 &gt; 激活当前分区 &gt; 保存更改。<br>删除 Linux 导致 windows 进入不了，也可以使用此方法。</p>
+</li>
+<li><p>U 盘 Linux 系统挂载安装 Grub：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 创建挂载目录</span><br><span class="line">sudo mkdir -p /mnt/temp</span><br><span class="line"></span><br><span class="line"># 挂载分区</span><br><span class="line">mount /dev/sda5 /mnt/temp</span><br><span class="line"></span><br><span class="line"># 重装 Grub</span><br><span class="line">grub2-install --root-directory=/mnt/temp /dev/sda</span><br><span class="line"></span><br><span class="line"># 使生效</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Grub 中添加操作系统启动项：<br><a href="https://wenku.baidu.com/view/fcaf77bf960590c69ec37680.html" target="_blank" rel="noopener">自定义菜单项 menuentry 构建参考</a><br>多操作系统添加启动项前，可先备份 grub.cfg，要想办法搞清楚每个系统安装位置，可在 Linux 下查看；UUID 查看命令 <code>sudo blkid</code>。</p>
+</li>
+</ol>
+<p>可编辑的 Grub 2 配置文件主要包括 /etc/default/grub、和 /etc/grub.d/ 下的各文件。<br>自定义菜单项一般存放在 /etc/grub.d/40_custom 文件中。编辑完运行 <code>update-grub</code> 命令。 </p>
+<ul>
+<li><p>构建 menuentry 中的主要项:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menuentry &quot;显示的操作系统名&quot; &#123;</span><br><span class="line">	insmod part_msdos</span><br><span class="line">	insmod ntfs            # 文件系统类型。</span><br><span class="line">    set root=&apos;hd0,msdos1&apos;  # hd0 为第几块硬盘，1 为第几个分区。</span><br><span class="line">    search --no-floppy --fs-uuid --set=root 7E58BCF758BCAF71   # 磁盘用 UUID 来标记，更精确。</span><br><span class="line">    chainloader +1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>grub.cfg 中的模板：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">menuentry &apos;Deepin 15.7 GNU/Linux&apos; --class deepin --class gnu-linux --class gnu --class os $menuentry_id_option &apos;gnulinux-simple-f179bdda-0718-4b4c-8408-4b06f5483456&apos; &#123;</span><br><span class="line">	load_video</span><br><span class="line">	insmod gzio</span><br><span class="line">	if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi</span><br><span class="line">	insmod part_msdos</span><br><span class="line">	insmod ext2</span><br><span class="line">	set root=&apos;hd0,msdos3&apos;</span><br><span class="line">	if [ x$feature_platform_search_hint = xy ]; then</span><br><span class="line">	  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos3 --hint-efi=hd0,msdos3 --hint-baremetal=ahci0,msdos3  f179bdda-0718-4b4c-8408-4b06f5483456</span><br><span class="line">	else</span><br><span class="line">	  search --no-floppy --fs-uuid --set=root f179bdda-0718-4b4c-8408-4b06f5483456</span><br><span class="line">	fi</span><br><span class="line">	linux	/boot/vmlinuz-4.15.0-29deepin-generic root=UUID=f179bdda-0718-4b4c-8408-4b06f5483456 ro  splash quiet</span><br><span class="line">	initrd	/boot/initrd.img-4.15.0-29deepin-generic</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">menuentry &apos;Windows 10 (on /dev/sda1)&apos; --class windows --class os $menuentry_id_option &apos;osprober-chain-7E58BCF758BCAF71&apos; &#123;</span><br><span class="line">	insmod part_msdos</span><br><span class="line">	insmod ntfs</span><br><span class="line">	set root=&apos;hd0,msdos1&apos;</span><br><span class="line">	if [ x$feature_platform_search_hint = xy ]; then</span><br><span class="line">	  search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1  7E58BCF758BCAF71</span><br><span class="line">	else</span><br><span class="line">	  search --no-floppy --fs-uuid --set=root 7E58BCF758BCAF71</span><br><span class="line">	fi</span><br><span class="line">	parttool $&#123;root&#125; hidden-</span><br><span class="line">	drivemap -s (hd0) $&#123;root&#125;</span><br><span class="line">	chainloader +1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="四-小结"><a href="#四-小结" class="headerlink" title="四 小结"></a>四 小结</h1><p>BIOS + MBR 模式。</p>
+<ul>
+<li><p>搞清楚 MBR 的开机管理程序（boot loader）是 Grub 还是 BOOTMGR；谁调用谁进入第二个操作系统。<br>开机管理程序是谁，就在谁添加另一个被调用的启动项（是 Grub，会自动设置好；是 BOOTMGR，需要手动进 Win 添加 Linux 启动项）。</p>
+</li>
+<li><p>搞清楚哪个操作系统没法启动，然后修复，详情见第三部分。</p>
+</li>
+</ul>
+<h1 id="五-补充：安装多个-Linux-操作系统"><a href="#五-补充：安装多个-Linux-操作系统" class="headerlink" title="五 补充：安装多个 Linux 操作系统"></a>五 补充：安装多个 Linux 操作系统</h1><blockquote>
+<p><a href="https://wenku.baidu.com/view/2f10944f69eae009581bec21.html" target="_blank" rel="noopener">参考文档</a></p>
+</blockquote>
+<ul>
+<li><p>Windows 下安装第二个操作系统 Linux 时，会选择 Grub 安装位置。往 MBR 上装，往 Linux 系统所在的分区的第一个扇区里装。一般安装在 MBR。</p>
+</li>
+<li><p>MBR 是各个系统的必争之地，尤其是 Windows 一旦重装, MBR 记录就被覆盖, GRUB 也会不见。先后安装两个 Linux，其 Grub 都往 MBR 上装，留下的只会是后来者。需要进入最后安装的 Linux，修改配置 Grub 文件，添加前面安装的操作系统的启动项。</p>
+</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/10/14/工作环境（Linux）初始化/" data-toggle="tooltip" data-placement="top"
+                           title="工作环境（Linux）初始化">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/10/13/Windows-批处理实例-发布测试博客与备份博文/" data-toggle="tooltip" data-placement="top"
+                           title="Windows 批处理实例 发布测试博客与备份博文">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-双系统原理"><span class="toc-text">一 双系统原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Windows-与-Deepin-双系统安装"><span class="toc-text">二 Windows 与 Deepin 双系统安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-引导修复及卸载问题"><span class="toc-text">三 引导修复及卸载问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-text">1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-具体实践"><span class="toc-text">2 具体实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-小结"><span class="toc-text">四 小结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充：安装多个-Linux-操作系统"><span class="toc-text">五 补充：安装多个 Linux 操作系统</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#记录小结"
+                           title="记录小结">记录小结</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
