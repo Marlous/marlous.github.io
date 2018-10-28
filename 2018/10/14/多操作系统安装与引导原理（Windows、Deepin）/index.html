@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -278,6 +278,9 @@
 </li>
 <li><p>U 盘 Linux 系统挂载安装 Grub：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 创建挂载目录</span><br><span class="line">sudo mkdir -p /mnt/temp</span><br><span class="line"></span><br><span class="line"># 挂载分区</span><br><span class="line">mount /dev/sda5 /mnt/temp</span><br><span class="line"></span><br><span class="line"># 重装 Grub</span><br><span class="line">grub2-install --root-directory=/mnt/temp /dev/sda</span><br><span class="line"></span><br><span class="line"># 使生效</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 grub rescue 模式来重装 Grub 恢复引导：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 查看各分区文件系统类型，确定哪个是 Deepin 系统安装位置，文件系统为 ext。</span><br><span class="line">ls</span><br><span class="line">ls (hdx,msdosy)    # x，y 为数字，参见 ls 命令后显示的分区情况。</span><br><span class="line"></span><br><span class="line"># 如果之前安装 Linux 时没有分 /boot 分区：</span><br><span class="line">ls (hdx,msdosy)/boot/grub</span><br><span class="line">set root=(hdx,msdosy)</span><br><span class="line">set prefix=(hdx,msdosy)/boot/grub</span><br><span class="line">insmod normal</span><br><span class="line">normal</span><br><span class="line"></span><br><span class="line"># 如果之前安装 Linux 时分出了 /boot 分区：</span><br><span class="line">ls (hdx,msdosy)/grub</span><br><span class="line">set root=(hdx,msdosy)</span><br><span class="line">set prefix=(hdx,msdosy)/grub</span><br><span class="line">insmod normal</span><br><span class="line">normal</span><br><span class="line"></span><br><span class="line"># 回车进入 Linux，命令行输入命令：</span><br><span class="line">sudo update-grub</span><br><span class="line">sudo grub-install /dev/sda</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Grub 中添加操作系统启动项：<br><a href="https://wenku.baidu.com/view/fcaf77bf960590c69ec37680.html" target="_blank" rel="noopener">自定义菜单项 menuentry 构建参考</a><br>多操作系统添加启动项前，可先备份 grub.cfg，要想办法搞清楚每个系统安装位置，可在 Linux 下查看；UUID 查看命令 <code>sudo blkid</code>。<br>可编辑的 Grub 2 配置文件主要包括 /etc/default/grub、和 /etc/grub.d/ 下的各文件。<br>自定义菜单项一般存放在 /etc/grub.d/40_custom 文件中。编辑完运行 <code>update-grub</code> 命令。 </p>
 </li>
