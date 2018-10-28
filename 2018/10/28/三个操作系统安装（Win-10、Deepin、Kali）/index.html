@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -223,6 +223,20 @@
 <li><p>重启用 U 盘安装第二个 Linux 操作系统 Kali，完成（Grub 会自动识别并完成引导的配置）。</p>
 </li>
 </ul>
+<h1 id="三-重新安装-Grub"><a href="#三-重新安装-Grub" class="headerlink" title="三 重新安装 Grub"></a>三 重新安装 Grub</h1><p>由于先安装的 Deepin，后安装的 Kali，导致后者的 Grub 覆盖了前者的，现在恢复用 Deepin 的 Grub 来引导（更加美观）。</p>
+<ul>
+<li><p>先进入 Deepin，终端查看分区情况，我的 Kali 装在 /dev/sda8。</p>
+</li>
+<li><p>安装 Grub：<code>grub2-install</code>。</p>
+</li>
+<li><p>在 /boot/grub/grub.cfg 中添加启动项，如图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menuentry &quot;显示的操作系统名&quot; &#123;</span><br><span class="line">    insmod part_msdos</span><br><span class="line">    insmod ntfs            # 文件系统类型。</span><br><span class="line">    set root=&apos;hd0,msdos1&apos;  # hd0 为第几块硬盘，1 为第几个分区。</span><br><span class="line">    search --no-floppy --fs-uuid --set=root 7E58BCF758BCAF71   # 磁盘用 UUID 来标记，更精确。</span><br><span class="line">    chainloader +1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图7.PNG" alt="添加启动项"></p>
+<ul>
+<li>更新 Grub 配置：<code>update-grub</code>，重启完成。</li>
+</ul>
 
                 <hr>
                 
@@ -248,7 +262,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-安装第一个-Linux-系统"><span class="toc-text">一 安装第一个 Linux 系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装第二个-Linux-系统"><span class="toc-text">二 安装第二个 Linux 系统</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-安装第一个-Linux-系统"><span class="toc-text">一 安装第一个 Linux 系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装第二个-Linux-系统"><span class="toc-text">二 安装第二个 Linux 系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-重新安装-Grub"><span class="toc-text">三 重新安装 Grub</span></a></li></ol>
                 </div>
             </div>
         </div>
