@@ -202,7 +202,38 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote>
+<p>参考：<br><a href="https://www.zhihu.com/question/23444990/answer/89426003" target="_blank" rel="noopener">如何理解持续集成、持续交付、持续部署？</a><br><a href="https://zhuanlan.zhihu.com/p/26600598" target="_blank" rel="noopener">什么是DevOps？阿里专家为你来解读</a><br><a href="https://zhuanlan.zhihu.com/p/22638204" target="_blank" rel="noopener">给 DevOps 初学者的入门指南</a><br><a href="https://zhuanlan.zhihu.com/p/25066056" target="_blank" rel="noopener">一点都不高大上，手把手教你使用Travis CI实现持续部署</a><br><a href="https://zhuanlan.zhihu.com/p/31849745" target="_blank" rel="noopener">理想化的DevOps流程</a></p>
+</blockquote>
+<h1 id="一-概述工作流"><a href="#一-概述工作流" class="headerlink" title="一 概述工作流"></a>一 概述工作流</h1><p>整个软件工程从提出需求到最终交付的流程。</p>
+<ol>
+<li>传统工作流：</li>
+</ol>
+<ul>
+<li>PD(Demond) -&gt;[ DEV(Coding) -&gt; SCM(Build) -&gt; QA(Test) -&gt; OPS(Deploy) ]-&gt; Release</li>
+<li>PD 提出需求 -&gt;[ 开发者根据需求写代码 -&gt; SCM 拿着代码去打包 -&gt; QA 测试 -&gt; 运维进行上线部署 ]</li>
+</ul>
+<ol start="2">
+<li>DevOps 工作流：<br>DevOps 即更好的优化开发、测试、运维的流程；开发运维一体化，通过高度自动化工具与流程来使得软件构建、测试、发布更加快捷、频繁和可靠。<br>同时，CI/CD（持续集成/持续部署）可看作传统工作流的增强版；DevOps 可看作是 CI/CD 的增强版。</li>
+</ol>
+<h1 id="二-DevOps-的技术栈与工具链"><a href="#二-DevOps-的技术栈与工具链" class="headerlink" title="二 DevOps 的技术栈与工具链"></a>二 DevOps 的技术栈与工具链</h1><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/22638204" target="_blank" rel="noopener">参考</a></p>
+</blockquote>
+<ul>
+<li>版本控制&amp;协作开发：GitHub、GitLab、BitBucket、SubVersion、Coding、Bazaar</li>
+<li>自动化构建和测试: Apache Ant、Maven 、Selenium、PyUnit、QUnit、JMeter、Gradle、PHPUnit</li>
+<li>持续集成&amp;交付:Jenkins、Capistrano、BuildBot、Fabric、Tinderbox、Travis CI、flow.ci Continuum、LuntBuild、CruiseControl、Integrity、Gump、Go</li>
+<li>容器平台: Docker、Rocket、Ubuntu（LXC）、第三方厂商如（AWS/阿里云）</li>
+<li>配置管理：Chef、Puppet、CFengine、Bash、Rudder、Powershell、RunDeck、Saltstack、Ansible</li>
+<li>微服务平台：OpenShift、Cloud Foundry、Kubernetes、Mesosphere</li>
+<li>服务开通：Puppet、Docker Swarm、Vagrant、Powershell、OpenStack Heat</li>
+<li>日志管理：Logstash、CollectD、StatsD</li>
+<li>监控，警告&amp;分析：Nagios、Ganglia、Sensu、zabbix、ICINGA、Graphite、Kibana</li>
+</ul>
+<h1 id="三-打造自己的-DevOps"><a href="#三-打造自己的-DevOps" class="headerlink" title="三 打造自己的 DevOps"></a>三 打造自己的 DevOps</h1><blockquote>
+<p><a href="https://www.cnblogs.com/Leo_wl/p/4728745.html" target="_blank" rel="noopener">持续集成实践参考</a><br><a href="https://www.jianshu.com/p/67286ee91252" target="_blank" rel="noopener">flow.ci + Github + Slack 一步步搭建 Python 自动化持续集成</a><br><a href="https://zhuanlan.zhihu.com/p/25066056" target="_blank" rel="noopener">持续部署实践参考</a></p>
+</blockquote>
+
                 <hr>
                 
 
@@ -227,7 +258,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述工作流"><span class="toc-text">一 概述工作流</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-DevOps-的技术栈与工具链"><span class="toc-text">二 DevOps 的技术栈与工具链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-打造自己的-DevOps"><span class="toc-text">三 打造自己的 DevOps</span></a></li></ol>
                 </div>
             </div>
         </div>
