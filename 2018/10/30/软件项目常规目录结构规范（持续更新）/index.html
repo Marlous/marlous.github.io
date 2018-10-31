@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        软件工程综合工作流总结（持续更新）｜Mo&#39;s blog
+        软件项目常规目录结构规范（持续更新）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/22/软件工程综合工作流总结（持续更新）/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/30/软件项目常规目录结构规范（持续更新）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,12 +171,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>软件工程综合工作流总结（持续更新）</h1>
+                    <h1>软件项目常规目录结构规范（持续更新）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-10-22
+                          日期 2018-10-30
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            软件工程综合工作流总结（持续更新）
+            软件项目常规目录结构规范（持续更新）
         </span>
     </div>
 </header>
@@ -202,7 +202,39 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>要求开发人员在编码前要先提交该功能的单体测试和集成测试的代码，然后才能开始写代码（所谓的测试驱动开发），然后测试人员要负责写端到端的自动化测试代码。公司用Jenkins进行持续集成，SVN管理代码库，Git进行团队开发，Sonar进行代码质量检查。项目成员每天早晨都会收到Jenkins服务器发来的前一天的集成测试报告，通知前一天的提交是否完全通过。经历了这样一个持续迭代的过程</p>
+                <h1 id="一-概念"><a href="#一-概念" class="headerlink" title="一 概念"></a>一 概念</h1><p>不同的项目目录组织（结构）会不尽相同。大方向上前端、后端、移动、桌面应用等；具体项目其所用的语言、开发构建工具和平台等都有关系。</p>
+<p>是否使用项目管理工具，Maven（常见于 Java 项目）。</p>
+<h1 id="二-项目上传及使用代码仓库"><a href="#二-项目上传及使用代码仓库" class="headerlink" title="二 项目上传及使用代码仓库"></a>二 项目上传及使用代码仓库</h1><h2 id="1-哪些要上传，哪些不要上传？"><a href="#1-哪些要上传，哪些不要上传？" class="headerlink" title="1 哪些要上传，哪些不要上传？"></a>1 哪些要上传，哪些不要上传？</h2><ol>
+<li><p>GitHub 上提供的配置文件可以直接使用：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
+</li>
+<li><p>一个工程项目中需要忽略的文件：</p>
+</li>
+</ol>
+<ul>
+<li>忽略操作系统自动生成的文件。</li>
+<li>忽略编译生成的中间文件、可执行文件等。</li>
+<li>忽略你自己的带有敏感信息的配置文件。</li>
+</ul>
+<h2 id="2-如何编译开源项目？"><a href="#2-如何编译开源项目？" class="headerlink" title="2 如何编译开源项目？"></a>2 如何编译开源项目？</h2><p>参考 Nginx 模块编译，<a href="https://www.cnblogs.com/zolo/p/5857806.html?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="noopener">参考博文</a> </p>
+<p>搭建开发环境：安装编译器，IDE，各种需要的库，源码。</p>
+<h1 id="三-目录结构规范"><a href="#三-目录结构规范" class="headerlink" title="三 目录结构规范"></a>三 目录结构规范</h1><blockquote>
+<p><a href="https://www.jianshu.com/p/75cf57e53451" target="_blank" rel="noopener">参考 1</a><br><a href="https://www.jianshu.com/p/a48594fb3a74" target="_blank" rel="noopener">参考 2</a></p>
+</blockquote>
+<h2 id="1-通用项目目录结构模板"><a href="#1-通用项目目录结构模板" class="headerlink" title="1 通用项目目录结构模板"></a>1 通用项目目录结构模板</h2><p>以下是个通用的模板清单，通过增、减、组合来构成不同项目的目录结构。</p>
+<ol>
+<li><p>公共部分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ProjectName</span><br><span class="line">|-- bin        # 项目的一些可执行文件，也可以起名 script/ 之类的。程序入口，也就是启动程序的文件。</span><br><span class="line">|-- src        # 所有源代码</span><br><span class="line">|-- src_cov    # 为了测试代码覆盖率，所有为测试覆盖率生成的新的文件</span><br><span class="line">|-- lib        # 存放一些公用的功能</span><br><span class="line">|-- test       # 所有测试相关代码</span><br><span class="line">|-- conf       # 配置文件</span><br><span class="line">|   |-- settings.x        # 放一些需要用到的变量常量等。可以看作主配置。</span><br><span class="line">|   |-- dev_settings.x    # 开发环境配置</span><br><span class="line">|   |-- test_settings.x   # 测试环境配置</span><br><span class="line">|   |-- prod_settings.x   # 生产环境配置</span><br><span class="line">|</span><br><span class="line">|-- app        # 应用软件业务代码</span><br><span class="line">|-- db         # 各种数据</span><br><span class="line">|-- resource   # 文字，图片，声音，布局文件等资源</span><br><span class="line">|-- static     # 静态资源</span><br><span class="line">|-- log        # 存放日志</span><br><span class="line">|-- docs       # API 等文档</span><br><span class="line">|-- dist       # 所有编译生成、提供给用户使用的文件，发布版本</span><br><span class="line">|-- examples   # 示例文件</span><br><span class="line">|-- build      # 所有工具类脚本</span><br><span class="line">|-- setup      # 部署打包脚本</span><br><span class="line">|-- README     # 项目主要功能用途等</span><br><span class="line">|-- LICENCE    # 许可</span><br><span class="line">|-- .gitignore # 忽略文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非 GUI：模块、组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">src         # 所有源代码</span><br><span class="line">|-- core    # 核心源代码，包括常用数据结构的定义，以及初始化运行的核心代码如 main 函数。</span><br><span class="line">|-- funcname1     </span><br><span class="line">|-- funcname2     # 模块（一个功能的实现）</span><br><span class="line">|   |-- modules   # 子模块（组件写在模块函数里，不再细分。）</span><br><span class="line">|   |-- ...</span><br><span class="line">|</span><br><span class="line">|-- ...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GUI：模块、流程、页面、组件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app   # 应用软件业务代码的根目录； </span><br><span class="line">|-- module</span><br><span class="line">|   |--subModule</span><br><span class="line">|   |  |-- ...</span><br><span class="line">|   |</span><br><span class="line">|   |-- flow</span><br><span class="line">|   |  |-- page</span><br><span class="line">|   |      |-- component</span><br><span class="line">|   |</span><br><span class="line">|   |-- publicModule</span><br><span class="line">|   |-- publicFlow</span><br><span class="line">|   |-- publicPage</span><br><span class="line">|   |-- publicComponent</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="2-前端项目"><a href="#2-前端项目" class="headerlink" title="2 前端项目"></a>2 前端项目</h2><blockquote>
+<p><a href="https://github.com/fex-team/styleguide/blob/master/project.md" target="_blank" rel="noopener">前端开发团队开源项目目录规范</a></p>
+</blockquote>
 
                 <hr>
                 
@@ -210,14 +242,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/10/23/Docker-入门学习笔记/" data-toggle="tooltip" data-placement="top"
-                           title="Docker 入门学习笔记">&larr; Previous Post</a>
+                        <a href="/2018/10/30/一些编程语言、项目文件命名规范/" data-toggle="tooltip" data-placement="top"
+                           title="一些编程语言、项目文件命名规范">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/10/18/About-Docs-My-Wiki/" data-toggle="tooltip" data-placement="top"
-                           title="About Docs - My Wiki">Next Post &rarr;</a>
+                        <a href="/2018/10/29/信息安全行业认证之-CISSP/" data-toggle="tooltip" data-placement="top"
+                           title="信息安全行业认证之 CISSP">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -233,7 +265,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概念"><span class="toc-text">一 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-项目上传及使用代码仓库"><span class="toc-text">二 项目上传及使用代码仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-哪些要上传，哪些不要上传？"><span class="toc-text">1 哪些要上传，哪些不要上传？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-如何编译开源项目？"><span class="toc-text">2 如何编译开源项目？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-目录结构规范"><span class="toc-text">三 目录结构规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-通用项目目录结构模板"><span class="toc-text">1 通用项目目录结构模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-前端项目"><span class="toc-text">2 前端项目</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
