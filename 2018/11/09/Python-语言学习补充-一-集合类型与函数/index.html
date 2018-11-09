@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        JavaScript 进阶四 表达式，运算符，语句｜Mo&#39;s blog
+        Python 语言学习补充 一 集合类型与函数｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/09/Python-语言学习补充-一-集合类型与函数/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>JavaScript 进阶四 表达式，运算符，语句</h1>
+                    <h1>Python 语言学习补充 一 集合类型与函数</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-07-13
+                          日期 2018-11-09
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#JavaScript"
-                           title="JavaScript">JavaScript</a>
+                        <a class="tag" href="/tags/#Python"
+                           title="Python">Python</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            JavaScript 进阶四 表达式，运算符，语句
+            Python 语言学习补充 一 集合类型与函数
         </span>
     </div>
 </header>
@@ -202,78 +202,34 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-表达式"><a href="#一-表达式" class="headerlink" title="一 表达式"></a>一 表达式</h1><p>js 短语，解释器可以执行并生成一个值。</p>
-<h1 id="二-运算符"><a href="#二-运算符" class="headerlink" title="二 运算符"></a>二 运算符</h1><p><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图1.PNG" alt="运算符"></p>
-<ol>
-<li>关系运算：</li>
+                <h1 id="一-集合数据类型"><a href="#一-集合数据类型" class="headerlink" title="一 集合数据类型"></a>一 集合数据类型</h1><h2 id="定义使用"><a href="#定义使用" class="headerlink" title="定义使用"></a>定义使用</h2><ol>
+<li><p>定义和元组相同，但用大括号 <code>{}</code>。如 <code>s = {&quot;a&quot;,&quot;b&quot;,&quot;c&quot;} 或 s = set(&quot;abc&quot;)</code>，set() 中的值可以是一个列表，即把列表中的值遍历放入集合中，集合可以用来去重。<br>集合是无值的字典，集合与元组区别在于：元组无序、不可变；集合无序、可变、不重复。</p>
+</li>
+<li><p>方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s.add(&quot;abc&quot;)  # 增加一项，作为整体添加</span><br><span class="line">s.update(&quot;abc&quot;)  # 增加多项，拆分为个体添加</span><br><span class="line">s.update([&quot;abc&quot;，&quot;hello&quot;, &quot;world&quot;])  # 增加多项</span><br><span class="line">s.pop()  # 随机删除</span><br><span class="line">s.remove(要删除的值)  # 指定删除，元素不存在会报错</span><br><span class="line">s.discrad(要删除的值) # 指定删除，元素不存在不报错</span><br><span class="line">s.issubset(XXX)  # 判断 s 是不是 XXX 的子集，返回 True，False</span><br><span class="line">s.issuperset(XXX)  # 判断 s 是不是 XXX 的父集</span><br><span class="line">s.isdisjoint(XXX)  # 判断是不是相交</span><br><span class="line">s = forzenset(&quot;hello&quot;)  # 将集合变为不可变的集合（元组）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>集合关系运算：</p>
+</li>
 </ol>
 <ul>
-<li><p>===<br>判断类型（主要是原始类型）和值是否相等。<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图2.PNG" alt="关系运算 1"></p>
-</li>
-<li><p>==<br>判断对象或值是否相等。（会类型转换）<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图3.PNG" alt="关系运算 2"></p>
-</li>
-</ul>
-<p>例外规则：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图4.PNG" alt="例外规则"></p>
-<ol start="3">
-<li>逻辑运算：</li>
-</ol>
-<ul>
-<li><p>！<br>取反。</p>
-</li>
-<li><p>&amp;&amp;<br>并。（注意短路）</p>
-</li>
-<li><p>||<br>或。（注意短路）</p>
-</li>
+<li>求交集：<code>a_s &amp; b_s</code>，<code>a_s.intersection(b_s)</code>。</li>
+<li>求并集：<code>a_s | b_s</code>，<code>a_s.union(b_s)</code>。</li>
+<li>求差集：<code>a_s - b_s</code>，<code>a_s.difference(b_s)</code>。</li>
+<li>交叉补集（除去相同部分剩下的）：<code>a_s ^ b_s</code>，<code>a_s.symmetric_difference(b_s)</code>。</li>
 </ul>
 <ol start="4">
-<li>运算符优先级：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图5.PNG" alt="运算符优先级"></li>
+<li>补充：<br>对列表去重：names 为一个列表。<code>names = list(set(names))</code>。</li>
 </ol>
-<h1 id="三-语句"><a href="#三-语句" class="headerlink" title="三 语句"></a>三 语句</h1><h2 id="1-条件控制语句"><a href="#1-条件控制语句" class="headerlink" title="1 条件控制语句"></a>1 条件控制语句</h2><ul>
-<li><p>if else</p>
-</li>
-<li><p>switch：<br>与 C 语言不同在于，case 后可以跟字符串或是表达式，不仅仅是数字或单个字符。</p>
-</li>
-</ul>
-<h2 id="2-循环控制语句"><a href="#2-循环控制语句" class="headerlink" title="2 循环控制语句"></a>2 循环控制语句</h2><ul>
-<li><p>while</p>
-</li>
-<li><p>do while</p>
-</li>
-<li><p>for</p>
-</li>
-<li><p>for/in<br>遍历对象属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for(var key in object)</span><br><span class="line">	&#123;</span><br><span class="line">		console.log(key + &quot;:&quot; + object[key]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">/*  </span><br><span class="line">type:benz</span><br><span class="line">color:black</span><br><span class="line">id:12345</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>避免遍历方法的情况：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图6.PNG" alt="避免遍历方法"></p>
-<h2 id="3-异常处理语句"><a href="#3-异常处理语句" class="headerlink" title="3 异常处理语句"></a>3 异常处理语句</h2><p><code>try/catch/finally  throw</code><br><a href="https://www.cnblogs.com/knightsu/p/7114914.html" target="_blank" rel="noopener">参考博文 1</a><br><a href="https://www.cnblogs.com/foodoir/p/5720752.html" target="_blank" rel="noopener">参考博文 2</a></p>
-<ul>
-<li><p>try块：负责捕获异常，一旦try中发现异常，程序的控制权将被移交给catch块中的异常处理程序。</p>
-</li>
-<li><p>catch块：如何处理？比如发出警告：提示、检查配置、网络连接，记录错误等。执行完catch块之后程序跳出catch块，继续执行后面的代码。(多个 catch 块处理的异常类,要按照先 catch 子类后 catch 父类的处理方式，因为会就近处理异常,由上自下。)</p>
-</li>
-<li><p>finally：最终执行的代码，用于关闭和释放资源。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">//一些会抛出的异常</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">catch（e）&#123;</span><br><span class="line">//第一个catch</span><br><span class="line">//处理该异常的代码块</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">catch（e）&#123;</span><br><span class="line">//第二个catch，可以有多个catch</span><br><span class="line">//处理该异常的代码块</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">finally&#123;</span><br><span class="line">//最终要执行的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">　　try&#123;</span><br><span class="line">　　　　var n = error; //人为引发一个错误，error 未定义就使用</span><br><span class="line">　　&#125;</span><br><span class="line">　　catch(e)&#123;</span><br><span class="line">　　　　alert((e.number&amp;0xFFFF) + &quot;号错误：&quot; + e.description); //错误处理：仅输出错误信息</span><br><span class="line">　　&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="4-with-语句"><a href="#4-with-语句" class="headerlink" title="4 with 语句"></a>4 with 语句</h2><p>通常不建议使用。可能会导致执行性能下降。<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图7.PNG" alt="with 语句"></p>
-<p>例子：<br><img src="/2018/07/13/JavaScript-进阶四-表达式，运算符，语句/图8.PNG" alt="例子"></p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/07/15/网络安全-一-信息收集/" data-toggle="tooltip" data-placement="top"
-                           title="网络安全 一 信息收集 ！暂未完成！">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/07/12/JavaScript-进阶三-变量作用域/" data-toggle="tooltip" data-placement="top"
-                           title="JavaScript 进阶三 变量作用域">Next Post &rarr;</a>
+                        <a href="/2018/11/06/UX-UI-一站式设计平台：Adobe-XD-使用笔记/" data-toggle="tooltip" data-placement="top"
+                           title="UX/UI 一站式设计平台：Adobe XD 使用笔记">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -289,7 +245,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-表达式"><span class="toc-text">一 表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-运算符"><span class="toc-text">二 运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-语句"><span class="toc-text">三 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-条件控制语句"><span class="toc-text">1 条件控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-循环控制语句"><span class="toc-text">2 循环控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-异常处理语句"><span class="toc-text">3 异常处理语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-with-语句"><span class="toc-text">4 with 语句</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-集合数据类型"><span class="toc-text">一 集合数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义使用"><span class="toc-text">定义使用</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -311,8 +267,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#JavaScript"
-                           title="JavaScript">JavaScript</a>
+                        <a class="tag" href="/tags/#Python"
+                           title="Python">Python</a>
                         
                     </div>
                 </section>
