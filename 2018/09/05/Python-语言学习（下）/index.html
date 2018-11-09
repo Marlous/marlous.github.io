@@ -79,6 +79,20 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/tags/">tags</a>
                         </li>
@@ -87,22 +101,8 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/work/">works</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -249,7 +249,7 @@
 <ul>
 <li><code>str.format(值)</code> ，如 <code>print(&quot;hello {} world&quot;.format(you))</code> ，会用 you 替换掉 {}，输出为 <code>hello you world</code> 。</li>
 </ul>
-<p>在 {} 内可加格式控制内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;PI is &#123;:.4f&#125;&quot;.format(math.pi)) #输出为四位小数。</span><br><span class="line">&#123;:9.4f&#125; #表示为占九个字符，小数部分四位。</span><br><span class="line">&#123;:e&#125; #用科学记数法输出。</span><br></pre></td></tr></table></figure></p>
+<p>在 {} 内可加格式控制内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;PI is &#123;:.4f&#125;&quot;.format(math.pi)) #输出为四位小数。</span><br><span class="line">&#123;:9.4f&#125;  # 表示为占九个字符，小数部分四位。</span><br><span class="line">&#123;:e&#125;  # 用科学记数法输出。</span><br><span class="line">&#123;数字&#125;  # 用来选定后面的第几个值，相当于索引。</span><br><span class="line">&#123;key&#125;  # 后面传入的类字典形式的键值 .format(&quot;name&quot;:&quot;Xioali&quot;,&quot;age&quot;:21) </span><br><span class="line">format 值直接传字典进去在字典前加两个星号；直接传元组进去在元组前加一个星号。（字典或元组类型的对象）</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><code>str %(值1, 值2)</code>，如 <code>msg = &quot;%d like playing %d&quot; %(5, &quot;game&quot;)</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msg = &quot;i am %(key1)s are %(key2)d&quot; %&#123;&quot;key1&quot;:&quot;xiaoli&quot;, &quot;key2&quot;:21&#125;</span><br></pre></td></tr></table></figure>
 </li>
