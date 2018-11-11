@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Python 语言学习补充提高总结｜Mo&#39;s blog
+        利用 DDNS、内网穿透远程访问局域网主机｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/09/Python-语言学习补充提高总结/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Python 语言学习补充提高总结</h1>
+                    <h1>利用 DDNS、内网穿透远程访问局域网主机</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-11-09
+                          日期 2018-11-11
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Python"
-                           title="Python">Python</a>
+                        <a class="tag" href="/tags/#记录小结"
+                           title="记录小结">记录小结</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Python 语言学习补充提高总结
+            利用 DDNS、内网穿透远程访问局域网主机
         </span>
     </div>
 </header>
@@ -202,39 +202,56 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-数据类型"><a href="#一-数据类型" class="headerlink" title="一 数据类型"></a>一 数据类型</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1 数据类型"></a>1 数据类型</h2><h2 id="2-集合数据类型补充"><a href="#2-集合数据类型补充" class="headerlink" title="2 集合数据类型补充"></a>2 集合数据类型补充</h2><ol>
-<li><p>定义和元组相同，但用大括号 <code>{}</code>。如 <code>s = {&quot;a&quot;,&quot;b&quot;,&quot;c&quot;} 或 s = set(&quot;abc&quot;)</code>，set() 中的值可以是一个列表，即把列表中的值遍历放入集合中，集合可以用来去重。<br>集合是无值的字典，集合与元组区别在于：元组无序、不可变；集合无序、可变、不重复。</p>
+                <blockquote>
+<p>参考：<br><a href="http://koolshare.cn/forum.php?mod=viewthread&amp;tid=136243&amp;highlight=ddns" target="_blank" rel="noopener">问题参考 DDNS 为什么不能映射内网地址呢</a><br><a href="https://jingyan.baidu.com/article/fc07f98944a83c12ffe51985.html" target="_blank" rel="noopener">华硕路由器使用 DDNS</a><br><a href="https://new.qq.com/omn/20181009/20181009A22BUS.html?pc" target="_blank" rel="noopener">DDNS 简单教程</a><br><a href="http://www.33lc.com/article/6576.html" target="_blank" rel="noopener">群晖 NA 的 DDNS 设置方法</a><br><a href="https://www.v2ex.com/t/268495" target="_blank" rel="noopener">几个内网穿透，内网网站穿透，内网端口映射到公网的服务推荐</a><br><a href="https://www.jianshu.com/p/b60795a3c9fc" target="_blank" rel="noopener">四步实现内网穿透</a><br><a href="https://blog.csdn.net/zhangguo5/article/details/77848658?utm_source=5ibc.net&amp;utm_medium=referral" target="_blank" rel="noopener">一分钟实现内网穿透（ngrok 服务器搭建）</a><br>拓展：<br><a href="https://blog.csdn.net/mgsky1/article/details/80466840" target="_blank" rel="noopener">利用Python+阿里云实现DDNS</a></p>
+</blockquote>
+<h1 id="一-概念原理"><a href="#一-概念原理" class="headerlink" title="一 概念原理"></a>一 概念原理</h1><ol>
+<li><p>场景应用：<br>远程访问自己家局域网的无线路由器，像在内网一样通过 Web 页面进行管理，以及访问内网服务器等。</p>
 </li>
-<li><p>方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s.add(&quot;abc&quot;)  # 增加一项，作为整体添加</span><br><span class="line">s.update(&quot;abc&quot;)  # 增加多项，拆分为个体添加</span><br><span class="line">s.update([&quot;abc&quot;，&quot;hello&quot;, &quot;world&quot;])  # 增加多项</span><br><span class="line">s.pop()  # 随机删除</span><br><span class="line">s.remove(要删除的值)  # 指定删除，元素不存在会报错</span><br><span class="line">s.discrad(要删除的值) # 指定删除，元素不存在不报错</span><br><span class="line">s.issubset(XXX)  # 判断 s 是不是 XXX 的子集，返回 True，False</span><br><span class="line">s.issuperset(XXX)  # 判断 s 是不是 XXX 的父集</span><br><span class="line">s.isdisjoint(XXX)  # 判断是不是相交</span><br><span class="line">s = forzenset(&quot;hello&quot;)  # 将集合变为不可变的集合（元组）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>集合关系运算：</p>
+<li><p>DDNS 与内网穿透： </p>
 </li>
 </ol>
 <ul>
-<li>求交集：<code>a_s &amp; b_s</code>，<code>a_s.intersection(b_s)</code>。</li>
-<li>求并集：<code>a_s | b_s</code>，<code>a_s.union(b_s)</code>。</li>
-<li>求差集：<code>a_s - b_s</code>，<code>a_s.difference(b_s)</code>。</li>
-<li>交叉补集（除去相同部分剩下的）：<code>a_s ^ b_s</code>，<code>a_s.symmetric_difference(b_s)</code>。</li>
+<li><p>DDNS 概念：<br>“DDNS 将用户的动态 IP 地址映射到一个固定的域名解析服务上，用户每次连接网络的时候客户端程序就会通过信息传递把该主机的动态 IP 地址传送给位于服务商主机上的服务器程序，服务器程序负责提供 DNS 服务并实现动态域名解析。”</p>
+</li>
+<li><p>内网穿透概念：<br>通过在有公网 IP 的服务器上运行反向代理服务与局域网内某主机上运行的反向代理服务（Web 服务器）之间建立一个安全的通道。远程通过访问公有云主机反向代理服务，跳到局域网服务器，并可以通过它来间接访问局域网内其它主机。</p>
+</li>
+</ul>
+<ol start="3">
+<li>注意：</li>
+</ol>
+<ul>
+<li><p>不是所有品牌的路由器都自动帮你解决了分配到私有 IP 地址做 DDNS 的问题。公网 IP 才能 DDNS；如果分配到的是 ISP 给的私有 IP，需要去找内网穿透方案（可以直接买 VPS 自制穿透）。</p>
+</li>
+<li><p>查看家庭路由器 WAN 口分配到的是否是公网 IP：百度 IP 查看（或使用站长工具）IP，再登陆进家庭路由器查看 IP，相同即公网 IP，不同则分配到的是私有 IP，可打电话让 ISP 改为公网 IP。</p>
+</li>
 </ul>
 <ol start="4">
-<li>补充：<br>对列表去重：names 为一个列表。<code>names = list(set(names))</code>。</li>
+<li>原理：</li>
 </ol>
-<h1 id="二-文件操作"><a href="#二-文件操作" class="headerlink" title="二 文件操作"></a>二 文件操作</h1><h1 id="三-函数"><a href="#三-函数" class="headerlink" title="三 函数"></a>三 函数</h1>
+<ul>
+<li><p>家庭局域网路由器 WAN 口分配到变动的公网 IP：使用 DDNS。<br>每次将变动的地址映射到提供 DDNS 服务的域名，远程通过此域名来访问目标局域网路由器，通过局域网路由器端口转发（PAT）间接访问局域网内主机。</p>
+</li>
+<li><p>家庭局域网路由器 WAN 口分配到变动的私有 IP：使用内网穿透。<br>此时家庭路由器作为二级路由（ISP 的公网 IP <-> ISP 分配的私有 IP <-> 家庭局域网内 IP）。方法详见参考。如 ngrok 反向代理应用，通过在公共的端点和本地运行的 Web 服务器之间建立一个安全的通道，并且 ngrok 可捕获和分析所有通道上的流量，便于后期分析与响应。</-></-></p>
+</li>
+</ul>
+<h1 id="二-DDNS-实践"><a href="#二-DDNS-实践" class="headerlink" title="二 DDNS 实践"></a>二 DDNS 实践</h1><p>分配到的是公网 IP，可以正常使用 DDNS。</p>
+<ul>
+<li><p>远程访问局域网路由器登陆界面：<br>登陆进路由器，找到 DDNS 设置，华硕提供了 DDNS 服务，打开开关后，起个主机名称即注册成功。也可以使用如花生壳等其它服务将注册的域名填写好即可。在 系统管理 -&gt; 系统设置 -&gt; 设置端口，如图，即可通过访问 <code>注册的 DDNS 服务域名:1234</code> 形式在外网访问路由器 Web 登陆界面。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图1.PNG" alt="远程访问局域网路由器登陆界面 设置端口"></p>
+</li>
+<li><p>远程访问局域网内其它主机：<br>以访问 NAS 为例，在 NAS 上设置好被访问的端口号；然后在路由器中设置，外部网络 -&gt; 端口转发。如图，填入 NAS 的局域网 IP 和端口号。即可通过访问 <code>注册的 DDNS 服务域名:端口号</code> 形式在外网访问 NAS。也可以直接在 NAS 中对端口转发设置，<a href="https://jingyan.baidu.com/article/84b4f565af615e60f6da32c9.html" target="_blank" rel="noopener">参考教程</a>。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图2.PNG" alt="远程访问局域网内其它主机 设置端口"></p>
+</li>
+</ul>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/" data-toggle="tooltip" data-placement="top"
-                           title="利用 DDNS、内网穿透远程访问局域网主机">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/11/06/UX-UI-一站式设计平台：Adobe-XD-使用笔记/" data-toggle="tooltip" data-placement="top"
-                           title="UX/UI 一站式设计平台：Adobe XD 使用笔记">Next Post &rarr;</a>
+                        <a href="/2018/11/09/Python-语言学习补充提高总结/" data-toggle="tooltip" data-placement="top"
+                           title="Python 语言学习补充提高总结">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -250,7 +267,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据类型"><span class="toc-text">一 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据类型"><span class="toc-text">1 数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-集合数据类型补充"><span class="toc-text">2 集合数据类型补充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-文件操作"><span class="toc-text">二 文件操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-函数"><span class="toc-text">三 函数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概念原理"><span class="toc-text">一 概念原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-DDNS-实践"><span class="toc-text">二 DDNS 实践</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -272,8 +289,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Python"
-                           title="Python">Python</a>
+                        <a class="tag" href="/tags/#记录小结"
+                           title="记录小结">记录小结</a>
                         
                     </div>
                 </section>
