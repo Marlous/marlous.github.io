@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        利用 DDNS、内网穿透远程访问局域网主机｜Mo&#39;s blog
+        逻辑学相关笔记整理｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/12/逻辑学相关笔记整理/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>利用 DDNS、内网穿透远程访问局域网主机</h1>
+                    <h1>逻辑学相关笔记整理</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-11-11
+                          日期 2018-11-12
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#记录小结"
-                           title="记录小结">记录小结</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            利用 DDNS、内网穿透远程访问局域网主机
+            逻辑学相关笔记整理
         </span>
     </div>
 </header>
@@ -203,60 +203,18 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br><a href="http://koolshare.cn/forum.php?mod=viewthread&amp;tid=136243&amp;highlight=ddns" target="_blank" rel="noopener">问题参考 DDNS 为什么不能映射内网地址呢</a><br><a href="https://jingyan.baidu.com/article/fc07f98944a83c12ffe51985.html" target="_blank" rel="noopener">华硕路由器使用 DDNS</a><br><a href="https://new.qq.com/omn/20181009/20181009A22BUS.html?pc" target="_blank" rel="noopener">DDNS 简单教程</a><br><a href="http://www.33lc.com/article/6576.html" target="_blank" rel="noopener">群晖的 DDNS 设置方法</a><br><a href="https://www.v2ex.com/t/268495" target="_blank" rel="noopener">几个内网穿透，内网网站穿透，内网端口映射到公网的服务推荐</a><br><a href="https://www.jianshu.com/p/b60795a3c9fc" target="_blank" rel="noopener">四步实现内网穿透</a><br><a href="https://blog.csdn.net/zhangguo5/article/details/77848658?utm_source=5ibc.net&amp;utm_medium=referral" target="_blank" rel="noopener">一分钟实现内网穿透（ngrok 服务器搭建）</a><br>拓展：<br><a href="https://blog.csdn.net/mgsky1/article/details/80466840" target="_blank" rel="noopener">利用Python+阿里云实现DDNS</a></p>
+<p>《逻辑学导论》（柯匹）<a href="https://book.douban.com/subject/2060491/" target="_blank" rel="noopener">豆瓣链接</a><br>《逻辑学讲义》（康德）<a href="https://book.douban.com/subject/4202381/" target="_blank" rel="noopener">豆瓣连接</a><br>《思维魔方》 公开课（陈波）<br>《逻辑学导论》 公开课</p>
 </blockquote>
-<h1 id="一-概念原理"><a href="#一-概念原理" class="headerlink" title="一 概念原理"></a>一 概念原理</h1><ol>
-<li><p>场景应用：<br>远程访问自己家局域网的无线路由器，像在内网一样通过 Web 页面进行管理，以及访问内网服务器等。</p>
-</li>
-<li><p>DDNS 与内网穿透： </p>
-</li>
-</ol>
-<ul>
-<li><p>DDNS 概念：<br>“DDNS 将用户的动态 IP 地址映射到一个固定的域名解析服务上，用户每次连接网络的时候客户端程序就会通过信息传递把该主机的动态 IP 地址传送给位于服务商主机上的服务器程序，服务器程序负责提供 DNS 服务并实现动态域名解析。”</p>
-</li>
-<li><p>内网穿透概念：<br>通过在有公网 IP 的服务器上运行反向代理服务与局域网内某主机上运行的反向代理服务（Web 服务器）之间建立一个安全的通道。远程通过访问公有云主机反向代理服务，跳到局域网服务器，并可以通过它来间接访问局域网内其它主机。</p>
-</li>
-</ul>
-<ol start="3">
-<li>注意：</li>
-</ol>
-<ul>
-<li><p>不是所有品牌的路由器都自动帮你解决了分配到私有 IP 地址做 DDNS 的问题。公网 IP 才能 DDNS；如果分配到的是 ISP 给的私有 IP，需要去找内网穿透方案（可以直接买 VPS 自制穿透）。</p>
-</li>
-<li><p>查看家庭路由器 WAN 口分配到的是否是公网 IP：百度 IP 查看（或使用站长工具）IP，再登陆进家庭路由器查看 IP，相同即公网 IP，不同则分配到的是私有 IP，可打电话让 ISP 改为公网 IP。</p>
-</li>
-</ul>
-<ol start="4">
-<li>原理：</li>
-</ol>
-<ul>
-<li><p>家庭局域网路由器 WAN 口分配到变动的公网 IP：使用 DDNS。<br>每次将变动的地址映射到提供 DDNS 服务的域名，远程通过此域名来访问目标局域网路由器，通过局域网路由器端口转发（PAT）间接访问局域网内主机。</p>
-</li>
-<li><p>家庭局域网路由器 WAN 口分配到变动的私有 IP：使用内网穿透。<br>此时家庭路由器作为二级路由（ISP 的公网 IP <-> ISP 分配的私有 IP <-> 家庭局域网内 IP）。方法详见参考。如 ngrok 反向代理应用，通过在公共的端点和本地运行的 Web 服务器之间建立一个安全的通道，并且 ngrok 可捕获和分析所有通道上的流量，便于后期分析与响应。</-></-></p>
-</li>
-</ul>
-<h1 id="二-DDNS-实践"><a href="#二-DDNS-实践" class="headerlink" title="二 DDNS 实践"></a>二 DDNS 实践</h1><p>分配到的是公网 IP，可以正常使用 DDNS。</p>
-<ul>
-<li><p>远程访问局域网路由器登陆界面：<br>登陆进路由器，找到 DDNS 设置，华硕提供了 DDNS 服务，打开开关后，起个主机名称即注册成功。也可以使用如花生壳等其它服务将注册的域名填写好即可。在 系统管理 -&gt; 系统设置 -&gt; 设置端口，如图，即可通过访问 <code>注册的 DDNS 服务域名:1234</code> 形式在外网访问路由器 Web 登陆界面。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图1.PNG" alt="远程访问局域网路由器登陆界面 设置端口"></p>
-</li>
-<li><p>远程访问局域网内其它主机：<br>以访问 NAS 为例，在 NAS 上设置好被访问的端口号；然后在路由器中设置，外部网络 -&gt; 端口转发。如图，填入 NAS 的局域网 IP 和端口号。即可通过访问 <code>注册的 DDNS 服务域名:端口号</code> 形式在外网访问 NAS。也可以直接在 NAS 中对端口转发设置，<a href="https://jingyan.baidu.com/article/84b4f565af615e60f6da32c9.html" target="_blank" rel="noopener">参考教程</a>。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图2.PNG" alt="远程访问局域网内其它主机 设置端口"></p>
-</li>
-</ul>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/11/12/逻辑学相关笔记整理/" data-toggle="tooltip" data-placement="top"
-                           title="逻辑学相关笔记整理">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/11/09/Python-语言学习补充提高总结/" data-toggle="tooltip" data-placement="top"
-                           title="Python 语言学习补充提高总结">Next Post &rarr;</a>
+                        <a href="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/" data-toggle="tooltip" data-placement="top"
+                           title="利用 DDNS、内网穿透远程访问局域网主机">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -272,7 +230,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概念原理"><span class="toc-text">一 概念原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-DDNS-实践"><span class="toc-text">二 DDNS 实践</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
@@ -294,8 +252,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#记录小结"
-                           title="记录小结">记录小结</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
                         
                     </div>
                 </section>
