@@ -86,14 +86,6 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -205,7 +205,7 @@
                 <blockquote>
 <p>此笔记的公开课程为中国科学技术大学的《软件工程（C 编码实战）》</p>
 </blockquote>
-<ol>
+<h1 id="开发环境一"><a href="#开发环境一" class="headerlink" title="开发环境一"></a>开发环境一</h1><ol>
 <li>准备：VM VirtualBox，及安装好的 Ubuntu 操作系统。</li>
 </ol>
 <ul>
@@ -251,6 +251,19 @@
 <li>打包 <code>tar -cvzf mywork.tar.gz ./hello</code> ;</li>
 <li>解压 <code>tar -xvzf mywork.tar.gz</code> 。</li>
 </ul>
+<h1 id="开发环境二"><a href="#开发环境二" class="headerlink" title="开发环境二"></a>开发环境二</h1><p>使用 Windows 下的 Eclipse CDT 集成开发环境。</p>
+<ul>
+<li><p>在 debug 时遇到 <code>eclipse No source available for &quot;main() ...</code> ，先清除，重新构建。<br><img src="/2018/10/08/软件工程-C-实践一-环境搭建/图2.PNG" alt="debug 时遇到问题"></p>
+</li>
+<li><p>printf 打印函数，在 console 窗口中并没有打印出信息来，停止后才会有输出。在 debug 调试时， eclipse 将输出的内容存放到了输出缓存区中，没有及时的输出到控制台。等到调试结束时，再将所有的信息一并打印出来。解决方法：每个 printf 函数之后加上 <code>fflush(stdout);</code>，或在 main 函数开始设置缓冲类型 <code>setvbuf(stdout,NULL,_IONBF,0);</code>。<a href="https://blog.csdn.net/w_virgil/article/details/83088228" target="_blank" rel="noopener">参考博文</a>。</p>
+</li>
+<li><p>默认生成的是 debug 版本，怎样生成 release 版本或怎样重新生成新的 release 版本：Run -&gt; Runconfiguration，设置 build configuration。<br><img src="/2018/10/08/软件工程-C-实践一-环境搭建/图3.PNG" alt="build configuration"></p>
+</li>
+<li><p>debug 模式下不等待输入问题解决：在 Run -&gt; Debug Configurations -&gt; Debugger 中勾选 use externak console for inferior。在 debug 的时候会弹出一个新的 cmd 窗口供用户输入并显示输出。<a href="https://blog.csdn.net/li1914309758/article/details/81487870" target="_blank" rel="noopener">参考博文</a></p>
+</li>
+<li><p>代码提示（默认是关闭的）：在 Java 中，Eclipse 可以通过修改增加触发点达到所有字母自动触发，CDT 没有。<a href="https://www.zhihu.com/question/24778450" target="_blank" rel="noopener">参考</a>。</p>
+</li>
+</ul>
 
                 <hr>
                 
@@ -281,7 +294,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开发环境一"><span class="toc-text">开发环境一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发环境二"><span class="toc-text">开发环境二</span></a></li></ol>
                 </div>
             </div>
         </div>

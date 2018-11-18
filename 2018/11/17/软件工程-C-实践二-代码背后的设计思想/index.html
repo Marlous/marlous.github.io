@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/04/软件工程-C-实践二-代码背后的设计思想/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/17/软件工程-C-实践二-代码背后的设计思想/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,14 +86,6 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -176,7 +176,7 @@
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-11-04
+                          日期 2018-11-17
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -202,7 +202,10 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="软件设计方法论（原则）"><a href="#软件设计方法论（原则）" class="headerlink" title="软件设计方法论（原则）"></a>软件设计方法论（原则）</h1><ol>
+                <blockquote>
+<p>本节内容是课程最后的总结，放到这个位置，起到总览全局知识结构的效果。</p>
+</blockquote>
+<h1 id="一-软件设计方法论（原则）"><a href="#一-软件设计方法论（原则）" class="headerlink" title="一 软件设计方法论（原则）"></a>一 软件设计方法论（原则）</h1><ol>
 <li>概述：</li>
 </ol>
 <ul>
@@ -214,26 +217,25 @@
 <li>一般化</li>
 </ul>
 <ol start="2">
-<li><p>模块化:<br>将一个系统拆分成多个模块。（要求低耦合、高内聚）</p>
+<li><p>模块化:<br>将一个系统拆分成多个模块，要求低耦合、高内聚，减少出错提高可维护性。</p>
 </li>
-<li><p>接口：</p>
+<li><p>接口：<br>信息隐藏通过接口的定义来完成。信息隐藏越多，耦合性越低。</p>
+</li>
+<li><p>增量开发：<br>以模块化为基础；明确的接口定义为增量开发提供可能。<br>补充，拆分模块，增量开发时打破依赖关系：<br><img src="/2018/11/17/软件工程-C-实践二-代码背后的设计思想/图1.PNG" alt="拆分模块"></p>
+</li>
+<li><p>抽象：<br>同层级放在函数调用前，子层级放在函数调用内部。</p>
 </li>
 </ol>
-
+<h1 id="二-软件设计具体内容"><a href="#二-软件设计具体内容" class="headerlink" title="二 软件设计具体内容"></a>二 软件设计具体内容</h1><h2 id="基本模块化"><a href="#基本模块化" class="headerlink" title="基本模块化"></a>基本模块化</h2><h2 id="可重用接口"><a href="#可重用接口" class="headerlink" title="可重用接口"></a>可重用接口</h2><h2 id="函数可重入性"><a href="#函数可重入性" class="headerlink" title="函数可重入性"></a>函数可重入性</h2><h2 id="子系统可重用性"><a href="#子系统可重用性" class="headerlink" title="子系统可重用性"></a>子系统可重用性</h2>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/11/04/数据结构：二-项目软件设计/" data-toggle="tooltip" data-placement="top"
-                           title="数据结构：二 项目软件设计">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/" data-toggle="tooltip" data-placement="top"
-                           title="源代码静态分析工具 Source Insight 使用（以 Nginx 源码为例）">Next Post &rarr;</a>
+                        <a href="/2018/11/14/Python-语言学习路径、Python-全栈开发知识结构/" data-toggle="tooltip" data-placement="top"
+                           title="Python 语言学习路径、Python 全栈开发知识结构">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -249,7 +251,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件设计方法论（原则）"><span class="toc-text">软件设计方法论（原则）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件设计方法论（原则）"><span class="toc-text">一 软件设计方法论（原则）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件设计具体内容"><span class="toc-text">二 软件设计具体内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本模块化"><span class="toc-text">基本模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可重用接口"><span class="toc-text">可重用接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数可重入性"><span class="toc-text">函数可重入性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子系统可重用性"><span class="toc-text">子系统可重用性</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
