@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        PHP 调试环境程序集成包之 phpstudy 与本地 MySQL 使用｜Mo&#39;s blog
+        《操作系统考研复习指导》核心知识点笔记｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/28/《操作系统考研复习指导》核心知识点笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>PHP 调试环境程序集成包之 phpstudy 与本地 MySQL 使用</h1>
+                    <h1>《操作系统考研复习指导》核心知识点笔记</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-11-25
+                          日期 2018-11-28
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#记录小结"
-                           title="记录小结">记录小结</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            PHP 调试环境程序集成包之 phpstudy 与本地 MySQL 使用
+            《操作系统考研复习指导》核心知识点笔记
         </span>
     </div>
 </header>
@@ -202,46 +202,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-问题描述"><a href="#一-问题描述" class="headerlink" title="一 问题描述"></a>一 问题描述</h1><ul>
-<li>集成程序包与自己搭建环境之间的关系问题。</li>
-<li>phpStudy 是一个 PHP 调试环境的程序集成包，Apache + PHP + MySQL + phpMyAdmin + ZendOptimizer，一次性安装，无须配置即可使用，是非常方便、好用的 PHP 调试环境，该程序不仅包括 PHP 调试环境，还包括了开发工具、开发手册等。</li>
-<li>本地已经安装了 MySQL5.7，那么如何通过 phpstudy 来用数据库 Web 图形工具 phpMyAdmin 来管理两个 MySQL（本地安装好的、phpstudy 自带的）呢？</li>
-</ul>
-<h1 id="二-使用"><a href="#二-使用" class="headerlink" title="二 使用"></a>二 使用</h1><ol>
-<li>首先了解概况：</li>
-</ol>
-<ul>
-<li>phpstudy 使用教程，<a href="http://www.php.cn/course/639.html" target="_blank" rel="noopener">教程视频</a>。点击运行后查看是否安装成功，在其他选项菜单 -&gt; php 探针，打开页面在其中检测（MySQL 默认用户名密码为 root）。</li>
-<li>通过任务管理器快速了解 phpstudy 运行的程序。在其他选项菜单 -&gt; 服务管理器，启动或停止某个服务。<br><img src="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图1.PNG" alt="phpstudy 运行的程序"></li>
-</ul>
-<ol start="2">
-<li><p>为了使两个 MySQL 服务都能正常使用，可以修改其中一个的端口号，这里修改的是 phpstudy 自带的，改为 3307。注意，使用 phpMyAdmin 来管理两个数据库时，因为配置不同，需要对其进行配置后才能使用。配置在 <code>phpStudy\PHPTutorial\WWW\phpMyAdmin\libraries\config.default.php</code>，<a href="http://www.php.cn/php-weizijiaocheng-383120.html" target="_blank" rel="noopener">配置教程</a>。<br><img src="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图2.PNG" alt="修改自带的 MySQL 端口号"><br><img src="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图3.PNG" alt="修改 phpMyAdmin 配置的 MySQL 端口号"></p>
-</li>
-<li><p>使用本地之前安装的 MySQL5.7，启动服务。修改 phpMyAdmin 配置，其端口号为默认的 3306，即可通过 phpMyAdmin 管理本地之前安装的 MySQL5.7。</p>
-</li>
-<li><p>如果之前安装了 MySQL5.7，后又安装了 phpstudy，但是不想用以前的 MySQL5.7。</p>
-</li>
-</ol>
-<ul>
-<li>这时需将原来的数据转移到 phpstudy 下的 MySQL 中。<code>C:\ProgramData\MySQL\MySQL Server 5.7\Data</code> 中的文件复制到 <code>D:\phpStudy\PHPTutorial\MySQL\data</code>。</li>
-<li>如果因为 MySQL 版本问题导致无法正常使用的话，直接将 MySQL 程序换掉。<code>C:\Program Files\MySQL\MySQL Server 5.7</code> 中的文件复制到 <code>D:\phpStudy\PHPTutorial\MySQL</code>，注意保留 data 文件夹，phpstudy 中的 MySQL 内文件包含程序本身和 data（数据库中的数据）。</li>
-</ul>
-<h1 id="三-补充：自己搭建环境"><a href="#三-补充：自己搭建环境" class="headerlink" title="三 补充：自己搭建环境"></a>三 补充：自己搭建环境</h1><p>php + apache + mysql：<a href="https://blog.csdn.net/yu422560654/article/details/7275409" target="_blank" rel="noopener">参考博文</a>。</p>
-
+                <h1 id="一-操作系统概述"><a href="#一-操作系统概述" class="headerlink" title="一 操作系统概述"></a>一 操作系统概述</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/" data-toggle="tooltip" data-placement="top"
-                           title="《操作系统考研复习指导》核心知识点笔记">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/" data-toggle="tooltip" data-placement="top"
-                           title="《计算机网络考研复习指导》核心知识点笔记">Next Post &rarr;</a>
+                        <a href="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/" data-toggle="tooltip" data-placement="top"
+                           title="PHP 调试环境程序集成包之 phpstudy 与本地 MySQL 使用">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -257,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-问题描述"><span class="toc-text">一 问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-使用"><span class="toc-text">二 使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-补充：自己搭建环境"><span class="toc-text">三 补充：自己搭建环境</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-操作系统概述"><span class="toc-text">一 操作系统概述</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -279,8 +249,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#记录小结"
-                           title="记录小结">记录小结</a>
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
                         
                     </div>
                 </section>
