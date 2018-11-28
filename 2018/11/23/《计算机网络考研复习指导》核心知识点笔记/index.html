@@ -260,12 +260,43 @@
 <li>有无应答服务（接收方收到数据后，向发送方发应答；无应答则需高层实现）。</li>
 </ul>
 <ol start="4">
-<li>ISO 的 OSI 参考模型：</li>
+<li>ISO 的 OSI 参考模型：<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图2.PNG" alt="OSI 参考模型"></li>
 </ol>
+<ul>
+<li>应用层：用户与网络的接口，最复杂的一层，协议也最多。协议有 FTP、SMTP、HTTP 等。</li>
+<li>表示层：两个通信系统交换信息的表示方式（数据压缩、加密、解密）。</li>
+<li>会话层：即建立同步，允许不同主机间各进程之间的会话（建立、管理、终止会话）。</li>
+<li>传输层：为端到端（进程到进程）提供通信，用端口号标识。为端到端连接提供流量控制、差错控制、服务质量、数据传输管理等服务。有复用（多进程同时使用下层服务）、分用（向上交付信息到多个进程）功能。协议有 TCP、UDP。</li>
+<li>网络层：为点到点（主机到主机）提供通信，用 IP 地址标识。对分组进行路由选择、流量控制、差错控制、拥塞控制、网际互连。协议有 IP、IPX、ICMP、IGMP、ARP、RARP、OSPF（主要为无连接的网际协议、路由选择协议）。</li>
+<li>数据链路层（MAC 介质访问控制层、LLC 逻辑链路控制层）：封装成帧、差错控制、流量控制、传输管理。协议有 SDLC、HDLC、PPP、STP、帧中继等。</li>
+<li>物理层：注，传输信息的物理媒体当作第零层。定义数据终端设备 DTE、数据通信设备 DCE、物理和逻辑连接方法。协议有 EIA-232C、EIA/TIA RS-449、CCITT 的 X.21 等。</li>
+</ul>
 <ol start="5">
-<li>TCP/IP 模型：</li>
+<li>TCP/IP 模型：<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图3.PNG" alt="TCP/IP 模型"></li>
 </ol>
-
+<ul>
+<li>应用层：包含所有高层协议。</li>
+<li>运输层：端到端对等实体进行通话。</li>
+<li>网际层：定义了分组格式、协议。</li>
+<li>网络接口层：只指出主机必须用什么协议与网络连接。具体物理网络可以为局域网（以太网、令牌环网、令牌总线等）、电话网（SDH、X.25、ATM、帧中继）。</li>
+</ul>
+<ol start="6">
+<li>两个模型不同点：</li>
+</ol>
+<ul>
+<li>OSI 模型产生于协议发明前，力求完美，结构复杂、实现周期长、效率低。网络层支持面向连接/无连接服务，传输层支持面向连接通信。</li>
+<li>TCP/IP 模型产生于协议发明后，设计初就考虑到异构网络连接问题。网络层支持无连接服务，传输层支持面向连接/无连接通信。TCP/IP 模型成为事实的标准。</li>
+</ul>
+<ol start="7">
+<li>各层 PDU 使用的单位：</li>
+</ol>
+<ul>
+<li>传输层：报文段（TCP）、用户数据报（UDP）。</li>
+<li>网络层：分组、数据报。</li>
+<li>数据链路层：帧。</li>
+<li>物理层：比特。</li>
+</ul>
+<h1 id="二-物理层"><a href="#二-物理层" class="headerlink" title="二 物理层"></a>二 物理层</h1><h2 id="1-通信基础"><a href="#1-通信基础" class="headerlink" title="1 通信基础"></a>1 通信基础</h2><h2 id="2-传输介质"><a href="#2-传输介质" class="headerlink" title="2 传输介质"></a>2 传输介质</h2><h2 id="3-物理层设备"><a href="#3-物理层设备" class="headerlink" title="3 物理层设备"></a>3 物理层设备</h2>
                 <hr>
                 
 
@@ -295,7 +326,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-计算机网络体系结构"><span class="toc-text">一 计算机网络体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-计算机网络概念"><span class="toc-text">1 计算机网络概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-计算机网络体系结构与参考模型"><span class="toc-text">2 计算机网络体系结构与参考模型</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-计算机网络体系结构"><span class="toc-text">一 计算机网络体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-计算机网络概念"><span class="toc-text">1 计算机网络概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-计算机网络体系结构与参考模型"><span class="toc-text">2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-物理层"><span class="toc-text">二 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-通信基础"><span class="toc-text">1 通信基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-传输介质"><span class="toc-text">2 传输介质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-物理层设备"><span class="toc-text">3 物理层设备</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
