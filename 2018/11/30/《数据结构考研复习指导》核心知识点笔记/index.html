@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        《操作系统考研复习指导》核心知识点笔记｜Mo&#39;s blog
+        《数据结构考研复习指导》核心知识点笔记｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/28/《操作系统考研复习指导》核心知识点笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/30/《数据结构考研复习指导》核心知识点笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,12 +171,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>《操作系统考研复习指导》核心知识点笔记</h1>
+                    <h1>《数据结构考研复习指导》核心知识点笔记</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-11-28
+                          日期 2018-11-30
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            《操作系统考研复习指导》核心知识点笔记
+            《数据结构考研复习指导》核心知识点笔记
         </span>
     </div>
 </header>
@@ -202,56 +202,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-操作系统概述"><a href="#一-操作系统概述" class="headerlink" title="一 操作系统概述"></a>一 操作系统概述</h1><h2 id="1-知识框架"><a href="#1-知识框架" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图1.PNG" alt="知识框架"></p>
-<h2 id="2-操作系统基本概念"><a href="#2-操作系统基本概念" class="headerlink" title="2 操作系统基本概念"></a>2 操作系统基本概念</h2><ol>
-<li><p>操作系统概念：<br>计算机系统自下而上粗分为硬件、操作系统、应用程序、用户。操作系统控制管理计算机系统的硬件、软件资源，为用户和应用程序提供接口、环境。充当硬件与用户之间的中介。</p>
-</li>
-<li><p>操作系统的特征：</p>
-</li>
-</ol>
-<ul>
-<li>并发：同一时间间隔内发生（非同时，同一时刻），微观上通过分时实现并发性。引入进程的目的是为了实现并发。</li>
-<li>共享：分为互斥访问（临界资源、独占资源）、同时访问（微观上为分时访问）两种共享方式。系统资源可供内存中多个并发进程共同使用。并发与共享互为存在条件。</li>
-<li>虚拟：把一个物理实体变为若干个逻辑上的对应物。操作系统的虚拟技术可归纳为时分复用、空分复用。</li>
-<li>异步：多道程序环境下，进程的执行走走停停，以不可预知的速度向前推进。</li>
-</ul>
-<ol start="3">
-<li>操作系统的目标和功能：</li>
-</ol>
-<ul>
-<li>管理计算机系统资源：处理机管理（处理机的分配管理以进程或线程为单位）、存储器管理、设备管理、文件管理。</li>
-<li>为用户提供接口使用计算机系统硬件：命令接口（分为联机/脱机命令接口，即交互式/批处理命令接口）、程序接口（由一组系统调用命令组成。GUI 本质上是用的程序接口）。</li>
-<li>用作扩充机器：覆盖了操作系统软件的裸机。</li>
-</ul>
-<ol start="4">
-<li>知识补充，库函数与系统调用：</li>
-</ol>
-<ul>
-<li>库函数使用或不使用系统调用来实现功能，不使用系统调用的库函数效率更高。作为语言或应用程序的一部分，运行在用户空间中。</li>
-<li>系统调用运行在内核空间中。</li>
-</ul>
-<h2 id="3-操作系统的发展与分类"><a href="#3-操作系统的发展与分类" class="headerlink" title="3 操作系统的发展与分类"></a>3 操作系统的发展与分类</h2><ul>
-<li>批处理阶段：单道批处理系统（内存中始终保持一道作业）、多道批处理系统（宏观并行，微观串行）。</li>
-<li>分时操作系统：多个用户通过终端共享一台主机。实现人机交互的系统，这点不同于多道批处理系统。</li>
-<li>实时操作系统：不需要时间片排队，在某个时间限制内完成紧急任务。</li>
-<li>网络操作系统、分布式计算机系统：前者通过网络使用各台计算机。后者若干台计算机协同完成同一任务。</li>
-<li>个人计算机操作系统：现在使用最广泛的操作系统。</li>
-</ul>
-<h2 id="4-操作系统的运行环境"><a href="#4-操作系统的运行环境" class="headerlink" title="4 操作系统的运行环境"></a>4 操作系统的运行环境</h2>
+                <h1 id="一-绪论"><a href="#一-绪论" class="headerlink" title="一 绪论"></a>一 绪论</h1><h2 id="1-数据结构基本概念"><a href="#1-数据结构基本概念" class="headerlink" title="1 数据结构基本概念"></a>1 数据结构基本概念</h2><h2 id="2-算法和算法评价"><a href="#2-算法和算法评价" class="headerlink" title="2 算法和算法评价"></a>2 算法和算法评价</h2><h1 id="二-线性表"><a href="#二-线性表" class="headerlink" title="二 线性表"></a>二 线性表</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/11/30/《数据结构考研复习指导》核心知识点笔记/" data-toggle="tooltip" data-placement="top"
-                           title="《数据结构考研复习指导》核心知识点笔记">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/" data-toggle="tooltip" data-placement="top"
-                           title="PHP 调试环境程序集成包之 phpstudy 与本地 MySQL 使用">Next Post &rarr;</a>
+                        <a href="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/" data-toggle="tooltip" data-placement="top"
+                           title="《操作系统考研复习指导》核心知识点笔记">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -267,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-操作系统概述"><span class="toc-text">一 操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-操作系统基本概念"><span class="toc-text">2 操作系统基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-操作系统的发展与分类"><span class="toc-text">3 操作系统的发展与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-操作系统的运行环境"><span class="toc-text">4 操作系统的运行环境</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-绪论"><span class="toc-text">一 绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据结构基本概念"><span class="toc-text">1 数据结构基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-算法和算法评价"><span class="toc-text">2 算法和算法评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-线性表"><span class="toc-text">二 线性表</span></a></li></ol>
                 </div>
             </div>
         </div>
