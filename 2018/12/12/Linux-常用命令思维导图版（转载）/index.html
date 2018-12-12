@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Linux 概述｜Mo&#39;s blog
+        Linux 常用命令思维导图版（转载）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/21/Linux-概述/">
+    <link rel="canonical" href="https://marlous.github.io/2018/12/12/Linux-常用命令思维导图版（转载）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,12 +171,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Linux 概述</h1>
+                    <h1>Linux 常用命令思维导图版（转载）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-09-21
+                          日期 2018-12-12
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Linux 概述
+            Linux 常用命令思维导图版（转载）
         </span>
     </div>
 </header>
@@ -203,102 +203,19 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考资料：<a href="http://www.runoob.com/linux/linux-system-contents.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-system-contents.html</a></p>
+<p>转载自：<a href="https://blog.csdn.net/github_37767025/article/details/60871057" target="_blank" rel="noopener">博客链接</a></p>
 </blockquote>
-<h1 id="一-Linux-概述"><a href="#一-Linux-概述" class="headerlink" title="一 Linux 概述"></a>一 Linux 概述</h1><ol>
-<li><p>Linux 主要发行版本，分支：<br>Debian、Red Hat、Slackware。<br><img src="/2018/09/21/Linux-概述/图1.PNG" alt="Linux 主要发行版本，分支"></p>
-</li>
-<li><p>Linux 操作系统构成：<br><img src="/2018/09/21/Linux-概述/图2.PNG" alt="Linux 操作系统构成之内部"><br><img src="/2018/09/21/Linux-概述/图2-1.PNG" alt="Linux 操作系统构成之内核"></p>
-</li>
-<li><p>不同 Linux 发行版本间差异：</p>
-</li>
-</ol>
-<ul>
-<li><p>命令分为 Bash 命令和应用程序命令。Bash 作为许多 Linux 发行版的默认 Shell，其命令相同；不同的 Linux 版本所用的应用程序不同，其命令也不同。</p>
-</li>
-<li><p>不同版本 Linux 用的包管理软件：<a href="https://blog.csdn.net/lusing/article/details/53669250" target="_blank" rel="noopener">参考博文</a><br>影响最大的两个系列，debian 的 dpkg（前端工具是 apt）和 Red Hat 的 rpm 包（rpm 与 yum：rpm 只能安装已经下载到本地机器上的 rpm 包；yum 能在线下载并安装 rpm 包，能更新系统，且还能自动处理包与包之间的依赖问题。）两大系列。<br><img src="/2018/09/21/Linux-概述/图3.PNG" alt="不同版本 Linux 用的包管理软件"></p>
-</li>
-</ul>
-<ol start="4">
-<li>目录结构：<br><img src="/2018/09/21/Linux-概述/图4.PNG" alt="目录结构"></li>
-</ol>
-<p>注：/usr 为系统及目录；/usr/local 为用户程序目录，一般装自己编译的软件；/opt 装应用软件。</p>
-<ul>
-<li><p>/bin：bin 是 Binary 的缩写, 这个目录存放着最经常使用的命令。</p>
-</li>
-<li><p>/boot：启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
-</li>
-<li><p>/dev ：dev 是 Device(设备)的缩写，存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的。</p>
-</li>
-<li><p>/etc：这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
-</li>
-<li><p>/home：用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</p>
-</li>
-<li><p>/lib：这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</p>
-</li>
-<li><p>/lost+found：这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
-</li>
-<li><p>/media：linux 系统会自动识别一些设备，例如 U 盘、光驱等等，当识别后，linux 会把识别的设备挂载到这个目录下。</p>
-</li>
-<li><p>/mnt：系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 /mnt/ 上，然后进入该目录就可以查看光驱里的内容了。</p>
-</li>
-<li><p>/opt：这是给主机额外安装软件所摆放的目录。比如你安装一个 ORACLE 数据库则就可以放到这个目录下。默认是空的。</p>
-</li>
-<li><p>/proc：这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法 ping 你的机器：<code>echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all</code></p>
-</li>
-<li><p>/root：该目录为系统管理员，也称作超级权限者的用户主目录。</p>
-</li>
-<li><p>/sbin：s 就是 Super User 的意思，这里存放的是系统管理员使用的系统管理程序。</p>
-</li>
-<li><p>/selinux：这个目录是 Redhat/CentOS 所特有的目录，Selinux 是一个安全机制，类似于 windows 的防火墙，但是这套机制比较复杂，这个目录就是存放 selinux 相关的文件的。</p>
-</li>
-<li><p>/srv：该目录存放一些服务启动之后需要提取的数据。</p>
-</li>
-<li><p>/sys：这是 linux2.6 内核的一个很大的变化。该目录下安装了 2.6 内核中新出现的一个文件系统 sysfs 。sysfs 文件系统集成了下面 3 种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
-</li>
-<li><p>/tmp：这个目录是用来存放一些临时文件的。</p>
-</li>
-<li><p>/usr：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。</p>
-</li>
-<li><p>/usr/bin：系统用户使用的应用程序。/usr/sbin：超级用户使用的比较高级的管理程序和系统守护程序。/usr/src：内核源代码默认的放置目录。</p>
-</li>
-<li><p>/var：这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。在 linux 系统中，有几个目录是比较重要的，平时需要注意不要误删除或者随意更改内部文件。这是一个非常重要的目录，系统上跑了很多程序，那么每个程序都会有相应的日志产生，而这些日志就被记录到这个目录下，具体在 /var/log 目录下，另外 mail 的预设放置也是在这里。</p>
-</li>
-<li><p>/etc： 上边也提到了，这个是系统中的配置文件，如果你更改了该目录下的某个文件可能会导致系统不能启动。</p>
-</li>
-<li><p>/bin, /sbin, /usr/bin, /usr/sbin: 这是系统预设的执行文件的放置目录，比如 ls 就是在 /bin/ls 目录下的。值得提出的是，/bin, /usr/bin 是给系统用户使用的指令（除 root 外的通用户），而 /sbin, /usr/sbin 则是给 root 使用的指令。</p>
-</li>
-</ul>
-<ol start="5">
-<li>磁盘分区：<br>分区：/ 根分区、swap 交换分区。</li>
-</ol>
-<p>可以给根分区加密保证物理安全，会丧失性能；可以给引导加密码（可进入单用户模式清除 root 密码）。</p>
-<p>操作系统对硬盘的识别单位为 block 块；占满硬盘空间有两种（文件数太多，inode 号用完；文件太大，存储空间用完）。</p>
-<p>文件索引具体过程：根据文件名找到其目录 inode 块中的 inode 号，找到其目录块中该文件的 inode 号，找到 inode 块中该文件的 inode 号，找到对应文件。（节点块 - 目录块 - 节点块 - 块；节点块存放目录和文件信息）。<br><img src="/2018/09/21/Linux-概述/图5.PNG" alt="节点块、目录块、块"></p>
-<p>软链接：数据块中存放的内容是另一文件的路径名的指向。软链接就是一个普通文件，只是数据块内容有点特殊。软链接可对文件或目录创建。<br>硬链接: 同一个文件使用了多个别名（他们有共同的 inode），仅文件名不同。硬链接不能对目录进行创建，只可对文件创建。</p>
-<ol start="6">
-<li><p>启动：内核的引导 &gt; 运行 init &gt; 系统初始化 &gt; 建立终端 &gt; 用户登录系统。</p>
-</li>
-<li><p>关机：不管是重启系统还是关闭系统，首先要运行 sync 命令，把内存中的数据写到磁盘中。</p>
-</li>
-<li><p>shell 分为 CLI、GUI（命令行接口、图形用户接口）。</p>
-</li>
-</ol>
+<p><img src="/2018/12/12/Linux-常用命令思维导图版（转载）/图1.PNG" alt="Linux 常用命令思维导图版"></p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/09/22/开源项目的 README 与 gitignore/" data-toggle="tooltip" data-placement="top"
-                           title="开源项目的 README 与 gitignore">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/" data-toggle="tooltip" data-placement="top"
-                           title="MySQL 学习笔记 四 安全性与完整性">Next Post &rarr;</a>
+                        <a href="/2018/12/12/自我成长与高效学习方法论/" data-toggle="tooltip" data-placement="top"
+                           title="自我成长与高效学习方法论">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -314,7 +231,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Linux-概述"><span class="toc-text">一 Linux 概述</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
