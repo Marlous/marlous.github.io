@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        《心理学概论》学习笔记｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2018/08/12/《心理学概论》学习笔记/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>《心理学概论》学习笔记</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2018-08-12
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            《心理学概论》学习笔记
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ol>
+<li>研究领域：</li>
+</ol>
+<ul>
+<li>心里过程和心理行为。</li>
+<li>感觉、知觉、记忆、学习、判断、决策、情绪、社会关系、社会行为、道德意识。</li>
+</ul>
+<ol start="2">
+<li><p>科学方法：证据、证明、证伪。</p>
+</li>
+<li><p>社会赞许性：出于心理需要留下良好印象。</p>
+</li>
+<li><p>朴素现实主义：我们认为自己所认为的世界就是真实世界。我们经常不认为自己不知道，而认为自己知道。</p>
+</li>
+<li><p>简单重复效应：人们偏向喜欢自己熟悉的东西。</p>
+</li>
+<li><p>数据采集方法：<br>观察；自我评价；自动采集。</p>
+</li>
+<li><p>相关性不等于因果性，因为：因果关系比相关关系信息更复杂更多。可能存在第三种变量。</p>
+</li>
+<li><p>NBICS：纳米技术、生物技术、信息技术、认知神经思维、社会科学。（21世纪五大终极问题）</p>
+</li>
+</ol>
+<h1 id="二-心理学历史"><a href="#二-心理学历史" class="headerlink" title="二 心理学历史"></a>二 心理学历史</h1><p>冯特，心理学之父，创建第一个心理学实验室。</p>
+<h1 id="三-感觉与知觉"><a href="#三-感觉与知觉" class="headerlink" title="三 感觉与知觉"></a>三 感觉与知觉</h1><ol>
+<li><p>感觉：人脑对直接作用于各种感官系统的一种个体属性的直接反映。（视觉、听觉、嗅觉、味觉、触觉。）</p>
+</li>
+<li><p>知觉：直觉是人脑对刺激物体的整体的观察、感受、整合、加工和解释。</p>
+</li>
+<li><p>感觉是对个别属性直接反应，更客观；知觉是对整体属性间接反应，更主观。</p>
+</li>
+<li><p>知觉的两种加工：</p>
+</li>
+</ol>
+<ul>
+<li>自下而上的加工，对刺激的加工从感觉受体，上升至大脑和心灵的层次。</li>
+<li>自上而下的加工，根据以往的经验和预期，先从较高水平的心理过程来完成信息的加工和处理，进而形成感官认识。</li>
+</ul>
+<ol start="5">
+<li><p>直观感觉：没有经过分析推理的观点。</p>
+</li>
+<li><p>鸡尾酒会效应：人的一种听力选择能力，注意力集中在某一个人的谈话之间而忽略背景中的其他噪音。</p>
+</li>
+</ol>
+<h1 id="四-思维"><a href="#四-思维" class="headerlink" title="四 思维"></a>四 思维</h1><ol>
+<li><p>思维是人类认识世界的最高级形式。（对信息整合归纳并作出判断推理应用。）</p>
+</li>
+<li><p>中国人的传统思维更多的是演绎，科学思维是归纳。</p>
+</li>
+<li><p>表象（直观的形象）。人可以通过表象来进行思维创造。</p>
+</li>
+<li><p>表象是感觉与思维的中间变量。表象比感觉更概括，比思维更形象。</p>
+</li>
+<li><p>问题解决：计算、启发式。</p>
+</li>
+<li><p>影响问题解决的因素：知识表征；思维定势；功能定势；动机和情绪。</p>
+</li>
+</ol>
+<h1 id="五-意识与自我"><a href="#五-意识与自我" class="headerlink" title="五 意识与自我"></a>五 意识与自我</h1><ol>
+<li><p>意识是我们对自己主观体验的觉知。</p>
+</li>
+<li><p>意识的特性：主观性；选择性；连续性（意识流）；自发性主动性。</p>
+</li>
+<li><p>相信自由意志能让我们更加积极主动。</p>
+</li>
+<li><p>自我效能误区。虚假独特性。自大。虚假共识。</p>
+</li>
+<li><p>自我意识：主体的自我，客体的自我。/个人自我，社会自我。</p>
+</li>
+<li><p>自我意识的文化差异。</p>
+</li>
+<li><p>自我意识的调节：<br>延迟满足实验，心理能量能转化为生理能量（正面、负面）。</p>
+</li>
+<li><p>增加自我调节的力量方法：<br>增加自我调节的总量（多做平时不愿做的事情）。随时随地恢复自我调节力量的消耗。</p>
+</li>
+</ol>
+<h1 id="六-语言与沟通"><a href="#六-语言与沟通" class="headerlink" title="六 语言与沟通"></a>六 语言与沟通</h1><ol>
+<li><p>语言：语言是一种社会现象，是人类通过高度结构化的声音组合，或通过书写符号手势等，构成的一种符号系统。</p>
+</li>
+<li><p>高语境风格（偏东方）、低语境风格（偏西方）。</p>
+</li>
+</ol>
+<h1 id="七-情绪与情感"><a href="#七-情绪与情感" class="headerlink" title="七 情绪与情感"></a>七 情绪与情感</h1><ol>
+<li><p>情绪：对个人知觉到的独特处境的反应。</p>
+</li>
+<li><p>情绪的功能：激发心理能量；心理活动的组织者；人际交流的工具与手段；连接人心的纽带。</p>
+</li>
+<li><p>詹姆斯兰格理论：<br>情绪刺激导致生理反应，而生理反应进一步导致情绪体验的产生。（过度强调生理反应的作用）</p>
+</li>
+<li><p>坎农巴德理论：<br>刺激-大脑-情绪-内脏。</p>
+</li>
+<li><p>沙赫特辛格理论：<br>刺激-生理反应-认知评估-情绪。</p>
+</li>
+<li><p>进化理论：<br>人类情绪是遗传产物。</p>
+</li>
+<li><p>情绪智力：情绪感受、情绪管理、情绪利用、情绪理解。</p>
+</li>
+</ol>
+<h1 id="八-社会心理学"><a href="#八-社会心理学" class="headerlink" title="八 社会心理学"></a>八 社会心理学</h1><ol>
+<li><p>社会认知、社会关系、社会影响。</p>
+</li>
+<li><p>可维持的有效社会关系 150 人（推算）。</p>
+</li>
+<li><p>对人行为的最佳预测就是他的社会的情境和环境。</p>
+</li>
+<li><p>社会认知：社会认知是个人对他人的心理状态、行为动机和意志作出推测和判断的过程。</p>
+</li>
+<li><p>行为影响态度。</p>
+</li>
+<li><p>路西法效应：深度剖析复杂的人性，透彻解释“情境力量”对个人行为的影响。在日常生活中种种社会角色剧本的规范与约束下，我们是否会像上帝最爱的天使路西法一样，不知不觉地对他人做出难以置信之事，从而堕落成魔鬼撒旦。</p>
+</li>
+<li><p>认知失调：表示相冲突的认知是一种原动力，会强迫心灵去寻求或发明新的思想或信仰，或是去修改已在心里存在的信仰，好让认知间相冲突的程度减到最低。</p>
+</li>
+<li><p>群体：</p>
+</li>
+</ol>
+<ul>
+<li>确认身份。</li>
+<li>社会认同。</li>
+</ul>
+<ol start="9">
+<li><p>团体极化效应（团体风险迁移）：团体讨论后的态度偏激还是偏保守取决于初始平均意识。</p>
+</li>
+<li><p>从众：</p>
+</li>
+</ol>
+<ul>
+<li>信息性从众。</li>
+<li>规范性从众。</li>
+</ul>
+<ol start="11">
+<li><p>影响从众因素：团体大小；团体重要性；是否有同盟军；文化（个人主义、集体主义对从众压力小）；服从（错误行为规范、权威）；与个人心理距离。<br>群体的影响不总是正面的。</p>
+</li>
+<li><p>社会关系，歧视产生的原因（刻板印象）：</p>
+</li>
+</ol>
+<ul>
+<li>不平等的社会关系；</li>
+<li>社会化教育的结果；</li>
+<li>体制性的作用；</li>
+<li>自己的动机。</li>
+</ul>
+<h1 id="九-文化心理学"><a href="#九-文化心理学" class="headerlink" title="九 文化心理学"></a>九 文化心理学</h1><ol>
+<li><p>文化心理学是一种研究人类主体文化心理特征，以及心理对文化影响的规律的一种科学。（研究文化对人情感、行为、社会关系等。研究心理对文化的组织、创造、传承、强化）。</p>
+</li>
+<li><p>文化：非物质性、精神性的东西。/文化教制作用。</p>
+</li>
+<li><p>文化价值理念对行为的影响；自我概念文化不同及对行为影响；整体性，分析性知觉。</p>
+</li>
+</ol>
+<h1 id="十-个体差异"><a href="#十-个体差异" class="headerlink" title="十 个体差异"></a>十 个体差异</h1><ol>
+<li><p>个体的心理差异。</p>
+</li>
+<li><p>智力测量方法。</p>
+</li>
+<li><p>人格差异：人格：心理“倾向性”，特征重叠交织构成人格。</p>
+</li>
+<li><p>大五人格理论：内外向；随和性；尽责性；情绪稳定性；才智。其他理论等等。</p>
+</li>
+<li><p>个人行为受情境和特质影响。心理学家认为，一个人的特质对行为有稳定的预测作用。（争论）</p>
+</li>
+<li><p>价值观差异：普世的价值观：权力、成就、享乐、刺激、自主、道德、慈善、传统。</p>
+</li>
+</ol>
+<h1 id="十一-学习与记忆"><a href="#十一-学习与记忆" class="headerlink" title="十一 学习与记忆"></a>十一 学习与记忆</h1><ol>
+<li><p>学习：<br>通过经验和训练所产生的，行为和心理的相对持久的变化。</p>
+</li>
+<li><p>学习，刺激与反应联结理论。准备律；练习律；效果律。</p>
+</li>
+<li><p>刺激与反应：<br>学习就是把对中性刺激（条件刺激）形成条件反应的努力过程。（中性刺激和无条件反应联系-&gt;条件反应）</p>
+</li>
+<li><p>条件反应的泛化。（一朝被蛇咬 十年怕草绳、对娃娃脸的偏爱婴儿）。</p>
+</li>
+<li><p>（正负）惩罚与（正负）强化：及时强化有正面影响；无规律强化优于有规律强化。</p>
+</li>
+<li><p>学习就是知觉得重新组织。</p>
+</li>
+<li><p>记忆：<br>根据意义编码。形象编码。联系（组织）编码。</p>
+</li>
+<li><p>增强记忆：<br>感官记忆；短时记忆；长时记忆（语义网络系统）。</p>
+</li>
+</ol>
+<h1 id="十二-积极心理学"><a href="#十二-积极心理学" class="headerlink" title="十二 积极心理学"></a>十二 积极心理学</h1><ul>
+<li><p>幸福方法：笑容、运动、沟通、善意、帮助。</p>
+</li>
+<li><p>良知：直觉的情绪的反应。</p>
+</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/08/12/《古希腊文明兴衰》学习笔记/" data-toggle="tooltip" data-placement="top"
+                           title="《古希腊文明兴衰》学习笔记">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2018/08/09/GitBook-使用小结/" data-toggle="tooltip" data-placement="top"
+                           title="GitBook 使用小结">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-心理学历史"><span class="toc-text">二 心理学历史</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-感觉与知觉"><span class="toc-text">三 感觉与知觉</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-思维"><span class="toc-text">四 思维</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-意识与自我"><span class="toc-text">五 意识与自我</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-语言与沟通"><span class="toc-text">六 语言与沟通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-情绪与情感"><span class="toc-text">七 情绪与情感</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-社会心理学"><span class="toc-text">八 社会心理学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九-文化心理学"><span class="toc-text">九 文化心理学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十-个体差异"><span class="toc-text">十 个体差异</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-学习与记忆"><span class="toc-text">十一 学习与记忆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二-积极心理学"><span class="toc-text">十二 积极心理学</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#学习笔记"
+                           title="学习笔记">学习笔记</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
