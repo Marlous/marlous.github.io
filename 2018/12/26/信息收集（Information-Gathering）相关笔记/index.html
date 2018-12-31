@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,7 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-信息收集"><a href="#一-信息收集" class="headerlink" title="一 信息收集"></a>一 信息收集</h1><h2 id="1-补充：Kali-Linux-工具分类简介"><a href="#1-补充：Kali-Linux-工具分类简介" class="headerlink" title="1 补充：Kali Linux 工具分类简介"></a>1 补充：Kali Linux 工具分类简介</h2><ul>
+                <h1 id="一-补充：Kali-Linux-工具分类简介"><a href="#一-补充：Kali-Linux-工具分类简介" class="headerlink" title="一 补充：Kali Linux 工具分类简介"></a>一 补充：Kali Linux 工具分类简介</h1><ul>
 <li>Information Gathering（信息收集）</li>
 <li>Vulnerability Analysis（漏洞分析）</li>
 <li>Web Applications Analysis（Web 程序分析）</li>
@@ -218,13 +218,123 @@
 <li>Social Engineering Tools（社会工程学工具）</li>
 <li>System Services（系统服务）</li>
 </ul>
-<h2 id="2-信息搜集之道经验整理"><a href="#2-信息搜集之道经验整理" class="headerlink" title="2 信息搜集之道经验整理"></a>2 信息搜集之道经验整理</h2><blockquote>
-<p>参考：<br><a href="https://www.freebuf.com/articles/web/190403.html" target="_blank" rel="noopener">我的信息搜集之道</a></p>
+<h1 id="二-信息搜集之道经验整理"><a href="#二-信息搜集之道经验整理" class="headerlink" title="二 信息搜集之道经验整理"></a>二 信息搜集之道经验整理</h1><blockquote>
+<p>此部分为链接博文的整理小结。<br>参考：<br><a href="https://www.freebuf.com/articles/web/190403.html" target="_blank" rel="noopener">我的信息搜集之道</a></p>
 </blockquote>
 <p><img src="/2018/12/26/信息收集（Information-Gathering）相关笔记/图1.PNG" alt="信息搜集之道经验整理"></p>
-<ol>
-<li></li>
+<h2 id="1-首先（域名）"><a href="#1-首先（域名）" class="headerlink" title="1 首先（域名）"></a>1 首先（域名）</h2><ol>
+<li>whois：<br>国际域名可以设置隐私保护，国内.cn 等域名是不可以设置隐私保护。</li>
 </ol>
+<ul>
+<li><a href="http://whois.chinaz.com/" target="_blank" rel="noopener">站长工具</a></li>
+<li><a href="https://x.threatbook.cn/" target="_blank" rel="noopener">微步</a></li>
+<li>Linux whois 命令</li>
+<li>其他工具</li>
+</ul>
+<ol start="2">
+<li>子域名：</li>
+</ol>
+<ul>
+<li>layer 子域名挖掘机，<a href="https://www.webshell.cc/6384.html" target="_blank" rel="noopener">下载地址</a></li>
+<li><a href="https://phpinfo.me/domain/" target="_blank" rel="noopener">Lcy 在线子域名爆破工具</a></li>
+<li>subDomainsBrute 子域名爆破工具，<a href="https://github.com/lijiejie/subDomainsBrute" target="_blank" rel="noopener">下载地址</a></li>
+<li>搜索引擎语法，site:xxx.com</li>
+</ul>
+<ol start="3">
+<li>备案信息:<br>国内 ICP 备案信息查询、公安部备案信息查询；国外无需备案。</li>
+</ol>
+<ul>
+<li><a href="http://www.miitbeian.gov.cn/icp/publish/query/icpMemoInfo_showPage.action#" target="_blank" rel="noopener">ICP 备案信息查询</a></li>
+<li><a href="http://www.beian.gov.cn/portal/recordQuery" target="_blank" rel="noopener">公安部备案信息查询</a></li>
+</ul>
+<h2 id="2-其次（服务器）"><a href="#2-其次（服务器）" class="headerlink" title="2 其次（服务器）"></a>2 其次（服务器）</h2><ol>
+<li>DNS 信息：</li>
+</ol>
+<ul>
+<li>Kali（host、dig 命令）</li>
+<li>Windows（nslookup 命令）</li>
+<li>在线工具：<a href="https://dnsdb.io/zh-cn/" target="_blank" rel="noopener">全球 DNS 搜索引擎</a>，<a href="http://tool.chinaz.com/dns/" target="_blank" rel="noopener">tool.chinaz</a>，<a href="https://tool.lu/dns/" target="_blank" rel="noopener">tool.lu</a></li>
+</ul>
+<ol start="2">
+<li>端口服务：</li>
+</ol>
+<ul>
+<li>Nmap 扫描</li>
+</ul>
+<ol start="3">
+<li>真实 IP：</li>
+</ol>
+<ul>
+<li>二级域名法（一般网站不会所有的二级域名放 CDN）</li>
+<li>多地 ping，<a href="http://ping.chinaz.com/" target="_blank" rel="noopener">ping.chinaz</a>。IP 不一样，则目标网站肯定使用了 CDN。</li>
+<li>nslookup 法。找国外的比较偏僻的 DNS 解析服务器进行 DNS 查询，大部分 CDN 提供商只针对国内市场，而对国外市场几乎是不做 CDN。</li>
+<li>通过查看邮件原文来确定 IP 地址。</li>
+<li>RSS 订阅法，同邮件法原理。</li>
+<li>查看域名历史解析记录，<a href="https://toolbar.netcraft.com/site_report" target="_blank" rel="noopener">netcraft.com</a>，使用 CDN 前的 IP。</li>
+<li>利用网站漏洞（XSS、命令执行、SSRF、php 探针、phpinfo 页面等）。</li>
+</ul>
+<h2 id="3-然后（网站程序）"><a href="#3-然后（网站程序）" class="headerlink" title="3 然后（网站程序）"></a>3 然后（网站程序）</h2><ol>
+<li>网站架构：</li>
+</ol>
+<ul>
+<li>操作系统：Nmap、wappalyzer 插件、<a href="http://www.yunsee.cn/" target="_blank" rel="noopener">云奚</a>。</li>
+<li>中间件信息：wappalyzer 插件、<a href="http://www.yunsee.cn/" target="_blank" rel="noopener">云奚</a>。</li>
+<li>数据库：wappalyzer 插件、<a href="http://www.yunsee.cn/" target="_blank" rel="noopener">云奚</a>。</li>
+<li>编程语言：wappalyzer 插件、<a href="http://www.yunsee.cn/" target="_blank" rel="noopener">云奚</a>。</li>
+</ul>
+<ol start="2">
+<li>敏感目录及敏感信息、源码泄露（搜索引擎+工具）：</li>
+</ol>
+<ul>
+<li>御剑 </li>
+<li>搜索引擎（见 Google 搜索语法）</li>
+<li>BBscan，<a href="https://github.com/lijiejie/BBScan" target="_blank" rel="noopener">Github 项目地址</a></li>
+<li>GSIL，<a href="https://github.com/FeeiCN/GSIL" target="_blank" rel="noopener">Github 项目地址</a></li>
+<li>社交平台（QQ 群、文库、求职网）</li>
+</ul>
+<ol start="3">
+<li>脆弱系统（网络空间）：<br><a href="https://marlous.github.io/2018/12/09/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E3%80%81CTF%20%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E7%AC%94%E8%AE%B0%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/#5-Web-%E5%A4%A7%E6%95%B0%E6%8D%AE">博文：Web 大数据工具</a></li>
+</ol>
+<ul>
+<li>Shodan </li>
+<li>FOFA </li>
+<li>Zoomeye</li>
+</ul>
+<ol start="4">
+<li>旁站查询：</li>
+</ol>
+<ul>
+<li><a href="http://s.tool.chinaz.com/same" target="_blank" rel="noopener">站长之家在线工具获取旁站</a></li>
+<li>k8 旁站查询</li>
+</ul>
+<ol start="5">
+<li>C 端查询:</li>
+</ol>
+<ul>
+<li>北极熊扫描器，<a href="http://www.xitongzhijia.net/soft/71774.html" target="_blank" rel="noopener">下载地址</a></li>
+<li>Nmap</li>
+</ul>
+<ol start="6">
+<li>指纹信息：<br>通过识别目标网站所使用的 CMS 信息，可以帮助我们进一步了解渗透测试环境。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">指定路径下指定名称的js文件或代码。</span><br><span class="line"></span><br><span class="line">指定路径下指定名称的css文件或代码。</span><br><span class="line"></span><br><span class="line">&lt;title&gt; 中的内容，有些程序标题中会带有程序标识。</span><br><span class="line"></span><br><span class="line">meta 标记中带程序标识</span><br><span class="line">&lt;meta name=”description”/&gt;</span><br><span class="line">&lt;meta name=”keywords”/&gt;、</span><br><span class="line">&lt;meta name=”generator”/&gt;</span><br><span class="line">&lt;meta name=”author”/&gt;</span><br><span class="line">&lt;meta name=”copyright”/&gt;</span><br><span class="line"></span><br><span class="line">display:none 中的版权信息。</span><br><span class="line"></span><br><span class="line">页面底部版权信息，关键字 © Powered by 等。</span><br><span class="line"></span><br><span class="line">readme.txt、License.txt、help.txt 等文件。</span><br><span class="line"></span><br><span class="line">指定路径下指定图片文件，如一些小的图标文件，后台登录页面中的图标文件等，一般管理员不会修改它们。</span><br><span class="line"></span><br><span class="line">注释掉的 html 代码中 &lt;!–</span><br><span class="line"></span><br><span class="line">http 头的 X-Powered-By 中的值，有的应用程序框架会在此值输出。</span><br><span class="line"></span><br><span class="line">cookie 中的关键字。</span><br><span class="line"></span><br><span class="line">robots.txt 文件中的关键字。</span><br><span class="line"></span><br><span class="line">404 页面。</span><br><span class="line"></span><br><span class="line">302 返回时的旗标。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>wappalyzer 插件</li>
+<li><a href="http://www.yunsee.cn/" target="_blank" rel="noopener">云奚</a></li>
+<li>whatweb 工具</li>
+</ul>
+<ol start="7">
+<li>探测 WAF：<br>WAF 识别大多基于 Headers 头信息。通过发送恶意的内容，对比响应，寻找数据包被拦截、拒绝或者检测到的标识。</li>
+</ol>
+<ul>
+<li>手工（提交恶意数据） </li>
+<li>工具（WAFW00F、Nmap）</li>
+</ul>
+<h2 id="4-最后（企业方面）"><a href="#4-最后（企业方面）" class="headerlink" title="4 最后（企业方面）"></a>4 最后（企业方面）</h2><ul>
+<li><a href="https://www.tianyancha.com/" target="_blank" rel="noopener">天眼查</a></li>
+<li><a href="https://www.qixin.com/" target="_blank" rel="noopener">启信宝</a></li>
+<li><a href="http://www.gsxt.gov.cn/index.html" target="_blank" rel="noopener">企业信用信息公示系统</a></li>
+</ul>
 
                 <hr>
                 
@@ -255,7 +365,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-信息收集"><span class="toc-text">一 信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-补充：Kali-Linux-工具分类简介"><span class="toc-text">1 补充：Kali Linux 工具分类简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-信息搜集之道经验整理"><span class="toc-text">2 信息搜集之道经验整理</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-补充：Kali-Linux-工具分类简介"><span class="toc-text">一 补充：Kali Linux 工具分类简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-信息搜集之道经验整理"><span class="toc-text">二 信息搜集之道经验整理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-首先（域名）"><span class="toc-text">1 首先（域名）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-其次（服务器）"><span class="toc-text">2 其次（服务器）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-然后（网站程序）"><span class="toc-text">3 然后（网站程序）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-最后（企业方面）"><span class="toc-text">4 最后（企业方面）</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
