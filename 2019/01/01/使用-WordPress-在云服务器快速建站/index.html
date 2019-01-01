@@ -221,7 +221,8 @@
 <li>启动服务：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br><span class="line">sudo service apache2 start</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="二-创建-WordPress-的数据库和用户"><a href="#二-创建-WordPress-的数据库和用户" class="headerlink" title="二 创建 WordPress 的数据库和用户"></a>二 创建 WordPress 的数据库和用户</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -proot</span><br><span class="line"></span><br><span class="line">CREATE DATABASE databasename; // wordpress 作为数据库名字。</span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO &quot;wordpressusername&quot;@&quot;hostname&quot; // &quot;wpblog&quot;@&quot;localhost&quot;</span><br><span class="line">IDENTIFIED BY &quot;12345&quot;; // 设置 wpblog 这个用户的密码。</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line">EXIT</span><br></pre></td></tr></table></figure>
+<h1 id="二-创建-WordPress-的数据库和用户"><a href="#二-创建-WordPress-的数据库和用户" class="headerlink" title="二 创建 WordPress 的数据库和用户"></a>二 创建 WordPress 的数据库和用户</h1><p>注：使用命令 <code>uname -n</code> 查看主机名，/etc/hostname 文件修改主机名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -proot</span><br><span class="line"></span><br><span class="line">CREATE DATABASE databasename; // wordpress 作为数据库名字。</span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO &quot;wordpressusername&quot;@&quot;hostname&quot; // &quot;wpblog&quot;@&quot;localhost&quot;</span><br><span class="line">IDENTIFIED BY &quot;12345&quot;; // 设置 wpblog 这个用户的密码。</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line">EXIT</span><br></pre></td></tr></table></figure>
 <h1 id="三-配置文件"><a href="#三-配置文件" class="headerlink" title="三 配置文件"></a>三 配置文件</h1><ol>
 <li><p>将 wp-config-sample.php 重命名为 wp-config.php</p>
 </li>
@@ -245,8 +246,9 @@
 <li>放在子目录的，<a href="http://example.com/blog/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/blog/wp-admin/install.php</a></li>
 </ul>
 <ol start="2">
-<li>填写信息：</li>
+<li>填写信息：<br>注：<br>可能出现 Error establishing a database connection 错误；<br>查看 /var/log/mysql，发现 Access denied for user ‘root‘@’localhost’ (using password: NO)<br>可能是因为安装数据库时没设置密码所致，通过修改密码解决，</li>
 </ol>
+<p><img src="/2019/01/01/使用-WordPress-在云服务器快速建站/图1.PNG" alt="填写信息"></p>
 
                 <hr>
                 
