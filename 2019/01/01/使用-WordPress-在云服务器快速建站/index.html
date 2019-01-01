@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        考研英语语法核心知识点笔记｜Mo&#39;s blog
+        使用 WordPress 在云服务器快速建站｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/12/18/考研英语语法核心知识点笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2019/01/01/使用-WordPress-在云服务器快速建站/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>考研英语语法核心知识点笔记</h1>
+                    <h1>使用 WordPress 在云服务器快速建站</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-12-18
+                          日期 2019-01-01
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#记录小结"
+                           title="记录小结">记录小结</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            考研英语语法核心知识点笔记
+            使用 WordPress 在云服务器快速建站
         </span>
     </div>
 </header>
@@ -203,24 +203,36 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>《考研语法一笑而过》 周思成</p>
+<p>阿里云可以直接使用 WordPress，本博文教程使用虚拟机（Ubuntu）当作 ECS 云服务器，从零开始建站。</p>
 </blockquote>
-<h1 id="一-英语语法概述"><a href="#一-英语语法概述" class="headerlink" title="一 英语语法概述"></a>一 英语语法概述</h1><p><img src="/2018/12/18/考研英语语法核心知识点笔记/图1.PNG" alt="英语语法概述"></p>
-<h1 id="二-词"><a href="#二-词" class="headerlink" title="二 词"></a>二 词</h1><h2 id="1-名词"><a href="#1-名词" class="headerlink" title="1 名词"></a>1 名词</h2><h2 id="2-冠词"><a href="#2-冠词" class="headerlink" title="2 冠词"></a>2 冠词</h2><h2 id="3-代词"><a href="#3-代词" class="headerlink" title="3 代词"></a>3 代词</h2><h2 id="4-形容词"><a href="#4-形容词" class="headerlink" title="4 形容词"></a>4 形容词</h2><h2 id="5-副词"><a href="#5-副词" class="headerlink" title="5 副词"></a>5 副词</h2><h2 id="6-动词"><a href="#6-动词" class="headerlink" title="6 动词"></a>6 动词</h2><h2 id="7-介词"><a href="#7-介词" class="headerlink" title="7 介词"></a>7 介词</h2><h1 id="三-句"><a href="#三-句" class="headerlink" title="三 句"></a>三 句</h1><h2 id="1-简单句"><a href="#1-简单句" class="headerlink" title="1 简单句"></a>1 简单句</h2><h2 id="2-复合句"><a href="#2-复合句" class="headerlink" title="2 复合句"></a>2 复合句</h2><h2 id="3-非谓语结构"><a href="#3-非谓语结构" class="headerlink" title="3 非谓语结构"></a>3 非谓语结构</h2><h1 id="四-补充"><a href="#四-补充" class="headerlink" title="四 补充"></a>四 补充</h1>
+<blockquote>
+<p>参考：<br>1、 <a href="https://codex.wordpress.org/zh-cn:Main_Page" target="_blank" rel="noopener">WordPress 官方中文文档</a><br>2、 <a href="https://yq.aliyun.com/articles/680675?spm=a2c4e.11155472.0.0.ffd460c7YeHPNs" target="_blank" rel="noopener">阿里云服务器使用教程，新手上云必备功课</a><br>3、 <a href="https://help.aliyun.com/document_detail/63819.html?spm=a2c4g.11186623.6.874.57c74cc1dj0fps" target="_blank" rel="noopener">建站零基础入门（阿里云）</a><br>4、 <a href="https://help.aliyun.com/document_detail/57160.html?spm=a2c4g.11186623.6.876.434f68110P5L7q" target="_blank" rel="noopener">手动建站方式汇总（阿里云）</a><br>5、 <a href="https://help.aliyun.com/document_detail/54068.html?spm=a2c4g.11186623.2.34.e56523c7sxHfK4#concept-x22-3rv-12b" target="_blank" rel="noopener">域名注册流程</a><br>6、 <a href="https://help.aliyun.com/knowledge_detail/36922.html#concept-ghz-3rl-zdb" target="_blank" rel="noopener">首次备案</a>，（国内 CN 等域名需要备案。）<br>7、 <a href="https://help.aliyun.com/document_detail/29716.html?spm=a2c4g.11186623.2.37.e56523c7sxHfK4" target="_blank" rel="noopener">设置域名解析</a></p>
+</blockquote>
+<h1 id="一-环境搭建"><a href="#一-环境搭建" class="headerlink" title="一 环境搭建"></a>一 环境搭建</h1><ol>
+<li>首先设置虚拟机的环境（LAMP）：</li>
+</ol>
+<ul>
+<li>使用 SSH 客户端链接虚拟机。</li>
+<li>查看 WordPress 环境要求，<a href="https://wordpress.org/about/requirements/" target="_blank" rel="noopener">参考文档</a>。</li>
+<li>搭建环境，参考：<a href="https://lamp.sh/install.html" target="_blank" rel="noopener">LAMP一键安装包</a>。</li>
+</ul>
+<ol start="2">
+<li>启动服务：</li>
+</ol>
+<ul>
+<li>MySQL：<code>/etc/init.d/mysqld (start|stop|restart|status)</code></li>
+<li>Apache：<code>/etc/init.d/httpd (start|stop|restart|status)</code></li>
+</ul>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/12/25/学术规范、论文写作、文献管理学习笔记/" data-toggle="tooltip" data-placement="top"
-                           title="学术规范、论文写作、文献管理学习笔记">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/12/17/信息安全之-Web-安全入门知识结构笔记/" data-toggle="tooltip" data-placement="top"
-                           title="信息安全之 Web 安全入门知识结构笔记">Next Post &rarr;</a>
+                        <a href="/2019/01/01/Kali-Linux-概述笔记/" data-toggle="tooltip" data-placement="top"
+                           title="Kali Linux 概述笔记">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -236,7 +248,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-英语语法概述"><span class="toc-text">一 英语语法概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-词"><span class="toc-text">二 词</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-名词"><span class="toc-text">1 名词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-冠词"><span class="toc-text">2 冠词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-代词"><span class="toc-text">3 代词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-形容词"><span class="toc-text">4 形容词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-副词"><span class="toc-text">5 副词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-动词"><span class="toc-text">6 动词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-介词"><span class="toc-text">7 介词</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-句"><span class="toc-text">三 句</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-简单句"><span class="toc-text">1 简单句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-复合句"><span class="toc-text">2 复合句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-非谓语结构"><span class="toc-text">3 非谓语结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-补充"><span class="toc-text">四 补充</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-环境搭建"><span class="toc-text">一 环境搭建</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -258,8 +270,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#记录小结"
+                           title="记录小结">记录小结</a>
                         
                     </div>
                 </section>
