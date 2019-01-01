@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -214,11 +214,38 @@
 <ul>
 <li>使用 SSH 客户端链接虚拟机。</li>
 <li>查看 WordPress 环境要求，<a href="https://wordpress.org/about/requirements/" target="_blank" rel="noopener">参考文档</a>。</li>
-<li>搭建环境，参考：<a href="https://lamp.sh/install.html" target="_blank" rel="noopener">方法一：LAMP一键安装包</a>，<a href="https://jingyan.baidu.com/article/4ae03de3e19ede3eff9e6b3c.html" target="_blank" rel="noopener">方法二：Ubuntu下搭建LAMP环境</a>。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">方法二：</span><br><span class="line"></span><br><span class="line">sudo apt-get  install apache2</span><br><span class="line">sudo apt-get install php</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">sudo service mysql restart</span><br><span class="line">sudo service apache2 restart</span><br><span class="line"></span><br><span class="line">sudo chmod 777 /var/www</span><br><span class="line"></span><br><span class="line">cd /var/www/html</span><br><span class="line">sudo vi info.php</span><br><span class="line"></span><br><span class="line">内容为</span><br><span class="line">echo mysql_connect(&apos;localhost&apos;,&apos;root&apos;,&apos;123456&apos;)? &quot;success&quot;:&quot;fail&quot;;echo phpinfo();</span><br><span class="line"></span><br><span class="line">浏览器 127.0.0.1/info.php 查看环境是否搭建完成。</span><br><span class="line"></span><br><span class="line">sudo a2enmod rewrite // 启用 mod_rewrite 模块。</span><br><span class="line">sudo service apache2 restart</span><br><span class="line"></span><br><span class="line">sudo apt-get install libapache2-mod-php5</span><br><span class="line">sudo apt-get install libapache2-mod-auth-mysqlsudo apt-get install php5-mysql</span><br><span class="line">sudo apt-get install php5-gd</span><br><span class="line"></span><br><span class="line">sudo apt-get install phpmyadmin</span><br><span class="line"></span><br><span class="line">mkdir pma // 在 /var/www/html 文件夹下创建 pma 文件夹。</span><br><span class="line">ln -s /usr/share/phpmyadmin /var/www/html/pma</span><br><span class="line"></span><br><span class="line">浏览器 127.0.0.1/pma/phpmyadmin/ 查看，若出现错误则 sudo vi php.ini 开启 mbstring，然后再次访问。</span><br></pre></td></tr></table></figure>
+<li>搭建环境，参考：<a href="https://lamp.sh/install.html" target="_blank" rel="noopener">方法一：LAMP一键安装包</a>，<a href="https://jingyan.baidu.com/article/4ae03de3e19ede3eff9e6b3c.html" target="_blank" rel="noopener">方法二：Ubuntu下搭建LAMP环境</a>。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">方法二：</span><br><span class="line"></span><br><span class="line">sudo apt-get  install apache2</span><br><span class="line">sudo apt-get install php</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">sudo service mysql restart</span><br><span class="line">sudo service apache2 restart</span><br><span class="line"></span><br><span class="line">sudo chmod 777 /var/www</span><br><span class="line"></span><br><span class="line">cd /var/www/html</span><br><span class="line">sudo vi info.php</span><br><span class="line"></span><br><span class="line">内容为</span><br><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">浏览器 127.0.0.1/info.php 查看环境是否搭建完成。</span><br><span class="line"></span><br><span class="line">sudo a2enmod rewrite // 启用 mod_rewrite 模块。</span><br><span class="line">sudo service apache2 restart</span><br><span class="line"></span><br><span class="line">sudo apt-get install libapache2-mod-php5</span><br><span class="line">sudo apt-get install libapache2-mod-auth-mysqlsudo apt-get install php5-mysql</span><br><span class="line">sudo apt-get install php5-gd</span><br><span class="line"></span><br><span class="line">sudo apt-get install phpmyadmin</span><br><span class="line"></span><br><span class="line">mkdir pma // 在 /var/www/html 文件夹下创建 pma 文件夹。</span><br><span class="line">ln -s /usr/share/phpmyadmin /var/www/html/pma</span><br><span class="line"></span><br><span class="line">浏览器 127.0.0.1/pma/phpmyadmin/ 查看，若出现错误则 sudo vi php.ini 开启 mbstring，然后再次访问。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol start="2">
-<li>启动服务：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br><span class="line">sudo service apache2 start</span><br></pre></td></tr></table></figure></li>
+<li>启动服务：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br><span class="line">sudo service apache2 start</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="二-创建-WordPress-的数据库和用户"><a href="#二-创建-WordPress-的数据库和用户" class="headerlink" title="二 创建 WordPress 的数据库和用户"></a>二 创建 WordPress 的数据库和用户</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -proot</span><br><span class="line"></span><br><span class="line">CREATE DATABASE databasename; // wordpress 作为数据库名字。</span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO &quot;wordpressusername&quot;@&quot;hostname&quot; // &quot;wpblog&quot;@&quot;localhost&quot;</span><br><span class="line">IDENTIFIED BY &quot;12345&quot;; // 设置 wpblog 这个用户的密码。</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line">EXIT</span><br></pre></td></tr></table></figure>
+<h1 id="三-配置文件"><a href="#三-配置文件" class="headerlink" title="三 配置文件"></a>三 配置文件</h1><ol>
+<li><p>将 wp-config-sample.php 重命名为 wp-config.php</p>
+</li>
+<li><p>在  <code>// ** MySQL settings - You can get this info from your web host ** //</code> 下输入信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DB_NAME </span><br><span class="line">    在第二步中为WordPress创建的数据库名称</span><br><span class="line">DB_USER </span><br><span class="line">    在第二步中创建的WordPress用户名</span><br><span class="line">DB_PASSWORD </span><br><span class="line">    第二步中为WordPress用户名设定的密码</span><br><span class="line">DB_HOST </span><br><span class="line">    第二步中设定的hostname（通常是localhost，但总有例外；参见编辑wp-config.php文件中的“可能的DB_HOST值）。</span><br><span class="line">DB_CHARSET </span><br><span class="line">    数据库字符串，通常不可更改（参见zh-cn:编辑wp-config.php）。</span><br><span class="line">DB_COLLATE </span><br><span class="line">    留为空白的数据库排序</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 <code>* Authentication Unique Keys.</code> 下输入密钥的值，<a href="https://codex.wordpress.org/Editing_wp-config.php#Security_Keys" target="_blank" rel="noopener">参考链接</a>，<a href="http://boren.nu/archives/2008/07/14/ssl-and-cookies-in-wordpress-26/" target="_blank" rel="noopener">WordPress 2.6中关于如何设置SSL</a>。</p>
+</li>
+<li><p>上传文件，决定将博客放在网站的什么位置上：</p>
+</li>
+</ol>
+<ul>
+<li>网站根目录下（如：<a href="http://example.com/" target="_blank" rel="noopener">http://example.com/</a> ），可用 FTP 客户端将 wordpress 目录下所有内容（无需上传目录本身）上传至网站根目录。</li>
+<li>网站子目录下（如：<a href="http://example.com/blog/" target="_blank" rel="noopener">http://example.com/blog/</a> ），需将 wordpress 目录重命名，之后用 FTP 客户端将重命名后的目录上传到网站根目录下某一位置。</li>
+</ul>
+<h1 id="四-运行安装脚本"><a href="#四-运行安装脚本" class="headerlink" title="四 运行安装脚本"></a>四 运行安装脚本</h1><ol>
+<li>访问页面进行安装：</li>
+</ol>
+<ul>
+<li>放在根目录的，<a href="http://example.com/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/wp-admin/install.php</a> （本地用 127.0.0.1/wp-admin/install.php）</li>
+<li>放在子目录的，<a href="http://example.com/blog/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/blog/wp-admin/install.php</a></li>
+</ul>
+<ol start="2">
+<li>填写信息：</li>
 </ol>
 
                 <hr>
@@ -245,7 +272,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-环境搭建"><span class="toc-text">一 环境搭建</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-环境搭建"><span class="toc-text">一 环境搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-创建-WordPress-的数据库和用户"><span class="toc-text">二 创建 WordPress 的数据库和用户</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-配置文件"><span class="toc-text">三 配置文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-运行安装脚本"><span class="toc-text">四 运行安装脚本</span></a></li></ol>
                 </div>
             </div>
         </div>
