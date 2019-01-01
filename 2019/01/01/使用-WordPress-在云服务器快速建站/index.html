@@ -86,6 +86,14 @@
                         
 							
                         <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -95,14 +103,6 @@
 							
                         <li>
                             <a href="/work/">works</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -214,15 +214,12 @@
 <ul>
 <li>使用 SSH 客户端链接虚拟机。</li>
 <li>查看 WordPress 环境要求，<a href="https://wordpress.org/about/requirements/" target="_blank" rel="noopener">参考文档</a>。</li>
-<li>搭建环境，参考：<a href="https://lamp.sh/install.html" target="_blank" rel="noopener">LAMP一键安装包</a>。</li>
+<li>搭建环境，参考：<a href="https://lamp.sh/install.html" target="_blank" rel="noopener">方法一：LAMP一键安装包</a>，<a href="https://jingyan.baidu.com/article/4ae03de3e19ede3eff9e6b3c.html" target="_blank" rel="noopener">方法二：Ubuntu下搭建LAMP环境</a>。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">方法二：</span><br><span class="line"></span><br><span class="line">sudo apt-get  install apache2</span><br><span class="line">sudo apt-get install php</span><br><span class="line">sudo apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">sudo service mysql restart</span><br><span class="line">sudo service apache2 restart</span><br><span class="line"></span><br><span class="line">sudo chmod 777 /var/www</span><br><span class="line"></span><br><span class="line">cd /var/www/html</span><br><span class="line">sudo vim info.php</span><br><span class="line"></span><br><span class="line">内容为</span><br><span class="line">echo mysql_connect(‘localhost’,’root’,’123456’)? “success”:”fail”;echo phpinfo();</span><br><span class="line"></span><br><span class="line">浏览器 127.0.0.1/info.php 查看环境是否搭建完成。</span><br><span class="line"></span><br><span class="line">sudo a2enmod rewrite // 启用 mod_rewrite 模块。</span><br><span class="line">sudo service apache2 restart</span><br><span class="line"></span><br><span class="line">sudo apt-get install libapache2-mod-php5</span><br><span class="line">sudo apt-get install libapache2-mod-auth-mysqlsudo apt-get install php5-mysql</span><br><span class="line">sudo apt-get install php5-gd</span><br><span class="line"></span><br><span class="line">sudo apt-get install phpmyadmin</span><br><span class="line"></span><br><span class="line">mkdir pma // 在 /var/www/html 文件夹下创建 pma 文件夹。</span><br><span class="line">ln -s /usr/share/phpmyadmin /var/www/html/pma</span><br><span class="line"></span><br><span class="line">浏览器 127.0.0.1/pma/phpmyadmin/ 查看，若出现错误则 sudo vi php.ini 开启 mbstring，然后再次访问。</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <ol start="2">
-<li>启动服务：</li>
+<li>启动服务：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br><span class="line">sudo service apache2 start</span><br></pre></td></tr></table></figure></li>
 </ol>
-<ul>
-<li>MySQL：<code>/etc/init.d/mysqld (start|stop|restart|status)</code></li>
-<li>Apache：<code>/etc/init.d/httpd (start|stop|restart|status)</code></li>
-</ul>
 
                 <hr>
                 
