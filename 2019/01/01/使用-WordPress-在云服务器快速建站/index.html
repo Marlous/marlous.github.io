@@ -226,7 +226,7 @@
 <h1 id="三-配置文件"><a href="#三-配置文件" class="headerlink" title="三 配置文件"></a>三 配置文件</h1><ol>
 <li><p>将 wp-config-sample.php 重命名为 wp-config.php</p>
 </li>
-<li><p>在  <code>// ** MySQL settings - You can get this info from your web host ** //</code> 下输入信息。</p>
+<li><p>在  <code>// ** MySQL settings - You can get this info from your web host ** //</code> 下输入信息。<br><a href="https://codex.wordpress.org/zh-cn:%E7%BC%96%E8%BE%91wp-config.php#Possible_DB_HOST_values" target="_blank" rel="noopener">怎样填写：参考链接</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DB_NAME </span><br><span class="line">    在第二步中为WordPress创建的数据库名称</span><br><span class="line">DB_USER </span><br><span class="line">    在第二步中创建的WordPress用户名</span><br><span class="line">DB_PASSWORD </span><br><span class="line">    第二步中为WordPress用户名设定的密码</span><br><span class="line">DB_HOST </span><br><span class="line">    第二步中设定的hostname（通常是localhost，但总有例外；参见编辑wp-config.php文件中的“可能的DB_HOST值）。</span><br><span class="line">DB_CHARSET </span><br><span class="line">    数据库字符串，通常不可更改（参见zh-cn:编辑wp-config.php）。</span><br><span class="line">DB_COLLATE </span><br><span class="line">    留为空白的数据库排序</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在 <code>* Authentication Unique Keys.</code> 下输入密钥的值，<a href="https://codex.wordpress.org/Editing_wp-config.php#Security_Keys" target="_blank" rel="noopener">参考链接</a>，<a href="http://boren.nu/archives/2008/07/14/ssl-and-cookies-in-wordpress-26/" target="_blank" rel="noopener">WordPress 2.6中关于如何设置SSL</a>。</p>
@@ -245,10 +245,10 @@
 <li>放在根目录的，<a href="http://example.com/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/wp-admin/install.php</a> （本地用 127.0.0.1/wp-admin/install.php）</li>
 <li>放在子目录的，<a href="http://example.com/blog/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/blog/wp-admin/install.php</a></li>
 </ul>
+<p>注：填写信息（WordPress 无法查找到 wp-config.php 文件时）<br><img src="/2019/01/01/使用-WordPress-在云服务器快速建站/图1.PNG" alt="填写信息"></p>
 <ol start="2">
-<li>填写信息：<br>注：<br>可能出现 Error establishing a database connection 错误；<br>查看 /var/log/mysql，发现 Access denied for user ‘root‘@’localhost’ (using password: NO)<br>可能是因为安装数据库时没设置密码所致，通过修改密码解决，</li>
+<li>脚本安装过程：<br>用户在输入界面中输入博客名称和自己的电子邮箱地址。输入框下还有一个复选框，询问用户是否希望博客出现在 Google、 Technorati 等搜索引擎中。如果希望博客对所有人（包括搜索引擎）可见，请选中复选框；如果想阻止搜索引擎访问但又不希望限制到正常访问者，不要选中复选框。</li>
 </ol>
-<p><img src="/2019/01/01/使用-WordPress-在云服务器快速建站/图1.PNG" alt="填写信息"></p>
 
                 <hr>
                 
