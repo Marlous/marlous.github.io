@@ -79,15 +79,15 @@
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
@@ -203,13 +203,40 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="https://www.jianshu.com/p/75989cd399a6" target="_blank" rel="noopener">博客从WordPress转到Hexo</a><br>2、 <a href="http://www.lizenghai.com/archives/117.html" target="_blank" rel="noopener">从hexo迁移回wordpress,并进行wordpress优化、编辑器等</a></p>
+<p>参考：<br>1、 <a href="https://hexo.io/zh-cn/docs/migration.html" target="_blank" rel="noopener">Hexo文档：WordPress转到Hexo</a><br>2、 <a href="https://sobaigu.com/hexo-to-wordpress.html" target="_blank" rel="noopener">Hexo数据导入到WordPress博客方法</a><br>3、 <a href="http://www.lizenghai.com/archives/117.html" target="_blank" rel="noopener">从hexo迁移回wordpress,并进行wordpress优化、编辑器等</a></p>
 </blockquote>
 <h1 id="一-谈谈两者异同"><a href="#一-谈谈两者异同" class="headerlink" title="一 谈谈两者异同"></a>一 谈谈两者异同</h1><ul>
 <li>使用 Hexo 搭建博客，可以使用免费的 GitHub Pages 服务，使用 Markdown 写博客，然后 git 提交。缺点是需要在本地部署环境，如果跨平台写博客比较麻烦。</li>
 <li>使用 WordPress 搭建博客更快更简单，部署在云服务器上，跨设备平台写博客，并且有手机客户端在手机上写博客，可视化设置也简单。</li>
 </ul>
-<h1 id="二-WordPress-迁移到-Hexo"><a href="#二-WordPress-迁移到-Hexo" class="headerlink" title="二 WordPress 迁移到 Hexo"></a>二 WordPress 迁移到 Hexo</h1><h1 id="三-Hexo-迁移到-WordPress"><a href="#三-Hexo-迁移到-WordPress" class="headerlink" title="三 Hexo 迁移到 WordPress"></a>三 Hexo 迁移到 WordPress</h1>
+<h1 id="二-WordPress-迁移到-Hexo"><a href="#二-WordPress-迁移到-Hexo" class="headerlink" title="二 WordPress 迁移到 Hexo"></a>二 WordPress 迁移到 Hexo</h1><ol>
+<li><p>安装 hexo-migrator-wordpress 插件：<code>npm install hexo-migrator-wordpress --save</code></p>
+</li>
+<li><p>WordPress 仪表盘中导出数据，“Tools” -&gt; “Export” -&gt; “WordPress”。<a href="https://en.support.wordpress.com/export/" target="_blank" rel="noopener">参考文档</a>。</p>
+</li>
+<li><p>执行命令 <code>hexo migrate wordpress &lt;source&gt;</code>，source 可以是 WordPress 导出的文件路径或网址。</p>
+</li>
+<li><p>注意，此插件并不完美，在处理 WordPress 的分类方面存在问题，需手动检查 markdown 文件。</p>
+</li>
+</ol>
+<h1 id="三-Hexo-迁移到-WordPress"><a href="#三-Hexo-迁移到-WordPress" class="headerlink" title="三 Hexo 迁移到 WordPress"></a>三 Hexo 迁移到 WordPress</h1><ol>
+<li>Hexo 输出 xml：</li>
+</ol>
+<ul>
+<li>安装 hexo-generator-feed 插件：<code>npm install hexo-generator-feed --save</code></li>
+<li><p>在 <code>_config.yml</code> 文件中添加内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">feed:</span><br><span class="line">  type: rss2</span><br><span class="line">  path: rss2.xml</span><br><span class="line">  limit: false</span><br><span class="line">  hub:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启 Hexo server，访问 localhost/rss2.xml，保存该文件或者直接 hexo g，然后去 public 目录找这个文件。</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>WordPress 安装相关插件，导入 rss2.xml</p>
+</li>
+<li><p>因为不是定制的导入程序，导入 WordPress 后分类将会消失。可能需要自己修改导入程序。</p>
+</li>
+</ol>
+
                 <hr>
                 
 

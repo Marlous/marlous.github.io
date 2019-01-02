@@ -79,15 +79,15 @@
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
@@ -203,8 +203,44 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="http://blog.jobbole.com/30526/" target="_blank" rel="noopener">网页编码就是那点事</a><br>2、 <a href="https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">字符编码笔记：ASCII，Unicode 和 UTF-8</a></p>
+<p>参考：<br>1、 <a href="http://blog.jobbole.com/30526/" target="_blank" rel="noopener">网页编码就是那点事</a><br>2、 <a href="https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">字符编码笔记：ASCII，Unicode 和 UTF-8</a><br>3、 <a href="https://www.cnblogs.com/malecrab/p/5300503.html" target="_blank" rel="noopener">细说：Unicode, UTF-8, UTF-16, UTF-32, UCS-2, UCS-4 - malecrab - 博客园</a></p>
 </blockquote>
+<h1 id="一-各种字符编码的来历"><a href="#一-各种字符编码的来历" class="headerlink" title="一 各种字符编码的来历"></a>一 各种字符编码的来历</h1><ul>
+<li><p>ASCII 编码。</p>
+</li>
+<li><p>中国人民通过对 ASCII 编码的中文扩充改造，产生了 GB2312 编码，可以表示 6000 多个常用汉字。</p>
+</li>
+<li><p>汉字实在是太多了，包括繁体和各种字符，于是产生了 GBK 编码，它包括了 GB2312 中的编码，同时扩充了很多。</p>
+</li>
+<li><p>中国是个多民族国家，各个民族几乎都有自己独立的语言系统，为了表示那些字符，继续把 GBK 编码扩充为 GB18030 编码。</p>
+</li>
+<li><p>每个国家都像中国一样，把自己的语言编码，于是出现了各种各样的编码，如果你不安装相应的编码，就无法解释相应编码想表达的内容。</p>
+</li>
+<li><p>终于，有个叫 ISO 的组织看不下去了。他们一起创造了一种编码 UNICODE ，这种编码非常大，大到可以容纳世界上任何一个文字和标志。所以只要电脑上有 UNICODE 这种编码系统，无论是全球哪种文字，只需要保存文件的时候，保存成 UNICODE 编码就可以被其他电脑正常解释。</p>
+</li>
+<li><p>Unicode 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。具体存储方式有 UTF-8、UTF-16、UTF-32。</p>
+</li>
+</ul>
+<h1 id="二-一些编码问题"><a href="#二-一些编码问题" class="headerlink" title="二 一些编码问题"></a>二 一些编码问题</h1><ul>
+<li><p>不同的国家和地区制定了不同的标准，这些使用 1 至 4 个字节来代表一个字符的各种汉字延伸编码方式，称为 ANSI 编码（各种外文字符延伸编码方式），不同 ANSI 编码之间互不兼容。</p>
+</li>
+<li><p>ANSI 是默认的编码方式。对于英文文件是 ASCII 编码，对于简体中文文件是 GB2312 编码，繁体用 Big5 编码，不同的国家地区默认的编码不同。</p>
+</li>
+<li><p>无论是 UTF-16/32 还是 UCS-2/4，一个字符都需要多个字节来编码，对那些英语国家来说浪费带宽，由此，UTF-8 产生了。</p>
+</li>
+<li><p>关于文件 BOM 头的问题：<br>虽然保存成了 XX 编码，但是系统识别的时候，却误识别为了 YY 编码，所以还是显示为 YY 编码。为了避免这个问题，微软公司弄出了一个叫 BOM 头的东西。<br>当使用类似 WINDOWS 自带的记事本等软件，在保存一个以 UTF-8 编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即 BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以 UTF-8 编码。这样就可以避免这个问题了。对于一般的文件，这样并不会产生什么麻烦。但 PHP 并不会忽略 BOM，所以在读取、包含或者引用这些文件时，会把 BOM 作为该文件开头正文 的一部分。根据嵌入式语言的特点，这串字符将被直接执行（显示）出来。由此造成即使页面的 top padding 设置为 0，也无法让整个网页紧贴浏览器顶部，因为在 html 一开头有这 3 个字符。如果你在网页中，发现了由未知的空白等，很有可能就是由于文件有 BOM 头造成的。遇到这种问题，把文件保存的时候，不要带有 BOM 头。</p>
+</li>
+<li><p>字符编码转换：使用文本编辑器，将某一种字符编码的文件保存为某种编码，即实现了转换。</p>
+</li>
+</ul>
+<h1 id="三-小结"><a href="#三-小结" class="headerlink" title="三 小结"></a>三 小结</h1><ul>
+<li><p>开端：ASCII 编码。</p>
+</li>
+<li><p>混战：各种 ANSI 编码（相互不兼容，GB2312、Big5 等等）。</p>
+</li>
+<li><p>统一：Unicode（UTF-8、UTF-16、UTF-32 编码）。</p>
+</li>
+</ul>
 
                 <hr>
                 
@@ -230,7 +266,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-各种字符编码的来历"><span class="toc-text">一 各种字符编码的来历</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-一些编码问题"><span class="toc-text">二 一些编码问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-小结"><span class="toc-text">三 小结</span></a></li></ol>
                 </div>
             </div>
         </div>
