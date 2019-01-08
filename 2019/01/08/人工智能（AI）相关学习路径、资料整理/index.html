@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        人工智能（AI）相关学习路径、资料整理｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2019/01/08/人工智能（AI）相关学习路径、资料整理/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>人工智能（AI）相关学习路径、资料整理</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2019-01-08
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#知识图谱与方法论"
+                           title="知识图谱与方法论">知识图谱与方法论</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            人工智能（AI）相关学习路径、资料整理
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>参考：<br>1、 <a href="https://zhuanlan.zhihu.com/p/29704017" target="_blank" rel="noopener">如何用3个月零基础入门「机器学习」？</a><br>2、 <a href="https://www.zhihu.com/question/265041005" target="_blank" rel="noopener">非计算机专业学生如何转行 AI，并找到算法 offer？</a><br>3、 <a href="https://zhuanlan.zhihu.com/p/36018667" target="_blank" rel="noopener">从入门到高阶，读懂机器学习需要哪些数学知识（附网盘）</a><br>4、 <a href="https://zhuanlan.zhihu.com/p/33999430" target="_blank" rel="noopener">【学界】一文读懂机器学习需要哪些数学知识(附全套优秀课程的网盘链接资源)</a><br>5、 <a href="https://zhuanlan.zhihu.com/p/51011016" target="_blank" rel="noopener">奔走相告！亚马逊内部机器学习课程现向大众免费开放</a><br>6、 <a href="https://zhuanlan.zhihu.com/p/36287950" target="_blank" rel="noopener">从基础概念到数学公式，这是一份520页的机器学习笔记（图文并茂）</a><br>7、 <a href="https://www.zhihu.com/question/265000993/answer/288147789" target="_blank" rel="noopener">学习机器学习过程中都走过哪些弯路，怎样避免走弯路？</a></p>
+</blockquote>
+<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ul>
+<li>不要把深度学习作为入门第一课，建议从经典机器学习开始入手。</li>
+<li>不要过度收集材料，机器学习的资料有很大的时效性。</li>
+<li>选择符合自己风格的材料，进行 T 字形阅读。</li>
+<li>如果在读，优先进实验室，再去找实习，最后一条路是好好刷 GPA。</li>
+<li>学好英语，至少打下阅读和听力的基础。</li>
+<li>不要试图掌握所有的相关数学知识再开始学习。</li>
+</ul>
+<h1 id="二-补充资料"><a href="#二-补充资料" class="headerlink" title="二 补充资料"></a>二 补充资料</h1><ul>
+<li><a href="https://github.com/TeamStuQ/skill-map/blob/master/data/designbyStuQ/png-MachineLearning-by-StuQ.png" target="_blank" rel="noopener">机器学习技能图谱</a></li>
+<li><a href="https://wei2624.github.io/machine%20learning/Machine-Learning-Notes/" target="_blank" rel="noopener">哥伦比亚大学研究生详细吴恩达《机器学习》笔记</a>。</li>
+<li><a href="https://pan.baidu.com/s/1tNXYQNadAsDGfPvuuj7_Tw#list/path=%2F" target="_blank" rel="noopener">从基础概念到数学公式，机器学习笔记</a>。</li>
+<li>读懂机器学习需要哪些数学知识，<a href="https://pan.baidu.com/s/1rEoidASC51_gDMcLpi1wxQ" target="_blank" rel="noopener">备用连接 1：密码: yzkx</a>，<a href="https://pan.baidu.com/s/1PCkS--EpbOaQ7LD8HGlBfQ" target="_blank" rel="noopener">备用连接 2：密码: i7mn</a>。</li>
+<li><a href="https://aws.amazon.com/cn/training/learning-paths/machine-learning/" target="_blank" rel="noopener">AWS Machine Learning 学习课程</a>。</li>
+<li><a href="https://time.geekbang.org/column/intro/62" target="_blank" rel="noopener">极客时间：人工智能基础课</a>。</li>
+</ul>
+<h1 id="三-学习路径"><a href="#三-学习路径" class="headerlink" title="三 学习路径"></a>三 学习路径</h1><h2 id="0-极速了解人工智能"><a href="#0-极速了解人工智能" class="headerlink" title="0 极速了解人工智能"></a>0 极速了解人工智能</h2><blockquote>
+<p>参考：<br>1、 <a href="https://time.geekbang.org/column/intro/62" target="_blank" rel="noopener">极客时间：人工智能基础课</a></p>
+</blockquote>
+<p><img src="/2019/01/08/人工智能（AI）相关学习路径、资料整理/图1.PNG" alt="极速了解人工智能"></p>
+<h2 id="1-基础入门（3-6-个月）"><a href="#1-基础入门（3-6-个月）" class="headerlink" title="1 基础入门（3-6 个月）"></a>1 基础入门（3-6 个月）</h2><ul>
+<li><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener">吴恩达 Cousera 机器学习课程</a>。</li>
+<li>《Python 机器学习》、《Hands-On Machine Learning with Scikit-Learn and TensorFlow》、<a href="http://www-bcf.usc.edu/~gareth/ISL/ISLR%20First%20Printing.pdf" target="_blank" rel="noopener">《Introduction to Statistical Learning with R》</a>。</li>
+<li>周志华《机器学习》，作为参考书。</li>
+</ul>
+<h2 id="2-进阶学习（3-6-个月）"><a href="#2-进阶学习（3-6-个月）" class="headerlink" title="2 进阶学习（3-6 个月）"></a>2 进阶学习（3-6 个月）</h2><ul>
+<li>Kaggle 挑战赛/练习，<a href="https://www.kaggle.com/" target="_blank" rel="noopener">链接</a>。</li>
+<li>Sklearn 文档学习。</li>
+</ul>
+<h2 id="3-深度学习（3-6-个月，可选）"><a href="#3-深度学习（3-6-个月，可选）" class="headerlink" title="3 深度学习（3-6 个月，可选）"></a>3 深度学习（3-6 个月，可选）</h2><ul>
+<li><a href="https://mooc.study.163.com/smartSpec/detail/1001319001.htm" target="_blank" rel="noopener">吴恩达深度学习课程</a>。</li>
+<li>Deep Learning - by Ian GoodFellow，<a href="https://github.com/exacity/deeplearningbook-chinese" target="_blank" rel="noopener">链接</a>。</li>
+</ul>
+<h2 id="4-深入研究"><a href="#4-深入研究" class="headerlink" title="4 深入研究"></a>4 深入研究</h2><ul>
+<li>周志华老师的《机器学习》、李航老师的《统计学习基础》、《Elements of Statistical Learning》。</li>
+<li>订阅 Arxiv，关注机器学习的顶级会议，如 ICML/NIPS/KDD 等。</li>
+</ul>
+<h1 id="四-需要的数学知识"><a href="#四-需要的数学知识" class="headerlink" title="四 需要的数学知识"></a>四 需要的数学知识</h1><blockquote>
+<p>参考：<br>1、 <a href="https://zhuanlan.zhihu.com/p/36018667" target="_blank" rel="noopener">从入门到高阶，读懂机器学习需要哪些数学知识（附网盘）</a></p>
+</blockquote>
+<h2 id="1-入门基础"><a href="#1-入门基础" class="headerlink" title="1 入门基础"></a>1 入门基础</h2><ul>
+<li>微积分（求导，极限，极值）。</li>
+<li>线性代数（矩阵表示、矩阵运算、特征根、特征向量），（主成分分析（PCA）、奇异值分解（SVD）、矩阵的特征分解、LU 分解、QR 分解、对称矩阵、正交化和正交归一化、矩阵运算、投影、特征值和特征向量、向量空间和范数（Norms））。</li>
+<li>C/C++/Python.</li>
+<li>算法（算法复杂度）。</li>
+<li>矩阵求导。</li>
+</ul>
+<h2 id="2-中级教程"><a href="#2-中级教程" class="headerlink" title="2 中级教程"></a>2 中级教程</h2><ul>
+<li>概率论+统计（很多数据分析建模基于统计模型）、统计推断、随机过程。</li>
+<li>线性规划 + 凸优化（或者只学一门叫 Numerical optimization，统计、机器学习到最后就是求解一个优化问题）、非线性规划等。</li>
+<li>数值计算、数值线代等。</li>
+</ul>
+<h2 id="3-高阶课程"><a href="#3-高阶课程" class="headerlink" title="3 高阶课程"></a>3 高阶课程</h2><ul>
+<li>略。</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/01/08/大数据（Big-Data）相关学习路径、资料整理/" data-toggle="tooltip" data-placement="top"
+                           title="大数据（Big Data）相关学习路径、资料整理">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/01/07/微软-App-Center（CI-CD-服务）使用笔记/" data-toggle="tooltip" data-placement="top"
+                           title="微软 App Center（CI/CD 服务）使用笔记">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-补充资料"><span class="toc-text">二 补充资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-学习路径"><span class="toc-text">三 学习路径</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-极速了解人工智能"><span class="toc-text">0 极速了解人工智能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基础入门（3-6-个月）"><span class="toc-text">1 基础入门（3-6 个月）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进阶学习（3-6-个月）"><span class="toc-text">2 进阶学习（3-6 个月）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-深度学习（3-6-个月，可选）"><span class="toc-text">3 深度学习（3-6 个月，可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-深入研究"><span class="toc-text">4 深入研究</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-需要的数学知识"><span class="toc-text">四 需要的数学知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-入门基础"><span class="toc-text">1 入门基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-中级教程"><span class="toc-text">2 中级教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-高阶课程"><span class="toc-text">3 高阶课程</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#知识图谱与方法论"
+                           title="知识图谱与方法论">知识图谱与方法论</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
