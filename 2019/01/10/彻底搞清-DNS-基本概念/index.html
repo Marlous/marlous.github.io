@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        更加自动化的部署 Hexo 博客｜Mo&#39;s blog
+        彻底搞清 DNS 基本概念｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/01/10/更加自动化的部署 Hexo 博客/">
+    <link rel="canonical" href="https://marlous.github.io/2019/01/10/彻底搞清-DNS-基本概念/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>更加自动化的部署 Hexo 博客</h1>
+                    <h1>彻底搞清 DNS 基本概念</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -181,8 +181,8 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#记录小结"
-                           title="记录小结">记录小结</a>
+                        <a class="tag" href="/tags/#Notes"
+                           title="Notes">Notes</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            更加自动化的部署 Hexo 博客
+            彻底搞清 DNS 基本概念
         </span>
     </div>
 </header>
@@ -202,54 +202,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>参考：<br>1、 <a href="https://einverne.github.io/post/2018/03/netlify-to-host-static-website.html" target="_blank" rel="noopener">使用 netlify 托管静态网站</a><br>2、 <a href="https://blog.csdn.net/salsamaniac/article/details/81026739" target="_blank" rel="noopener">Hexo+Netlify快速搭建个人博客</a><br>3、 <a href="https://www.netlify.com/blog/2015/10/26/a-step-by-step-guide-hexo-on-netlify/" target="_blank" rel="noopener">A Step-by-Step Guide: Hexo on Netlify</a><br>4、 <a href="https://segmentfault.com/q/1010000004593371" target="_blank" rel="noopener">Github上搭建Hexo如何跨电脑写作部署方便?</a><br>5、 <a href="https://www.jianshu.com/p/c5724c8d9e4c" target="_blank" rel="noopener">快速搭建Hexo博客+webhook自动部署+全站HTTPS</a><br>6、 <a href="https://www.jianshu.com/p/5691815b81b6" target="_blank" rel="noopener">使用Travis CI持续部署Hexo博客</a><br>7、 <a href="https://segmentfault.com/a/1190000009054888" target="_blank" rel="noopener">使用 Travis 自动部署 Hexo 到 Github 与 自己的服务器</a></p>
-</blockquote>
-<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><h2 id="1-四种方法"><a href="#1-四种方法" class="headerlink" title="1 四种方法"></a>1 四种方法</h2><ul>
-<li><p>方法一，GitHub 仓库的 GitHub Pages：<br>不需要云服务器，但要本地搭建环境本地，本地生成博客内容（生成 public 文件夹中的文件），然后将此文件夹内容 git 到仓库（hexo g 命令自动部署）。</p>
-</li>
-<li><p>方法二，GitHub（私有）仓库 + Netlify：<br>不需要云服务器，但要本地搭建环境，然后将除 public 文件夹的内容 git 到仓库即可（Netlify 从仓库中读文件帮你生成，然后部署在 Netlify 的服务器）。</p>
-</li>
-<li><p>方法三，GitHub 仓库 + travis-ci/CircleCI：<br>不需要云服务器，但要本地搭建环境，然后将除 public 文件夹的内容 git 到仓库（GitHub Pages 的仓库开两个分支）即可；CI 服务只是帮你使用源文件来构建和部署到 GitHub Pages 或自己的服务器。类似方法二。</p>
-</li>
-<li><p>方法四，GitHub（私有）仓库 + VPS + webhook：<br>需要自己购买云服务器。只需要本地写 Markdown 博文，然后 git 到仓库即可（云服务器搭建 Hexo、Web 服务环境；自动从仓库拉 Markdown 博文，然后生成后部署）。</p>
-</li>
-<li><p>小结：<br>方法一、方法二和三、方法四，依次更加自动化。<br>如果想完全自动化（并有自己的 VPS 和域名），最优选第四种方法；<br>否则选第一种方法；<br>第二和三种方法缺点在于仅仅只是帮你构建部署而已。环境还要依赖本地搭建的，和用批处理差别不是很大，只是省了十几秒构建部署时间。</p>
-</li>
-</ul>
-<h2 id="2-方法的差异"><a href="#2-方法的差异" class="headerlink" title="2 方法的差异"></a>2 方法的差异</h2><ol>
-<li><p>GitHub（私有）仓库 + Netlify：<br>微软收购了 GitHub 后，于这两天提供了 GitHub 私有仓库免费的服务。具体 plan 参见 <a href="https://github.com/pricing" target="_blank" rel="noopener">链接</a>。<br>Netlify 是一家专注于提供静态网站托管服务的公司；所以将博客内容存在 GitHub 私有仓库，然后用 Netlify 的服务提供服务器，来搭建自己的博客或静态网站，会提供一个域名，或绑定自己的域名。<br>这样即方便，也免去了自己购买维护云服务器的成本。</p>
-</li>
-<li><p>GitHub（私有）仓库 + VPS + webhook：<br>每次在本地更新了博客，push 到 github 上，还要去 VPS 再 git pull 一下，很麻烦，配置好 webhooks 就可以在 github 有 push 操作时，VPS 自动更新并部署博客。</p>
-</li>
-</ol>
-<h2 id="3-一些概念"><a href="#3-一些概念" class="headerlink" title="3 一些概念"></a>3 一些概念</h2><ul>
-<li><p>Netlify 是一家专注于提供静态网站托管服务的公司，通过自己的内容分发网络，将提前建立好的静态页面呈献给访客，节约了加载的时间。 提供 CI 服务，能够将托管 GitHub，GitLab 等网站上的 Jekyll，Hexo，Hugo 等静态网站。能够绑定自定义域名，支持 SSL 证书。支持自动构建。 Netlify 会在每一次提交 commit 时自动编译部署静态网站。</p>
-</li>
-<li><p>一些静态网站生成器：Jekyll、Hugo、Gatsby、Hexo 等。</p>
-</li>
-<li><p>静态博客站点页面都是静态页面，访问时无需查询数据库。速度快、更安全。</p>
-</li>
-</ul>
-<h1 id="二-详细步骤"><a href="#二-详细步骤" class="headerlink" title="二 详细步骤"></a>二 详细步骤</h1><h2 id="1-方法一"><a href="#1-方法一" class="headerlink" title="1 方法一"></a>1 方法一</h2><p>见博文《Hexo 踩坑记》。</p>
-<h2 id="2-方法二"><a href="#2-方法二" class="headerlink" title="2 方法二"></a>2 方法二</h2><p>参考：<a href="https://blog.csdn.net/salsamaniac/article/details/81026739" target="_blank" rel="noopener">Hexo+Netlify快速搭建个人博客</a>。</p>
-<h2 id="3-方法三"><a href="#3-方法三" class="headerlink" title="3 方法三"></a>3 方法三</h2><p>参考：<a href="https://segmentfault.com/a/1190000009054888" target="_blank" rel="noopener">使用 Travis 自动部署 Hexo 到 Github 与 自己的服务器</a>。</p>
-<h2 id="4-方法四"><a href="#4-方法四" class="headerlink" title="4 方法四"></a>4 方法四</h2><p>参考：<a href="https://www.jianshu.com/p/c5724c8d9e4c" target="_blank" rel="noopener">快速搭建Hexo博客+webhook自动部署+全站HTTPS</a>。</p>
-
+                
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/01/10/彻底搞清-DNS-基本概念/" data-toggle="tooltip" data-placement="top"
-                           title="彻底搞清 DNS 基本概念">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/01/08/大数据（Big-Data）相关学习路径、资料整理/" data-toggle="tooltip" data-placement="top"
-                           title="大数据（Big Data）相关学习路径、资料整理">Next Post &rarr;</a>
+                        <a href="/2019/01/10/更加自动化的部署 Hexo 博客/" data-toggle="tooltip" data-placement="top"
+                           title="更加自动化的部署 Hexo 博客">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -265,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-四种方法"><span class="toc-text">1 四种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方法的差异"><span class="toc-text">2 方法的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-一些概念"><span class="toc-text">3 一些概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-详细步骤"><span class="toc-text">二 详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-方法一"><span class="toc-text">1 方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方法二"><span class="toc-text">2 方法二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-方法三"><span class="toc-text">3 方法三</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-方法四"><span class="toc-text">4 方法四</span></a></li></ol></li></ol>
+                    
                 </div>
             </div>
         </div>
@@ -287,8 +249,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#记录小结"
-                           title="记录小结">记录小结</a>
+                        <a class="tag" href="/tags/#Notes"
+                           title="Notes">Notes</a>
                         
                     </div>
                 </section>
