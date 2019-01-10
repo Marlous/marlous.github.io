@@ -212,11 +212,11 @@
 </li>
 <li><p>方法三，GitHub（私有）仓库 + travis-ci + webhook：<br>需要自己购买云服务器。只需要本地写 Markdown 博文，然后 git 到仓库即可（云服务器搭建 Hexo、Web 服务环境；自动从仓库拉 Markdown 博文，然后生成后部署）。</p>
 </li>
-<li><p>小结：<br>三种方法依次更加自动化。</p>
+<li><p>小结：<br>三种方法依次更加自动化。<br>如果想完全自动化（并有自己的 VPS 和域名），最优选第三种方法；<br>否则选第一种方法；<br>第二种方法缺点在于只有 Netlify 提供给你的随机域名。</p>
 </li>
 </ul>
 <h2 id="2-方法的差异"><a href="#2-方法的差异" class="headerlink" title="2 方法的差异"></a>2 方法的差异</h2><ol>
-<li><p>GitHub（私有）仓库 + Netlify：<br>微软收购了 GitHub 后，于这两天提供了 GitHub 私有仓库免费的服务。具体 plan 参见 <a href="https://github.com/pricing" target="_blank" rel="noopener">链接</a>。<br>Netlify 是一家专注于提供静态网站托管服务的公司；所以将博客内容存在 GitHub 私有仓库，然后用 Netlify 的服务提供服务器，来搭建自己的博客或静态网站。<br>这样即方便，也免去了自己购买维护云服务器的成本。</p>
+<li><p>GitHub（私有）仓库 + Netlify：<br>微软收购了 GitHub 后，于这两天提供了 GitHub 私有仓库免费的服务。具体 plan 参见 <a href="https://github.com/pricing" target="_blank" rel="noopener">链接</a>。<br>Netlify 是一家专注于提供静态网站托管服务的公司；所以将博客内容存在 GitHub 私有仓库，然后用 Netlify 的服务提供服务器，来搭建自己的博客或静态网站，会提供一个域名，或绑定自己的域名。<br>这样即方便，也免去了自己购买维护云服务器的成本。</p>
 </li>
 <li><p>GitHub（私有）仓库 + travis-ci + webhook：<br>每次在本地更新了博客，push 到 github 上，还要去 VPS 再 git pull 一下，很麻烦，配置好 webhooks 就可以在 github 有 push 操作时，VPS 自动更新并部署博客。</p>
 </li>
@@ -229,12 +229,7 @@
 <li><p>静态博客站点页面都是静态页面，访问时无需查询数据库。速度快、更安全。</p>
 </li>
 </ul>
-<h1 id="二-详细步骤"><a href="#二-详细步骤" class="headerlink" title="二 详细步骤"></a>二 详细步骤</h1><h2 id="1-方法二"><a href="#1-方法二" class="headerlink" title="1 方法二"></a>1 方法二</h2><ul>
-<li><p>用邮箱注册 Netlify（当然也可以用第三方账号授权登陆）。</p>
-</li>
-<li><p>关联自己的 GitHub</p>
-</li>
-</ul>
+<h1 id="二-详细步骤"><a href="#二-详细步骤" class="headerlink" title="二 详细步骤"></a>二 详细步骤</h1><h2 id="1-方法二"><a href="#1-方法二" class="headerlink" title="1 方法二"></a>1 方法二</h2><p>参考：<a href="https://blog.csdn.net/salsamaniac/article/details/81026739" target="_blank" rel="noopener">Hexo+Netlify快速搭建个人博客</a>。</p>
 <h2 id="2-方法三"><a href="#2-方法三" class="headerlink" title="2 方法三"></a>2 方法三</h2><p>暂时未实践。</p>
 
                 <hr>
