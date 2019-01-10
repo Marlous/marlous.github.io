@@ -203,7 +203,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="https://einverne.github.io/post/2018/03/netlify-to-host-static-website.html" target="_blank" rel="noopener">使用 netlify 托管静态网站</a><br>2、 <a href="https://blog.csdn.net/salsamaniac/article/details/81026739" target="_blank" rel="noopener">Hexo+Netlify快速搭建个人博客</a><br>3、 <a href="https://www.netlify.com/blog/2015/10/26/a-step-by-step-guide-hexo-on-netlify/" target="_blank" rel="noopener">A Step-by-Step Guide: Hexo on Netlify</a><br>4、 <a href="https://segmentfault.com/q/1010000004593371" target="_blank" rel="noopener">Github上搭建Hexo如何跨电脑写作部署方便?</a><br>5、 <a href="https://www.jianshu.com/p/c5724c8d9e4c" target="_blank" rel="noopener">快速搭建Hexo博客+webhook自动部署+全站HTTPS</a><br>6、 <a href="https://www.jianshu.com/p/5691815b81b6" target="_blank" rel="noopener">使用Travis CI持续部署Hexo博客</a><br>7、 <a href="https://segmentfault.com/a/1190000009054888" target="_blank" rel="noopener">使用 Travis 自动部署 Hexo 到 Github 与 自己的服务器</a></p>
+<p>参考：<br>1、 <a href="https://einverne.github.io/post/2018/03/netlify-to-host-static-website.html" target="_blank" rel="noopener">使用 netlify 托管静态网站</a><br>2、 <a href="https://blog.csdn.net/salsamaniac/article/details/81026739" target="_blank" rel="noopener">Hexo+Netlify快速搭建个人博客</a><br>3、 <a href="https://www.netlify.com/blog/2015/10/26/a-step-by-step-guide-hexo-on-netlify/" target="_blank" rel="noopener">A Step-by-Step Guide: Hexo on Netlify</a><br>4、 <a href="https://segmentfault.com/q/1010000004593371" target="_blank" rel="noopener">Github上搭建Hexo如何跨电脑写作部署方便?</a><br>5、 <a href="https://www.jianshu.com/p/c5724c8d9e4c" target="_blank" rel="noopener">快速搭建Hexo博客+webhook自动部署+全站HTTPS</a><br>6、 <a href="https://www.jianshu.com/p/5691815b81b6" target="_blank" rel="noopener">使用Travis CI持续部署Hexo博客</a><br>7、 <a href="https://segmentfault.com/a/1190000009054888" target="_blank" rel="noopener">使用 Travis 自动部署 Hexo 到 Github 与 自己的服务器</a><br>8、 <a href="https://blog.csdn.net/woblog/article/details/51319364" target="_blank" rel="noopener">手把手教你使用Travis CI自动部署你的Hexo博客到Github上</a><br>9、 <a href="https://www.jianshu.com/p/36af6af74dfc" target="_blank" rel="noopener">使用 CircleCI 2.0 进行持续集成/持续部署</a></p>
 </blockquote>
 <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><h2 id="1-四种方法"><a href="#1-四种方法" class="headerlink" title="1 四种方法"></a>1 四种方法</h2><ul>
 <li><p>方法一，GitHub 仓库的 GitHub Pages：<br>不需要云服务器，但要本地搭建环境本地，本地生成博客内容（生成 public 文件夹中的文件），然后将此文件夹内容 git 到仓库（hexo g 命令自动部署）。</p>
@@ -212,18 +212,26 @@
 </li>
 <li><p>方法三，GitHub 仓库 + travis-ci/CircleCI：<br>不需要云服务器，但要本地搭建环境，然后将除 public 文件夹的内容 git 到仓库（GitHub Pages 的仓库开两个分支）即可；CI 服务只是帮你使用源文件来构建和部署到 GitHub Pages 或自己的服务器。类似方法二。</p>
 </li>
-<li><p>方法四，GitHub（私有）仓库 + VPS + webhook：<br>需要自己购买云服务器。只需要本地写 Markdown 博文，然后 git 到仓库即可（云服务器搭建 Hexo、Web 服务环境；自动从仓库拉 Markdown 博文，然后生成后部署）。</p>
-</li>
-<li><p>小结：<br>方法一、方法二和三、方法四，依次更加自动化。<br>如果想完全自动化（并有自己的 VPS 和域名），最优选第四种方法；<br>否则选第一种方法；<br>第二和三种方法缺点在于仅仅只是帮你构建部署而已。环境还要依赖本地搭建的，和用批处理差别不是很大，只是省了十几秒构建部署时间。</p>
+<li><p>方法四，GitHub（私有）仓库 + webhook + VPS：<br>需要自己购买云服务器。只需要本地写 Markdown 博文，然后 git 到仓库即可（云服务器搭建 Hexo、Web 服务环境；触发 webhook，VPS 自动从仓库拉 Markdown 博文，然后在 VPS 上生成、部署）。</p>
 </li>
 </ul>
-<h2 id="2-方法的差异"><a href="#2-方法的差异" class="headerlink" title="2 方法的差异"></a>2 方法的差异</h2><ol>
+<h2 id="2-方法小结"><a href="#2-方法小结" class="headerlink" title="2 方法小结"></a>2 方法小结</h2><ul>
+<li><p>方法一、方法二和三、方法四，依次更加自动化。</p>
+</li>
+<li><p>如果想完全自动化（并有自己的 VPS 和域名），最优选第四种方法，方法四相当于触发 webhook 后在自己的 VPS 上完成了 travis-ci/CircleCI 提供的构建和部署服务，并且可以不需要在本地搭建 Hexo 环境。</p>
+</li>
+<li><p>否则选第一种方法。</p>
+</li>
+<li><p>第二和三种方法缺点在于仅仅只是帮你构建部署而已。环境还要依赖本地搭建的，和用批处理差别不是很大，只是省了十几秒构建部署时间。</p>
+</li>
+</ul>
+<h2 id="3-方法的差异"><a href="#3-方法的差异" class="headerlink" title="3 方法的差异"></a>3 方法的差异</h2><ol>
 <li><p>GitHub（私有）仓库 + Netlify：<br>微软收购了 GitHub 后，于这两天提供了 GitHub 私有仓库免费的服务。具体 plan 参见 <a href="https://github.com/pricing" target="_blank" rel="noopener">链接</a>。<br>Netlify 是一家专注于提供静态网站托管服务的公司；所以将博客内容存在 GitHub 私有仓库，然后用 Netlify 的服务提供服务器，来搭建自己的博客或静态网站，会提供一个域名，或绑定自己的域名。<br>这样即方便，也免去了自己购买维护云服务器的成本。</p>
 </li>
-<li><p>GitHub（私有）仓库 + VPS + webhook：<br>每次在本地更新了博客，push 到 github 上，还要去 VPS 再 git pull 一下，很麻烦，配置好 webhooks 就可以在 github 有 push 操作时，VPS 自动更新并部署博客。</p>
+<li><p>GitHub（私有）仓库 + webhook + VPS：<br>每次在本地更新了博客，push 到 github 上，还要去 VPS 再 git pull 一下，很麻烦，配置好 webhooks 就可以在 github 有 push 操作时，VPS 自动更新并部署博客。</p>
 </li>
 </ol>
-<h2 id="3-一些概念"><a href="#3-一些概念" class="headerlink" title="3 一些概念"></a>3 一些概念</h2><ul>
+<h2 id="4-一些概念"><a href="#4-一些概念" class="headerlink" title="4 一些概念"></a>4 一些概念</h2><ul>
 <li><p>Netlify 是一家专注于提供静态网站托管服务的公司，通过自己的内容分发网络，将提前建立好的静态页面呈献给访客，节约了加载的时间。 提供 CI 服务，能够将托管 GitHub，GitLab 等网站上的 Jekyll，Hexo，Hugo 等静态网站。能够绑定自定义域名，支持 SSL 证书。支持自动构建。 Netlify 会在每一次提交 commit 时自动编译部署静态网站。</p>
 </li>
 <li><p>一些静态网站生成器：Jekyll、Hugo、Gatsby、Hexo 等。</p>
@@ -265,7 +273,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-四种方法"><span class="toc-text">1 四种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方法的差异"><span class="toc-text">2 方法的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-一些概念"><span class="toc-text">3 一些概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-详细步骤"><span class="toc-text">二 详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-方法一"><span class="toc-text">1 方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方法二"><span class="toc-text">2 方法二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-方法三"><span class="toc-text">3 方法三</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-方法四"><span class="toc-text">4 方法四</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-四种方法"><span class="toc-text">1 四种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方法小结"><span class="toc-text">2 方法小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-方法的差异"><span class="toc-text">3 方法的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-一些概念"><span class="toc-text">4 一些概念</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-详细步骤"><span class="toc-text">二 详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-方法一"><span class="toc-text">1 方法一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方法二"><span class="toc-text">2 方法二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-方法三"><span class="toc-text">3 方法三</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-方法四"><span class="toc-text">4 方法四</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

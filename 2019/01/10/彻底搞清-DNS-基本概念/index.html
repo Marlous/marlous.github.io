@@ -202,7 +202,60 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote>
+<p>参考：<br>1、 <a href="https://www.cnblogs.com/LittleHann/p/3828927.html" target="_blank" rel="noopener">DNS安全浅议、域名A记录(ANAME),MX记录,CNAME记录</a><br>2、 <a href="https://blog.csdn.net/zzqhost/article/details/71403785" target="_blank" rel="noopener">A、MX、CNAME、URL、NS、AAAA解析类型的区别</a><br>3、 <a href="https://www.cnblogs.com/XiHua/articles/3469571.html" target="_blank" rel="noopener">本地DNS—–A、CNAME、MX和NS记录</a><br>4、 <a href="http://blog.xieyc.com/differences-between-a-record-and-cname-record/" target="_blank" rel="noopener">A记录和CNAME记录的区别</a><br>5、 <a href="https://help.aliyun.com/document_detail/27144.html" target="_blank" rel="noopener">网站域名CNAME别名解析方法（阿里云）</a><br>6、 <a href="https://www.cnblogs.com/momenglin/p/8556079.html" target="_blank" rel="noopener">DNS记录类型</a></p>
+</blockquote>
+<h1 id="一-域名系统"><a href="#一-域名系统" class="headerlink" title="一 域名系统"></a>一 域名系统</h1><ul>
+<li><p>概念：<br>任何一个连接在因特网上的主机或路由器，都有一个唯一的层次结构的名字，即域名。</p>
+</li>
+<li><p>域名组成：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图1.PNG" alt="域名组成"></p>
+</li>
+<li><p>因特网的域名空间：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图2.PNG" alt="因特网的域名空间"></p>
+</li>
+<li><p>域名与域名服务器：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图3.PNG" alt="域名与域名服务器"></p>
+</li>
+<li><p>区、域：<br>如果每一个节点都采用一个域名服务器，这样会使得域名服务器的数量太多，使域名服务器系统的运行效率降低。所以在 DNS 中，采用划分区的方法来解决。<br>总之，DNS 服务器的管辖范围不是以“域”为单位，而是以“区”为单位。区是 DNS 服务器实际管辖的范围。区是域的子集。<br>左图表示 abc 公司只设一个区 abc.com，这里区 abc.com 和域 abc.com 指的是同一件事。<br>但右图表示 abc 公司划分为两个区，abc.com 和 y.abc.com。这两个区都隶属于域 abc.com，都各设置了相应的权限域名服务器。<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图4.PNG" alt="区、域"></p>
+</li>
+</ul>
+<h1 id="二-DNS-解析过程"><a href="#二-DNS-解析过程" class="headerlink" title="二 DNS 解析过程"></a>二 DNS 解析过程</h1><ul>
+<li><p>浏览器缓存：<br>当用户通过浏览器访问某域名时，浏览器首先会在自己的缓存中查找是否有该域名对应的 IP 地址（若曾经访问过该域名且没有清空缓存便存在）。</p>
+</li>
+<li><p>系统缓存：<br>当浏览器缓存中无域名对应 IP 则会自动检查用户计算机系统 Hosts 文件 DNS 缓存是否有该域名对应 IP。</p>
+</li>
+<li><p>路由器缓存：<br>当浏览器及系统缓存中均无域名对应 IP 则进入路由器缓存中检查，以上三步均为客服端的 DNS 缓存。</p>
+</li>
+<li><p>ISP（本地域名服务器）DNS 缓存：<br>当在用户客服端查找不到域名对应 IP 地址，则将进入 ISP DNS 缓存中进行查询。比如你用的是电信的网络，则会进入电信的 DNS 缓存服务器中进行查找。</p>
+</li>
+<li><p>根域名服务器：<br>当以上均未完成，则进入根服务器进行查询。全球仅有 13 台根域名服务器，1 个主根域名服务器，其余 12 为辅根域名服务器。根域名收到请求后会查看区域文件记录，若无则将其管辖范围内顶级域名（如.com）服务器 IP 告诉本地 DNS 服务器。</p>
+</li>
+<li><p>顶级域名服务器：<br>顶级域名服务器收到请求后查看区域文件记录，若无则将其管辖范围内主域名服务器的 IP 地址告诉本地 DNS 服务器。</p>
+</li>
+<li><p>权限域名（主域名）服务器：<br>主域名服务器接受到请求后查询自己的缓存，如果没有则进入下一级域名服务器进行查找，并重复该步骤直至找到正确纪录。</p>
+</li>
+<li><p>保存结果至缓存：<br>本地域名服务器把返回的结果保存到缓存，以备下一次使用，同时将该结果反馈给客户端，客户端通过这个 IP 地址与 web 服务器建立链接。</p>
+</li>
+</ul>
+<h1 id="三-DNS-查询两种方式"><a href="#三-DNS-查询两种方式" class="headerlink" title="三 DNS 查询两种方式"></a>三 DNS 查询两种方式</h1><ul>
+<li><p>递归查询、迭代查询。</p>
+</li>
+<li><p>图解：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图5.PNG" alt="图解递归查询、迭代查询"></p>
+</li>
+</ul>
+<h1 id="四-资源记录类型"><a href="#四-资源记录类型" class="headerlink" title="四 资源记录类型"></a>四 资源记录类型</h1><ul>
+<li><p>SOA 记录：<br>SOA 记录表明了 DNS 服务器之间的关系。SOA 记录表明了谁是这个区域的所有者。</p>
+</li>
+<li><p>A、AAAA 记录：<br>A 记录用来指定主机名（或域名）对应的IP地址记录。<br>AAAA 记录用来将域名解析到 IPv6 地址的 DNS 记录。用户可以将一个域名解析到 IPv6 地址上，也可以将子域名解析到 IPv6 地址上。</p>
+</li>
+<li><p>CNAME 记录：<br>别名记录，这种记录允许将多个名字映射到另外一个域名。例如，有一台计算机名为“host.mydomain.com”（A记录）。它同时提供 WWW 和 MAIL 服务，为了便于用户访问服务。可以为该计算机设置两个别名（CNAME）：WWW 和 MAIL。“<a href="http://www.mydomain.com”" target="_blank" rel="noopener">www.mydomain.com”</a> 和 “mail.mydomain.com”。实际上他们都指向 “host.mydomain.com”。/<br>A 记录就是把一个域名解析到一个 IP 地址，而 CNAME 记录就是把域名解析到另外一个域名。CNAME 将几个主机名指向一个别名，其实跟指向 IP 地址是一样的，因为这个别名也要做一个 A 记录的。但是使用 CNAME 记录可以很方便地变更 IP 地址。如果一台服务器有 100 个网站，他们都做了别名，该台服务器变更 IP 时，只需要变更别名的 A 记录就可以了。/<br>A 记录也有一些好处，例如可以在输入域名时不用输入 WWW. 来访问网站。</p>
+</li>
+<li><p>MX 记录：<br>即邮件路由记录，用户可以将该域名下的邮件服务器指向到自己的 mail server 上，然后即可自行操控所有的邮箱设置。您只需在线填写您服务器的 IP 地址，即可将您域名下的邮件全部转到您自己设定相应的邮件服务器上。</p>
+</li>
+<li><p>NS 记录：<br>域名服务器记录，用来指定该域名由哪个 DNS 服务器来进行解析。 大多数域名商默认用自己的 NS 服务器来解析用户的 DNS 记录。</p>
+</li>
+<li><p>PTR 记录：<br>指针记录，是电子邮件系统中的一种数据类型，被互联网标准文件 RFC1035 所定义。与其相对应的是 A 记录、地址记录。二者组成邮件交换记录。A 记录解析名字到地址，而 PTR 记录解析地址到名字，PTR 记录常被用于反向地址解析。地址是指一个客户端的 IP 地址，名字是指一个客户的完全合格域名。</p>
+</li>
+</ul>
+
                 <hr>
                 
 
@@ -227,7 +280,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-域名系统"><span class="toc-text">一 域名系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-DNS-解析过程"><span class="toc-text">二 DNS 解析过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-DNS-查询两种方式"><span class="toc-text">三 DNS 查询两种方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-资源记录类型"><span class="toc-text">四 资源记录类型</span></a></li></ol>
                 </div>
             </div>
         </div>
