@@ -206,7 +206,7 @@
 <p>参考：<br>1、 <a href="https://einverne.github.io/post/2018/03/netlify-to-host-static-website.html" target="_blank" rel="noopener">使用 netlify 托管静态网站</a><br>2、 <a href="https://blog.csdn.net/salsamaniac/article/details/81026739" target="_blank" rel="noopener">Hexo+Netlify快速搭建个人博客</a><br>3、 <a href="https://www.netlify.com/blog/2015/10/26/a-step-by-step-guide-hexo-on-netlify/" target="_blank" rel="noopener">A Step-by-Step Guide: Hexo on Netlify</a><br>4、 <a href="https://segmentfault.com/q/1010000004593371" target="_blank" rel="noopener">Github上搭建Hexo如何跨电脑写作部署方便?</a><br>5、 <a href="https://www.jianshu.com/p/c5724c8d9e4c" target="_blank" rel="noopener">快速搭建Hexo博客+webhook自动部署+全站HTTPS</a><br>6、 <a href="https://www.jianshu.com/p/5691815b81b6" target="_blank" rel="noopener">使用Travis CI持续部署Hexo博客</a><br>7、 <a href="https://segmentfault.com/a/1190000009054888" target="_blank" rel="noopener">使用 Travis 自动部署 Hexo 到 Github 与 自己的服务器</a><br>8、 <a href="https://blog.csdn.net/woblog/article/details/51319364" target="_blank" rel="noopener">手把手教你使用Travis CI自动部署你的Hexo博客到Github上</a><br>9、 <a href="https://www.jianshu.com/p/36af6af74dfc" target="_blank" rel="noopener">使用 CircleCI 2.0 进行持续集成/持续部署</a></p>
 </blockquote>
 <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><h2 id="1-四种方法"><a href="#1-四种方法" class="headerlink" title="1 四种方法"></a>1 四种方法</h2><ul>
-<li><p>方法一，GitHub 仓库的 GitHub Pages：<br>不需要云服务器，但要本地搭建环境本地，本地生成博客内容（生成 public 文件夹中的文件），然后将此文件夹内容 git 到仓库（hexo g 命令自动部署）。</p>
+<li><p>方法一，GitHub 仓库的 GitHub Pages：<br>不需要云服务器，但要本地搭建环境，本地生成博客内容（生成 public 文件夹中的文件），然后将此文件夹内容 git 到仓库（hexo g 命令自动部署）。</p>
 </li>
 <li><p>方法二，GitHub（私有）仓库 + Netlify：<br>不需要云服务器，但要本地搭建环境，然后将除 public 文件夹的内容 git 到仓库即可（Netlify 从仓库中读文件帮你生成，然后部署在 Netlify 的服务器）。</p>
 </li>
