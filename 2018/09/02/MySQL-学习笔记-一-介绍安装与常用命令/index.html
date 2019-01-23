@@ -203,7 +203,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>课程视频：<br>《与 MySQL 的零距离接触》 <a href="https://www.imooc.com/learn/122" target="_blank" rel="noopener">https://www.imooc.com/learn/122</a><br>数据库系统概论（基础篇）：<a href="http://www.icourse163.org/course/RUC-488001" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-488001</a><br>数据库系统概论（高级篇）：<a href="http://www.icourse163.org/course/RUC-1001655006" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-1001655006</a><br>MySQL 官方文档：<a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener">https://dev.mysql.com/doc/</a></p>
+<p>课程视频：<br>《与 MySQL 的零距离接触》 <a href="https://www.imooc.com/learn/122" target="_blank" rel="noopener">https://www.imooc.com/learn/122</a><br>MySQL 官方文档：<a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener">https://dev.mysql.com/doc/</a><br>MySQL 教程：<a href="https://www.w3cschool.cn/mysql/" target="_blank" rel="noopener">https://www.w3cschool.cn/mysql/</a><br>数据库系统概论（基础篇）：<a href="http://www.icourse163.org/course/RUC-488001" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-488001</a><br>数据库系统概论（高级篇）：<a href="http://www.icourse163.org/course/RUC-1001655006" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-1001655006</a></p>
 </blockquote>
 <h1 id="一-MySQL-介绍"><a href="#一-MySQL-介绍" class="headerlink" title="一 MySQL 介绍"></a>一 MySQL 介绍</h1><h2 id="1-MySQL-组件介绍"><a href="#1-MySQL-组件介绍" class="headerlink" title="1 MySQL 组件介绍"></a>1 MySQL 组件介绍</h2><p>开发者默认安装类型下的组件和插件，都在安装目录下。</p>
 <ol>
@@ -294,13 +294,26 @@
 </ol>
 <h1 id="三-使用-MySQL"><a href="#三-使用-MySQL" class="headerlink" title="三 使用 MySQL"></a>三 使用 MySQL</h1><ul>
 <li>配置好环境变量开启服务，直接在 CMD 中使用。</li>
-<li>使用 MySQL 安装的命令行客户端 MySQL 5.7 Command Line Client。</li>
-<li>使用 MySQL 安装的图形客户端 MySQL Workbench。</li>
+<li>使用命令行客户端，如 MySQL 5.7 Command Line Client。</li>
+<li>使用图形客户端，如 MySQL Workbench。</li>
 </ul>
-<h1 id="三-图形化管理工具"><a href="#三-图形化管理工具" class="headerlink" title="三 图形化管理工具"></a>三 图形化管理工具</h1><ul>
+<h1 id="四-数据库客户端推荐"><a href="#四-数据库客户端推荐" class="headerlink" title="四 数据库客户端推荐"></a>四 数据库客户端推荐</h1><ul>
 <li>MySQL Workbench</li>
 <li>phpMyAdmin</li>
 <li>Navicat for MySQL</li>
+<li>Mycli（一款可以自动补全语法的数据库命令行客户端，<a href="https://www.jianshu.com/p/3bc39ff3912e" target="_blank" rel="noopener">技巧：Mycli 安装及简单使用教程</a>；上面三款是图形化客户端。）</li>
+</ul>
+<h1 id="五-补充：MySQL-Workbench-使用"><a href="#五-补充：MySQL-Workbench-使用" class="headerlink" title="五 补充：MySQL Workbench 使用"></a>五 补充：MySQL Workbench 使用</h1><blockquote>
+<p>参考：<br>1、 <a href="https://dev.mysql.com/doc/workbench/en/" target="_blank" rel="noopener">MySQL Workbench Manual</a><br>2、 <a href="https://blog.csdn.net/z45689/article/details/54139396/" target="_blank" rel="noopener">MySQL 5.7以及MySQL Workbench使用</a><br>3、 <a href="https://jingyan.baidu.com/article/046a7b3e8d230bf9c27fa928.html" target="_blank" rel="noopener">mysql workbench如何汉化</a><br>4、 <a href="https://blog.csdn.net/iteye_10774/article/details/82606325" target="_blank" rel="noopener">关于 MySQL connections 的一些知识</a><br>5、 <a href="https://jingyan.baidu.com/article/a65957f4d533eb24e77f9b42.html" target="_blank" rel="noopener">怎么使用MySQL Workbench做数据建模</a></p>
+</blockquote>
+<ul>
+<li><p>MySQL Connections：<br><img src="/2018/09/02/MySQL-学习笔记-一-介绍安装与常用命令/图5.PNG" alt="MySQL Connections"><br>MySQL Connections 指的是 MySQL 实例的连接数（并发数），每个连接 MySQL 的用户均算作一个连接。<br>MySQL 无论如何都会保留一个用于管理员（SUPER）登陆的连接，用于管理员连接数据库进行维护操作，即使当前连接数已经达到了 max_connections，该参数在服务器资源够用的情况下应该尽量设置大，以满足多个客户端同时连接的需求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在命令行中查看:</span><br><span class="line">最大连接数 show variables like &apos;%max_connections%&apos;;</span><br><span class="line">查看当前所有连接的详细资料（只列出前 100 条）show processlist;</span><br><span class="line">查看当前所有连接的详细资料（全部）mysqladmin -uroot -pPwd processlist</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Models：<br><img src="/2018/09/02/MySQL-学习笔记-一-介绍安装与常用命令/图6.PNG" alt="Models"><br>Models 用来建立数据建模，把一个项目的物理模型转换为实际的数据库对象；使用方法见本章参考 5。</p>
+</li>
+<li><p>SCHEMAS：<br><img src="/2018/09/02/MySQL-学习笔记-一-介绍安装与常用命令/图7.PNG" alt="SCHEMAS"><br>SCHEMAS 指数据库的组织和结构，模式中包含了 schema 对象，可以是表、列、数据类型、视图、存储过程、关系、主键、外键等。<br>使用一个 MySQL Connections 实例连接上服务后，可以在左侧看到 SCHEMAS。</p>
+</li>
 </ul>
 
                 <hr>
@@ -332,7 +345,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-MySQL-介绍"><span class="toc-text">一 MySQL 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MySQL-组件介绍"><span class="toc-text">1 MySQL 组件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置文件"><span class="toc-text">2 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-服务启动与停止"><span class="toc-text">3 服务启动与停止</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-登陆与退出"><span class="toc-text">4 登陆与退出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-修改提示符"><span class="toc-text">5 修改提示符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-MySQL-常用命令及语句规范"><span class="toc-text">6 MySQL 常用命令及语句规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-MySQL-安装"><span class="toc-text">二 MySQL 安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-使用-MySQL"><span class="toc-text">三 使用 MySQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-图形化管理工具"><span class="toc-text">三 图形化管理工具</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-MySQL-介绍"><span class="toc-text">一 MySQL 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MySQL-组件介绍"><span class="toc-text">1 MySQL 组件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置文件"><span class="toc-text">2 配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-服务启动与停止"><span class="toc-text">3 服务启动与停止</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-登陆与退出"><span class="toc-text">4 登陆与退出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-修改提示符"><span class="toc-text">5 修改提示符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-MySQL-常用命令及语句规范"><span class="toc-text">6 MySQL 常用命令及语句规范</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-MySQL-安装"><span class="toc-text">二 MySQL 安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-使用-MySQL"><span class="toc-text">三 使用 MySQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-数据库客户端推荐"><span class="toc-text">四 数据库客户端推荐</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充：MySQL-Workbench-使用"><span class="toc-text">五 补充：MySQL Workbench 使用</span></a></li></ol>
                 </div>
             </div>
         </div>
