@@ -79,6 +79,14 @@
                     
                         
 							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
 								
 							
 						
@@ -95,14 +103,6 @@
 							
                         <li>
                             <a href="/work/">works</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -241,7 +241,7 @@
 <li><p>图解：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图5.PNG" alt="图解递归查询、迭代查询"></p>
 </li>
 </ul>
-<h1 id="四-资源记录类型"><a href="#四-资源记录类型" class="headerlink" title="四 资源记录类型"></a>四 资源记录类型</h1><ul>
+<h1 id="四-资源记录类型详解"><a href="#四-资源记录类型详解" class="headerlink" title="四 资源记录类型详解"></a>四 资源记录类型详解</h1><ul>
 <li><p>SOA 记录：<br>SOA 记录表明了 DNS 服务器之间的关系。SOA 记录表明了谁是这个区域的所有者。</p>
 </li>
 <li><p>A、AAAA 记录：<br>A 记录用来指定主机名（或域名）对应的IP地址记录。/<br>AAAA 记录用来将域名解析到 IPv6 地址的 DNS 记录。用户可以将一个域名解析到 IPv6 地址上，也可以将子域名解析到 IPv6 地址上。</p>
@@ -257,6 +257,29 @@
 <li><p>SRV 记录：<br>RFC 2782 定义，用于定义提供特定服务的服务器的位置，如主机（hostname），端口（port number）等。</p>
 </li>
 </ul>
+<h1 id="五-资源记录类型小结"><a href="#五-资源记录类型小结" class="headerlink" title="五 资源记录类型小结"></a>五 资源记录类型小结</h1><ol>
+<li>小结：</li>
+</ol>
+<ul>
+<li>A 地址记录（Ipv4）</li>
+<li>AAAA 地址记录（Ipv6）</li>
+<li>CNAME 别名记录</li>
+<li>HINFO 硬件配置记录，包括 CPU、操作系统信息</li>
+<li>ISDN 域名对应的 ISDN 号码</li>
+<li>MB 存放指定邮箱的服务器</li>
+<li>MG 邮件组记录</li>
+<li>MINFO 邮件组和邮箱的信息记录</li>
+<li>MR 改名的邮箱记录</li>
+<li>MX 邮件服务器记录</li>
+<li>NS 名字服务器记录</li>
+<li>PTR 反向记录</li>
+<li>RP 负责人记录</li>
+<li>SRV TCP服务器信息记录</li>
+<li>TXT 域名对应的文本信息</li>
+</ul>
+<ol start="2">
+<li>查询方式：<br><a href="http://tool.chinaz.com/nslookup/" target="_blank" rel="noopener">http://tool.chinaz.com/nslookup/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">比如你要查询 http://tool.chinaz.com/ 的 A 记录,那在命令符提示窗口输入：nslookup -qt=a tool.chinaz.com 则可以查到相应的记录</span><br><span class="line"></span><br><span class="line">如何使用指定 DNS 服务器查询?</span><br><span class="line"></span><br><span class="line">语法为 nslookup -qt=类型 目标域名 指定的 DNS 服务器 IP 或域名</span><br><span class="line"></span><br><span class="line">例子：nslookup -qt=A tool.chinaz.com 8.8.8.8</span><br></pre></td></tr></table></figure></li>
+</ol>
 
                 <hr>
                 
@@ -287,7 +310,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-域名系统"><span class="toc-text">一 域名系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-DNS-解析过程"><span class="toc-text">二 DNS 解析过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-DNS-查询两种方式"><span class="toc-text">三 DNS 查询两种方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-资源记录类型"><span class="toc-text">四 资源记录类型</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-域名系统"><span class="toc-text">一 域名系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-DNS-解析过程"><span class="toc-text">二 DNS 解析过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-DNS-查询两种方式"><span class="toc-text">三 DNS 查询两种方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-资源记录类型详解"><span class="toc-text">四 资源记录类型详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-资源记录类型小结"><span class="toc-text">五 资源记录类型小结</span></a></li></ol>
                 </div>
             </div>
         </div>
