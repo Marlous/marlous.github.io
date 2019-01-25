@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        《操作系统考研复习指导》核心知识点笔记｜Mo&#39;s blog
+        《数据库系统概论》学习笔记纲要（笔记目录）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/28/《操作系统考研复习指导》核心知识点笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2019/01/25/《数据库系统概论》学习笔记纲要（笔记目录）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>《操作系统考研复习指导》核心知识点笔记</h1>
+                    <h1>《数据库系统概论》学习笔记纲要（笔记目录）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-11-28
+                          日期 2019-01-25
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#数据库"
+                           title="数据库">数据库</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            《操作系统考研复习指导》核心知识点笔记
+            《数据库系统概论》学习笔记纲要（笔记目录）
         </span>
     </div>
 </header>
@@ -202,85 +202,24 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-操作系统概述"><a href="#一-操作系统概述" class="headerlink" title="一 操作系统概述"></a>一 操作系统概述</h1><h2 id="1-知识框架"><a href="#1-知识框架" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图1.PNG" alt="知识框架"></p>
-<h2 id="2-操作系统基本概念"><a href="#2-操作系统基本概念" class="headerlink" title="2 操作系统基本概念"></a>2 操作系统基本概念</h2><ol>
-<li><p>操作系统概念：<br>计算机系统自下而上粗分为硬件、操作系统、应用程序、用户。操作系统控制管理计算机系统的硬件、软件资源，为用户和应用程序提供接口、环境。充当硬件与用户之间的中介。</p>
+                <ol>
+<li><p>此篇博文为《数据库系统概论》这门学课的博文笔记概要。</p>
 </li>
-<li><p>操作系统的特征：</p>
+<li><p>整个学习内容：</p>
 </li>
 </ol>
 <ul>
-<li>并发：同一时间间隔内发生（非同时，同一时刻），微观上通过分时实现并发性。引入进程的目的是为了实现并发。</li>
-<li>共享：分为互斥访问（临界资源、独占资源）、同时访问（微观上为分时访问）两种共享方式。系统资源可供内存中多个并发进程共同使用。并发与共享互为存在条件。</li>
-<li>虚拟：把一个物理实体变为若干个逻辑上的对应物。操作系统的虚拟技术可归纳为时分复用、空分复用。</li>
-<li>异步：多道程序环境下，进程的执行走走停停，以不可预知的速度向前推进。</li>
+<li>数据库系统概论（基础篇）：<a href="http://www.icourse163.org/course/RUC-488001" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-488001</a></li>
+<li>数据库系统概论（高级篇）：<a href="http://www.icourse163.org/course/RUC-1001655006" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-1001655006</a></li>
+<li>数据库系统概论（新技术篇）：<a href="http://www.icourse163.org/course/RUC-1001965017" target="_blank" rel="noopener">http://www.icourse163.org/course/RUC-1001965017</a></li>
 </ul>
 <ol start="3">
-<li>操作系统的目标和功能：</li>
+<li>《数据库系统概论》系列学习笔记博文组成：</li>
 </ol>
 <ul>
-<li>管理计算机系统资源：处理机管理（处理机的分配管理以进程或线程为单位）、存储器管理、设备管理、文件管理。</li>
-<li>为用户提供接口使用计算机系统硬件：命令接口（分为联机/脱机命令接口，即交互式/批处理命令接口）、程序接口（由一组系统调用命令组成。GUI 本质上是用的程序接口）。</li>
-<li>用作扩充机器：覆盖了操作系统软件的裸机。</li>
-</ul>
-<ol start="4">
-<li>知识补充，库函数与系统调用：</li>
-</ol>
-<ul>
-<li>库函数使用或不使用系统调用来实现功能，不使用系统调用的库函数效率更高。作为语言或应用程序的一部分，运行在用户空间中。</li>
-<li>系统调用运行在内核空间中。</li>
-</ul>
-<h2 id="3-操作系统的发展与分类"><a href="#3-操作系统的发展与分类" class="headerlink" title="3 操作系统的发展与分类"></a>3 操作系统的发展与分类</h2><ul>
-<li>批处理阶段：单道批处理系统（内存中始终保持一道作业）、多道批处理系统（宏观并行，微观串行）。</li>
-<li>分时操作系统：多个用户通过终端共享一台主机。实现人机交互的系统，这点不同于多道批处理系统。</li>
-<li>实时操作系统：不需要时间片排队，在某个时间限制内完成紧急任务。</li>
-<li>网络操作系统、分布式计算机系统：前者通过网络使用各台计算机（集中式）。后者若干台计算机协同完成同一任务（分布式）。</li>
-<li>个人计算机操作系统：现在使用最广泛的操作系统。</li>
-</ul>
-<h2 id="4-操作系统的运行环境"><a href="#4-操作系统的运行环境" class="headerlink" title="4 操作系统的运行环境"></a>4 操作系统的运行环境</h2><ol>
-<li><p>操作系统的运行机制：<br>CPU 执行两种不同性质的程序。<br>一是管理程序（操作系统内核程序，核心态（管态），特权指令，中断与异常）；<br>二是被管程序（应用程序，用户态（目态），非特权指令，系统调用）。</p>
-</li>
-<li><p>相关概念：</p>
-</li>
-</ol>
-<ul>
-<li>系统调用：应用程序调用操作系统提供的一些子功能，系统调用可看作特殊的公共子程序（按功能大致分为：进程控制、进程通讯、内存管理、文件管理、设备管理）。</li>
-<li>中断：操作系统各项操作的基础，是靠中断驱动的软件。</li>
-<li>时钟管理：系统管理的方方面面依赖于时钟。</li>
-<li>原语：操作系统底层可被调用的小程序（最接近硬件、原子操作、调用频繁运行时间短）。</li>
-</ul>
-<ol start="3">
-<li>补充：中断与异常<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图2.PNG" alt="补充：中断与异常"></li>
-</ol>
-<h2 id="5-操作系统的体系结构"><a href="#5-操作系统的体系结构" class="headerlink" title="5 操作系统的体系结构"></a>5 操作系统的体系结构</h2><p>根据操作系统提供服务的内容与方法，形成两种主要的体系结构。</p>
-<ul>
-<li>大内核：主要功能模块作为一个紧密联系的整体运行在核心态。</li>
-<li>小内核：最基本的功能保留在内核，不需要核心态执行的功能移到用户态（降低内核代码难以维护的问题）。 </li>
-</ul>
-<h2 id="6-疑难点"><a href="#6-疑难点" class="headerlink" title="6 疑难点"></a>6 疑难点</h2><ul>
-<li>访管指令与访管中断：<br>访管指令本身不是特权指令，它是运行在用户态下的，通过访管指令引起访管中断（访管中断处理程序），系统调用。<br>应用程序 -&gt; 访管指令（非特权指令） -&gt; 访管中断 -&gt; 系统调用（中断与异常，特权指令）。</li>
-</ul>
-<h1 id="二-进程管理"><a href="#二-进程管理" class="headerlink" title="二 进程管理"></a>二 进程管理</h1><h2 id="1-知识框架-1"><a href="#1-知识框架-1" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图3.PNG" alt="知识框架"></p>
-<h2 id="2-进程与线程"><a href="#2-进程与线程" class="headerlink" title="2 进程与线程"></a>2 进程与线程</h2><ol>
-<li>进程的概念：</li>
-</ol>
-<ul>
-<li>通过进程控制块（PCB）来更好的描述和控制程序，实现并发性、共享性。</li>
-<li>进程映像：由程序段、相关数据段、PCB 组成，是静态的。进程是动态的（PCB 是进程存在的唯一标志）。</li>
-</ul>
-<ol start="2">
-<li><p>进程的特征：<br>动态性、并发性、独立性、异步性、结构性。</p>
-</li>
-<li><p>进程的状态与转换：<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图4.PNG" alt="进程的状态与转换"></p>
-</li>
-<li><p>进程的控制：</p>
-</li>
-</ol>
-<ul>
-<li>创建：</li>
-<li>终止：</li>
-<li>阻塞和唤醒：</li>
-<li>切换：</li>
+<li>《数据库系统概论》知识框架</li>
+<li>《数据库系统概论》学习笔记：绪论与关系数据库</li>
+<li>“MySQL 学习笔记系列”</li>
 </ul>
 
                 <hr>
@@ -289,14 +228,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2018/11/30/《数据结构考研复习指导》核心知识点笔记/" data-toggle="tooltip" data-placement="top"
-                           title="《数据结构考研复习指导》核心知识点笔记">&larr; Previous Post</a>
+                        <a href="/2019/01/25/《数据库系统概论》学习笔记：绪论与关系数据库/" data-toggle="tooltip" data-placement="top"
+                           title="《数据库系统概论》学习笔记：绪论与关系数据库">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/" data-toggle="tooltip" data-placement="top"
-                           title="PHP 调试环境程序集成包之 phpstudy 与本地 MySQL 使用">Next Post &rarr;</a>
+                        <a href="/2019/01/24/TED-演讲好句摘抄（持续更新）/" data-toggle="tooltip" data-placement="top"
+                           title="TED 演讲好句摘抄（持续更新）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -312,7 +251,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-操作系统概述"><span class="toc-text">一 操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-操作系统基本概念"><span class="toc-text">2 操作系统基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-操作系统的发展与分类"><span class="toc-text">3 操作系统的发展与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-操作系统的运行环境"><span class="toc-text">4 操作系统的运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-操作系统的体系结构"><span class="toc-text">5 操作系统的体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-疑难点"><span class="toc-text">6 疑难点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-进程管理"><span class="toc-text">二 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架-1"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程与线程"><span class="toc-text">2 进程与线程</span></a></li></ol></li></ol>
+                    
                 </div>
             </div>
         </div>
@@ -334,8 +273,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#数据库"
+                           title="数据库">数据库</a>
                         
                     </div>
                 </section>
