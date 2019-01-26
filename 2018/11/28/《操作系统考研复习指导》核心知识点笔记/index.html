@@ -261,7 +261,7 @@
 <li>访管指令与访管中断：<br>访管指令本身不是特权指令，它是运行在用户态下的，通过访管指令引起访管中断（访管中断处理程序），系统调用。<br>应用程序 -&gt; 访管指令（非特权指令） -&gt; 访管中断 -&gt; 系统调用（中断与异常，特权指令）。</li>
 </ul>
 <h1 id="二-进程管理"><a href="#二-进程管理" class="headerlink" title="二 进程管理"></a>二 进程管理</h1><h2 id="1-知识框架-1"><a href="#1-知识框架-1" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图3.PNG" alt="知识框架"></p>
-<h2 id="2-进程与线程"><a href="#2-进程与线程" class="headerlink" title="2 进程与线程"></a>2 进程与线程</h2><ol>
+<h2 id="2-进程与线程"><a href="#2-进程与线程" class="headerlink" title="2 进程与线程"></a>2 进程与线程</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><ol>
 <li>进程的概念：</li>
 </ol>
 <ul>
@@ -277,11 +277,25 @@
 </li>
 </ol>
 <ul>
-<li>创建：</li>
-<li>终止：</li>
-<li>阻塞和唤醒：</li>
-<li>切换：</li>
+<li>创建：一个进程（父进程）可创建另一个进程（子进程）。子进程被撤销，将资源还给父进程；父进程被撤销，应将子进程也撤销。（分配进程标识号和 PCB；分配资源失败则进入阻塞；初始化 PCB，看是否能进入就绪队列。）</li>
+<li>终止：正常结束（完成任务）、异常结束、外界干预结束。</li>
+<li>阻塞和唤醒：期待的某些事情未发生，进入阻塞；期待的某些事情发生了，进入唤醒。</li>
+<li>切换：进程的切换是在操作系统内核的支持下完成的，与内核紧密相关。</li>
 </ul>
+<ol start="5">
+<li>进程的组织：<br>进程是操作系统的资源分配、独立运行的基本单位。</li>
+</ol>
+<ul>
+<li>PCB：进程描述信息、进程控制和管理信息、资源分配清单、处理机相关信息。</li>
+<li>程序段：被调度到 CPU 执行的代码片段。注意，程序可被多个进程共享。</li>
+<li>数据段：原始数据或处理后的结果。</li>
+</ul>
+<ol start="6">
+<li>进程的通信：</li>
+</ol>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><ol>
+<li>线程的概念：</li>
+</ol>
 
                 <hr>
                 
@@ -312,7 +326,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-操作系统概述"><span class="toc-text">一 操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-操作系统基本概念"><span class="toc-text">2 操作系统基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-操作系统的发展与分类"><span class="toc-text">3 操作系统的发展与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-操作系统的运行环境"><span class="toc-text">4 操作系统的运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-操作系统的体系结构"><span class="toc-text">5 操作系统的体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-疑难点"><span class="toc-text">6 疑难点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-进程管理"><span class="toc-text">二 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架-1"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程与线程"><span class="toc-text">2 进程与线程</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-操作系统概述"><span class="toc-text">一 操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-操作系统基本概念"><span class="toc-text">2 操作系统基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-操作系统的发展与分类"><span class="toc-text">3 操作系统的发展与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-操作系统的运行环境"><span class="toc-text">4 操作系统的运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-操作系统的体系结构"><span class="toc-text">5 操作系统的体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-疑难点"><span class="toc-text">6 疑难点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-进程管理"><span class="toc-text">二 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架-1"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程与线程"><span class="toc-text">2 进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程"><span class="toc-text">进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程"><span class="toc-text">线程</span></a></li></ol></li></ol></li></ol>
                 </div>
             </div>
         </div>
