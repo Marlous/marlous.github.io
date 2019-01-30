@@ -399,7 +399,46 @@
 <li>Web + Portal</li>
 <li>802.1x</li>
 </ul>
-<h1 id="三-数据链路层"><a href="#三-数据链路层" class="headerlink" title="三 数据链路层"></a>三 数据链路层</h1><h2 id="1-数据链路层的功能"><a href="#1-数据链路层的功能" class="headerlink" title="1 数据链路层的功能"></a>1 数据链路层的功能</h2><h2 id="2-组帧"><a href="#2-组帧" class="headerlink" title="2 组帧"></a>2 组帧</h2><h2 id="3-差错控制"><a href="#3-差错控制" class="headerlink" title="3 差错控制"></a>3 差错控制</h2><h2 id="4-流量控制与可靠传输机制"><a href="#4-流量控制与可靠传输机制" class="headerlink" title="4 流量控制与可靠传输机制"></a>4 流量控制与可靠传输机制</h2><h2 id="5-介质访问控制"><a href="#5-介质访问控制" class="headerlink" title="5 介质访问控制"></a>5 介质访问控制</h2><h2 id="6-局域网"><a href="#6-局域网" class="headerlink" title="6 局域网"></a>6 局域网</h2><h1 id="四-网络层"><a href="#四-网络层" class="headerlink" title="四 网络层"></a>四 网络层</h1><h1 id="五-传输层"><a href="#五-传输层" class="headerlink" title="五 传输层"></a>五 传输层</h1><h1 id="六-应用层"><a href="#六-应用层" class="headerlink" title="六 应用层"></a>六 应用层</h1>
+<h1 id="三-数据链路层"><a href="#三-数据链路层" class="headerlink" title="三 数据链路层"></a>三 数据链路层</h1><h2 id="1-数据链路层的功能"><a href="#1-数据链路层的功能" class="headerlink" title="1 数据链路层的功能"></a>1 数据链路层的功能</h2><ol>
+<li>为网络层提供的服务：</li>
+</ol>
+<ul>
+<li>有确认面向连接服务。</li>
+<li>有确认无连接服务（规定时间没收到确认重传，适用误码率高的信道，如无线通信）。</li>
+<li>无确认无连接服务（适用于实时通信，误码率低的信道，如以太网）。</li>
+</ul>
+<ol start="2">
+<li>链路管理：</li>
+</ol>
+<ul>
+<li>建立、维持、释放（主要是面向连接的服务）。</li>
+<li>分配、管理信道。</li>
+</ul>
+<ol start="3">
+<li>帧界定、同步、透明传输：</li>
+</ol>
+<ul>
+<li>帧界定：确定帧的界限。</li>
+<li>帧同步：分出帧的起始与终止。</li>
+<li>透明传输：不管传输的是怎样的比特组合，都能在链路上传送。</li>
+</ul>
+<ol start="4">
+<li><p>流量控制：<br>发送方的发送能力大于接收方的接受能力，通过某反馈机制调节（限制发送方的流量）。</p>
+</li>
+<li><p>差错控制：<br>在数字通信中利用编码方法对传输中产生的差错进行控制，以提高数字消息传输的准确性。 </p>
+</li>
+</ol>
+<h2 id="2-组帧"><a href="#2-组帧" class="headerlink" title="2 组帧"></a>2 组帧</h2><ol>
+<li><p>概念：<br>发送方依据规则将网络层递交的分组封装成帧，帧要加首部和尾部（分组只是帧的数据部分，所以不需要加尾部）。出错时只重发出错的帧。</p>
+</li>
+<li><p>组帧方法：<br>计数、填充、编码。</p>
+</li>
+</ol>
+<p><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图10.PNG" alt="组帧"></p>
+<h2 id="3-差错控制"><a href="#3-差错控制" class="headerlink" title="3 差错控制"></a>3 差错控制</h2><ol>
+<li>概念：<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图11.PNG" alt="概念"></li>
+</ol>
+<h2 id="4-流量控制与可靠传输机制"><a href="#4-流量控制与可靠传输机制" class="headerlink" title="4 流量控制与可靠传输机制"></a>4 流量控制与可靠传输机制</h2><h2 id="5-介质访问控制"><a href="#5-介质访问控制" class="headerlink" title="5 介质访问控制"></a>5 介质访问控制</h2><h2 id="6-局域网"><a href="#6-局域网" class="headerlink" title="6 局域网"></a>6 局域网</h2><h1 id="四-网络层"><a href="#四-网络层" class="headerlink" title="四 网络层"></a>四 网络层</h1><h1 id="五-传输层"><a href="#五-传输层" class="headerlink" title="五 传输层"></a>五 传输层</h1><h1 id="六-应用层"><a href="#六-应用层" class="headerlink" title="六 应用层"></a>六 应用层</h1>
                 <hr>
                 
 
