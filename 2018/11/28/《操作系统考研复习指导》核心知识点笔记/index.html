@@ -331,7 +331,23 @@
 <li>多对多模型：上下两者的折中，兼顾性能、并发性。</li>
 <li>一对一模型：优点是一个线程阻塞不会影响另一个线程并发能力强；缺点是内核需创建多个线程与用户级线程对应，开销较大，影响程序性能。</li>
 </ul>
-<h2 id="3-处理机调度"><a href="#3-处理机调度" class="headerlink" title="3 处理机调度"></a>3 处理机调度</h2>
+<h2 id="3-处理机调度"><a href="#3-处理机调度" class="headerlink" title="3 处理机调度"></a>3 处理机调度</h2><ol>
+<li>概念：</li>
+</ol>
+<ul>
+<li>处理机调度就是对处理机的分配。通过算法从就绪队列中选择一个进程，将处理机分配给它运行，实现进程的并发执行。</li>
+<li>作业的三级调度： <img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图7.PNG" alt="作业的三级调度"></li>
+</ul>
+<ol start="2">
+<li>调度方式：</li>
+</ol>
+<ol start="3">
+<li><p>调度准则：</p>
+</li>
+<li><p>算法：</p>
+</li>
+</ol>
+<h2 id="4-进程同步"><a href="#4-进程同步" class="headerlink" title="4 进程同步"></a>4 进程同步</h2><h2 id="5-死锁"><a href="#5-死锁" class="headerlink" title="5 死锁"></a>5 死锁</h2>
                 <hr>
                 
 
@@ -361,7 +377,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-操作系统概述"><span class="toc-text">一 操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-操作系统基本概念"><span class="toc-text">2 操作系统基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-操作系统的发展与分类"><span class="toc-text">3 操作系统的发展与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-操作系统的运行环境"><span class="toc-text">4 操作系统的运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-操作系统的体系结构"><span class="toc-text">5 操作系统的体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-疑难点"><span class="toc-text">6 疑难点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-进程管理"><span class="toc-text">二 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架-1"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程与线程"><span class="toc-text">2 进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）进程"><span class="toc-text">（1）进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）线程"><span class="toc-text">（2）线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-处理机调度"><span class="toc-text">3 处理机调度</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-操作系统概述"><span class="toc-text">一 操作系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-操作系统基本概念"><span class="toc-text">2 操作系统基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-操作系统的发展与分类"><span class="toc-text">3 操作系统的发展与分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-操作系统的运行环境"><span class="toc-text">4 操作系统的运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-操作系统的体系结构"><span class="toc-text">5 操作系统的体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-疑难点"><span class="toc-text">6 疑难点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-进程管理"><span class="toc-text">二 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-知识框架-1"><span class="toc-text">1 知识框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程与线程"><span class="toc-text">2 进程与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）进程"><span class="toc-text">（1）进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）线程"><span class="toc-text">（2）线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-处理机调度"><span class="toc-text">3 处理机调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-进程同步"><span class="toc-text">4 进程同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-死锁"><span class="toc-text">5 死锁</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

@@ -300,28 +300,42 @@
 <h1 id="四（第四章略）"><a href="#四（第四章略）" class="headerlink" title="四（第四章略）"></a>四（第四章略）</h1><h1 id="五-总体设计（系统设计）"><a href="#五-总体设计（系统设计）" class="headerlink" title="五 总体设计（系统设计）"></a>五 总体设计（系统设计）</h1><ol>
 <li><p>设计原理：<br>模块化、模块独立、抽象、逐步求精、信息隐藏、局部化。</p>
 </li>
-<li><p>设计过程：</p>
+<li><p>设计任务与过程：</p>
 </li>
 </ol>
 <ul>
-<li>系统设计（确定系统的具体实现方案）。</li>
-<li>结构设计（确定软件结构）。</li>
+<li>总体设计任务：用抽象概括的方式确定系统如何完成预定的任务，并确定组成系统的每个程序的结构。</li>
+<li>总体设计过程：系统设计（数据流图触发确定系统的具体实现物理方案）；结构设计（确定软件结构。软件由哪些模块组成，及其动态调用过程）。</li>
 </ul>
 <ol start="3">
-<li>低耦合与高内聚：</li>
+<li>模块独立之低耦合与高内聚：</li>
 </ol>
 <ul>
 <li>六种耦合：无直接耦合、数据耦合、标记耦合、控制耦合、公共环境耦合、内容耦合。</li>
 <li>六种内聚：功能内聚、顺序内聚，通信内聚、过程内聚，时间内聚、逻辑内聚、偶然内聚。</li>
 </ul>
 <ol start="4">
-<li>描述软件结构的图形工具：</li>
+<li>描述软件结构的图形工具：<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图5-1.PNG" alt="描述软件结构的图形工具"></li>
 </ol>
 <ul>
-<li><p>层次图、HIPO 图：层次图无标号。<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图6.PNG" alt="层次图、HIPO 图"></p>
+<li>层次方框图：<br>层次方框图用树形结构的一系列多层次的矩形框描绘数据的层次结构。</li>
+</ul>
+<p>a) 层次图、HIPO 图：（层次图无 HIPO 图中的标号）。<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图6.PNG" alt="层次图、HIPO 图"></p>
+<p>b) 结构图：<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图7.PNG" alt="结构图"></p>
+<ul>
+<li><p>Warnier 图:<br>和层次方框图类似，Warnier 图也用树形结构描绘信息，但是这种图形工具比层次方框图提供了更丰富的描绘手段。<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图7-1.PNG" alt="Warnier 图"></p>
 </li>
-<li><p>结构图：<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图7.PNG" alt="结构图"></p>
+<li><p>IPO 图：<br>IPO 图是输入、处理、输出图的简称，能够方便地描绘输入数据、对数据的处理和输出数据之间的关系。<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图7-2.PNG" alt="IPO 图"></p>
 </li>
+</ul>
+<ol start="5">
+<li>数据字典、数据流图、数据库间的关系：</li>
+</ol>
+<ul>
+<li>数据字典是关于数据的信息的集合，也就是对数据流图中包含的所有元素的定义的集合。</li>
+<li>数据字典、数据流图共同构成逻辑模型。</li>
+<li>从数据字典、数据流图出发，首先得到的是数据库的概念结构。</li>
+<li>小结：（数据字典 -&gt; 数据流图）可行性研究的逻辑模型 -&gt; 数据库的概念模型</li>
 </ul>
 <h1 id="六-详细设计（模块设计）"><a href="#六-详细设计（模块设计）" class="headerlink" title="六 详细设计（模块设计）"></a>六 详细设计（模块设计）</h1><ol>
 <li><p>人机界面设计：<br>设计问题：系统响应时间、用户帮助设施、出错信息处理、命令交互。</p>
@@ -337,7 +351,7 @@
 <li>判定表。<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图11.PNG" alt="判定表"></li>
 <li>过程设计语言（PDL 伪码）。</li>
 </ul>
-<h1 id="七-实现（编码、单元测试、集成测试）"><a href="#七-实现（编码、单元测试、集成测试）" class="headerlink" title="七 实现（编码、单元测试、集成测试）"></a>七 实现（编码、单元测试、集成测试）</h1><ol>
+<h1 id="七-实现（编码、单元测试、综合测试）"><a href="#七-实现（编码、单元测试、综合测试）" class="headerlink" title="七 实现（编码、单元测试、综合测试）"></a>七 实现（编码、单元测试、综合测试）</h1><ol>
 <li><p>编码：<br>选择程序设计语言、编码风格。</p>
 </li>
 <li><p>软件测试种类：</p>
@@ -407,7 +421,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件工程学概述"><span class="toc-text">一 软件工程学概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-可行性研究"><span class="toc-text">二 可行性研究</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析"><span class="toc-text">三 需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四（第四章略）"><span class="toc-text">四（第四章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总体设计（系统设计）"><span class="toc-text">五 总体设计（系统设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-详细设计（模块设计）"><span class="toc-text">六 详细设计（模块设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-实现（编码、单元测试、集成测试）"><span class="toc-text">七 实现（编码、单元测试、集成测试）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-维护"><span class="toc-text">八 维护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、十-面向对象方法学引论与面向对象分析"><span class="toc-text">九、十 面向对象方法学引论与面向对象分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-面向对象设计"><span class="toc-text">十一 面向对象设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二（第十二章略）"><span class="toc-text">十二（第十二章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三-软件项目管理"><span class="toc-text">十三 软件项目管理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件工程学概述"><span class="toc-text">一 软件工程学概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-可行性研究"><span class="toc-text">二 可行性研究</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析"><span class="toc-text">三 需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四（第四章略）"><span class="toc-text">四（第四章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总体设计（系统设计）"><span class="toc-text">五 总体设计（系统设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-详细设计（模块设计）"><span class="toc-text">六 详细设计（模块设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-实现（编码、单元测试、综合测试）"><span class="toc-text">七 实现（编码、单元测试、综合测试）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-维护"><span class="toc-text">八 维护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、十-面向对象方法学引论与面向对象分析"><span class="toc-text">九、十 面向对象方法学引论与面向对象分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-面向对象设计"><span class="toc-text">十一 面向对象设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二（第十二章略）"><span class="toc-text">十二（第十二章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三-软件项目管理"><span class="toc-text">十三 软件项目管理</span></a></li></ol>
                 </div>
             </div>
         </div>
