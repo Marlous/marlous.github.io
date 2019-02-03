@@ -308,13 +308,20 @@
 <li>总体设计过程：系统设计（数据流图触发确定系统的具体实现物理方案）；结构设计（确定软件结构。软件由哪些模块组成，及其动态调用过程）。</li>
 </ul>
 <ol start="3">
-<li>模块独立之低耦合与高内聚：</li>
+<li>模块化、模块独立概念：</li>
+</ol>
+<ul>
+<li>模块化：把程序划分为独立命名且可独立访问的模块，每个模块完成一个子功能，把这些模块集成起来构成一个整体。</li>
+<li>模块独立：是抽象、模块化（低耦合）、信息隐藏、局部化（高内聚）概念的直接结果。</li>
+</ul>
+<ol start="4">
+<li>模块独立程度的定性度量标准（低耦合与高内聚）：</li>
 </ol>
 <ul>
 <li>六种耦合：无直接耦合、数据耦合、标记耦合、控制耦合、公共环境耦合、内容耦合。</li>
 <li>六种内聚：功能内聚、顺序内聚，通信内聚、过程内聚，时间内聚、逻辑内聚、偶然内聚。</li>
 </ul>
-<ol start="4">
+<ol start="5">
 <li>描述软件结构的图形工具：<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图5-1.PNG" alt="描述软件结构的图形工具"></li>
 </ol>
 <ul>
@@ -328,7 +335,7 @@
 <li><p>IPO 图：<br>IPO 图是输入、处理、输出图的简称，能够方便地描绘输入数据、对数据的处理和输出数据之间的关系。<br><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图7-2.PNG" alt="IPO 图"></p>
 </li>
 </ul>
-<ol start="5">
+<ol start="6">
 <li>数据字典、数据流图、数据库间的关系：</li>
 </ol>
 <ul>
@@ -337,6 +344,24 @@
 <li>从数据字典、数据流图出发，首先得到的是数据库的概念结构。</li>
 <li>小结：（数据字典 -&gt; 数据流图）可行性研究的逻辑模型 -&gt; 数据库的概念模型</li>
 </ul>
+<ol start="7">
+<li>变换流与事物流：</li>
+</ol>
+<ul>
+<li>数据流图(DFD) 一般可分为 “变换流”，“事物流”两种。</li>
+<li>“变换流”：由输入、处理、输出三部分组成，是一顺序结构。</li>
+<li>“事物流”：它的某个加工，分离成许多分散的数据流，形成许多加工路径，并且根据输入值选择其中一个路径来执行。</li>
+</ul>
+<ol start="8">
+<li>从数据流导出软件的层次结构：</li>
+</ol>
+<ul>
+<li>数据流图反应的是数据的系统逻辑模型，是信息流在系统中的流动反应，结构图是系统的物理模型，他反应的是系统的层次结构和功能关系。</li>
+<li>在系统设计阶段，可以根据 DFD 图，分别通过变换分析和事务分析方法，先设计结构图的顶端主模块，然后自顶向下逐步细化，从 DFD 图导出满足数据流图要求的、标准形式的系统结构图。 </li>
+</ul>
+<ol start="9">
+<li>总体设计与需求分析间的关系：<br>总体设计需求分析的结果，需求分析是系统设计的依据。/ 补充：将逻辑模型（分析模型）转换为物理模型（设计模型）。</li>
+</ol>
 <h1 id="六-详细设计（模块设计）"><a href="#六-详细设计（模块设计）" class="headerlink" title="六 详细设计（模块设计）"></a>六 详细设计（模块设计）</h1><ol>
 <li><p>人机界面设计：<br>设计问题：系统响应时间、用户帮助设施、出错信息处理、命令交互。</p>
 </li>
@@ -391,7 +416,7 @@
 <li>概念：<br>模块化、低耦合高内聚、抽象、信息隐藏。</li>
 </ol>
 <h1 id="十二（第十二章略）"><a href="#十二（第十二章略）" class="headerlink" title="十二（第十二章略）"></a>十二（第十二章略）</h1><h1 id="十三-软件项目管理"><a href="#十三-软件项目管理" class="headerlink" title="十三 软件项目管理"></a>十三 软件项目管理</h1><p><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图13.PNG" alt="软件项目管理"></p>
-
+<h1 id="十四-总结（知识框架）"><a href="#十四-总结（知识框架）" class="headerlink" title="十四 总结（知识框架）"></a>十四 总结（知识框架）</h1>
                 <hr>
                 
 
@@ -421,7 +446,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件工程学概述"><span class="toc-text">一 软件工程学概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-可行性研究"><span class="toc-text">二 可行性研究</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析"><span class="toc-text">三 需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四（第四章略）"><span class="toc-text">四（第四章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总体设计（系统设计）"><span class="toc-text">五 总体设计（系统设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-详细设计（模块设计）"><span class="toc-text">六 详细设计（模块设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-实现（编码、单元测试、综合测试）"><span class="toc-text">七 实现（编码、单元测试、综合测试）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-维护"><span class="toc-text">八 维护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、十-面向对象方法学引论与面向对象分析"><span class="toc-text">九、十 面向对象方法学引论与面向对象分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-面向对象设计"><span class="toc-text">十一 面向对象设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二（第十二章略）"><span class="toc-text">十二（第十二章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三-软件项目管理"><span class="toc-text">十三 软件项目管理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件工程学概述"><span class="toc-text">一 软件工程学概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-可行性研究"><span class="toc-text">二 可行性研究</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析"><span class="toc-text">三 需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四（第四章略）"><span class="toc-text">四（第四章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总体设计（系统设计）"><span class="toc-text">五 总体设计（系统设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-详细设计（模块设计）"><span class="toc-text">六 详细设计（模块设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-实现（编码、单元测试、综合测试）"><span class="toc-text">七 实现（编码、单元测试、综合测试）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-维护"><span class="toc-text">八 维护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、十-面向对象方法学引论与面向对象分析"><span class="toc-text">九、十 面向对象方法学引论与面向对象分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-面向对象设计"><span class="toc-text">十一 面向对象设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二（第十二章略）"><span class="toc-text">十二（第十二章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三-软件项目管理"><span class="toc-text">十三 软件项目管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十四-总结（知识框架）"><span class="toc-text">十四 总结（知识框架）</span></a></li></ol>
                 </div>
             </div>
         </div>
