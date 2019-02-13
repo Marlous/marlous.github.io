@@ -79,15 +79,15 @@
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
@@ -202,7 +202,8 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-数据查询"><a href="#一-数据查询" class="headerlink" title="一 数据查询"></a>一 数据查询</h1><p>一般格式：<br>DISTINCT 为去掉重复列。<br>HAVING 为满足条件才输出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT [ALL|DISTINCT] &lt;目标列表达式&gt;,... </span><br><span class="line">FROM &lt;表名或视图名&gt;,...</span><br><span class="line">WHERE &lt;条件表达式&gt;</span><br><span class="line">GROUP BY &lt;列名&gt; HAVING &lt;条件表达式&gt;</span><br><span class="line">ORDER BY &lt;列名&gt; [ASC|DESC];</span><br></pre></td></tr></table></figure></p>
+                <h1 id="一-数据查询知识框架"><a href="#一-数据查询知识框架" class="headerlink" title="一 数据查询知识框架"></a>一 数据查询知识框架</h1><p><img src="/2018/09/10/MySQL-学习笔记-三-数据查询/图0.PNG" alt="数据查询知识框架"></p>
+<h1 id="二-数据查询"><a href="#二-数据查询" class="headerlink" title="二 数据查询"></a>二 数据查询</h1><p>一般格式：<br>DISTINCT 为去掉重复列。<br>HAVING 为满足条件才输出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT [ALL|DISTINCT] &lt;目标列表达式&gt;,... </span><br><span class="line">FROM &lt;表名或视图名&gt;,...</span><br><span class="line">WHERE &lt;条件表达式&gt;</span><br><span class="line">GROUP BY &lt;列名&gt; HAVING &lt;条件表达式&gt;</span><br><span class="line">ORDER BY &lt;列名&gt; [ASC|DESC];</span><br></pre></td></tr></table></figure></p>
 <h2 id="1-单表查询（仅涉及一个表）"><a href="#1-单表查询（仅涉及一个表）" class="headerlink" title="1 单表查询（仅涉及一个表）"></a>1 单表查询（仅涉及一个表）</h2><p>&lt;目标列表达式&gt; 可以为 * 星号、可以为算术表达式、字符串常量、函数等（原来没有的列会新增显示出来）。<br>如 <code>SELECT sname,&quot;year of birthday&quot;,2004-sage,LOWER(sdept)</code></p>
 <ol>
 <li><p>常用查询条件（WHERE）：<br><img src="/2018/09/10/MySQL-学习笔记-三-数据查询/图1.PNG" alt="常用查询条件"></p>
@@ -283,7 +284,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据查询"><span class="toc-text">一 数据查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-单表查询（仅涉及一个表）"><span class="toc-text">1 单表查询（仅涉及一个表）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-连接查询"><span class="toc-text">2 连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-嵌套查询"><span class="toc-text">3 嵌套查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-集合查询"><span class="toc-text">4 集合查询</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据查询知识框架"><span class="toc-text">一 数据查询知识框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据查询"><span class="toc-text">二 数据查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-单表查询（仅涉及一个表）"><span class="toc-text">1 单表查询（仅涉及一个表）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-连接查询"><span class="toc-text">2 连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-嵌套查询"><span class="toc-text">3 嵌套查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-集合查询"><span class="toc-text">4 集合查询</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
