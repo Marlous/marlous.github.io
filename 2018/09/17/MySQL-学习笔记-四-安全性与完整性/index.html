@@ -202,34 +202,37 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-数据控制知识框架"><a href="#一-数据控制知识框架" class="headerlink" title="一 数据控制知识框架"></a>一 数据控制知识框架</h1><h1 id="二-安全性"><a href="#二-安全性" class="headerlink" title="二 安全性"></a>二 安全性</h1><h2 id="1-计算机系统的安全模型"><a href="#1-计算机系统的安全模型" class="headerlink" title="1 计算机系统的安全模型"></a>1 计算机系统的安全模型</h2><ol>
-<li><p>用户 - DBMS - OS - DB（用户标识、鉴别 - 数据库安全保护 - 操作系统安全保护 - 数据密码存储）</p>
+                <h1 id="一-数据控制知识框架"><a href="#一-数据控制知识框架" class="headerlink" title="一 数据控制知识框架"></a>一 数据控制知识框架</h1><p><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图0.PNG" alt="数据控制知识框架"></p>
+<h1 id="二-安全性"><a href="#二-安全性" class="headerlink" title="二 安全性"></a>二 安全性</h1><h2 id="1-计算机安全性概述"><a href="#1-计算机安全性概述" class="headerlink" title="1 计算机安全性概述"></a>1 计算机安全性概述</h2><ol>
+<li>三类安全性问题：</li>
+</ol>
+<ul>
+<li>技术安全</li>
+<li>管理安全</li>
+<li>政策法律</li>
+</ul>
+<ol start="2">
+<li>安全标准简介：</li>
+</ol>
+<ul>
+<li><p>用户 - DBMS - OS - DB（用户标识、鉴别 - 数据库安全保护 - 操作系统安全保护 - 数据密码存储）。</p>
 </li>
 <li><p>信息安全标准：<br>两个有名的 TCSEC 和 CC 标准。<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图1.PNG" alt="TCSEC/TDI"><br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图2.PNG" alt="CC"></p>
 </li>
+</ul>
+<h2 id="2-数据库安全性控制"><a href="#2-数据库安全性控制" class="headerlink" title="2 数据库安全性控制"></a>2 数据库安全性控制</h2><ol>
 <li><p>数据库安全性控制常用方法：<br>用户身份鉴别，存取控制（自主存取控制、强制存取控制），视图，审计，数据加密。<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图3.PNG" alt="数据库安全性控制模型"></p>
 </li>
 <li><p>存取控制（自主存取控制、强制存取控制）：</p>
 </li>
 </ol>
-<p>自主存取控制：对用户或角色授权一些操作，数据本身无密级。</p>
-<p>强制存取控制：DBMS 管理的实体分为主体（许可证级别）、客体（密级）。对其分别设置敏感度标记。</p>
 <ul>
-<li>敏感度标记：<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图4.PNG" alt="强制存取控制敏感度标记"></li>
-<li>规则：<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图5.PNG" alt="强制存取控制规则 1"><br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图6.PNG" alt="强制存取控制规则 2"></li>
+<li>自主存取控制：对用户或角色授权一些操作，数据本身无密级。</li>
+<li>强制存取控制：DBMS 管理的实体分为主体（许可证级别）、客体（密级）。对其分别设置敏感度标记。<br>敏感度标记：<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图4.PNG" alt="强制存取控制敏感度标记"><br>规则：<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图5.PNG" alt="强制存取控制规则 1"><br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图6.PNG" alt="强制存取控制规则 2"></li>
 </ul>
-<h2 id="2-创建数据库用户"><a href="#2-创建数据库用户" class="headerlink" title="2 创建数据库用户"></a>2 创建数据库用户</h2><p>只有系统管理员才有权限创建一个新数据库用户。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &lt;用户名&gt;</span><br><span class="line">[WITH DBA|RESOURCE|CONNECT];</span><br></pre></td></tr></table></figure></p>
+<h3 id="（1）用户身份鉴别"><a href="#（1）用户身份鉴别" class="headerlink" title="（1）用户身份鉴别"></a>（1）用户身份鉴别</h3><p>只有系统管理员才有权限创建一个新数据库用户。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &lt;用户名&gt;</span><br><span class="line">[WITH DBA|RESOURCE|CONNECT];</span><br></pre></td></tr></table></figure></p>
 <p>DBA：可创建用户，模式，基本表，视图，可授予其他用户一些权限。<br>RESOURCE：可创建基本表和视图，可授予其他用户一些权限。<br>CONNECT：为默认。只能登陆数据库，查询和操作需相应权限。</p>
-<h2 id="3-存取控制之授权与回收"><a href="#3-存取控制之授权与回收" class="headerlink" title="3 存取控制之授权与回收"></a>3 存取控制之授权与回收</h2><ol>
-<li>授权：<br>存取控制（自主存取控制）：必须防止不经根节点 DBA 的循环授权。<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图7.PNG" alt="存取控制（自主存取控制）"></li>
-</ol>
-<p>可以使用 GRANT 语句的三种：DBA、数据库对象创建者、拥有该权限的用户。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GRANT &lt;权限&gt;,...</span><br><span class="line">ON &lt;对象类型&gt;&lt;对象名&gt;,...</span><br><span class="line">TO &lt;用户&gt;,...</span><br><span class="line">[WITH GRANT OPTION] /*有此选项可传播权限*/</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line">GRANT UPDATE(sno),SELECT</span><br><span class="line">ON TABLE student</span><br><span class="line">TO u4; /*所有用户可用 public*/</span><br></pre></td></tr></table></figure></p>
-<p>补充：权限<br>insert、delete、update、select、references（允许创建关系时声明外键）、all privileges（授予所有权限）。</p>
-<ol start="2">
-<li>权限回收：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REVOKE &lt;权限&gt;,...</span><br><span class="line">ON &lt;对象类型&gt;&lt;对象名&gt;,...</span><br><span class="line">FROM &lt;用户&gt;,... [CASCADE|RESTRICT]</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="4-存取控制之数据库角色"><a href="#4-存取控制之数据库角色" class="headerlink" title="4 存取控制之数据库角色"></a>4 存取控制之数据库角色</h2><p>角色是一组用户的集合。通过给角色授权，再将角色授给用户，简化给用户授权过程。</p>
+<h3 id="（1）补充：数据库角色"><a href="#（1）补充：数据库角色" class="headerlink" title="（1）补充：数据库角色"></a>（1）补充：数据库角色</h3><p>角色是一组用户的集合。通过给角色授权，再将角色授给用户，简化给用户授权过程。</p>
 <ol>
 <li><p>创建角色：<br><code>CREATE ROLE &lt;角色&gt;</code></p>
 </li>
@@ -240,7 +243,24 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REVOKE &lt;权限&gt;,...</span><br><span class="line">ON &lt;对象类型&gt;&lt;对象名&gt;,...</span><br><span class="line">FROM &lt;角色&gt;,...</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="5-审计"><a href="#5-审计" class="headerlink" title="5 审计"></a>5 审计</h2><h1 id="三-完整性"><a href="#三-完整性" class="headerlink" title="三 完整性"></a>三 完整性</h1>
+<h3 id="（2）存取控制（授权与收回）"><a href="#（2）存取控制（授权与收回）" class="headerlink" title="（2）存取控制（授权与收回）"></a>（2）存取控制（授权与收回）</h3><ol>
+<li>授权：</li>
+</ol>
+<ul>
+<li><p>存取控制（自主存取控制）：必须防止不经根节点 DBA 的循环授权。<br><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图7.PNG" alt="存取控制（自主存取控制）"></p>
+</li>
+<li><p>可以使用 GRANT 语句的三种：DBA、数据库对象创建者、拥有该权限的用户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GRANT &lt;权限&gt;,...</span><br><span class="line">ON &lt;对象类型&gt;&lt;对象名&gt;,...</span><br><span class="line">TO &lt;用户&gt;,...</span><br><span class="line">[WITH GRANT OPTION] /*有此选项可传播权限*/</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line">GRANT UPDATE(sno),SELECT</span><br><span class="line">ON TABLE student</span><br><span class="line">TO u4; /*所有用户可用 public*/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>补充，权限：<br>insert、delete、update、select、references（允许创建关系时声明外键）、all privileges（授予所有权限）。</p>
+</li>
+</ul>
+<ol start="2">
+<li>权限回收：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">REVOKE &lt;权限&gt;,...</span><br><span class="line">ON &lt;对象类型&gt;&lt;对象名&gt;,...</span><br><span class="line">FROM &lt;用户&gt;,... [CASCADE|RESTRICT]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="3-视图机制"><a href="#3-视图机制" class="headerlink" title="3 视图机制"></a>3 视图机制</h2><p>略（见之前的博文）。</p>
+<h2 id="4-审计"><a href="#4-审计" class="headerlink" title="4 审计"></a>4 审计</h2><h2 id="5-数据加密"><a href="#5-数据加密" class="headerlink" title="5 数据加密"></a>5 数据加密</h2><h1 id="三-完整性"><a href="#三-完整性" class="headerlink" title="三 完整性"></a>三 完整性</h1>
                 <hr>
                 
 
@@ -270,7 +290,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据控制知识框架"><span class="toc-text">一 数据控制知识框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安全性"><span class="toc-text">二 安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-计算机系统的安全模型"><span class="toc-text">1 计算机系统的安全模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建数据库用户"><span class="toc-text">2 创建数据库用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-存取控制之授权与回收"><span class="toc-text">3 存取控制之授权与回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-存取控制之数据库角色"><span class="toc-text">4 存取控制之数据库角色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-审计"><span class="toc-text">5 审计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-完整性"><span class="toc-text">三 完整性</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据控制知识框架"><span class="toc-text">一 数据控制知识框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安全性"><span class="toc-text">二 安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-计算机安全性概述"><span class="toc-text">1 计算机安全性概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-数据库安全性控制"><span class="toc-text">2 数据库安全性控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）用户身份鉴别"><span class="toc-text">（1）用户身份鉴别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）补充：数据库角色"><span class="toc-text">（1）补充：数据库角色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）存取控制（授权与收回）"><span class="toc-text">（2）存取控制（授权与收回）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-视图机制"><span class="toc-text">3 视图机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-审计"><span class="toc-text">4 审计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-数据加密"><span class="toc-text">5 数据加密</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-完整性"><span class="toc-text">三 完整性</span></a></li></ol>
                 </div>
             </div>
         </div>
