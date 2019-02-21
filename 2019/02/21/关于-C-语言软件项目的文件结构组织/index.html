@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        微积分、线性代数（3Blue1Brown）拓展笔记｜Mo&#39;s blog
+        关于 C 语言软件项目的文件结构组织｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2019/02/21/关于-C-语言软件项目的文件结构组织/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>微积分、线性代数（3Blue1Brown）拓展笔记</h1>
+                    <h1>关于 C 语言软件项目的文件结构组织</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2019-02-11
+                          日期 2019-02-21
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            微积分、线性代数（3Blue1Brown）拓展笔记
+            关于 C 语言软件项目的文件结构组织
         </span>
     </div>
 </header>
@@ -203,95 +203,18 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="https://www.bilibili.com/video/av24325548?from=search&amp;seid=3870731934790124776" target="_blank" rel="noopener">微积分的本质 - 系列合集</a><br>2、 <a href="https://www.bilibili.com/video/av6731067" target="_blank" rel="noopener">线性代数的本质 - 系列合集</a><br>3、 <a href="https://www.zhihu.com/question/22199657/answer/115178055" target="_blank" rel="noopener">知乎：微分和导数的关系是什么？两者的几何意义有什么不同？为什么要定义微分 ?</a></p>
+<p>参考：<br>1、 <a href="http://blog.chinaunix.net/uid-23481299-id-3124965.html" target="_blank" rel="noopener">C程序怎样组织更有结构性</a><br>2、 <a href="http://mooc1.chaoxing.com/course/80433103.html" target="_blank" rel="noopener">C语言综合项目实战</a><br>3、 <a href="https://blog.csdn.net/xiaojiegege123456/article/details/25317061" target="_blank" rel="noopener">C语言头文件&amp;&amp; 实现文件 &amp;&amp; 工程文件组织</a><br>4、 <a href="https://www.cnblogs.com/SummerRain/archive/2012/07/23/2605783.html" target="_blank" rel="noopener">C语言项目中头文件/代码文件的组织问题（使用VC6.0）</a><br>5、 <a href="https://blog.csdn.net/javafoam/article/details/79066716?utm_source=blogxgwz6" target="_blank" rel="noopener">C语言多文件项目的例子</a><br>6、 <a href="https://github.com/nginx/nginx" target="_blank" rel="noopener">Nginx 项目实例</a></p>
 </blockquote>
-<h1 id="一-微积分"><a href="#一-微积分" class="headerlink" title="一 微积分"></a>一 微积分</h1><h2 id="1-导数的本质"><a href="#1-导数的本质" class="headerlink" title="1 导数的本质"></a>1 导数的本质</h2><ol>
-<li>古典微积分、极限微积分：<br>微积分实际上被发明了两次，古典微积分和极限微积分可以说是两个东西。</li>
-</ol>
-<ul>
-<li>古典微积分是先定义微分再定义导数，极限微积分是先定义导数再定义微分。</li>
-<li>古典微积分的导数是基于无穷小量定义的，极限微积分的导数是基于极限定义的。</li>
-<li>古典微积分的微分是无穷小量，极限微积分的微分是一个线性函数。</li>
-<li>古典微积分的定积分是求无穷小矩形面积的和，极限微积分的定积分是求黎曼和。</li>
-<li>古典微积分的切线是可以画出来的，极限微积分的切线是算出来的。</li>
-<li>古典微积分的建立过程很直观，极限微积分的建立过程更抽象。</li>
-</ul>
-<ol start="2">
-<li><p>极限微积分小结：<br>极限 -&gt; 导数（切线是算出来的） -&gt; 微分（一个线性函数）-&gt; 定积分是求黎曼和</p>
-</li>
-<li><p>微积分思想的诞生：</p>
-</li>
-</ol>
-<ul>
-<li>小矩形面积 dA=f(x)·dx</li>
-<li>这里的 dA、dx 不是一个具体的值，而是一个函数。</li>
-<li>变形为 dA/dx=f(x)，即是导数的概念；对面积函数求导 dA/dx，得到导函数 f(x)。</li>
-<li>是某一个具体值代入，比值 dA/dx 就是 A 的导数。</li>
-<li>可以理解为对面积函数求导得到一条曲线（微分）；对一条曲线积分得到面积函数（积分）。</li>
-</ul>
-<p><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图1.PNG" alt="微积分的最初思想诞生 1"><br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图2.PNG" alt="微积分的最初思想诞生 2"></p>
-<ol start="4">
-<li>导数的本质：</li>
-</ol>
-<ul>
-<li>某点附近变化率的最佳近似（不是具体的某一点，而是某点的邻域）。</li>
-<li>对函数 F(x) 求导，得到一个关于 x 的导函数 f(x)；f(x) 的值是某具体的 x 值代入后该点的导数。</li>
-<li>展开、化简后可以把含有 dx 的项消掉（图中是消掉 dt），于是变成了熟悉的求导公式计算后的结果。<br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图3.PNG" alt="导数的本质 1"><br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图4.PNG" alt="导数的本质 2"><br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图5.PNG" alt="导数的本质 3"></li>
-</ul>
-<ol start="5">
-<li>补充：两个标准。</li>
-</ol>
-<ul>
-<li>实数集。/ 没有无穷概念，用极限，一组数的序列（0.999… = 1）。/ 我们现在学的内容都是在实数集下的概念。实数间没有间隙。在 0.999… 和 1 间找不到任何一个数，所以这两个数相等。</li>
-<li>非标准实数集（超数）。/ 有无穷概念。</li>
-</ul>
-<h2 id="2-求导"><a href="#2-求导" class="headerlink" title="2 求导"></a>2 求导</h2><h3 id="（1）基本初等函数求导"><a href="#（1）基本初等函数求导" class="headerlink" title="（1）基本初等函数求导"></a>（1）基本初等函数求导</h3><p>用几何来求导。</p>
-<ol>
-<li>幂函数求导：</li>
-</ol>
-<ul>
-<li>二次方：<br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图6.PNG" alt="二次方 1"><br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图7.PNG" alt="二次方 2"></li>
-<li>三次方：<br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图8.PNG" alt="三次方 1"><br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图9.PNG" alt="三次方 2"></li>
-<li>n 次方：<br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图10.PNG" alt="n 次方 1"><br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图11.PNG" alt="n 次方 2"><br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图12.PNG" alt="n 次方 3"></li>
-<li>小结：<br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图13.PNG" alt="小结"></li>
-</ul>
-<ol start="2">
-<li><p>反比例函数求导：<br><img src="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/图14.PNG" alt="反比例函数求导"></p>
-</li>
-<li><p>三角函数求导：</p>
-</li>
-</ol>
-<ol start="4">
-<li>指数函数求导：</li>
-</ol>
-<h3 id="（2）复合函数求导"><a href="#（2）复合函数求导" class="headerlink" title="（2）复合函数求导"></a>（2）复合函数求导</h3><p>链式法则。</p>
-<h3 id="（3）隐函数求导"><a href="#（3）隐函数求导" class="headerlink" title="（3）隐函数求导"></a>（3）隐函数求导</h3><h3 id="（4）求导小结"><a href="#（4）求导小结" class="headerlink" title="（4）求导小结"></a>（4）求导小结</h3><p>用来处理简单函数组合出的函数导数：</p>
-<ul>
-<li>加法法则（见导数运算法则）</li>
-<li>乘积法则（见导数运算法则）</li>
-<li>链式法则（见复合函数求导）</li>
-</ul>
-<h2 id="3-导数运算法则"><a href="#3-导数运算法则" class="headerlink" title="3 导数运算法则"></a>3 导数运算法则</h2><ol>
-<li><p>加法法则：</p>
-</li>
-<li><p>乘积法则：</p>
-</li>
-</ol>
-<h2 id="4-极限"><a href="#4-极限" class="headerlink" title="4 极限"></a>4 极限</h2><h2 id="5-微分、积分基本定理"><a href="#5-微分、积分基本定理" class="headerlink" title="5 微分、积分基本定理"></a>5 微分、积分基本定理</h2><h2 id="6-面积与斜率的关系"><a href="#6-面积与斜率的关系" class="headerlink" title="6 面积与斜率的关系"></a>6 面积与斜率的关系</h2><h1 id="二-线性代数"><a href="#二-线性代数" class="headerlink" title="二 线性代数"></a>二 线性代数</h1>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/02/12/网络工程师行业认证（华三、华为、思科）/" data-toggle="tooltip" data-placement="top"
-                           title="网络工程师行业认证（华三、华为、思科）">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/01/29/微专业（网易云课堂）系列课程知识清单整理/" data-toggle="tooltip" data-placement="top"
-                           title="微专业（网易云课堂）系列课程知识清单整理">Next Post &rarr;</a>
+                        <a href="/2019/02/12/网络工程师行业认证（华三、华为、思科）/" data-toggle="tooltip" data-placement="top"
+                           title="网络工程师行业认证（华三、华为、思科）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -307,7 +230,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-微积分"><span class="toc-text">一 微积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-导数的本质"><span class="toc-text">1 导数的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-求导"><span class="toc-text">2 求导</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）基本初等函数求导"><span class="toc-text">（1）基本初等函数求导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）复合函数求导"><span class="toc-text">（2）复合函数求导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）隐函数求导"><span class="toc-text">（3）隐函数求导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（4）求导小结"><span class="toc-text">（4）求导小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-导数运算法则"><span class="toc-text">3 导数运算法则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-极限"><span class="toc-text">4 极限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-微分、积分基本定理"><span class="toc-text">5 微分、积分基本定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-面积与斜率的关系"><span class="toc-text">6 面积与斜率的关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-线性代数"><span class="toc-text">二 线性代数</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
@@ -329,8 +252,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#学习笔记"
-                           title="学习笔记">学习笔记</a>
+                        <a class="tag" href="/tags/#软件工程"
+                           title="软件工程">软件工程</a>
                         
                     </div>
                 </section>
