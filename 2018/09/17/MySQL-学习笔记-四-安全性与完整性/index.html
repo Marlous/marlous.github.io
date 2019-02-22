@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -203,7 +203,10 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="一-数据控制知识框架"><a href="#一-数据控制知识框架" class="headerlink" title="一 数据控制知识框架"></a>一 数据控制知识框架</h1><p><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图0.PNG" alt="数据控制知识框架"></p>
-<h1 id="二-安全性"><a href="#二-安全性" class="headerlink" title="二 安全性"></a>二 安全性</h1><h2 id="1-计算机安全性概述"><a href="#1-计算机安全性概述" class="headerlink" title="1 计算机安全性概述"></a>1 计算机安全性概述</h2><ol>
+<h1 id="二-安全性"><a href="#二-安全性" class="headerlink" title="二 安全性"></a>二 安全性</h1><ul>
+<li>目的：防止恶意破坏、非法的存取。</li>
+</ul>
+<h2 id="1-计算机安全性概述"><a href="#1-计算机安全性概述" class="headerlink" title="1 计算机安全性概述"></a>1 计算机安全性概述</h2><ol>
 <li>三类安全性问题：</li>
 </ol>
 <ul>
@@ -272,7 +275,44 @@
 <li>置换法：将明文按不同顺序重新排列。</li>
 </ul>
 <h2 id="6-统计数据库安全性"><a href="#6-统计数据库安全性" class="headerlink" title="6 统计数据库安全性"></a>6 统计数据库安全性</h2><p>统计数据库允许用户查询聚集类型的信息（如合计、平均值），但不允许查询单个记录信息。</p>
-<h1 id="三-完整性"><a href="#三-完整性" class="headerlink" title="三 完整性"></a>三 完整性</h1><h2 id="1-实体完整性"><a href="#1-实体完整性" class="headerlink" title="1 实体完整性"></a>1 实体完整性</h2><h2 id="2-参照完整性"><a href="#2-参照完整性" class="headerlink" title="2 参照完整性"></a>2 参照完整性</h2><h2 id="3-用户定义完整性"><a href="#3-用户定义完整性" class="headerlink" title="3 用户定义完整性"></a>3 用户定义完整性</h2><h3 id="（1）属性"><a href="#（1）属性" class="headerlink" title="（1）属性"></a>（1）属性</h3><h3 id="（2）元组"><a href="#（2）元组" class="headerlink" title="（2）元组"></a>（2）元组</h3><h2 id="4-完整性约束命名子句"><a href="#4-完整性约束命名子句" class="headerlink" title="4 完整性约束命名子句"></a>4 完整性约束命名子句</h2><h2 id="5-触发器"><a href="#5-触发器" class="headerlink" title="5 触发器"></a>5 触发器</h2>
+<h1 id="三-完整性"><a href="#三-完整性" class="headerlink" title="三 完整性"></a>三 完整性</h1><ul>
+<li>目的：防止数据库中存在不正确的数据。</li>
+<li>方法：提供定义完整性约束条件的机制；完整性检查的方法；违约处理。</li>
+</ul>
+<h2 id="1-实体完整性"><a href="#1-实体完整性" class="headerlink" title="1 实体完整性"></a>1 实体完整性</h2><ol>
+<li>实体完整性的定义：</li>
+</ol>
+<ul>
+<li>在创建表中用 PRIMARY KEY 定义。对于主码的约束。</li>
+<li>对于单属性构成的码，可定义为列级约束条件、表级约束条件。</li>
+<li>对于多个属性构成的码，定义为表级约束条件。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 定义为列级</span><br><span class="line">CREATE TABLE Student(</span><br><span class="line">	Sno CHAR(9) PRIMARY KEY,</span><br><span class="line">	Ssex CHAR(2)</span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">// 定义为表级</span><br><span class="line">CREATE TABLE Student(</span><br><span class="line">	Sno CHAR(9),</span><br><span class="line">	Ssex CHAR(2),</span><br><span class="line">	PRIMARY KEY (Sno,Ssex)</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>实体完整性的检查、违约处理：</li>
+</ol>
+<ul>
+<li>DBMS 会对操作进行检查，扫描全表或通过建立的索引检查。</li>
+</ul>
+<h2 id="2-参照完整性"><a href="#2-参照完整性" class="headerlink" title="2 参照完整性"></a>2 参照完整性</h2><ol>
+<li>参照完整性的定义：</li>
+</ol>
+<ul>
+<li>在创建表中用 FOREIGN KEY、REFERENCES 定义。对于外码的约束。</li>
+<li>一个参照完整性把两个表中相应的元素联系起来了。</li>
+<li>对于参照完整性。除了定义外码，还应该定义外码列是否允许为空值。当违反参照表、被参照表完整性，采用默认操作（拒绝）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Student(</span><br><span class="line">	Sno CHAR(9) PRIMARY KEY,</span><br><span class="line">	Con CHAR(5) NOT NULL,</span><br><span class="line">	Ssex CHAR(2),</span><br><span class="line">	FOREIGN KEY (Cno) REFERENCES Course(Cno)</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>参照完整性的检查、违约处理：</li>
+</ol>
+<ul>
+<li>拒绝：NO ACTION</li>
+<li>级联：CASCADE</li>
+<li>设置为空值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Student(</span><br><span class="line">	Sno CHAR(9) PRIMARY KEY,</span><br><span class="line">	Con CHAR(5) NOT NULL,</span><br><span class="line">	Cid CHAR(20),</span><br><span class="line">	Ssex CHAR(2),</span><br><span class="line">	FOREIGN KEY (Cno) REFERENCES Course(Cno)</span><br><span class="line">	ON DELETE CASCADE,     /* 删除 Course 表元组的时候，级联删除本表中对应的。 */</span><br><span class="line">	FOREIGN KEY (Cid) REFERENCES Course(Cid)</span><br><span class="line">	ON DELETE NO ACTION    /* 删除 Course 表元组的时候造成与本表中对应的元组不一致时，拒绝删除。 */</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
+<h2 id="3-用户定义完整性"><a href="#3-用户定义完整性" class="headerlink" title="3 用户定义完整性"></a>3 用户定义完整性</h2><h3 id="（1）属性"><a href="#（1）属性" class="headerlink" title="（1）属性"></a>（1）属性</h3><h3 id="（2）元组"><a href="#（2）元组" class="headerlink" title="（2）元组"></a>（2）元组</h3><h2 id="4-完整性约束命名子句"><a href="#4-完整性约束命名子句" class="headerlink" title="4 完整性约束命名子句"></a>4 完整性约束命名子句</h2><h2 id="5-触发器"><a href="#5-触发器" class="headerlink" title="5 触发器"></a>5 触发器</h2>
                 <hr>
                 
 
