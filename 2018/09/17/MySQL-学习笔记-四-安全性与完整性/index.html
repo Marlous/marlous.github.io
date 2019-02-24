@@ -79,6 +79,12 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -87,14 +93,8 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -312,7 +312,67 @@
 <li>设置为空值</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE Student(</span><br><span class="line">	Sno CHAR(9) PRIMARY KEY,</span><br><span class="line">	Con CHAR(5) NOT NULL,</span><br><span class="line">	Cid CHAR(20),</span><br><span class="line">	Ssex CHAR(2),</span><br><span class="line">	FOREIGN KEY (Cno) REFERENCES Course(Cno)</span><br><span class="line">	ON DELETE CASCADE,     /* 删除 Course 表元组的时候，级联删除本表中对应的。 */</span><br><span class="line">	FOREIGN KEY (Cid) REFERENCES Course(Cid)</span><br><span class="line">	ON DELETE NO ACTION    /* 删除 Course 表元组的时候造成与本表中对应的元组不一致时，拒绝删除。 */</span><br><span class="line">	);</span><br></pre></td></tr></table></figure>
-<h2 id="3-用户定义完整性"><a href="#3-用户定义完整性" class="headerlink" title="3 用户定义完整性"></a>3 用户定义完整性</h2><h3 id="（1）属性"><a href="#（1）属性" class="headerlink" title="（1）属性"></a>（1）属性</h3><h3 id="（2）元组"><a href="#（2）元组" class="headerlink" title="（2）元组"></a>（2）元组</h3><h2 id="4-完整性约束命名子句"><a href="#4-完整性约束命名子句" class="headerlink" title="4 完整性约束命名子句"></a>4 完整性约束命名子句</h2><h2 id="5-触发器"><a href="#5-触发器" class="headerlink" title="5 触发器"></a>5 触发器</h2>
+<h2 id="3-用户定义完整性"><a href="#3-用户定义完整性" class="headerlink" title="3 用户定义完整性"></a>3 用户定义完整性</h2><h3 id="（1）属性"><a href="#（1）属性" class="headerlink" title="（1）属性"></a>（1）属性</h3><ol>
+<li>属性上的约束条件定义：</li>
+</ol>
+<ul>
+<li>在创建表中定义。</li>
+<li>不允许取空值：NOT NULL</li>
+<li>列值唯一：UNIQUE</li>
+<li>检查列是否是满足一个布尔表达式：CHECK<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">Ssex CHAR(2) CHECK (Ssex IN (&apos;男&apos;，&apos;女&apos;))</span><br><span class="line">Grade SMALLINT CHECK (Grade &gt;= 0 AND Grade &lt;= 100)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>属性上的约束条件检查、违约处理：<br>插入元组、修改属性值时，DBMS 会检查约束条件是否被满足。</li>
+</ol>
+<h3 id="（2）元组"><a href="#（2）元组" class="headerlink" title="（2）元组"></a>（2）元组</h3><ol>
+<li>元组上的约束条件定义：</li>
+</ol>
+<ul>
+<li>与属性上约束类似。元组级的限制可以设置不同属性间的取值的相互约束条件。</li>
+<li>在创建表中：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">CHECK (Ssex=&apos;女&apos; OR Sname NOT LIKE &apos;Ms.%&apos;)</span><br><span class="line">/* 定义了元组中两个属性间的约束条件。性别为女同通过，性别为男时，名字不能以 MS. 开头。 */</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>元组上的约束条件检查、违约处理：<br>插入元组、修改属性值时，DBMS 会检查约束条件是否被满足。</li>
+</ol>
+<h2 id="4-完整性约束命名子句"><a href="#4-完整性约束命名子句" class="headerlink" title="4 完整性约束命名子句"></a>4 完整性约束命名子句</h2><ol>
+<li>完整性约束命名子句的定义：</li>
+</ol>
+<ul>
+<li>在创建表时，用 CONSTRAINT 语句灵活的增加、删除一个完整性约束条件。</li>
+<li>定义方法（表级、列级）：<code>CONSTRAINT &lt;完整性约束条件名&gt; [PRIMARY KEY 短语 | FOREIGN KEY 短语 | CHECK 短语]</code></li>
+</ul>
+<ol start="2">
+<li>修改表中的完整性限制：<br>删除原来的、添加新的约束条件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE Student</span><br><span class="line">  DROP CONSTRAINT C1;</span><br><span class="line"></span><br><span class="line">ALTER TABLE Student</span><br><span class="line">  ADD CONSTRAINT C1 CHECK (Sno BETWEEN 1000 AND 9999);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="5-触发器"><a href="#5-触发器" class="headerlink" title="5 触发器"></a>5 触发器</h2><ol>
+<li>定义触发器：</li>
+</ol>
+<ul>
+<li>表的拥有者可创建一定数量的触发器。</li>
+<li>触发器名：同一模式下，触发器名必须是唯一的。</li>
+<li>触发事件：触发事件可以是某个事件 UPDATE、INSERT、DELETE；几个事件的组合 INSERT OR DELETE 等。UPDATE OF &lt;触发列,…&gt; 表示指明修改哪些列时触发器激活。</li>
+<li>触发器类型：触发动作的间隔尺寸，行级（每行执行一次）、语句级（多行动作后只执行一次）。</li>
+<li>触发条件：当条件为真才触发，省略 WHEN 则在触发器激活后立即执行触发动作体。</li>
+<li>触发动作体：一个 PL/SQL 过程块，或已存储过程的调用。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER &lt;触发器名&gt;</span><br><span class="line">  &#123;BEFORE | AFTER&#125; &lt;触发事件&gt; ON &lt;表名&gt;</span><br><span class="line">  FOR EACH &#123;ROW | STATEMENT&#125;</span><br><span class="line">  [WHEN &lt;触发条件&gt;]</span><br><span class="line">  &lt;触发动作体&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/09/17/MySQL-学习笔记-四-安全性与完整性/图8.PNG" alt="触发器"></p>
+<ol start="2">
+<li>激活触发器：<br>同一个表多个触发器执行顺序：</li>
+</ol>
+<ul>
+<li>执行该表上的 BEFORE 触发器（一般按时间、名称顺序等）。</li>
+<li>激活触发器 SQL 语句。</li>
+<li>执行该表上的 AFTER 触发器（一般按时间、名称顺序等）。</li>
+</ul>
+<ol start="3">
+<li>删除触发器：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TRIGGER &lt;触发器名&gt; ON &lt;表名&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
                 <hr>
                 
 
