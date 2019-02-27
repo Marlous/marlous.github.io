@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        《数据库系统概论》学习笔记 八：关系数据库理论、设计｜Mo&#39;s blog
+        《数据库系统概论》学习笔记 八：关系数据理论、数据库设计｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/02/24/《数据库系统概论》学习笔记 八：关系数据库理论、设计/">
+    <link rel="canonical" href="https://marlous.github.io/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>《数据库系统概论》学习笔记 八：关系数据库理论、设计</h1>
+                    <h1>《数据库系统概论》学习笔记 八：关系数据理论、数据库设计</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            《数据库系统概论》学习笔记 八：关系数据库理论、设计
+            《数据库系统概论》学习笔记 八：关系数据理论、数据库设计
         </span>
     </div>
 </header>
@@ -202,11 +202,59 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-关系数据库理论"><a href="#一-关系数据库理论" class="headerlink" title="一 关系数据库理论"></a>一 关系数据库理论</h1><blockquote>
+                <h1 id="一-关系数据理论"><a href="#一-关系数据理论" class="headerlink" title="一 关系数据理论"></a>一 关系数据理论</h1><blockquote>
 <p>参考：<br>1、 <a href="https://www.zhihu.com/question/24696366/answer/29189700" target="_blank" rel="noopener">知乎：如何解释关系数据库的第一第二第三范式？</a></p>
 </blockquote>
-<p>1NF： 字段是最小的的单元不可再分<br>2NF：满足1NF,表中的字段必须完全依赖于全部主键而非部分主键 (一般我们都会做到)<br>3NF：满足2NF,非主键外的所有字段必须互不依赖<br>4NF：满足3NF,消除表中的多值依赖</p>
-<h1 id="二-数据库设计"><a href="#二-数据库设计" class="headerlink" title="二 数据库设计"></a>二 数据库设计</h1>
+<h2 id="1-关系数据理论基础"><a href="#1-关系数据理论基础" class="headerlink" title="1 关系数据理论基础"></a>1 关系数据理论基础</h2><ol>
+<li>关系模式会存在的问题：<br>一个好的关系模式应该避免以下问题（模式中的某些数据依赖是引起异常的原因，做法是对一个关系模式分解为多个关系模式，消除数据依赖）。</li>
+</ol>
+<ul>
+<li>数据冗余太大。</li>
+<li>更新异常。</li>
+<li>插入异常。</li>
+<li>删除异常。</li>
+</ul>
+<ol start="2">
+<li>数据依赖概念：</li>
+</ol>
+<ul>
+<li><p>数据依赖：<br>数据依赖是完整性约束的一种表现形式；是现实世界属性间相互联系的抽象；通过属性值是否相等来体现数据间的相互关系。/ 某个数据确定（唯一确定）另一个数据。</p>
+</li>
+<li><p>函数依赖：<br>某一组数据确定（唯一确定）另一组数据。<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图1.PNG" alt="数据依赖概念"></p>
+</li>
+</ul>
+<ol start="3">
+<li>关系模式的形式化定义：<br>R（U，D，DOM，F）</li>
+</ol>
+<ul>
+<li>R：关系名。</li>
+<li>U：该关系的属性集合。</li>
+<li>D：属性组 U 中属性所来自的域。</li>
+<li>DOM：属性向域的映像集合。</li>
+<li>F：属性间数据的依赖关系集合。</li>
+</ul>
+<ol start="4">
+<li>关系模式的简化定义：<br>R&lt;U，F&gt;</li>
+</ol>
+<ul>
+<li>影响数据库模式设计的主要是 U、F。</li>
+<li>当且仅当 U 上的一个关系 r 满足 F 时，r 称为关系模式 R&lt;U，F&gt; 的一个关系。</li>
+</ul>
+<h2 id="2-函数依赖与范式"><a href="#2-函数依赖与范式" class="headerlink" title="2 函数依赖与范式"></a>2 函数依赖与范式</h2><ol>
+<li>函数依赖：</li>
+</ol>
+<ol start="2">
+<li>范式：</li>
+</ol>
+<ul>
+<li>1NF： 字段是最小的的单元不可再分。</li>
+<li>2NF：满足 1NF，表中的字段必须完全依赖于全部主键而非部分主键 (一般我们都会做到)。</li>
+<li>3NF：满足 2NF，非主键外的所有字段必须互不依赖。</li>
+<li>BCNF:</li>
+<li>多值依赖：</li>
+<li>4NF：满足 3NF，消除表中的多值依赖。</li>
+</ul>
+<h2 id="3-数据依赖的公理系统（研究生阶段）"><a href="#3-数据依赖的公理系统（研究生阶段）" class="headerlink" title="3 数据依赖的公理系统（研究生阶段）"></a>3 数据依赖的公理系统（研究生阶段）</h2><h2 id="4-模式分解（研究生阶段）"><a href="#4-模式分解（研究生阶段）" class="headerlink" title="4 模式分解（研究生阶段）"></a>4 模式分解（研究生阶段）</h2><h1 id="二-数据库设计"><a href="#二-数据库设计" class="headerlink" title="二 数据库设计"></a>二 数据库设计</h1>
                 <hr>
                 
 
@@ -236,7 +284,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关系数据库理论"><span class="toc-text">一 关系数据库理论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据库设计"><span class="toc-text">二 数据库设计</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关系数据理论"><span class="toc-text">一 关系数据理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-关系数据理论基础"><span class="toc-text">1 关系数据理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数依赖与范式"><span class="toc-text">2 函数依赖与范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据依赖的公理系统（研究生阶段）"><span class="toc-text">3 数据依赖的公理系统（研究生阶段）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-模式分解（研究生阶段）"><span class="toc-text">4 模式分解（研究生阶段）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据库设计"><span class="toc-text">二 数据库设计</span></a></li></ol>
                 </div>
             </div>
         </div>
