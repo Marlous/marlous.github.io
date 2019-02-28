@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -551,19 +551,20 @@
 <li>IEEE 802.11：</li>
 </ol>
 <ul>
-<li><p>概念：</p>
+<li><p>概念：<br>MAC 采用 CSMA/CD 协议进行介质访问控制。/ 先监听信道，空闲发送，否则用截断二进制指数退避算法推迟（信道为空且为第一个帧时不用此算法）；收到 ACK 说明成功，否则重发。/ 注：发生碰撞也把整个帧发完，有线局域网中发生冲突立即停止发送数据。</p>
 </li>
-<li><p>有固定设施：</p>
+<li><p>有固定设施：<br>802.11 规定无线局域网最小构件为基本服务集（一个基站 AP，若干个移动站点）。<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图25.PNG" alt="有固定设施"></p>
 </li>
-<li><p>无固定设施：</p>
+<li><p>无固定设施（无线局域网自组织网络）：<br>自组织网络没有基本服务集中 AP。各点间地位平等，中间信点都为转发结点。</p>
 </li>
 </ul>
 <ol start="5">
-<li>令牌环：</li>
+<li>令牌环：<br>逻辑上为环形拓扑结构，物理上为星形拓扑结构。参见上面的 “令牌环协议”。</li>
 </ol>
 <h2 id="7-广域网"><a href="#7-广域网" class="headerlink" title="7 广域网"></a>7 广域网</h2><ol>
-<li><p>基本概念：</p>
-</li>
+<li>基本概念：</li>
+</ol>
+<ol start="2">
 <li><p>PPP 协议：</p>
 </li>
 <li><p>HDLC 协议：</p>
@@ -575,6 +576,12 @@
 <li><p>局域网交换机：</p>
 </li>
 </ol>
+<h2 id="9-疑难点小结"><a href="#9-疑难点小结" class="headerlink" title="9 疑难点小结"></a>9 疑难点小结</h2><ul>
+<li>以太网采用无连接工作方式，不对帧编号。不可靠、尽最大努力交付。</li>
+<li>局域网工作于一、二层；广域网工作于下三层。</li>
+<li>放大器加强宽带信号（传输模拟信号）；中继器加强基带信号（传输数字信号），大多数以太网采用基带传输。</li>
+<li>物理层：信号编码、译码、比特的接收和传输。/ MAC 子层：组帧、拆帧、比特差错检测、寻址、竞争处理。/ LLC 子层：建立释放数据链路层逻辑连接，提供与高层的接口、差错控制、给帧加序号。</li>
+</ul>
 <h1 id="四-网络层"><a href="#四-网络层" class="headerlink" title="四 网络层"></a>四 网络层</h1><h1 id="五-传输层"><a href="#五-传输层" class="headerlink" title="五 传输层"></a>五 传输层</h1><h1 id="六-应用层"><a href="#六-应用层" class="headerlink" title="六 应用层"></a>六 应用层</h1>
                 <hr>
                 
@@ -605,7 +612,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-计算机网络体系结构"><span class="toc-text">一 计算机网络体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-计算机网络概念"><span class="toc-text">1 计算机网络概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-计算机网络体系结构与参考模型"><span class="toc-text">2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-物理层"><span class="toc-text">二 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-通信基础"><span class="toc-text">1 通信基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-传输介质"><span class="toc-text">2 传输介质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-物理层设备"><span class="toc-text">3 物理层设备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-补充：宽带接入技术与认证方式"><span class="toc-text">4 补充：宽带接入技术与认证方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据链路层"><span class="toc-text">三 数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据链路层的功能"><span class="toc-text">1 数据链路层的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-组帧"><span class="toc-text">2 组帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-差错控制"><span class="toc-text">3 差错控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-流量控制与可靠传输机制"><span class="toc-text">4 流量控制与可靠传输机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-介质访问控制"><span class="toc-text">5 介质访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-局域网"><span class="toc-text">6 局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-广域网"><span class="toc-text">7 广域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-数据链路层设备"><span class="toc-text">8 数据链路层设备</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-网络层"><span class="toc-text">四 网络层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-传输层"><span class="toc-text">五 传输层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-应用层"><span class="toc-text">六 应用层</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-计算机网络体系结构"><span class="toc-text">一 计算机网络体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-计算机网络概念"><span class="toc-text">1 计算机网络概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-计算机网络体系结构与参考模型"><span class="toc-text">2 计算机网络体系结构与参考模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-物理层"><span class="toc-text">二 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-通信基础"><span class="toc-text">1 通信基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-传输介质"><span class="toc-text">2 传输介质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-物理层设备"><span class="toc-text">3 物理层设备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-补充：宽带接入技术与认证方式"><span class="toc-text">4 补充：宽带接入技术与认证方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-数据链路层"><span class="toc-text">三 数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据链路层的功能"><span class="toc-text">1 数据链路层的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-组帧"><span class="toc-text">2 组帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-差错控制"><span class="toc-text">3 差错控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-流量控制与可靠传输机制"><span class="toc-text">4 流量控制与可靠传输机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-介质访问控制"><span class="toc-text">5 介质访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-局域网"><span class="toc-text">6 局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-广域网"><span class="toc-text">7 广域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-数据链路层设备"><span class="toc-text">8 数据链路层设备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-疑难点小结"><span class="toc-text">9 疑难点小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-网络层"><span class="toc-text">四 网络层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-传输层"><span class="toc-text">五 传输层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-应用层"><span class="toc-text">六 应用层</span></a></li></ol>
                 </div>
             </div>
         </div>

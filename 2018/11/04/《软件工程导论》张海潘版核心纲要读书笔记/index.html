@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -258,6 +258,36 @@
 <li>日志分析：Logstash、CollectD、StatsD 等。</li>
 <li>线上监控：Nagios、Ganglia、Sensu、zabbix、ICINGA、Graphite、Kibana 等。</li>
 </ul>
+<h2 id="2-软件工程文档"><a href="#2-软件工程文档" class="headerlink" title="2 软件工程文档"></a>2 软件工程文档</h2><ol>
+<li>需要文档的几个方面：</li>
+</ol>
+<ul>
+<li>立项文档</li>
+<li>需求分析文档</li>
+<li>概要设计和架构设计</li>
+<li>详细设计</li>
+<li>源代码</li>
+<li>配置文档</li>
+<li>单元测试文档</li>
+<li>集成测试文档</li>
+<li>验收文档</li>
+<li>维护文档</li>
+<li>用户操作手册</li>
+<li>项目管理文档</li>
+</ul>
+<ol start="2">
+<li>具体文档：</li>
+</ol>
+<ul>
+<li><p>项目管理文档：<br>《软件项目计划》、《项目进度报告》、《项目开发总结报告》</p>
+</li>
+<li><p>管理控制文档：<br>《配置文档》、《维护文档》</p>
+</li>
+<li><p>软件开发文档：<br>《需求规格说明》、《概要设计说明》、《详细设计说明》、《软件源码文档》、《测试计划》、《软件测试分析报告》</p>
+</li>
+<li><p>产品文档：<br>《用户操作手册》、《演示文件》</p>
+</li>
+</ul>
 <h1 id="一-软件工程学概述"><a href="#一-软件工程学概述" class="headerlink" title="一 软件工程学概述"></a>一 软件工程学概述</h1><ol>
 <li>软件工程方法学：</li>
 </ol>
@@ -332,6 +362,48 @@
 <li>货币时间价值：P 为现在价值、F 为未来价值、i 为年利率、n 为年数，F=P(1+i)^n，同理 P=F/((1+i)^n)。</li>
 <li>投资回报率：P 为现在投资额、Fi 为第 i 年底的效益（i=1、2、…）、n 为系统使用寿命、j 为投资回报率。P=Fi/((1+j)^n) ，i 从 1 到 n，累加。</li>
 </ul>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ol>
+<li>项目计划：<br>它是软件开发工作的第一步。 项目计划的目标是为项目负责人提供一个框架，使之能合理地估算软件项目开发所需的资源 、经费和开发进度，并控制软件项目开发过程按此计划进行。 在做计划时，必须就需要的人力、项目持续时间及成本作出估算。这种估算大多是参考 以前的花费作出的。软件项目计划包括二个任务：研究和估算。即通过研究确定该软件 项目的主要功能、性能和系统界面。</li>
+</ol>
+<ul>
+<li>范围：项目目标、主要功能、性能限制、系统接口、特殊要求、开发概述。</li>
+<li>资源：人员资源、硬件资源、软件资源、其他。</li>
+<li>进度安排：工程网络图、Gantt 图、任务资源表、成本估算、培训计划。</li>
+</ul>
+<ol start="2">
+<li><p>流程规范：<br>软件工程方法（怎样做）。</p>
+</li>
+<li><p>风险管理：</p>
+</li>
+</ol>
+<ul>
+<li>风险识别：头脑风暴法、面谈、Delphi 法、核对表、SWOT 技术。</li>
+<li>风险量化：风险因子计算、PERT 估计、决策树分析、风险模拟。</li>
+<li>风险应对计划制定：回避、转移、缓和、接受。</li>
+<li>风险监控：核对表、定期项目评估、挣值分析。</li>
+</ul>
+<ol start="4">
+<li>配置管理：<br>软件配置管理，贯穿于整个软件生命周期，它为软件研发提供了一套管理办法和活动原则。软件配置管理无论是对于软件企业管理人员还是研发人员都有着重要的意义。/ 关键活动包括：配置项、工作空间管理、版本控制、变更控制、状态报告、配置审计等。/ 软件配置管理可以提炼为三个方面的内容：</li>
+</ol>
+<ul>
+<li>VersionControl 版本控制</li>
+<li>ChangeControl 变更控制</li>
+<li>ProcessSupport 过程支持</li>
+</ul>
+<ol start="5">
+<li>配置管理的目的：</li>
+</ol>
+<ul>
+<li>配置识别：识别配置、配置项目和基准。</li>
+<li>配置控管：导入变更控管流程。该流程通常由变更控制委员会来运行，其主要的职责是核准或拒绝有悖任何基准的所有变更请求。</li>
+<li>配置状态报告：记录和呈报与开发过程状态相关的所有必要信息。</li>
+<li>配置审核：确保这些配置包含所有预期内容，且备有完整的规定文件（包括要求、结构规范和用户手册）。</li>
+<li>建构管理：管理用于建构的流程和工具。</li>
+<li>流程管理：确保遵循企业组织的开发流程。</li>
+<li>环境管理：管理承载系统的软硬件。</li>
+<li>团队合作：促进流程中团队彼此间的交互。</li>
+<li>缺陷追踪：确保可溯及每个缺陷的源头。</li>
+</ul>
 <h1 id="三-需求分析"><a href="#三-需求分析" class="headerlink" title="三 需求分析"></a>三 需求分析</h1><ol>
 <li>概念：</li>
 </ol>
@@ -379,6 +451,12 @@
 <li><p>数据字典的作用：<br>数据字典描述在数据模型、功能模型、行为模型中出现的数据对象、控制信息的特性，给出它们的准确定义。数据字典成为把 3 种分析模型粘合在一起的 “粘合剂”。</p>
 </li>
 </ul>
+<h2 id="补充-1"><a href="#补充-1" class="headerlink" title="补充"></a>补充</h2><ol>
+<li><p>需求分析：<br>见上。</p>
+</li>
+<li><p>变更管理：</p>
+</li>
+</ol>
 <h1 id="四-形式化说明技术（略）"><a href="#四-形式化说明技术（略）" class="headerlink" title="四 形式化说明技术（略）"></a>四 形式化说明技术（略）</h1><p><img src="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/图5-0.PNG" alt="形式化说明技术（略）"></p>
 <h1 id="五-总体设计（系统设计）"><a href="#五-总体设计（系统设计）" class="headerlink" title="五 总体设计（系统设计）"></a>五 总体设计（系统设计）</h1><ol>
 <li><p>设计原理：<br>模块化、模块独立、抽象、逐步求精、信息隐藏、局部化。</p>
@@ -529,7 +607,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件工程"><span class="toc-text">软件工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-工具"><span class="toc-text">1 工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件工程学概述"><span class="toc-text">一 软件工程学概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-可行性研究"><span class="toc-text">二 可行性研究</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析"><span class="toc-text">三 需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-形式化说明技术（略）"><span class="toc-text">四 形式化说明技术（略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总体设计（系统设计）"><span class="toc-text">五 总体设计（系统设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-详细设计（模块设计）"><span class="toc-text">六 详细设计（模块设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-实现（编码、单元测试、综合测试）"><span class="toc-text">七 实现（编码、单元测试、综合测试）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-维护"><span class="toc-text">八 维护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、十-面向对象方法学引论与面向对象分析"><span class="toc-text">九、十 面向对象方法学引论与面向对象分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-面向对象设计"><span class="toc-text">十一 面向对象设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二（第十二章略）"><span class="toc-text">十二（第十二章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三-软件项目管理"><span class="toc-text">十三 软件项目管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十四-总结（知识框架）"><span class="toc-text">十四 总结（知识框架）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件工程"><span class="toc-text">软件工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-工具"><span class="toc-text">1 工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-软件工程文档"><span class="toc-text">2 软件工程文档</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件工程学概述"><span class="toc-text">一 软件工程学概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-可行性研究"><span class="toc-text">二 可行性研究</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-text">补充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析"><span class="toc-text">三 需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#补充-1"><span class="toc-text">补充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-形式化说明技术（略）"><span class="toc-text">四 形式化说明技术（略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总体设计（系统设计）"><span class="toc-text">五 总体设计（系统设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-详细设计（模块设计）"><span class="toc-text">六 详细设计（模块设计）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-实现（编码、单元测试、综合测试）"><span class="toc-text">七 实现（编码、单元测试、综合测试）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八-维护"><span class="toc-text">八 维护</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、十-面向对象方法学引论与面向对象分析"><span class="toc-text">九、十 面向对象方法学引论与面向对象分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-面向对象设计"><span class="toc-text">十一 面向对象设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二（第十二章略）"><span class="toc-text">十二（第十二章略）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三-软件项目管理"><span class="toc-text">十三 软件项目管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十四-总结（知识框架）"><span class="toc-text">十四 总结（知识框架）</span></a></li></ol>
                 </div>
             </div>
         </div>
