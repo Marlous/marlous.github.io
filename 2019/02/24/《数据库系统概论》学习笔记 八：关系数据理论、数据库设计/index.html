@@ -240,10 +240,7 @@
 <li>影响数据库模式设计的主要是 U、F。</li>
 <li>当且仅当 U 上的一个关系 r 满足 F 时，r 称为关系模式 R&lt;U，F&gt; 的一个关系。</li>
 </ul>
-<h2 id="2-函数依赖与范式"><a href="#2-函数依赖与范式" class="headerlink" title="2 函数依赖与范式"></a>2 函数依赖与范式</h2><ol>
-<li>函数依赖：</li>
-</ol>
-<ul>
+<h2 id="2-函数依赖与范式"><a href="#2-函数依赖与范式" class="headerlink" title="2 函数依赖与范式"></a>2 函数依赖与范式</h2><h3 id="（1）函数依赖"><a href="#（1）函数依赖" class="headerlink" title="（1）函数依赖"></a>（1）函数依赖</h3><ul>
 <li><p>函数依赖概念：<br>属性 X，属性 Y。/ X 函数确定 Y，或 Y 函数依赖于 X。X 称为这个函数依赖的决定属性组。<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图2.PNG" alt="函数依赖概念"></p>
 </li>
 <li><p>平凡函数依赖、非平凡函数依赖：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图3.PNG" alt="平凡函数依赖、非平凡函数依赖"></p>
@@ -253,25 +250,35 @@
 <li><p>传递函数依赖：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图5.PNG" alt="传递函数依赖"></p>
 </li>
 </ul>
-<ol start="2">
-<li>码：<br>用函数依赖定义码。</li>
-</ol>
+<h3 id="（2）码"><a href="#（2）码" class="headerlink" title="（2）码"></a>（2）码</h3><p>用函数依赖定义码。</p>
 <ul>
 <li>码、超码、候选码、主码：<img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图6.PNG" alt="码 1"></li>
 <li>主属性、非主属性：<img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图7.PNG" alt="码 2"></li>
 <li>外码：<img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图8.PNG" alt="码 3"></li>
 </ul>
-<ol start="3">
-<li>范式：</li>
+<h3 id="（3）范式"><a href="#（3）范式" class="headerlink" title="（3）范式"></a>（3）范式</h3><ol>
+<li><p>概念：<br>符合某一级别的关系模式的集合。</p>
+</li>
+<li><p>详解：</p>
+</li>
 </ol>
 <ul>
-<li>1NF： 字段是最小的的单元不可再分。</li>
-<li>2NF：满足 1NF，表中的字段必须完全依赖于全部主键而非部分主键 (一般我们都会做到)。</li>
-<li>3NF：满足 2NF，非主键外的所有字段必须互不依赖。</li>
-<li>BCNF:</li>
-<li>多值依赖：</li>
-<li>4NF：满足 3NF，消除表中的多值依赖。</li>
+<li><p>1 NF：<br>一个关系模式 R 中，所有属性都是不可分的基本数据项。</p>
+</li>
+<li><p>2 NF：<br>满足 1 NF，每个非主属性完全依赖于 R 的码。/ 采用投影分解法，将部分依赖的码拆开，分解为两个模式：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图9.PNG" alt="2 NF"><br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图10.PNG" alt="2 NF"></p>
+</li>
+<li><p>3 NF：<br>满足 2 NF；R 中的每个非主属性既不部分函数依赖于候选码，也不传递依赖于候选码。/ 采用投影分解法，将一个 2 NF 关系分解为多个 3 NF 的关系。</p>
+</li>
+<li><p>BCNF：<br>没有任何属性（上面三个范式是消除非主属性对码的…）对码的部分函数依赖、传递函数依赖。是修正的 3 NF，在函数依赖范畴里，BCNF 达到了最高的规范化程度。/ 采用投影分解法：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图11.PNG" alt="BCNF"><br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图12.PNG" alt="BCNF"></p>
+</li>
+<li><p>4 NF：<br>满足 3 NF，消除非平凡且函数依赖的多值依赖。。</p>
+</li>
+<li><p>5 NF：<br>略。</p>
+</li>
 </ul>
+<ol start="3">
+<li>小结：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图13.PNG" alt="小结"></li>
+</ol>
 <h2 id="3-数据依赖的公理系统（研究生阶段）"><a href="#3-数据依赖的公理系统（研究生阶段）" class="headerlink" title="3 数据依赖的公理系统（研究生阶段）"></a>3 数据依赖的公理系统（研究生阶段）</h2><h2 id="4-模式分解（研究生阶段）"><a href="#4-模式分解（研究生阶段）" class="headerlink" title="4 模式分解（研究生阶段）"></a>4 模式分解（研究生阶段）</h2><h1 id="二-数据库设计"><a href="#二-数据库设计" class="headerlink" title="二 数据库设计"></a>二 数据库设计</h1>
                 <hr>
                 
@@ -302,7 +309,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关系数据理论"><span class="toc-text">一 关系数据理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-关系数据理论基础"><span class="toc-text">1 关系数据理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数依赖与范式"><span class="toc-text">2 函数依赖与范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据依赖的公理系统（研究生阶段）"><span class="toc-text">3 数据依赖的公理系统（研究生阶段）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-模式分解（研究生阶段）"><span class="toc-text">4 模式分解（研究生阶段）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据库设计"><span class="toc-text">二 数据库设计</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关系数据理论"><span class="toc-text">一 关系数据理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-关系数据理论基础"><span class="toc-text">1 关系数据理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数依赖与范式"><span class="toc-text">2 函数依赖与范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）函数依赖"><span class="toc-text">（1）函数依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）码"><span class="toc-text">（2）码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）范式"><span class="toc-text">（3）范式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据依赖的公理系统（研究生阶段）"><span class="toc-text">3 数据依赖的公理系统（研究生阶段）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-模式分解（研究生阶段）"><span class="toc-text">4 模式分解（研究生阶段）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据库设计"><span class="toc-text">二 数据库设计</span></a></li></ol>
                 </div>
             </div>
         </div>
