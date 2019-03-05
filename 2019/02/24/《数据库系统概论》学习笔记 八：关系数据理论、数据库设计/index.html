@@ -295,7 +295,68 @@
 <li><p>模式分解算法：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图20.PNG" alt="模式分解算法"></p>
 </li>
 </ol>
-<h1 id="二-数据库设计"><a href="#二-数据库设计" class="headerlink" title="二 数据库设计"></a>二 数据库设计</h1>
+<h1 id="二-数据库设计"><a href="#二-数据库设计" class="headerlink" title="二 数据库设计"></a>二 数据库设计</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><ol>
+<li><p>数据库设计的步骤：<br>需求分析 -&gt; 概念结构设计 -&gt; 逻辑结构设计 -&gt; 物理结构设计 -&gt; 数据库实施 -&gt; 数据库运行和维护</p>
+</li>
+<li><p>数据库设计的具体步骤：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图21.PNG" alt="数据库设计的步骤"></p>
+</li>
+<li><p>数据库设计各阶段的描述：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图22.PNG" alt="数据库设计各阶段的描述"></p>
+</li>
+<li><p>数据库的各级模式：<br><img src="/2019/02/24/《数据库系统概论》学习笔记 八：关系数据理论、数据库设计/图23.PNG" alt="数据库的各级模式"></p>
+</li>
+</ol>
+<h2 id="2-需求分析"><a href="#2-需求分析" class="headerlink" title="2 需求分析"></a>2 需求分析</h2><ol>
+<li><p>用户对数据库的要求：<br>信息要求、处理要求、安全性与完整性要求。</p>
+</li>
+<li><p>数据字典：</p>
+</li>
+</ol>
+<ul>
+<li><p>概念：<br>数据字典是系统中各类数据描述的集合，是进行详细的数据收集和数据分析所获得的主要成果。</p>
+</li>
+<li><p>组成：<br>数据项：不可再分的数据单位。/ 数据结构：数据间的关系。/ 数据流：数据结构在系统内传输的路径。/ 数据存储：数据结构停留或保存的地方。/ 处理过程：具体处理逻辑一般用判定表、判定树来描述。</p>
+</li>
+</ul>
+<h2 id="3-概念结构设计"><a href="#3-概念结构设计" class="headerlink" title="3 概念结构设计"></a>3 概念结构设计</h2><ol>
+<li>概念结构设计的四种方法：</li>
+</ol>
+<ul>
+<li>自顶向下：从全局到局部，逐步细化。</li>
+<li>自底向上：从局部到全部，集成起来。</li>
+<li>逐步扩张：由最核心的概念向外扩展。</li>
+<li>混合策略：先自顶向下，后自底向上。</li>
+</ul>
+<ol start="2">
+<li>数据抽象：</li>
+</ol>
+<ul>
+<li>分类：定义某一类概念。</li>
+<li>聚集：定义某一类型的组成成分。</li>
+<li>概括：定义类型间的子类型关系（继承性）。</li>
+</ul>
+<ol start="3">
+<li>局部视图设计：<br>从多层次（模块）的数据流中选择一个层次，设计 E-R 图；然后再将各个 E-R 图集成；最后进行优化。</li>
+</ol>
+<h2 id="4-逻辑结构设计"><a href="#4-逻辑结构设计" class="headerlink" title="4 逻辑结构设计"></a>4 逻辑结构设计</h2><ul>
+<li>将 E-R 图向关系模型转换</li>
+<li>数据模型优化</li>
+<li>设计用户子模式</li>
+</ul>
+<h2 id="5-物理结构设计"><a href="#5-物理结构设计" class="headerlink" title="5 物理结构设计"></a>5 物理结构设计</h2><p>三种常用存取方法：</p>
+<ul>
+<li>索引：建立索引。</li>
+<li>聚簇：相同值的元组集中存放在连续的物理块上（聚簇）。</li>
+<li>HASH（散列）：HASH 方式存储。</li>
+</ul>
+<h2 id="6-数据库实施"><a href="#6-数据库实施" class="headerlink" title="6 数据库实施"></a>6 数据库实施</h2><ul>
+<li>数据载入</li>
+<li>应用程序调试</li>
+</ul>
+<h2 id="7-数据库运行和维护"><a href="#7-数据库运行和维护" class="headerlink" title="7 数据库运行和维护"></a>7 数据库运行和维护</h2><ul>
+<li>实际运行应用程序，测试对数据库的各种操作。</li>
+<li>对数据库的转储和恢复、数据库安全性与完整性、性能监督分析和改造、重组织与重构。</li>
+</ul>
+
                 <hr>
                 
 
@@ -325,7 +386,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关系数据理论"><span class="toc-text">一 关系数据理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-关系数据理论基础"><span class="toc-text">1 关系数据理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数依赖与范式"><span class="toc-text">2 函数依赖与范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）函数依赖"><span class="toc-text">（1）函数依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）码"><span class="toc-text">（2）码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）范式"><span class="toc-text">（3）范式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据依赖的公理系统（研究生阶段）"><span class="toc-text">3 数据依赖的公理系统（研究生阶段）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-模式分解（研究生阶段）"><span class="toc-text">4 模式分解（研究生阶段）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据库设计"><span class="toc-text">二 数据库设计</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关系数据理论"><span class="toc-text">一 关系数据理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-关系数据理论基础"><span class="toc-text">1 关系数据理论基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数依赖与范式"><span class="toc-text">2 函数依赖与范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）函数依赖"><span class="toc-text">（1）函数依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）码"><span class="toc-text">（2）码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）范式"><span class="toc-text">（3）范式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据依赖的公理系统（研究生阶段）"><span class="toc-text">3 数据依赖的公理系统（研究生阶段）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-模式分解（研究生阶段）"><span class="toc-text">4 模式分解（研究生阶段）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据库设计"><span class="toc-text">二 数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-text">1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-需求分析"><span class="toc-text">2 需求分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-概念结构设计"><span class="toc-text">3 概念结构设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-逻辑结构设计"><span class="toc-text">4 逻辑结构设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-物理结构设计"><span class="toc-text">5 物理结构设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-数据库实施"><span class="toc-text">6 数据库实施</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-数据库运行和维护"><span class="toc-text">7 数据库运行和维护</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

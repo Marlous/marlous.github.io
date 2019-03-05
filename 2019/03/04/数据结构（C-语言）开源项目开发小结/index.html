@@ -207,13 +207,19 @@
 </blockquote>
 <h1 id="一-软件演示"><a href="#一-软件演示" class="headerlink" title="一 软件演示"></a>一 软件演示</h1><p><img src="/2019/03/04/数据结构（C-语言）开源项目开发小结/图0.gif" alt="软件演示"></p>
 <h1 id="二-若干问题"><a href="#二-若干问题" class="headerlink" title="二 若干问题"></a>二 若干问题</h1><ul>
+<li><p>为了简化代码，突出数据结构知识重点，项目中的如顺序表的初始大小等都是用宏定义的，没有让用户从键盘输入。</p>
+</li>
 <li><p>国内数据结构教材 《数据结构》、《数据结构算法解析》 中，代码里 <code>&amp;</code> 符号的问题，教材中是 C++ 的用法，并非纯 C 语言，我自己的项目用的是纯 C 语言，所以代码在此问题上会有所不同。参考博文：<a href="https://blog.csdn.net/yxpandjay/article/details/82217779" target="_blank" rel="noopener">C++ 中的&amp;：“&amp;引用” 和“&amp;取地址符”的区别和作用</a>、<a href="https://blog.csdn.net/qq_35038153/article/details/77968036" target="_blank" rel="noopener">C语言中取地址符&amp;做函数形参？</a>。</p>
 </li>
 <li><p>我自己的项目代码中与教材 《数据结构》、《数据结构算法解析》的代码在宏名、变量名等上面会不同。</p>
 </li>
-<li><p>结构体变量的地址作为实参，传递到函数（形参为指针变量）。此时在函数内引用结构体变量的成员，直接写成 <code>w-&gt;name</code> 相当于 <code>(*w).name</code>（指针的解引用）。参考博文：<a href="https://blog.csdn.net/liangllhahaha/article/details/81674407" target="_blank" rel="noopener">结构体的初始化和引用及指向结构体变量的指针变量（C语言）</a>。</p>
+<li><p>关于结构体指针：<br>结构体变量的地址作为实参，传递到函数（形参为指针变量）。此时在函数内引用结构体变量的成员，直接写成 <code>w-&gt;name</code> 相当于 <code>(*w).name</code>（指针的解引用）。参考博文：<a href="https://blog.csdn.net/liangllhahaha/article/details/81674407" target="_blank" rel="noopener">结构体的初始化和引用及指向结构体变量的指针变量（C语言）</a>。</p>
+</li>
+<li><p>访问结构体成员方法：点 <code>.</code> 是用于结构体变量访问成员，箭头 <code>-&gt;</code> 是用于结构体指针访问成员。<code>-&gt;</code> 从外部看是包含了一个解指针。</p>
 </li>
 <li><p>菜单部分代码参考：<a href="https://blog.csdn.net/howard2005/article/details/79263674" target="_blank" rel="noopener">C语言实现顺序表的创建与增删改查操作</a></p>
+</li>
+<li><p>C 语言中，传参数给函数有两种方式：按值调用（实参为变量名，形参为变量名。/ 是传一个副本给函数）、按地址调用（实参为地址，形参为指针变量。/ 函数通过指针解引用访问原本变量）。</p>
 </li>
 </ul>
 <h1 id="三-版本控制最佳实践与问题"><a href="#三-版本控制最佳实践与问题" class="headerlink" title="三 版本控制最佳实践与问题"></a>三 版本控制最佳实践与问题</h1><blockquote>
@@ -229,6 +235,9 @@
 <li><p>软件项目结构：<br>（截图为项目未完成的状态。）<br><img src="/2019/03/04/数据结构（C-语言）开源项目开发小结/图3.PNG" alt="软件项目结构"></p>
 </li>
 <li><p>项目（目录）结构解析：</p>
+<blockquote>
+<p>参考博文：《软件工程 C 实践二 课程总结笔记》</p>
+</blockquote>
 </li>
 </ol>
 <ul>
@@ -243,11 +252,28 @@
 <li><p>每个 c 文件，包含自己的头文件、自己程序所要用到的 API 的头文件。</p>
 </li>
 </ul>
+<ol start="3">
+<li>文件结构：</li>
+</ol>
+<ul>
+<li>版权等信息</li>
+<li>#ifndef、#define</li>
+<li>包含的头文件</li>
+<li>宏定义</li>
+<li>结构体定义</li>
+<li>变量定义</li>
+<li>函数声明</li>
+</ul>
 
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/03/05/C-语言疑难知识点总结/" data-toggle="tooltip" data-placement="top"
+                           title="C 语言疑难知识点总结">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
