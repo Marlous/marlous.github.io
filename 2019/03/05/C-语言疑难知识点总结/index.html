@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -203,7 +203,13 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="一-C-语言知识结构"><a href="#一-C-语言知识结构" class="headerlink" title="一 C 语言知识结构"></a>一 C 语言知识结构</h1><p><img src="/2019/03/05/C-语言疑难知识点总结/图1.PNG" alt="C 语言知识结构"></p>
-<h1 id="二-具体知识点"><a href="#二-具体知识点" class="headerlink" title="二 具体知识点"></a>二 具体知识点</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1 数据类型"></a>1 数据类型</h2><ul>
+<h1 id="二-C-语言编码规范"><a href="#二-C-语言编码规范" class="headerlink" title="二 C 语言编码规范"></a>二 C 语言编码规范</h1><ul>
+<li><a href="https://cn.bing.com/search?q=c+style+guide&amp;qs=n&amp;form=QBRE&amp;sp=-1&amp;pq=c+style+guide&amp;sc=8-13&amp;sk=&amp;cvid=31A17213CF234C21B9E9B46CD0DE5B0D" target="_blank" rel="noopener">bing 搜索：c style guide</a></li>
+<li><a href="https://google.github.io/styleguide/cppguide.html" target="_blank" rel="noopener">Google C++ Style Guide</a></li>
+<li><a href="https://www.jianshu.com/p/0c29795c31fe" target="_blank" rel="noopener">简书：C语言编码规范</a></li>
+<li><a href="https://github.com/nginx/nginx/tree/master/src/core" target="_blank" rel="noopener">Nginx 代码示例</a></li>
+</ul>
+<h1 id="三-具体知识点"><a href="#三-具体知识点" class="headerlink" title="三 具体知识点"></a>三 具体知识点</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1 数据类型"></a>1 数据类型</h2><ul>
 <li><p>定义整型时默认是有符号，实型一定是有符号。</p>
 </li>
 <li><p><img src="/2019/03/05/C-语言疑难知识点总结/图2.PNG" alt="数据类型"></p>
@@ -287,11 +293,76 @@
 <li><p>指针函数：<br>函数返回的是一个指针，如 <code>int *compare(int a, int b)</code>。</p>
 </li>
 </ul>
-<h2 id="8-字符串"><a href="#8-字符串" class="headerlink" title="8 字符串"></a>8 字符串</h2><h2 id="9-指针与数组"><a href="#9-指针与数组" class="headerlink" title="9 指针与数组"></a>9 指针与数组</h2><h2 id="10-结构体、共用体"><a href="#10-结构体、共用体" class="headerlink" title="10 结构体、共用体"></a>10 结构体、共用体</h2><h2 id="11-文件操作"><a href="#11-文件操作" class="headerlink" title="11 文件操作"></a>11 文件操作</h2>
+<h2 id="8-字符串"><a href="#8-字符串" class="headerlink" title="8 字符串"></a>8 字符串</h2><ul>
+<li><p>字符串常量用 <code>&quot;&quot;</code> 引号包含，编译器在结尾自动加一个 <code>\0</code> 表示是字符串。</p>
+</li>
+<li><p>初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[] = <span class="string">"hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[] = &#123;<span class="string">'h'</span>,<span class="string">'e'</span>,<span class="string">'l'</span>,<span class="string">'l'</span>,<span class="string">'o'</span>,<span class="string">'\0'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> weekday[][<span class="number">10</span>] = &#123;<span class="string">"sunday"</span>,<span class="string">"monday"</span>,...&#125;; <span class="comment">// 没填满的地方全自动加上 \0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符指针：<br>每个字符串常量在内存中占用一段连续的空间，有唯一确定的首地址。字符串常量本身代表存放它位置的首地址，此时不能对其内容修改。要修改则需要用数组赋值字符串。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *ptr = <span class="string">"hello"</span>;</span><br><span class="line">等价于</span><br><span class="line"><span class="keyword">char</span> *ptr;</span><br><span class="line">ptr = <span class="string">"hello"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问时注意：不能用数组名自加 <code>str ++</code>，因为数组名是一个地址常量；可以用指针自加，如 <code>ptr ++</code> 。引用第某个字符：<code>*(ptr + i)</code>、<code>*(str + i)</code> 即 <code>str[i]</code>。</p>
+</li>
+<li><p>字符串的输入输出：<br>scanf() 函数按 <code>%c</code> 一个一个字符输入输出，用循环遍历存字符串的数组单元。/ 循环输出，条件为不是结束符 <code>\0</code>。<br>scanf() 函数按 <code>%s</code> 存入数组名 str。<br>使用字符串处理函数输入输出，如 <code>gets(str)</code>、<code>puts(str)</code>，str 为数组名。</p>
+</li>
+<li><p>一些字符串处理函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strlen</span>(str); <span class="comment">// 实际长度，不含 \0</span></span><br><span class="line"><span class="built_in">strcpy</span>(str1,str2); <span class="comment">// 将 str2 复制到 str1</span></span><br><span class="line"><span class="built_in">strcmp</span>(str1,str2); <span class="comment">// 从左到右逐一比较其 ASCII 值，直到遇见不同字符或结束。str1 大于 str2 返回值大于 0；等于、小于同理。</span></span><br><span class="line"><span class="built_in">strcat</span>(str1,str2); <span class="comment">// 将 str2 放入 str1 末尾（覆盖掉 str1 的结束符）</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">strncpy</span>(str1,str2,n); <span class="comment">// 最多 n 个字符</span></span><br><span class="line"><span class="built_in">strncmp</span>(str1,str2,n);</span><br><span class="line"><span class="built_in">strncat</span>(str1,str2,n);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>向函数传递字符串：<br>可用字符数组做函数参数（实参是数组名），也可用字符指针做函数参数（实参是数组名）。</p>
+</li>
+<li><p>关于 const 类型限定符：<br><img src="/2019/03/05/C-语言疑难知识点总结/图7.PNG" alt="关于 const 类型限定符"></p>
+</li>
+</ul>
+<h2 id="9-指针与数组"><a href="#9-指针与数组" class="headerlink" title="9 指针与数组"></a>9 指针与数组</h2><ul>
+<li><p>数组作为函数形参和指针一样，因为实参数组名本质上传递的都是地址（地址调用，非值调用）。</p>
+</li>
+<li><p>二维数组：二维数组是由若干个一维数组构成的。</p>
+</li>
+<li><p>二维数组的指针定义、初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">行指针：使用二维数组的行地址初始化。</span><br><span class="line">定义：<span class="keyword">int</span> (*p)[<span class="number">4</span>]; <span class="comment">// 表示指向一维数组的指针，有 4 个元素；指向二维数组的指针，每行有 4 个元素。</span></span><br><span class="line">初始化：p = a; 或 p = &amp;a[<span class="number">0</span>];</span><br><span class="line">元素引用：a[i][j] 等价 *(a[i]+j) 等价 *(*(a+i)+j) 等价 (*(a+i))[j]</span><br><span class="line"></span><br><span class="line">列指针：使用二维数组的列地址初始化。</span><br><span class="line">定义：<span class="keyword">int</span> *p;</span><br><span class="line">初始化：p = a[<span class="number">0</span>] 等价 p = *a 等价 p = &amp;a[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">元素引用：a[i][j] 等价 *(p+i*n+j) 等价 p[i*n+j]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指针数组：<br>指针数组的每个元素都是指针（涉及字符串操作用指针数组比用二维数组更有效）。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">e.g.</span><br><span class="line"><span class="keyword">char</span> *pstr[N] = &#123;<span class="string">"hello"</span>,<span class="string">"world"</span>,<span class="string">"ni"</span>,<span class="string">"hao"</span>&#125;;</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> *people[<span class="number">3</span>];</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		people[i] = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="keyword">char</span>)); <span class="comment">// 每个元素是一个指针（存储名字的数组首地址）</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"enter name:\n"</span>);</span><br><span class="line">		gets(people[i]); <span class="comment">// 输入第 i 个字符串（名字）到 people[i] 指向的内存（存名字的数组）</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"the name are:%s,%s,%s."</span>,people[<span class="number">0</span>],people[<span class="number">1</span>],people[<span class="number">2</span>]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用指针数组接收命令行参数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> *argv[])</span> <span class="comment">// argc argv 是惯例取名</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	...; <span class="comment">// int argc 用于存放命令行中参数个数（至少为 1，函数名也是参数）</span></span><br><span class="line">	<span class="comment">// char *argv[] 用于接收命令行参数</span></span><br><span class="line">	<span class="comment">// 程序不需要命令行参数就写 void</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态数组：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">函数 <span class="built_in">malloc</span>(size)</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">malloc</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> size)</span></span>;</span><br><span class="line">e.g.</span><br><span class="line"><span class="keyword">int</span> *pi = <span class="literal">NULL</span>;</span><br><span class="line">pi = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="number">5</span>); <span class="comment">// 申请 5 个字节空间，强制转换成 int 型指针</span></span><br><span class="line"></span><br><span class="line">函数 <span class="built_in">calloc</span>(n,size)</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">malloc</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> num,unsiged <span class="keyword">int</span> size)</span></span>; <span class="comment">// 若干个 n 字节空间，并初始化为 0，相当于一维数组</span></span><br><span class="line"></span><br><span class="line">函数 <span class="built_in">realloc</span>(p,size)</span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">realloc</span><span class="params">(<span class="keyword">void</span> *p,unsiged <span class="keyword">int</span> size)</span></span>; <span class="comment">// 指针 p 指向的空间重新分配空间，返回新分配的空间地址。与原来的地址不一定相同。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>补充一些函数：<br>free() 函数：<code>void free(void *p);</code>，与 mallco() 函数成对使用。<br>exit() 函数：exit(1) 异常退出，exit(0) 正常退出。</p>
+</li>
+</ul>
+<h2 id="10-结构体、共用体"><a href="#10-结构体、共用体" class="headerlink" title="10 结构体、共用体"></a>10 结构体、共用体</h2><ul>
+<li><p>结构体定义：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">student</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	...;</span><br><span class="line">	...;</span><br><span class="line">&#125; STUDENT; <span class="comment">// 直接定义为 STUDENT 类型</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结构体变量初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STUDENT stu1 = &#123;<span class="number">10002</span>,<span class="string">"ZhangSan"</span>,<span class="string">'M'</span>&#125;;</span><br><span class="line"></span><br><span class="line">或者用圆点运算符引用结构体变量成员赋值</span><br><span class="line">（注意：</span><br><span class="line">字符串数组需要用 <span class="built_in">strcpy</span>() 函数赋值，不能直接赋值；</span><br><span class="line">如果是数组的话，<span class="built_in">scanf</span>() 输入时不用加 &amp; 取地址符号，如 <span class="built_in">scanf</span>(<span class="string">"%s"</span>,&amp;stu1.studentid);</span><br><span class="line">）。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关于结构体指针：<br>结构体变量的地址作为实参，传递到函数（形参为指针变量）。此时在函数内引用结构体变量的成员，直接写成 <code>w-&gt;name</code> 相当于 <code>(*w).name</code>（指针的解引用）。/ 圆点 <code>.</code> 用来引用结构体变量成员，箭头 <code>-&gt;</code> 用来在结构体指针引用成员。</p>
+</li>
+<li><p>共用体：<br>使用覆盖技术，需要使几种不同类型的变量存放到同一段内存单元中，成为共同体类型的结构。<br>共用体大小取决于占用空间最大的成员。每一瞬时起作用的就是最后被赋值的成员，只能对一个成员初始化。<br>不能引用共用体变量，而只能引用共用体变量中的成员。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> sample</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">short</span> i;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="keyword">float</span> f;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">引用：</span><br><span class="line"><span class="keyword">union</span> sample a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>, a.i);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>枚举类型：<br>有限个数据组成的量，用枚举类型来表示。花括号内是枚举变量可能的取值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> response &#123;no = <span class="number">-1</span>,yes = <span class="number">1</span>,none = <span class="number">0</span>&#125;; <span class="comment">// 可以定义时赋值，如果第一个赋值 1，后面的会递增</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> response answer;</span><br><span class="line"></span><br><span class="line">e.g.</span><br><span class="line"><span class="keyword">if</span>(answer == yes)</span><br><span class="line">&#123;</span><br><span class="line">	...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="11-文件操作"><a href="#11-文件操作" class="headerlink" title="11 文件操作"></a>11 文件操作</h2><ul>
+<li>参考博文：<a href="http://c.biancheng.net/c/file/" target="_blank" rel="noopener">C 语言文件操作完全攻略</a></li>
+</ul>
+
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/03/06/编程语言规范-Style-Guide-汇总（持续更新）/" data-toggle="tooltip" data-placement="top"
+                           title="编程语言规范 Style Guide 汇总（持续更新）">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
@@ -312,7 +383,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-C-语言知识结构"><span class="toc-text">一 C 语言知识结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-具体知识点"><span class="toc-text">二 具体知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据类型"><span class="toc-text">1 数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运算符与表达式"><span class="toc-text">2 运算符与表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-键盘输入、屏幕输出"><span class="toc-text">3 键盘输入、屏幕输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-控制结构"><span class="toc-text">4 控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-函数"><span class="toc-text">5 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-数组"><span class="toc-text">6 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-指针"><span class="toc-text">7 指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-字符串"><span class="toc-text">8 字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-指针与数组"><span class="toc-text">9 指针与数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-结构体、共用体"><span class="toc-text">10 结构体、共用体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-文件操作"><span class="toc-text">11 文件操作</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-C-语言知识结构"><span class="toc-text">一 C 语言知识结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-C-语言编码规范"><span class="toc-text">二 C 语言编码规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-具体知识点"><span class="toc-text">三 具体知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据类型"><span class="toc-text">1 数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-运算符与表达式"><span class="toc-text">2 运算符与表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-键盘输入、屏幕输出"><span class="toc-text">3 键盘输入、屏幕输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-控制结构"><span class="toc-text">4 控制结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-函数"><span class="toc-text">5 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-数组"><span class="toc-text">6 数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-指针"><span class="toc-text">7 指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-字符串"><span class="toc-text">8 字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-指针与数组"><span class="toc-text">9 指针与数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-结构体、共用体"><span class="toc-text">10 结构体、共用体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-文件操作"><span class="toc-text">11 文件操作</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

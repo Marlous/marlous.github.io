@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -292,20 +292,11 @@
 <li>补充：每个 .h 接口文件，即使向外暴露的接口，也可以是自己层级 c 程序文件要使用的一部分。</li>
 </ul>
 <h1 id="六-开源项目实例"><a href="#六-开源项目实例" class="headerlink" title="六 开源项目实例"></a>六 开源项目实例</h1><blockquote>
-<p>参考：<br>1、 <a href="https://www.cnblogs.com/stnlcd/p/7202453.html" target="_blank" rel="noopener">VLC目录结构介绍</a><br>2、 <a href="https://blog.csdn.net/commshare/article/details/16861533" target="_blank" rel="noopener">VLC的工程目录浅析</a></p>
+<p>参考项目：<a href="https://github.com/nginx/nginx" target="_blank" rel="noopener">GitHub：Nginx</a></p>
 </blockquote>
-<p>VLC 2.0.0：</p>
-<ul>
-<li>include/       libvlccore 库的头文件，编写自己的插件也是需要包含这里</li>
-<li>include/vlc    libVLC 头文件，如果仅仅使用 libvlc 开发，需要包含这里</li>
-<li>bin            lc 程序代码，即原生 GUI 前端程序代码</li>
-<li>lib            libVLC 接口实现代码</li>
-<li>compat         跨 OS 代码</li>
-<li>contrib        第三方库的针对 VLC 的 patch 以及编译脚本</li>
-<li>extras         一些不太常用的辅助工具以及脚本</li>
-<li>modules        将各种第三方库封装为 VLC 的插件，按目录区分功能，如 demux，video_filter 等</li>
-<li>src            libvlccore 实现，是 vlc 架构最重要部分</li>
-</ul>
+<blockquote>
+<p>参考：<br>1、 <a href="https://www.cnblogs.com/dormant/p/5220505.html" target="_blank" rel="noopener">Nginx源码结构</a></p>
+</blockquote>
 
                 <hr>
                 

@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        MySQL 学习笔记 七 安全性与完整性｜Mo&#39;s blog
+        《数据库系统概论》笔记七：MySQL 安全性与完整性｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/17/MySQL-学习笔记-七-安全性与完整性/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,15 +79,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>MySQL 学习笔记 七 安全性与完整性</h1>
+                    <h1>《数据库系统概论》笔记七：MySQL 安全性与完整性</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            MySQL 学习笔记 七 安全性与完整性
+            《数据库系统概论》笔记七：MySQL 安全性与完整性
         </span>
     </div>
 </header>
@@ -202,7 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-数据控制知识框架"><a href="#一-数据控制知识框架" class="headerlink" title="一 数据控制知识框架"></a>一 数据控制知识框架</h1><p><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图0.PNG" alt="数据控制知识框架"></p>
+                <h1 id="一-数据控制知识框架"><a href="#一-数据控制知识框架" class="headerlink" title="一 数据控制知识框架"></a>一 数据控制知识框架</h1><p><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图0.PNG" alt="数据控制知识框架"></p>
 <h1 id="二-安全性"><a href="#二-安全性" class="headerlink" title="二 安全性"></a>二 安全性</h1><ul>
 <li>目的：防止恶意破坏、非法的存取。</li>
 </ul>
@@ -220,18 +220,18 @@
 <ul>
 <li><p>用户 - DBMS - OS - DB（用户标识、鉴别 - 数据库安全保护 - 操作系统安全保护 - 数据密码存储）。</p>
 </li>
-<li><p>信息安全标准：<br>两个有名的 TCSEC 和 CC 标准。<br><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图1.PNG" alt="TCSEC/TDI"><br><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图2.PNG" alt="CC"></p>
+<li><p>信息安全标准：<br>两个有名的 TCSEC 和 CC 标准。<br><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图1.PNG" alt="TCSEC/TDI"><br><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图2.PNG" alt="CC"></p>
 </li>
 </ul>
 <h2 id="2-数据库安全性控制"><a href="#2-数据库安全性控制" class="headerlink" title="2 数据库安全性控制"></a>2 数据库安全性控制</h2><ol>
-<li><p>数据库安全性控制常用方法：<br>用户身份鉴别，存取控制（自主存取控制、强制存取控制），视图，审计，数据加密。<br><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图3.PNG" alt="数据库安全性控制模型"></p>
+<li><p>数据库安全性控制常用方法：<br>用户身份鉴别，存取控制（自主存取控制、强制存取控制），视图，审计，数据加密。<br><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图3.PNG" alt="数据库安全性控制模型"></p>
 </li>
 <li><p>存取控制（自主存取控制、强制存取控制）：</p>
 </li>
 </ol>
 <ul>
 <li>自主存取控制：对用户或角色授权一些操作，数据本身无密级。</li>
-<li>强制存取控制：DBMS 管理的实体分为主体（许可证级别）、客体（密级）。对其分别设置敏感度标记。<br>敏感度标记：<br><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图4.PNG" alt="强制存取控制敏感度标记"><br>规则：<br><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图5.PNG" alt="强制存取控制规则 1"><br><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图6.PNG" alt="强制存取控制规则 2"></li>
+<li>强制存取控制：DBMS 管理的实体分为主体（许可证级别）、客体（密级）。对其分别设置敏感度标记。<br>敏感度标记：<br><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图4.PNG" alt="强制存取控制敏感度标记"><br>规则：<br><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图5.PNG" alt="强制存取控制规则 1"><br><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图6.PNG" alt="强制存取控制规则 2"></li>
 </ul>
 <h3 id="（1）用户身份鉴别"><a href="#（1）用户身份鉴别" class="headerlink" title="（1）用户身份鉴别"></a>（1）用户身份鉴别</h3><p>只有系统管理员才有权限创建一个新数据库用户。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &lt;用户名&gt;</span><br><span class="line">[WITH DBA|RESOURCE|CONNECT];</span><br></pre></td></tr></table></figure></p>
 <p>DBA：可创建用户，模式，基本表，视图，可授予其他用户一些权限。<br>RESOURCE：可创建基本表和视图，可授予其他用户一些权限。<br>CONNECT：为默认。只能登陆数据库，查询和操作需相应权限。</p>
@@ -250,7 +250,7 @@
 <li>授权：</li>
 </ol>
 <ul>
-<li><p>存取控制（自主存取控制）：必须防止不经根节点 DBA 的循环授权。<br><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图7.PNG" alt="存取控制（自主存取控制）"></p>
+<li><p>存取控制（自主存取控制）：必须防止不经根节点 DBA 的循环授权。<br><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图7.PNG" alt="存取控制（自主存取控制）"></p>
 </li>
 <li><p>可以使用 GRANT 语句的三种：DBA、数据库对象创建者、拥有该权限的用户。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GRANT &lt;权限&gt;,...</span><br><span class="line">ON &lt;对象类型&gt;&lt;对象名&gt;,...</span><br><span class="line">TO &lt;用户&gt;,...</span><br><span class="line">[WITH GRANT OPTION] /*有此选项可传播权限*/</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line">GRANT UPDATE(sno),SELECT</span><br><span class="line">ON TABLE student</span><br><span class="line">TO u4; /*所有用户可用 public*/</span><br></pre></td></tr></table></figure>
@@ -359,7 +359,7 @@
 <li>触发动作体：一个 PL/SQL 过程块，或已存储过程的调用。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TRIGGER &lt;触发器名&gt;</span><br><span class="line">  &#123;BEFORE | AFTER&#125; &lt;触发事件&gt; ON &lt;表名&gt;</span><br><span class="line">  FOR EACH &#123;ROW | STATEMENT&#125;</span><br><span class="line">  [WHEN &lt;触发条件&gt;]</span><br><span class="line">  &lt;触发动作体&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="/2018/09/17/MySQL-学习笔记-七-安全性与完整性/图8.PNG" alt="触发器"></p>
+<p><img src="/2018/09/17/《数据库系统概论》笔记七：MySQL 安全性与完整性/图8.PNG" alt="触发器"></p>
 <ol start="2">
 <li>激活触发器：<br>同一个表多个触发器执行顺序：</li>
 </ol>
