@@ -86,6 +86,14 @@
                         
 							
                         <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
                             <a href="/archives/">archives</a>
                         </li>
 							
@@ -95,14 +103,6 @@
 							
                         <li>
                             <a href="/work/">works</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -248,8 +248,10 @@
 </li>
 </ol>
 <ul>
-<li>控制台（屏幕无输出）加上一行代码 <code>setvbuf(stdout,NULL,_IONBF,0);</code>，问题解决见 <a href="https://bbs.csdn.net/topics/370091333" target="_blank" rel="noopener">参考</a>。</li>
-<li>调试的时候 scanf 函数无法从键盘输入数据：（记得用 <code>getchar();</code> 读走上一行 scanf 函数留下的回车），在所有 printf 与 scanf 间清除输出的缓冲区数据，<code>fflush(stdout);</code> 问题参考 <a href="https://stackoverflow.com/questions/44179701/scanf-doesnt-take-input-in-debug-mode-in-eclipse" target="_blank" rel="noopener">scanf doesn’t take input in debug mode in eclipse?</a>。</li>
+<li><p>控制台（屏幕无输出）加上一行代码 <code>setvbuf(stdout,NULL,_IONBF,0);</code>，问题解决见 <a href="https://bbs.csdn.net/topics/370091333" target="_blank" rel="noopener">参考</a>。</p>
+</li>
+<li><p>调试的时候 scanf 函数无法从键盘输入数据：（记得用 <code>getchar();</code> 读走上一行 scanf 函数留下的回车），在所有 printf 与 scanf 间清除输出的缓冲区数据，<code>fflush(stdout);</code> 问题参考 <a href="https://stackoverflow.com/questions/44179701/scanf-doesnt-take-input-in-debug-mode-in-eclipse" target="_blank" rel="noopener">scanf doesn’t take input in debug mode in eclipse?</a>。/ 如果无法解决，设置改用系统命令行来输入输出。命令行中在项目文件夹下新建 .gdbinit 文件，内容 <code>set new-console on</code>。参见 <a href="http://babyineclipse.blogspot.com/2015/12/cdt-debugging-with-printfscanf-issue.html?m=1" target="_blank" rel="noopener">My Experiment With Eclipse: CDT Debugging with printf/scanf issue : Solution</a>。</p>
+</li>
 </ul>
 <ol start="4">
 <li>其它问题：</li>
