@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,7 +202,62 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote>
+<p>参考：<br>1、 <a href="https://www.eclipse.org/cdt/documentation.php" target="_blank" rel="noopener">官方文档</a><br>2、 <a href="https://www.cnblogs.com/corvoh/p/5589638.html" target="_blank" rel="noopener">「C语言」Windows+EclipseCDT下的C语言开发环境准备</a><br>3、 <a href="https://www.cnblogs.com/corvoh/p/4934848.html" target="_blank" rel="noopener">「C语言」在Windows平台搭建C语言开发环境的多种方式</a><br>4、 <a href="https://blog.csdn.net/m624197265/article/details/42672025" target="_blank" rel="noopener">Eclipse CDT环境下编写、调试、运行C++程序详谈</a><br>5、 <a href="https://www.cnblogs.com/jiftle/p/7156057.html" target="_blank" rel="noopener">Eclipse开发C/C++之使用技巧小结，写给新手</a></p>
+</blockquote>
+<h1 id="一-安装"><a href="#一-安装" class="headerlink" title="一 安装"></a>一 安装</h1><ul>
+<li>Eclipse 最初是 Java 开发，用于写 Java，后来拓展可以写 C、PHP…</li>
+<li>Eclipse 需要 Java 的运行环境，Eclipse CDT 是用来写 C 的，所以还需要 C 语言的编译器。</li>
+<li>安装 Java 开发环境包（JDK）、编译器 MinGW（将 GCC 编译器和 GNU Binutils 移植到 Win32 平台下的产物，包括一系列头文件 Win32 API、库和可执行文件，<a href="https://jingyan.baidu.com/article/656db918c1d832e381249c3e.html" target="_blank" rel="noopener">安装教程</a>）。</li>
+</ul>
+<h1 id="二-简介"><a href="#二-简介" class="headerlink" title="二 简介"></a>二 简介</h1><p><img src="/2019/03/06/Eclipse-CDT-使用笔记/图1.PNG" alt="简介"></p>
+<ul>
+<li>简介：<br>按顺序：菜单栏、工具栏、侧边栏（显示当前目录文件调试文件等）、代码编辑区、调试信息信息显示、状态栏。</li>
+<li><p>创建一个工程项目，菜单栏 File 中，会显示装好的 MinGW。<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图2.PNG" alt="创建一个工程项目"></p>
+</li>
+<li><p>右键工程名，Build Configurations -&gt; Build All，会多出三个文件夹（ a）Binaries：存放所有编译后的二进制文件，这里主要是用于 Debug，Release 的二进制文件，而且 Binaries 目录只能在 Eclipse 中才能看到，从电脑磁盘上面是直接看不到的。/ b）Debug：里面包含两个文件（.exe与.o）。这里 .exe 文件是可以直接执行的文件，因为在 Debug 目录里面，表明它只用于 debug；而 .o 文件则是一个 object 文件，即目标文件，编译器产生的，对源代码的 “直译”，未经过连接等操作的目标代码。注意：代码编译后生成目标文件（即 . o文件），目标文件经过连接后才能变成.exe文件。/ c）Release：也包含两个文件（.exe与.o）。这里 .exe 文件是可以直接执行的文件，因为在 Release 目录里面，表明它只用于发布运行；.o文件则也是一个 object 文件，原理同 Debug 里面的 .o 文件。）</p>
+</li>
+<li><p>右键工程，在 Build Configurations -&gt; Set Active 中设置使用 Release 还是 Debug 版程序。</p>
+</li>
+<li><p>点斧头图标是构建，只生成 Debug 的，但不会生成 Release 文件夹。</p>
+</li>
+<li><p>菜单栏 Run，运行配置 Launch Configuration，描述了怎样运行程序，可以创建多个运行的方式（debug 程序，选择前面按钮以 Run 或 Debug 运行； release 程序选择 Run 运行）；开发的时候使用 Windows 的命令行，来运行一些独立的程序用 <a href="https://www.cnblogs.com/sos-blue/p/6363781.html" target="_blank" rel="noopener">External Tools Configurations</a>。删除在 Run 菜单中的配置中右键删除。</p>
+</li>
+<li><p>菜单栏 Windows -&gt; perferences 中是全部设置，Windows 菜单中选择是否显示一些状态栏。</p>
+</li>
+<li><p>单步调试：<br>见菜单栏按钮。</p>
+</li>
+<li><p>断点调试方法：<br>参考博文：<a href="https://blog.csdn.net/beijiwei/article/details/51671433" target="_blank" rel="noopener">Eclipse C/CPP 调试教程</a></p>
+</li>
+<li><p>调试信息变量值查看：<br>查看变量的值、汇编代码。<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图3.PNG" alt="调试信息变量值查看"><br>如下图。修改代码，可以看到，变量信息的十六进制数字并不是内存地址，是具体存的值。<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图4.PNG" alt="调试信息变量值查看"></p>
+</li>
+<li><p>调试查看变量内存地址：<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图5.PNG" alt="调试查看变量内存地址"></p>
+</li>
+<li><p>直接使用 gdb 命令调试：<br>参见 <a href="https://bbs.csdn.net/topics/310174860" target="_blank" rel="noopener">eclipse CDT中如何手动输入gdb命令</a>。</p>
+</li>
+</ul>
+<h1 id="三-基本设置等"><a href="#三-基本设置等" class="headerlink" title="三 基本设置等"></a>三 基本设置等</h1><blockquote>
+<p>参见博文：<a href="https://www.cnblogs.com/jiftle/p/7156057.html" target="_blank" rel="noopener">Eclipse开发C/C++之使用技巧小结，写给新手</a></p>
+</blockquote>
+<ol>
+<li><p>代码提示：<br>Eclipse CDT 写 C 的功能没有 Eclipse 写 Java 的强大，可以在 perferences 中对编辑器设置。关于 Java 的代码提示设置见<a href="https://jingyan.baidu.com/article/d45ad148b214a969552b8001.html" target="_blank" rel="noopener">参考</a>，修改增加触发点达到所有字母自动触发，CDT 则没有。</p>
+</li>
+<li><p>调试带参数的程序：<br>“run” -&gt; “run configuration” -&gt; “arguments” 里面，设置程序参数。</p>
+</li>
+<li><p>Eclipse CDT 调试时输入输出：</p>
+</li>
+</ol>
+<ul>
+<li>控制台（屏幕无输出）加上一行代码 <code>setvbuf(stdout,NULL,_IONBF,0);</code>，问题解决见 <a href="https://bbs.csdn.net/topics/370091333" target="_blank" rel="noopener">参考</a>。</li>
+<li>调试的时候 scanf 函数无法从键盘输入数据：（记得用 <code>getchar();</code> 读走上一行 scanf 函数留下的回车），在所有 printf 与 scanf 间清除输出的缓冲区数据，<code>fflush(stdout);</code> 问题参考 <a href="https://stackoverflow.com/questions/44179701/scanf-doesnt-take-input-in-debug-mode-in-eclipse" target="_blank" rel="noopener">scanf doesn’t take input in debug mode in eclipse?</a>。</li>
+</ul>
+<ol start="4">
+<li>其它问题：</li>
+</ol>
+<ul>
+<li>printf 函数内不加 <code>\n</code> 可能会报错，debug 时也会报错。</li>
+</ul>
+
                 <hr>
                 
 
@@ -232,7 +287,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-安装"><span class="toc-text">一 安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-简介"><span class="toc-text">二 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-基本设置等"><span class="toc-text">三 基本设置等</span></a></li></ol>
                 </div>
             </div>
         </div>

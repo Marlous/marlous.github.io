@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -284,16 +284,21 @@
 </li>
 </ul>
 <h2 id="7-指针"><a href="#7-指针" class="headerlink" title="7 指针"></a>7 指针</h2><ul>
-<li><p>指针变量就是存储地址的变量，声明时为 <code>int *p = &amp;a;</code>，引用变量 a 的值需要先指针解引用 <code>b = *p</code>（此时用星号来引用该存储的地址的变量的值）。</p>
+<li><p>指针变量就是存储地址的变量，声明时为 <code>int *p = &amp;a;</code>，引用变量 a 的值需要先指针解引用 <code>b = *p</code>（此时用星号来引用该存储的地址的变量的值）。/ 指针类型的大小是固定的。</p>
 </li>
-<li><p><code>%p</code> 为输出地址值的格式控制；<code>&amp;</code> 为取地址符。</p>
+<li><p><code>%p</code> 为输出地址值的格式控制；<code>&amp;</code> 为取地址符。输出变量地址值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> *pzz = &amp;a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"address is %p"</span>,pzz);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"address is %p"</span>,&amp;a);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>函数指针：<br>指向函数的指针，存的是函数在内存中的入口地址，指针函数如 <code>int (*compare)(int a, int b)</code>。实参是函数名，形参是函数指针。</p>
+<li><p>函数指针：<br>指向函数的指针，存的是函数在内存中的入口地址，函数指针如 <code>int (*compare)(int a, int b)</code>。实参是函数名，形参是函数指针。</p>
 </li>
 <li><p>指针函数：<br>函数返回的是一个指针，如 <code>int *compare(int a, int b)</code>。</p>
 </li>
+<li><p>指针小结：<br>a）指针数组存放的是指针数组（若干个指针变量）变量自己的首地址（是数组、指针两个概念的集合）。/ 指针数组名 + n 来表示组中若干个指针变量；注意，数组名相当于首地址指针常量，不能加法移动改变位置。<br>b）数组和指针类似，不同之处：数组名存放的是数组变量自己的首地址；指针存放的是其它变量的地址。<br>c）基本类型变量存放的是一个数据值。<br>d）字符串数组既类似基本变量（可以直接通过数组地址引用值，常用方法）、也是数组。</p>
+</li>
 </ul>
 <h2 id="8-字符串"><a href="#8-字符串" class="headerlink" title="8 字符串"></a>8 字符串</h2><ul>
+<li><p>C 语言没有字符串类型，所以用数组间接实现。</p>
+</li>
 <li><p>字符串常量用 <code>&quot;&quot;</code> 引号包含，编译器在结尾自动加一个 <code>\0</code> 表示是字符串。</p>
 </li>
 <li><p>初始化：</p>

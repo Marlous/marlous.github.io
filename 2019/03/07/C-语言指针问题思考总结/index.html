@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo&#39;s Blog at GitHub">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Mo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        C 语言指针问题思考总结｜Mo&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="https://marlous.github.io/2019/03/07/C-语言指针问题思考总结/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//s1.ax1x.com/2018/06/08/CHqLn0.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Mo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="/img/post-default-sky.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/img/post-default-sky.jpg')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>C 语言指针问题思考总结</h1>
+                    
+                    <span class="meta">
+                         作者 Marlous
+                        <span>
+                          日期 2019-03-07
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#C/C++"
+                           title="C/C++">C/C++</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            C 语言指针问题思考总结
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一 基本概念"></a>一 基本概念</h1><ul>
+<li><p>指针变量就是存储地址的变量，声明时为 <code>int *p = &amp;a;</code>，引用变量 a 的值赋给 b 需要先指针解引用 <code>b = *p</code>（此时用星号来引用该存储的地址的变量的值）。/ 指针类型的大小是固定的。</p>
+</li>
+<li><p><code>%p</code> 为输出地址值的格式控制；<code>&amp;</code> 为取地址符。输出变量地址值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> *pzz = &amp;a;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"address is %p"</span>,pzz);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"address is %p"</span>,&amp;a);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数指针：<br>指向函数的指针，存的是函数在内存中的入口地址，函数指针如 <code>int (*compare)(int a, int b)</code>。实参是函数名，形参是函数指针。</p>
+</li>
+<li><p>指针函数：<br>函数返回的是一个指针，如 <code>int *compare(int a, int b)</code>。</p>
+</li>
+</ul>
+<h1 id="二-详解"><a href="#二-详解" class="headerlink" title="二 详解"></a>二 详解</h1><p>举例，一些定义：<br>变量 c、指针变量 p；数组 name、指针数组 people。（<code>%p %X</code> 效果相同，前者是输出地址格式控制）。</p>
+<p>普通变量、普通指针变量、数组变量、字符串数组变量略，详见 《C 语言疑难知识点总结》。</p>
+<ol>
+<li>指针数组解释：</li>
+</ol>
+<ul>
+<li><p>一个指针数组存放了多个字符串数组的首地址，指针数组名是这个指针数组变量自己的首地址，对其解引用是字符串数组的首地址，因为字符串数组可以直接通过其首地址引用值，所以指针数组变量解引用也是存储的字符串。等同于普通指针变量的用法。</p>
+</li>
+<li><p>地址（这个位置本身）需要解引用还原成值（位置上的值）。/ 如 <code>*(people+2)[0])</code>，指针变量 people+2（指针数组中的第三个指针变量）存的是地址，加一个星号解引用取值（另一个存值的数组的地址），如果是字符串数组就直接是值了，但如果不是则需要再次用方框解引用取值。</p>
+</li>
+</ul>
+<ol start="2">
+<li>指针数组小结：</li>
+</ol>
+<ul>
+<li><p>用指针数组存若干个存了值的数组（其首地址）：<br>想用若干数组（非字符串数组）中某个数组中的某个值时：<code>指针数组（其中一个），解引用后变存值的数组首地址（指针数组变量存的位置上的值）-&gt; 再次解引用变存值的数组中某个位置具体值</code>。</p>
+</li>
+<li><p>用指针数组存若干个存了值的变量地址、字符串数组（其首地址）：<br>想用变量值、字符串数组，和普通指针变量一样：<code>指针数组（其中一个），解引用后变成变量存的位置上的值（相当于字符串数组）</code>。</p>
+</li>
+</ul>
+<ol start="3">
+<li>小结：</li>
+</ol>
+<ul>
+<li><p>基本变量、指针：<br>常规变量名是存的值（位置上的值）、常规指针变量名是存的某变量的地址（某个位置）。</p>
+</li>
+<li><p>数组、指针数组：<br>数组变量名是它自己的首地址、指针数组变量名（相当于若干个指针变量的第一个）是它自己的首地址（这个位置本身）。/ 数组名、指针数组名相当于初始化有自己地址的指针变量。/ 方框和星号 <code>[] *</code> 分别解引用数组、指针变量，来取这个位置上的值。</p>
+</li>
+<li><p>字符串（数组）：<br>（位置上的值、这个位置本身）数组的首地址可以引用其值即字符串数组，或方框星号 <code>[] *</code> 解引用来取这个位置上的值。</p>
+</li>
+</ul>
+<h1 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h1><ol>
+<li><p>概念间关系：<br><img src="/2019/03/07/C-语言指针问题思考总结/图1.PNG" alt="总结"></p>
+</li>
+<li><p>指针数组总结：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> *people[<span class="number">3</span>];</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">char</span> name1[<span class="number">10</span>] = &#123;<span class="string">"hello"</span>&#125;;</span><br><span class="line">	<span class="keyword">char</span> name2 = <span class="string">'D'</span>;</span><br><span class="line">	<span class="keyword">char</span> name3[<span class="number">10</span>] = &#123;<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		people[i] = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="keyword">char</span>)); <span class="comment">// 每个元素是一个指针（存储名字的数组首地址）</span></span><br><span class="line">	&#125;</span><br><span class="line">	people[<span class="number">0</span>] = name1; <span class="comment">// 字符串</span></span><br><span class="line">	people[<span class="number">1</span>] = &amp;name2; <span class="comment">// 基本类型变量</span></span><br><span class="line">	people[<span class="number">2</span>] = name3; <span class="comment">// 数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出方式：指针数组里的指针变量自己的地址、指针数组变量存的值（地址）、指针数组变量引用值  */</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" people+2 address is %p\n"</span>, people+<span class="number">2</span> ); <span class="comment">// 指针数组变量自己的地址</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" people[2] value is %p\n"</span>, people[<span class="number">2</span>] ); <span class="comment">// 指针数组变量存的值（地址）</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" people[2] value is %p\n"</span>, *(people+<span class="number">2</span>) );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %s\n"</span>, people[<span class="number">0</span>] ); <span class="comment">// 指针数组变量引用值：字符串数组</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %s\n"</span>, *(people+<span class="number">0</span>) );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %c\n"</span>, *(people[<span class="number">1</span>]) ); <span class="comment">// 指针数组变量引用值：基本类型变量</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %c\n"</span>, *(*(people+<span class="number">1</span>)) );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[2] value is %c\n"</span>, people[<span class="number">2</span>][<span class="number">1</span>] ); <span class="comment">// 指针数组变量引用值：数组</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[2] value is %c\n"</span>, (*(people+<span class="number">2</span>))[<span class="number">1</span>] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 输出 */</span><br><span class="line"> people+2 address is 0061FF28 // 指针数组变量自己的地址</span><br><span class="line"> people[2] value is 0061FF0B // 指针数组变量存的值（地址）</span><br><span class="line"> people[2] value is 0061FF0B // ...</span><br><span class="line"> * people[1] value is hello // 指针数组变量引用值：字符串数组</span><br><span class="line"> * people[1] value is hello //...</span><br><span class="line"> * people[1] value is D // 指针数组变量引用值：基本类型变量</span><br><span class="line"> * people[1] value is D //...</span><br><span class="line"> * people[2] value is h // 指针数组变量引用值：数组</span><br><span class="line"> * people[2] value is h //...</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>解释：</li>
+</ol>
+<ul>
+<li><p>指针数组存放的是指针数组（若干个指针变量）变量自己的首地址（是数组、指针两个概念的集合）。/ 指针数组名 + n 来表示组中若干个指针变量；注意，数组名相当于首地址指针常量，不能加法移动改变位置。</p>
+</li>
+<li><p>数组和指针类似，不同之处：数组名存放的是数组变量自己的首地址；指针存放的是其它变量的地址。</p>
+</li>
+<li><p>基本类型变量存放的是一个数据值。</p>
+</li>
+<li><p>字符串数组既类似基本变量（可以直接通过数组地址引用值，常用方法）、也是数组。</p>
+</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/03/06/前端开发（过程方法与工具总结）/" data-toggle="tooltip" data-placement="top"
+                           title="前端开发（流程方法总结）">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-基本概念"><span class="toc-text">一 基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-详解"><span class="toc-text">二 详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-总结"><span class="toc-text">三 总结</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#C/C++"
+                           title="C/C++">C/C++</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/MarlousMo">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Marlous">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Mo 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="/profile.JPG">
+</body>
+
+</html>
