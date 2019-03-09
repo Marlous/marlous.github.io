@@ -80,14 +80,6 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -96,6 +88,14 @@
                         
 							
 								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
 							
 						
                     
@@ -203,9 +203,121 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="https://www.yuque.com/fe9/basic/lplvo9" target="_blank" rel="noopener">VSCode 编辑器</a><br>2、 <a href="https://www.jianshu.com/p/b92038f07914" target="_blank" rel="noopener">VSCode入门简介</a></p>
+<p>VSCode 相关资源：<a href="https://github.com/viatsko/awesome-vscode" target="_blank" rel="noopener">GitHub：awesome-vscode</a></p>
 </blockquote>
-<p><a href="https://www.jianshu.com/p/0777d6744d1d" target="_blank" rel="noopener">设置同步</a></p>
+<h1 id="一-基本使用学习"><a href="#一-基本使用学习" class="headerlink" title="一 基本使用学习"></a>一 基本使用学习</h1><p>学习资料参考：</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">官方文档</a></li>
+<li><a href="https://www.yuque.com/fe9/basic/lplvo9" target="_blank" rel="noopener">VSCode 编辑器</a></li>
+<li><a href="https://www.jianshu.com/p/b92038f07914" target="_blank" rel="noopener">VSCode入门简介</a></li>
+</ul>
+<h1 id="二-VSCode-使用"><a href="#二-VSCode-使用" class="headerlink" title="二 VSCode 使用"></a>二 VSCode 使用</h1><ol>
+<li><p>VSCode 基础设置：<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图1.PNG" alt="快捷键"></p>
+</li>
+<li><p>多个页面查看文件：<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图2.PNG" alt="多个页面查看文件"></p>
+</li>
+<li><p>查看菜单对应的界面：<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图3.PNG" alt="查看菜单对应的界面"></p>
+</li>
+<li><p>文件夹与工作区：</p>
+</li>
+</ol>
+<ul>
+<li><p>概念参考：<br>使用教程参见 <a href="https://www.jianshu.com/p/25706af1f6a7" target="_blank" rel="noopener">关于VSCode中工作区的讲解与使用工作区</a>、<a href="https://code.visualstudio.com/docs/editor/multi-root-workspaces" target="_blank" rel="noopener">官方文档介绍：工作区</a>。<br>“ You can work with multiple project folders in Visual Studio Code with multi-root workspaces. This can be very helpful when you are working on several related projects at one time. ”。</p>
+</li>
+<li><p>创建单个项目文件夹：<br>创建项目文件夹，然后菜单 “打开文件夹” 即可，然后在命令面板输入命令 <code>&gt;tasks: configure task</code> 进行配置。会生成一个 .vscode 文件夹，里面是项目的一些编辑器设置。参见文章 <a href="https://jingyan.baidu.com/article/0bc808fc3ca5951bd585b969.html" target="_blank" rel="noopener">vscode怎样新建项目</a>。</p>
+</li>
+<li><p>为单个项目创建工作区工作环境（推荐）：<br>单个项目文件夹使用一种工作区配置：先配置好项目环境（创建单个项目文件夹。此时已经生成了 .vscode 文件夹），然后 “将工作区另存为”，取个名字，后缀为 <code>.code-workspace</code> 保存到本项目文件夹中的 .vscode 文件夹中。</p>
+</li>
+<li><p>为多个项目创建工作区工作环境：<br>a）一个工作区就是一个工作环境，创建一个文件夹当作工作区文件夹，不同的项目可以使用这个工作环境，可以添加任意的文件夹至此工作区，来使用当前工作区的设置。<br>b）建立一个工作区文件夹（比如 Java、Python 等），然后菜单中 “打开文件夹” 打开此工作区文件夹，然后 “将工作区另存为”，取个名字（和工作区文件夹同名）后缀为 <code>.code-workspace</code> 保存到此文件夹中。<br>c）然后在此工作文件夹中创建多个项目文件夹。</p>
+</li>
+</ul>
+<ol start="5">
+<li>VSCode 中使用 Git：</li>
+</ol>
+<ul>
+<li>配置好 Git，能正常使用（可以见网上的教程）。</li>
+<li>在 GitHub 或其它服务、Git 服务器上创建好远程仓库。</li>
+<li>想要上传的项目文件夹中，初始化成 git 仓库，并关联远程仓库。<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图4.PNG" alt="VSCode 中使用 Git"></li>
+</ul>
+<ol start="6">
+<li>VSCode 中使用 Docker：<br>参考：<a href="https://code.visualstudio.com/docs/azure/docker" target="_blank" rel="noopener">官方文档</a>、<a href="https://m690.com/archives/1141/" target="_blank" rel="noopener">实战 – 使用VS Code + Docker for windows 实现一个nginx+uwsgi的django快速开发环境</a></li>
+</ol>
+<h1 id="三-常用功能设置"><a href="#三-常用功能设置" class="headerlink" title="三 常用功能设置"></a>三 常用功能设置</h1><ol>
+<li>快捷键大全：</li>
+</ol>
+<ul>
+<li><p>参考文档：<br><a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf" target="_blank" rel="noopener">官方文档</a>、<a href="https://www.jianshu.com/p/512dde9376da" target="_blank" rel="noopener">有用的vscode快捷键大全+自定义快捷键</a>。<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图.PNG" alt="快捷键大全"></p>
+</li>
+<li><p>绑定 Sublime 的快捷键，在扩展中安装插件 Sublime Text Keymap and Settings Importer。</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>设置备份插件：<br>Setting Sync 是一款用于备份还原 VSCode 所用插件信息的插件。它把插件信息备份到 git 服务上面，可以在不同机器，亦或是重装电脑之后，快速还原自己所使用的所有插件。<a href="https://www.jianshu.com/p/0777d6744d1d" target="_blank" rel="noopener">设置同步方法参考</a>，<a href="https://www.jianshu.com/p/e27e2453d499" target="_blank" rel="noopener">补充：SublimeText 设置同步</a>。</p>
+</li>
+<li><p>本地文件与服务器文件同步设置：</p>
+</li>
+</ol>
+<ul>
+<li><p>使用插件 ftp-sync。</p>
+</li>
+<li><p>具体使用方法参见 <a href="https://www.jianshu.com/p/390c68a0cc58" target="_blank" rel="noopener">VSCode插件–ftp-sync</a>。</p>
+</li>
+</ul>
+<ol start="4">
+<li>使用 VSCode 远程访问使用服务器文件：</li>
+</ol>
+<ul>
+<li><p>远程 linux 机器上安装 rmate（已有 SSH 服务不用安装）、在本地 Windows上安装 openssh、在 VSCode 中安装扩展 remote vscode。</p>
+</li>
+<li><p>具体使用方法参见 <a href="https://www.cnblogs.com/learn21cn/p/6189023.html" target="_blank" rel="noopener">使用vscode访问和修改远程计算机文件</a>。</p>
+</li>
+</ul>
+<ol start="5">
+<li>Git 相关插件：</li>
+</ol>
+<ul>
+<li>每行代码后显示最近的修改信息，git lens 插件。</li>
+<li>控制台，输入 <code>git log</code> 可查看历史，需 Git History 插件。</li>
+</ul>
+<ol start="6">
+<li>Markdown 相关：</li>
+</ol>
+<ul>
+<li>插件 Markdown Preview Enhanced。</li>
+</ul>
+<ol start="7">
+<li>其它插件等见 <a href="https://github.com/viatsko/awesome-vscode" target="_blank" rel="noopener">GitHub：awesome-vscode</a>。</li>
+</ol>
+<h1 id="四-不同项目环境设置"><a href="#四-不同项目环境设置" class="headerlink" title="四 不同项目环境设置"></a>四 不同项目环境设置</h1><h2 id="1-用-VSCode-写-C-项目"><a href="#1-用-VSCode-写-C-项目" class="headerlink" title="1 用 VSCode 写 C 项目"></a>1 用 VSCode 写 C 项目</h2><ol>
+<li><p>安装好 C 编译器等（安装 MinGW），安装 VSCode 插件扩展 C/C++。</p>
+</li>
+<li><p>如文章前面内容，创建好项目，编写一个简单的代码文件。</p>
+</li>
+<li><p>进行配置，因为 VSCode 是编辑器，不是 IDE，需要进行配置，比较复杂，配置方法参见 <a href="https://www.zhihu.com/question/30315894" target="_blank" rel="noopener">知乎：Visual Studio Code 如何编写运行 C、C++ 程序？</a>。</p>
+</li>
+</ol>
+<h2 id="2-配置-Python-使用环境"><a href="#2-配置-Python-使用环境" class="headerlink" title="2 配置 Python 使用环境"></a>2 配置 Python 使用环境</h2><blockquote>
+<p>参考：<br>1、 <a href="https://www.jianshu.com/p/506debe61423" target="_blank" rel="noopener">教程博文参考</a></p>
+</blockquote>
+<ul>
+<li><p>需要的扩展：</p>
+</li>
+<li><p>选择 Python 虚拟环境：</p>
+</li>
+<li><p>创建项目文件夹。</p>
+</li>
+<li><p>VSCode 中，菜单 “打开文件夹” 选择刚创建的文件夹。</p>
+</li>
+<li><p>创建一个 .py 文件，写几行代码。</p>
+</li>
+<li><p><code>ctrl + shift + p</code> 显示命令框，输入命令 <code>tasks: Configure Task</code>。之后会出现 .vscode 文件夹（里面是仅适用于当前目录项目的 VS Code 的设置）。</p>
+</li>
+<li><p>编辑 tasks.json 文件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // See https://go.microsoft.com/fwlink/?LinkId=733558</span><br><span class="line">    // for the documentation about the tasks.json format</span><br><span class="line">    "version": "2.0.0",</span><br><span class="line">    "tasks": [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"label"</span>: <span class="string">"echo"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">        "command": "C:\\Program Files (x86)\\Python37-32\\python.exe", // 自己 Python 安装的目录</span><br><span class="line">        "args": [</span><br><span class="line">          "test.py" // 要解释运行的文件</span><br><span class="line">        ],</span><br><span class="line">        "group": &#123;</span><br><span class="line">          "kind": "build",</span><br><span class="line">          "isDefault": true</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>ctrl + shift + p</code> 显示命令框，输入命令 <code>tasks: Run Build Task</code>。终端栏显示运行结果。<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图5.PNG" alt="终端栏显示运行结果"></p>
+</li>
+</ul>
 
                 <hr>
                 
@@ -236,7 +348,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-基本使用学习"><span class="toc-text">一 基本使用学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-VSCode-使用"><span class="toc-text">二 VSCode 使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-常用功能设置"><span class="toc-text">三 常用功能设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-不同项目环境设置"><span class="toc-text">四 不同项目环境设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-用-VSCode-写-C-项目"><span class="toc-text">1 用 VSCode 写 C 项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置-Python-使用环境"><span class="toc-text">2 配置 Python 使用环境</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
