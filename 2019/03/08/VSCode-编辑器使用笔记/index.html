@@ -79,14 +79,6 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
-							
-						
-                    
-                        
-							
 								
 							
 						
@@ -95,6 +87,14 @@
 							
                         <li>
                             <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -286,6 +286,43 @@
 <li>插件 Markdown Preview Enhanced。</li>
 </ul>
 <ol start="7">
+<li>icon 显示不同文件图标：</li>
+</ol>
+<ul>
+<li>插件 vscode icon。</li>
+</ul>
+<ol start="8">
+<li>项目管理插件：</li>
+</ol>
+<ul>
+<li>project manager。</li>
+</ul>
+<ol start="9">
+<li>代码格式化：</li>
+</ol>
+<ul>
+<li>beautify。</li>
+</ul>
+<ol start="10">
+<li>各种语言测试环境：</li>
+</ol>
+<ul>
+<li>coder runner（只是代码片段测试、学习使用）。</li>
+</ul>
+<ol start="11">
+<li>前端插件 Debugger for Chrome：</li>
+</ol>
+<ul>
+<li>Debugger for Chrome，可以直接在 VSCode 中查看断点处值等，不需要使用 Chrome 来调试。、</li>
+</ul>
+<ol start="12">
+<li>实时检测代码规范与错误：</li>
+</ol>
+<ul>
+<li>插件：ESLint。</li>
+<li>在需要使用的项目中进行配置。VSCode 终端 <code>eslint --init</code>，然后根据提示配置。</li>
+</ul>
+<ol start="13">
 <li>其它插件等见 <a href="https://github.com/viatsko/awesome-vscode" target="_blank" rel="noopener">GitHub：awesome-vscode</a>。</li>
 </ol>
 <h1 id="四-不同项目环境设置"><a href="#四-不同项目环境设置" class="headerlink" title="四 不同项目环境设置"></a>四 不同项目环境设置</h1><h2 id="1-用-VSCode-写-C-项目"><a href="#1-用-VSCode-写-C-项目" class="headerlink" title="1 用 VSCode 写 C 项目"></a>1 用 VSCode 写 C 项目</h2><ol>
@@ -308,14 +345,18 @@
 </li>
 <li><p>VSCode 中，菜单 “打开文件夹” 选择刚创建的文件夹。</p>
 </li>
-<li><p>创建一个 .py 文件，写几行代码。</p>
+<li><p>创建虚拟运行环境 venv：<br>在终端输入命令 <code>python -m venv env</code>（当前项目文件夹下）。<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图5.PNG" alt="创建虚拟运行环境 venv"></p>
+</li>
+<li><p>创建一个 .py 文件，写几行代码（注意状态栏调编码 UTF-8）。</p>
 </li>
 <li><p><code>ctrl + shift + p</code> 显示命令框，输入命令 <code>tasks: Configure Task</code>。之后会出现 .vscode 文件夹（里面是仅适用于当前目录项目的 VS Code 的设置）。</p>
 </li>
 <li><p>编辑 tasks.json 文件：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // See https://go.microsoft.com/fwlink/?LinkId=733558</span><br><span class="line">    // for the documentation about the tasks.json format</span><br><span class="line">    "version": "2.0.0",</span><br><span class="line">    "tasks": [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"label"</span>: <span class="string">"echo"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">        "command": "C:\\Program Files (x86)\\Python37-32\\python.exe", // 自己 Python 安装的目录</span><br><span class="line">        "args": [</span><br><span class="line">          "test.py" // 要解释运行的文件</span><br><span class="line">        ],</span><br><span class="line">        "group": &#123;</span><br><span class="line">          "kind": "build",</span><br><span class="line">          "isDefault": true</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // See https://go.microsoft.com/fwlink/?LinkId=733558</span><br><span class="line">    // for the documentation about the tasks.json format</span><br><span class="line">    "version": "2.0.0",</span><br><span class="line">    "tasks": [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"label"</span>: <span class="string">"echo"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">        "command": "C:\\Program Files\\Python37-64\\python.exe", // 自己 Python 安装的目录</span><br><span class="line">        "args": [</span><br><span class="line">          "test.py" // 要解释运行的文件</span><br><span class="line">        ],</span><br><span class="line">        "group": &#123;</span><br><span class="line">          "kind": "build",</span><br><span class="line">          "isDefault": true</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>ctrl + shift + p</code> 显示命令框，输入命令 <code>tasks: Run Build Task</code>。终端栏显示运行结果。<br><img src="/2019/03/08/VSCode-编辑器使用笔记/图5.PNG" alt="终端栏显示运行结果"></p>
+<li><p><code>ctrl + shift + p</code> 显示命令框，输入命令 <code>tasks: Run Build Task</code>。终端栏显示运行结果。在终端用命令操作也可以，不过比较麻烦。</p>
+</li>
+<li><p>用插件 coder run 运行 python 乱码问题解决：<br>通过设置编译参数，指定使用 UTF-8 编码：<code>&quot;python&quot;: &quot;set PYTHONIOENCODING=utf8 &amp;&amp; python&quot;</code>。/ 或者添加系统环境变量：名 PYTHONIOENCODING、值 utf-8。</p>
 </li>
 </ul>
 
@@ -331,8 +372,8 @@
                     
                     
                     <li class="next">
-                        <a href="/2019/03/08/几个-C-语言-IDE-使用笔记/" data-toggle="tooltip" data-placement="top"
-                           title="几个 C 语言 IDE 使用笔记">Next Post &rarr;</a>
+                        <a href="/2019/03/07/C-语言指针问题思考总结/" data-toggle="tooltip" data-placement="top"
+                           title="C 语言指针问题思考总结">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
