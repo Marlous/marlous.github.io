@@ -258,6 +258,50 @@
 <li><p>查看 IP 地址与删除容器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器名</span><br><span class="line"></span><br><span class="line">docker rm 容器名</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>进入运行的容器方法：<br>参见 <a href="https://blog.csdn.net/u010820857/article/details/83784687" target="_blank" rel="noopener">进入正在运行的Docker容器的4种方式</a>。（在 VSCode 中使用更方便。）</p>
+</li>
+</ol>
+<ul>
+<li>使用 docker attach</li>
+<li>使用 SSH</li>
+<li>使用 nsenter</li>
+<li>使用 exec</li>
+</ul>
+<ol start="8">
+<li>目录映射与数据卷：</li>
+</ol>
+<ul>
+<li><p>目录映射与数据卷：卷由 Docker 引擎进行管理维护的。数据卷默认可能会保存于 <code>/var/lib/docker/volumes</code>。/ 挂载目录属于用户自行维护。你就必须手动处理所有权限问题。</p>
+</li>
+<li><p>通过挂载数据卷或挂载目录都可以实现数据永久化（容器运行结束不会保存数据，比如 mysql 数据、一些配置），但使用数据卷，其支持的特性会更好。</p>
+</li>
+<li><p>将本地目录挂载到容器中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"># -v 用来将宿主机目录挂载到容器中，`:` 前面是宿主机目录，后面是容器目录</span><br><span class="line">docker run -itd -p 80:80 --link php:php -v /www/html:/usr/local/nginx/html --name=nginx nginx</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="9">
+<li>容器的数据卷（数据的永久化）：</li>
+</ol>
+<ul>
+<li><p>容器的数据卷概念：<br>容器的数据卷是一个本地主机上的目录。/ 利用 docker 数据卷映能保证镜像再次运行的时候数据不会丢失、映射了目录也更方便的传数据到运行的 docker 容器里。<br><img src="/2018/10/23/Docker-入门学习笔记/图9.PNG" alt="容器的数据卷概念"></p>
+</li>
+<li><p>对数据卷的操作：<br>参见 <a href="https://blog.csdn.net/jiangyu1013/article/details/80881097" target="_blank" rel="noopener">Docker ： 数据卷（创建、挂载、查看、删除）</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">创建：</span><br><span class="line">docker volume create test_lamp_www           # apache的web根目录 / 容器内：/var/www</span><br><span class="line">docker volume create test_lamp_apache_conf   # apache的配置目录 / 容器内：/etc/apache2</span><br><span class="line">docker volume create test_lamp_mysql_conf    # MySQL的配置目录 / 容器内：/etc/mysql</span><br><span class="line">docker volume create test_lamp_mysql_data    # MySQL的数据目录 / 容器内：/var/lib/mysql</span><br><span class="line"></span><br><span class="line">查看所有：</span><br><span class="line">docker volume ls</span><br><span class="line"></span><br><span class="line">查看某个具体的：</span><br><span class="line">docker volume inspect test_lamp_www</span><br><span class="line"></span><br><span class="line">挂载数据卷：</span><br><span class="line">docker run -it -p 80:80 -p 3306:3306 -v test_lamp_www:/var/www -v test_lamp_apache_conf:/etc/apache2 -v test_lamp_mysql_conf:/etc/mysql -v test_lamp_mysql_data:/var/lib/mysql --name testproject mattrayner/lamp /bin/bash</span><br><span class="line"># 解释：</span><br><span class="line"># docker run：运行一个 container，如果后面要绑定宿主主机的 0-1024 端口需要使用 sudo</span><br><span class="line"># -p port1:port2: 将宿主机的端口 port1 映射到容器中的 port2</span><br><span class="line"># -v volume:path: 将宿主机的 docker 卷映射到容器中的指定的路径</span><br><span class="line"># -t -i mattrayner/lamp /bin/bash：使用 mattrayner/lamp 生成容器，并打开 shell</span><br><span class="line"></span><br><span class="line">删除数据卷：</span><br><span class="line">docker volume rm test_lamp_www</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Windows 环境中 DockerToolBox 目录挂载问题：<br>DockerToolBox 的工作原理是，首先通过 VM 虚拟机创建一个 Linux 虚拟机，然后在虚拟机中安装 Docker。然后 VM 虚拟机通过共享文件夹的机制将宿主机文件挂载到虚拟机中，然后我们通过 -v 参数挂载时，<code>:</code> 前面的目录应该是 Linux 虚拟机中的共享文件夹的目录。</p>
+</li>
+</ul>
+<ol start="10">
+<li>数据卷容器：</li>
+</ol>
+<ul>
+<li>数据卷容器是一个容器。/ 也就是使用 –volumes-from 的东西。这早就不用了，如果看了书还在说这种方式，那说明书已经过时了。按照今天的理解，这类数据容器，无非就是挂了个匿名卷的容器罢了，<a href="https://blog.csdn.net/runner668/article/details/80955767" target="_blank" rel="noopener">详见</a>。<br><img src="/2018/10/23/Docker-入门学习笔记/图10.PNG" alt="数据卷容器概念"></li>
+</ul>
+<ol start="11">
+<li><p>数据卷的备份、迁移与使用：<br>直接对宿主机本地的数据卷进行备份、转移、挂载到容器上。</p>
+</li>
+<li><p>容器的网络问题：</p>
+</li>
 </ol>
 <h2 id="2-制作、备份与迁移"><a href="#2-制作、备份与迁移" class="headerlink" title="2 制作、备份与迁移"></a>2 制作、备份与迁移</h2><ol>
 <li>制作镜像：</li>
@@ -295,10 +339,10 @@
 <li>使用镜像：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name [mymysql] -v [$PWD/conf:/etc/mysql/conf.d] -v [$PWD/logs:/logs] -v [$PWD/data:/var/lib/mysql] -e [MYSQL_ROOT_PASSWORD=123456] -d [mysql:5.6]</span><br><span class="line"></span><br><span class="line"># 参数</span><br><span class="line">-p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。</span><br><span class="line">-v -v $PWD/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。</span><br><span class="line">-v $PWD/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。</span><br><span class="line">-v $PWD/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码。</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="五-补充"><a href="#五-补充" class="headerlink" title="五 补充"></a>五 补充</h1><blockquote>
+<h1 id="五-补充，Dockerfile"><a href="#五-补充，Dockerfile" class="headerlink" title="五 补充，Dockerfile"></a>五 补充，Dockerfile</h1><blockquote>
 <p>Dockerfile 构建：<a href="https://blog.csdn.net/afandaafandaafanda/article/details/81937466" target="_blank" rel="noopener">参考博文</a></p>
 </blockquote>
-<p>团队采用两个 Dockerfile，一个负责开发环境的镜像构建，一个负责生产环境的镜像构建。<br>开发镜像包含了代码构建所需要的环境，镜像大小自然比较大，生产镜像仅包含应用运行所需要的内容，是很精简的体积很小的镜像。</p>
+<p>团队采用三个 Dockerfile，一个负责开发环境的镜像构建，一个负责预发布，一个负责生产环境的镜像构建。<br>开发镜像包含了代码构建所需要的环境，镜像大小自然比较大，生产镜像仅包含应用运行所需要的内容，是很精简的体积很小的镜像。</p>
 
                 <hr>
                 
@@ -329,7 +373,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-虚拟化种类"><span class="toc-text">1 虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Docker-原理与组成"><span class="toc-text">2 Docker 原理与组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Docker-使用场景"><span class="toc-text">3 Docker 使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Docker-的使用方式"><span class="toc-text">4 Docker 的使用方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本命令"><span class="toc-text">1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-制作、备份与迁移"><span class="toc-text">2 制作、备份与迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-部署运行实例"><span class="toc-text">3 部署运行实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充"><span class="toc-text">五 补充</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-虚拟化种类"><span class="toc-text">1 虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Docker-原理与组成"><span class="toc-text">2 Docker 原理与组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Docker-使用场景"><span class="toc-text">3 Docker 使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Docker-的使用方式"><span class="toc-text">4 Docker 的使用方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本命令"><span class="toc-text">1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-制作、备份与迁移"><span class="toc-text">2 制作、备份与迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-部署运行实例"><span class="toc-text">3 部署运行实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充，Dockerfile"><span class="toc-text">五 补充，Dockerfile</span></a></li></ol>
                 </div>
             </div>
         </div>
