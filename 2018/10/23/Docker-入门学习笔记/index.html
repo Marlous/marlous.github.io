@@ -303,6 +303,18 @@
 <li><p>容器的网络问题：</p>
 </li>
 </ol>
+<ul>
+<li><p>原理：<br><img src="/2018/10/23/Docker-入门学习笔记/图11.PNG" alt="原理"></p>
+</li>
+<li><p>功能：<br>可以更改 docker0 的网络地址网段，也可以在宿主机添加虚拟网卡给 docker 容器。</p>
+</li>
+<li><p>docker 容器间链接：<br>默认是可以相互连接的。重启容器 IP 可能会发生变化。/ 容器启动时的 link 选项来避免 IP 变化的不可靠连接。/ 更改 docker 配置文件来禁止容器间的连接。/ 允许特定容器间的链接：docker 配置将 <code>--c=false  --iptables=true</code>、容器启动加 link 参数。</p>
+</li>
+<li><p>docker 与外部网络连接：<br>docker 配置文件中 <code>--ip-forward=true</code> 默认转发流量；配置 iptables：表（每个环节中的 nat 等表）、链（数据流向）、操作（对每个节点的操作，如拒绝、接受）。通过添加 iptables 规则来控制对特定容器的拒绝接受访问。<br><img src="/2018/10/23/Docker-入门学习笔记/图12.PNG" alt="docker 与外部网络连接"></p>
+</li>
+<li><p>docker 的跨主机连接：<br>使用 open vswitch 虚拟网桥（建立网桥、配置接口、分网段）、weave 开源专用于 docker 跨主机连接软件。<br><img src="/2018/10/23/Docker-入门学习笔记/图13.PNG" alt="docker 的跨主机连接"></p>
+</li>
+</ul>
 <h2 id="2-制作、备份与迁移"><a href="#2-制作、备份与迁移" class="headerlink" title="2 制作、备份与迁移"></a>2 制作、备份与迁移</h2><ol>
 <li>制作镜像：</li>
 </ol>
@@ -340,9 +352,14 @@
 </li>
 </ol>
 <h1 id="五-补充，Dockerfile"><a href="#五-补充，Dockerfile" class="headerlink" title="五 补充，Dockerfile"></a>五 补充，Dockerfile</h1><blockquote>
-<p>Dockerfile 构建：<a href="https://blog.csdn.net/afandaafandaafanda/article/details/81937466" target="_blank" rel="noopener">参考博文</a></p>
+<p>参考：<br>1、 <a href="https://blog.csdn.net/afandaafandaafanda/article/details/81937466" target="_blank" rel="noopener">Dockerfile 构建</a><br>2、 <a href="https://blog.csdn.net/qq_33256688/article/details/80319673" target="_blank" rel="noopener">Docker与Dockerfile极简入门文档</a></p>
 </blockquote>
-<p>团队采用三个 Dockerfile，一个负责开发环境的镜像构建，一个负责预发布，一个负责生产环境的镜像构建。<br>开发镜像包含了代码构建所需要的环境，镜像大小自然比较大，生产镜像仅包含应用运行所需要的内容，是很精简的体积很小的镜像。</p>
+<ul>
+<li><p>如果你想要从一个基础镜像开始建立一个自定义镜像，可以选择一步一步进行构建，也可以选择写一个配置文件，然后一条命令（docker build）完成构建，显然配置文件的方式可以更好地应对需求的变更，这个配置文件就是 Dockerfile。/ 相比 image 这种黑盒子，Dockerfile 这种显而易见的脚本更容易被使用者接受，它明确的表明 image 是怎么产生的。有了 Dockerfile，当我们需要定制自己额外的需求时，只需在 Dockerfile 上添加或者修改指令，重新生成 image 即可，省去了敲命令的麻烦。</p>
+</li>
+<li><p>团队采用三个 Dockerfile，一个负责开发环境的镜像构建，一个负责预发布，一个负责生产环境的镜像构建。<br>开发镜像包含了代码构建所需要的环境，镜像大小自然比较大，生产镜像仅包含应用运行所需要的内容，是很精简的体积很小的镜像。</p>
+</li>
+</ul>
 
                 <hr>
                 
