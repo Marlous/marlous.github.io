@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -205,14 +205,23 @@
                 <blockquote>
 <p>参考：<br>1、 <a href="http://www.runoob.com/docker/docker-tutorial.html" target="_blank" rel="noopener">Docker 菜鸟教程</a><br>2、 <a href="https://blog.csdn.net/S_gy_Zetrov/article/details/78161154" target="_blank" rel="noopener">Docker_入门？只要这篇就够了！（纯干货适合0基础小白）</a><br>3、 <a href="https://www.cnblogs.com/SzeCheng/p/6822905.html" target="_blank" rel="noopener">参考文章</a></p>
 </blockquote>
-<h1 id="一-Docker-概念与作用"><a href="#一-Docker-概念与作用" class="headerlink" title="一 Docker 概念与作用"></a>一 Docker 概念与作用</h1><p>“Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化，容器是完全使用沙箱机制，相互之间不会有任何接口。”</p>
-<p>开发、测试、上线（运维）过程中，将环境打包到容器中，方便部署，开箱即用；<br>可以直接使用现成的容器（打包好的环境）；<br>可以制作自己的容器。</p>
+<h1 id="一-Docker-概念与作用"><a href="#一-Docker-概念与作用" class="headerlink" title="一 Docker 概念与作用"></a>一 Docker 概念与作用</h1><ul>
+<li><p>“Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化，容器是完全使用沙箱机制，相互之间不会有任何接口。”</p>
+</li>
+<li><p>制造镜像前，就要服务的软件都装好，镜像运行时进行的任何修改都只是在内存的虚拟文件系统里，删除此容器，所有运行时的修改都丢失。/ 可以在容器基础上制作成镜像，下次用这个镜像运行一个容器。</p>
+</li>
+<li><p>开发、测试、上线（运维）过程中，将环境打包到容器中，方便部署，开箱即用；<br>可以直接使用现成的容器（打包好的环境）；<br>可以制作自己的容器。</p>
+</li>
+</ul>
 <h1 id="二-安装运行"><a href="#二-安装运行" class="headerlink" title="二 安装运行"></a>二 安装运行</h1><ol>
 <li><p>去 Docker 官网下载安装包安装。下载前需要注册，因为注册用的 Google 人机验证，所以可能无法显示点击 sign up 按钮。</p>
 </li>
 <li><p>Docker for Windows Installer（需要 Windows 10 专业版本或企业版，具体见官网。）使用的是微软的 hyper-V，由于 Hyper-V 与 VirtualBox 冲突导致安装上无法使用的情况（如果安装过 virtualbox，32 位的可以和 Hyper-V 共存），可换为 DockerToolbox，后者利用 virtualbox。</p>
 </li>
 <li><p>Tips：<br>点击 Docker Quickstart Terminal，如果先安装过 git，会出现 “windows 正在查找 bash.exe” 问题，是因为快捷方式路径不对，因为需要 Git bash.exe 来执行 docker star.sh（git bash 是 Windows 下的命令行工具，基于 msys GNU 环境）。<br>快捷方式目标的正确路径书写示例：<code>&quot;D:\Program Files\Git\bin\bash.exe&quot; --login -i &quot;C:\Program Files\Docker Toolbox\start.sh&quot;</code></p>
+</li>
+<li><p>修改 Docker 源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">修改 Windows 上 Docker 的镜像源:</span><br><span class="line">Windows 命令行执行 docker-machine ssh [machine-name] 进入 VM bash。</span><br><span class="line"></span><br><span class="line">sudo vi /var/lib/boot2docker/profile</span><br><span class="line"></span><br><span class="line">在 --label provider=virtualbox 的下一行添加 --registry-mirror http://141e5461.m.daocloud.io</span><br><span class="line"></span><br><span class="line">重启 docker 服务：sudo /etc/init.d/docker restart 或者重启 VM：exit 退出 VM bash，在 Windows 命令行中执行 docker-machine restart</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="三-Docker"><a href="#三-Docker" class="headerlink" title="三 Docker"></a>三 Docker</h1><h2 id="1-虚拟化种类"><a href="#1-虚拟化种类" class="headerlink" title="1 虚拟化种类"></a>1 虚拟化种类</h2><ul>
@@ -352,9 +361,11 @@
 </li>
 </ol>
 <h1 id="五-补充，Dockerfile"><a href="#五-补充，Dockerfile" class="headerlink" title="五 补充，Dockerfile"></a>五 补充，Dockerfile</h1><blockquote>
-<p>参考：<br>1、 <a href="https://blog.csdn.net/afandaafandaafanda/article/details/81937466" target="_blank" rel="noopener">Dockerfile 构建</a><br>2、 <a href="https://blog.csdn.net/qq_33256688/article/details/80319673" target="_blank" rel="noopener">Docker与Dockerfile极简入门文档</a></p>
+<p>参考：<br>1、 <a href="https://blog.csdn.net/afandaafandaafanda/article/details/81937466" target="_blank" rel="noopener">Dockerfile 构建</a><br>2、 <a href="https://blog.csdn.net/qq_33256688/article/details/80319673" target="_blank" rel="noopener">Docker与Dockerfile极简入门文档</a><br>3、 <a href="http://neue.v2ex.com/t/305695" target="_blank" rel="noopener">dockerfile 和 docker-compose 的关系</a></p>
 </blockquote>
 <ul>
+<li><p>Dockerfile 是定义镜像（单个镜像构建的脚本）。/ docker-compse.yml 是以启动 container 为目的的是多个镜像构建文件（项目需要哪些镜像，每个镜像怎么配置，要挂载哪些 volume，等等信息都包含在 docker-compose.yml 里，取代 <code>run</code> 命令，用 <code>docker-compose</code> 命令运行）。</p>
+</li>
 <li><p>如果你想要从一个基础镜像开始建立一个自定义镜像，可以选择一步一步进行构建，也可以选择写一个配置文件，然后一条命令（docker build）完成构建，显然配置文件的方式可以更好地应对需求的变更，这个配置文件就是 Dockerfile。/ 相比 image 这种黑盒子，Dockerfile 这种显而易见的脚本更容易被使用者接受，它明确的表明 image 是怎么产生的。有了 Dockerfile，当我们需要定制自己额外的需求时，只需在 Dockerfile 上添加或者修改指令，重新生成 image 即可，省去了敲命令的麻烦。</p>
 </li>
 <li><p>团队采用三个 Dockerfile，一个负责开发环境的镜像构建，一个负责预发布，一个负责生产环境的镜像构建。<br>开发镜像包含了代码构建所需要的环境，镜像大小自然比较大，生产镜像仅包含应用运行所需要的内容，是很精简的体积很小的镜像。</p>
