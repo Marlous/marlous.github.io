@@ -79,6 +79,20 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/tags/">tags</a>
                         </li>
@@ -87,22 +101,8 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/work/">works</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -272,21 +272,78 @@
 </li>
 </ul>
 <ol start="2">
-<li>下次正式使用镜像：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">命令创建：</span><br><span class="line">docker volume create test_lamp_www           # apache的web根目录 / 容器内：/var/www</span><br><span class="line">docker volume create test_lamp_apache_conf   # apache的配置目录 / 容器内：/etc/apache2</span><br><span class="line">docker volume create test_lamp_mysql_conf    # MySQL的配置目录 / 容器内：/etc/mysql</span><br><span class="line">docker volume create test_lamp_mysql_data    # MySQL的数据目录 / 容器内：/var/lib/mysql</span><br><span class="line"></span><br><span class="line">映射命令（大概参考）：</span><br><span class="line">docker run -it -p 80:80 -p 3306:3306 -v test_lamp_www:/var/www -v test_lamp_apache_conf:/etc/apache2 -v test_lamp_mysql_conf:/etc/mysql -v test_lamp_mysql_data:/var/lib/mysql --name 容器名 镜像名 /bin/bash</span><br><span class="line"># 解释：</span><br><span class="line"># docker run：运行一个 container，如果后面要绑定宿主主机的 0-1024 端口需要使用 sudo</span><br><span class="line"># -p port1:port2: 将宿主机的端口 port1 映射到容器中的 port2</span><br><span class="line"># -v volume:path: 将宿主机的 docker 卷映射到容器中的指定的路径</span><br><span class="line"># -t -i [镜像名] /bin/bash：使用 [镜像名] 生成容器，并打开 shell</span><br></pre></td></tr></table></figure>
+<li>下次正式使用镜像：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">命令创建：</span><br><span class="line">docker volume create test_lamp_www           # apache的web根目录 / 容器内：/var/www</span><br><span class="line">docker volume create test_lamp_apache_conf   # apache的配置目录 / 容器内：/etc/apache2</span><br><span class="line">docker volume create test_lamp_mysql_conf    # MySQL的配置目录 / 容器内：/etc/mysql</span><br><span class="line">docker volume create test_lamp_mysql_data    # MySQL的数据目录 / 容器内：/var/lib/mysql</span><br><span class="line"></span><br><span class="line">映射命令（大概参考）：</span><br><span class="line">docker run -it -p 80:80 -p 3306:3306 -v test_lamp_www:/var/www -v test_lamp_apache_conf:/etc/apache2 -v test_lamp_mysql_conf:/etc/mysql -v test_lamp_mysql_data:/var/lib/mysql --name 容器名 镜像名 /bin/bash</span><br><span class="line"># 解释：</span><br><span class="line"># docker run：运行一个 container，如果后面要绑定宿主主机的 0-1024 端口需要使用 sudo</span><br><span class="line"># -p port1:port2: 将宿主机的端口 port1 映射到容器中的 port2</span><br><span class="line"># -v volume:path: 将宿主机的 docker 卷映射到容器中的指定的路径</span><br><span class="line"># -t -i [镜像名] /bin/bash：使用 [镜像名] 生成容器，并打开 shell</span><br><span class="line"></span><br><span class="line">service apache2 start</span><br><span class="line">service mysql start</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="2-使用-Dockerfile-制作镜像"><a href="#2-使用-Dockerfile-制作镜像" class="headerlink" title="2 使用 Dockerfile 制作镜像"></a>2 使用 Dockerfile 制作镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-使用-Dockerfile-制作镜像"><a href="#2-使用-Dockerfile-制作镜像" class="headerlink" title="2 使用 Dockerfile 制作镜像"></a>2 使用 Dockerfile 制作镜像</h2><ol>
+<li>制作过程：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <h1 id="二-制作-WordPress-镜像"><a href="#二-制作-WordPress-镜像" class="headerlink" title="二 制作 WordPress 镜像"></a>二 制作 WordPress 镜像</h1><blockquote>
 <p>在上面 marlous/lamp 镜像基础上制作。<br>参考我的博文 《使用 WordPress 在云服务器快速建站》 </p>
 </blockquote>
 <ol>
 <li>制作过程：</li>
 </ol>
+<ul>
+<li><p>基于 marlous/lamp 镜像运行容器，<code>docker run -it -p 80:80 -p 3306:3306 --name 准备的容器名 镜像名 /bin/bash</code>。</p>
+</li>
+<li><p>开启 Apache2、MySQL 服务。</p>
+</li>
+<li><p>创建 WordPress 的数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql -u admin -p12345</span><br><span class="line"></span><br><span class="line">CREATE DATABASE WordPress; // WordPress 作为数据库名字。</span><br><span class="line">GRANT ALL PRIVILEGES ON WordPress.* TO &quot;admin&quot;@&quot;localhost&quot; IDENTIFIED BY &quot;12345&quot;; </span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line">EXIT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载 WordPress：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">apt-get install wget</span><br><span class="line"></span><br><span class="line">cd /tmp</span><br><span class="line"></span><br><span class="line">wget https://cn.wordpress.org/latest-zh_CN.tar.gz</span><br><span class="line"></span><br><span class="line">tar -xvzf latest-zh_CN.tar.gz</span><br><span class="line"></span><br><span class="line">mv html html_bak // www 目录下</span><br><span class="line">cp -Rf /tmp/wordpress/* /var/www/html</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将复制过去的文件中的 wp-config-sample.php 重命名为 wp-config.php。<code>mv wp-config-sample.php wp-config.php</code>。</p>
+</li>
+<li><p>配置 wp-config.php 文件，设置用户名密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DB_NAME </span><br><span class="line">    在第二步中为WordPress创建的数据库名称</span><br><span class="line">DB_USER </span><br><span class="line">    在第二步中创建的WordPress用户名</span><br><span class="line">DB_PASSWORD </span><br><span class="line">    第二步中为WordPress用户名设定的密码</span><br><span class="line">DB_HOST </span><br><span class="line">    第二步中设定的hostname（通常是localhost，但总有例外；参见编辑wp-config.php文件中的“可能的DB_HOST值）。</span><br><span class="line">DB_CHARSET </span><br><span class="line">    数据库字符串，通常不可更改（参见zh-cn:编辑wp-config.php）。</span><br><span class="line">DB_COLLATE </span><br><span class="line">    留为空白的数据库排序</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>制作成镜像，<code>docker commit 容器名 起个镜像名</code>。</p>
+</li>
+<li><p>从刚制作的镜像运行一个容器 <code>docker run -it -p 80:80 -p 3306:3306 --name 容器名 镜像名 /bin/bash</code>。</p>
+</li>
+<li><p>本地浏览器访问，通过安装脚本安装：<br>放在 www 根目录下的 html 里的，<a href="http://example.com/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/wp-admin/install.php</a> （本地用 127.0.0.1/wp-admin/install.php）。/放在 www 根目录下的 html 里的子目录的，<a href="http://example.com/blog/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/blog/wp-admin/install.php</a></p>
+</li>
+<li><p>出现安装界面，完成镜像的测试。</p>
+</li>
+<li><p>可以上传镜像到 Docker Hub：<code>docker push &lt;hub-user&gt;/&lt;repo-name&gt;:&lt;tag&gt;</code>，<a href="https://blog.csdn.net/ximenghappy/article/details/66971035" target="_blank" rel="noopener">参考博文</a>。</p>
+</li>
+</ul>
+<ol start="2">
+<li>下次正式使用镜像：</li>
+</ol>
+<ul>
+<li><p>运行容器进入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">命令创建：</span><br><span class="line">docker volume create test_wordpress_wp_config     # wordpress的配置目录 / 容器内：/var/www/html/</span><br><span class="line">docker volume create test_wordpress_apache_conf   # apache的配置目录 / 容器内：/etc/apache2</span><br><span class="line">docker volume create test_wordpress_mysql_conf    # MySQL的配置目录 / 容器内：/etc/mysql</span><br><span class="line">docker volume create test_wordpress_mysql_data    # MySQL的数据目录 / 容器内：/var/lib/mysql</span><br><span class="line"></span><br><span class="line">映射命令（大概参考）：</span><br><span class="line">docker run -it -p 80:80 -p 3306:3306 -v test_wordpress_wp_config:/var/www/html/ -v test_wordpress_apache_conf:/etc/apache2 -v test_wordpress_mysql_conf:/etc/mysql -v test_wordpress_mysql_data:/var/lib/mysql --name 容器名 镜像名 /bin/bash</span><br><span class="line"># 解释：</span><br><span class="line"># docker run：运行一个 container，如果后面要绑定宿主主机的 0-1024 端口需要使用 sudo</span><br><span class="line"># -p port1:port2: 将宿主机的端口 port1 映射到容器中的 port2</span><br><span class="line"># -v volume:path: 将宿主机的 docker 卷映射到容器中的指定的路径</span><br><span class="line"># -t -i [镜像名] /bin/bash：使用 [镜像名] 生成容器，并打开 shell</span><br><span class="line"></span><br><span class="line">service apache2 start</span><br><span class="line">service mysql start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装：<br>本地（部署的服务器，远程则服务器名:80/wp-admin/install.php）浏览器访问，通过安装脚本安装：<br>放在 www 根目录下的 html 里的，<a href="http://example.com/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/wp-admin/install.php</a> （本地用 127.0.0.1/wp-admin/install.php）。/放在 www 根目录下的 html 里的子目录的，<a href="http://example.com/blog/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/blog/wp-admin/install.php</a></p>
+</li>
+</ul>
+<h1 id="三-用-docker-compose-一键部署"><a href="#三-用-docker-compose-一键部署" class="headerlink" title="三 用 docker-compose 一键部署"></a>三 用 docker-compose 一键部署</h1><blockquote>
+<p>参考：<br>1、 <a href="https://blog.csdn.net/pushiqiang/article/details/78682323" target="_blank" rel="noopener">docker-compose教程（安装，使用, 快速入门）</a></p>
+</blockquote>
+<ol>
+<li>概念：</li>
+</ol>
+<ul>
+<li>在需要部署的服务器上安装 Docker，安装 docker-compose。</li>
+</ul>
+<ol start="2">
+<li>示例：（以 lamp 镜像为例）</li>
+</ol>
 
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/03/13/Hexo-博客的持续集成和部署/" data-toggle="tooltip" data-placement="top"
+                           title="Hexo 博客的持续集成和部署">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
@@ -307,7 +364,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-搭建-LAMP-环境"><span class="toc-text">一 Docker 搭建 LAMP 环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-从零开始制作-LAMP-镜像"><span class="toc-text">二 从零开始制作 LAMP 镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-手动制作过程"><span class="toc-text">1 手动制作过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用-Dockerfile-制作镜像"><span class="toc-text">2 使用 Dockerfile 制作镜像</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-制作-WordPress-镜像"><span class="toc-text">二 制作 WordPress 镜像</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-搭建-LAMP-环境"><span class="toc-text">一 Docker 搭建 LAMP 环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-从零开始制作-LAMP-镜像"><span class="toc-text">二 从零开始制作 LAMP 镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-手动制作过程"><span class="toc-text">1 手动制作过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用-Dockerfile-制作镜像"><span class="toc-text">2 使用 Dockerfile 制作镜像</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-制作-WordPress-镜像"><span class="toc-text">二 制作 WordPress 镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-用-docker-compose-一键部署"><span class="toc-text">三 用 docker-compose 一键部署</span></a></li></ol>
                 </div>
             </div>
         </div>
