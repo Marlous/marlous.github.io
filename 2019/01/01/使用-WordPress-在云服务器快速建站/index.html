@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -226,7 +226,10 @@
 </ol>
 <h1 id="二-创建-WordPress-的数据库和用户"><a href="#二-创建-WordPress-的数据库和用户" class="headerlink" title="二 创建 WordPress 的数据库和用户"></a>二 创建 WordPress 的数据库和用户</h1><p>注：使用命令 <code>uname -n</code> 查看主机名，/etc/hostname 文件修改主机名。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -proot</span><br><span class="line"></span><br><span class="line">CREATE DATABASE databasename; // wordpress 作为数据库名字。</span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO &quot;wordpressusername&quot;@&quot;hostname&quot; // &quot;wpblog&quot;@&quot;localhost&quot;</span><br><span class="line">IDENTIFIED BY &quot;12345&quot;; // 设置 wpblog 这个用户的密码。</span><br><span class="line"></span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line">EXIT</span><br></pre></td></tr></table></figure>
-<h1 id="三-配置文件"><a href="#三-配置文件" class="headerlink" title="三 配置文件"></a>三 配置文件</h1><ol>
+<h1 id="三-配置文件"><a href="#三-配置文件" class="headerlink" title="三 配置文件"></a>三 配置文件</h1><blockquote>
+<p>先下载 WordPresss。</p>
+</blockquote>
+<ol>
 <li><p>将 wp-config-sample.php 重命名为 wp-config.php</p>
 </li>
 <li><p>在  <code>// ** MySQL settings - You can get this info from your web host ** //</code> 下输入信息。<br><a href="https://codex.wordpress.org/zh-cn:%E7%BC%96%E8%BE%91wp-config.php#Possible_DB_HOST_values" target="_blank" rel="noopener">怎样填写：参考链接</a></p>
