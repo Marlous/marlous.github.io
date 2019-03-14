@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -96,6 +90,12 @@
                         <li>
                             <a href="/tags/">tags</a>
                         </li>
+							
+						
+                    
+                        
+							
+								
 							
 						
                     
@@ -216,7 +216,8 @@
 <h1 id="二-安装运行"><a href="#二-安装运行" class="headerlink" title="二 安装运行"></a>二 安装运行</h1><ol>
 <li><p>去 Docker 官网下载安装包安装。下载前需要注册，因为注册用的 Google 人机验证，所以可能无法显示点击 sign up 按钮。</p>
 </li>
-<li><p>Docker for Windows Installer（需要 Windows 10 专业版本或企业版，具体见官网。）使用的是微软的 hyper-V，由于 Hyper-V 与 VirtualBox 冲突导致安装上无法使用的情况（如果安装过 virtualbox，32 位的可以和 Hyper-V 共存），可换为 DockerToolbox，后者利用 virtualbox。</p>
+<li><p>Docker for Windows Installer（需要 Windows 10 专业版本或企业版，具体见官网。）使用的是微软的 hyper-V，由于 Hyper-V 与 VirtualBox 冲突导致安装上无法使用的情况（如果安装过 virtualbox，32 位的可以和 Hyper-V 共存），可换为 DockerToolbox，后者利用 virtualbox。/ 补充 Ubuntu 安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt install docker.io</span><br><span class="line">systemctl unmask docker.service</span><br><span class="line">systemctl unmask docker.socket</span><br><span class="line">systemctl start docker.service</span><br><span class="line">sudo groupadd docker             // 创建 docker 用户组，一般已经建好</span><br><span class="line">sudo usermod -aG docker $USER    // 添加 用户到用户组</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Tips：<br>点击 Docker Quickstart Terminal，如果先安装过 git，会出现 “windows 正在查找 bash.exe” 问题，是因为快捷方式路径不对，因为需要 Git bash.exe 来执行 docker star.sh（git bash 是 Windows 下的命令行工具，基于 msys GNU 环境）。<br>快捷方式目标的正确路径书写示例：<code>&quot;D:\Program Files\Git\bin\bash.exe&quot; --login -i &quot;C:\Program Files\Docker Toolbox\start.sh&quot;</code></p>
 </li>
@@ -360,10 +361,10 @@
 <li>使用镜像：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name [mymysql] -v [$PWD/conf:/etc/mysql/conf.d] -v [$PWD/logs:/logs] -v [$PWD/data:/var/lib/mysql] -e [MYSQL_ROOT_PASSWORD=123456] -d [mysql:5.6]</span><br><span class="line"></span><br><span class="line"># 参数</span><br><span class="line">-p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。</span><br><span class="line">-v -v $PWD/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。</span><br><span class="line">-v $PWD/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。</span><br><span class="line">-v $PWD/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码。</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h1 id="五-补充，Dockerfile-与-docker-compose"><a href="#五-补充，Dockerfile-与-docker-compose" class="headerlink" title="五 补充，Dockerfile 与 docker-compose"></a>五 补充，Dockerfile 与 docker-compose</h1><blockquote>
-<p>参考：<br>1、 <a href="https://blog.csdn.net/afandaafandaafanda/article/details/81937466" target="_blank" rel="noopener">Dockerfile 构建</a><br>2、 <a href="https://blog.csdn.net/qq_33256688/article/details/80319673" target="_blank" rel="noopener">Docker与Dockerfile极简入门文档</a><br>3、 <a href="http://neue.v2ex.com/t/305695" target="_blank" rel="noopener">dockerfile 和 docker-compose 的关系</a></p>
+<h1 id="五-Dockerfile-与-docker-compose"><a href="#五-Dockerfile-与-docker-compose" class="headerlink" title="五 Dockerfile 与 docker-compose"></a>五 Dockerfile 与 docker-compose</h1><blockquote>
+<p>参考：<br>1、 <a href="https://blog.csdn.net/afandaafandaafanda/article/details/81937466" target="_blank" rel="noopener">Dockerfile 构建</a><br>2、 <a href="https://blog.csdn.net/qq_33256688/article/details/80319673" target="_blank" rel="noopener">Docker与Dockerfile极简入门文档</a><br>3、 <a href="http://neue.v2ex.com/t/305695" target="_blank" rel="noopener">dockerfile 和 docker-compose 的关系</a><br>4、 <a href="https://blog.csdn.net/pushiqiang/article/details/78682323" target="_blank" rel="noopener">docker-compose教程（安装，使用, 快速入门）</a></p>
 </blockquote>
-<ul>
+<h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h2><ul>
 <li><p>Dockerfile 是定义镜像（单个镜像构建的脚本）。/ docker-compse.yml 是以启动 container 为目的的是多个镜像构建文件（项目需要哪些镜像，每个镜像怎么配置，要挂载哪些 volume，等等信息都包含在 docker-compose.yml 里，取代 <code>run</code> 命令，用 <code>docker-compose</code> 命令运行）。</p>
 </li>
 <li><p>如果你想要从一个基础镜像开始建立一个自定义镜像，可以选择一步一步进行构建，也可以选择写一个配置文件，然后一条命令（docker build）完成构建，显然配置文件的方式可以更好地应对需求的变更，这个配置文件就是 Dockerfile。/ 相比 image 这种黑盒子，Dockerfile 这种显而易见的脚本更容易被使用者接受，它明确的表明 image 是怎么产生的。有了 Dockerfile，当我们需要定制自己额外的需求时，只需在 Dockerfile 上添加或者修改指令，重新生成 image 即可，省去了敲命令的麻烦。</p>
@@ -371,7 +372,32 @@
 <li><p>团队采用三个 Dockerfile，一个负责开发环境的镜像构建，一个负责预发布，一个负责生产环境的镜像构建。<br>开发镜像包含了代码构建所需要的环境，镜像大小自然比较大，生产镜像仅包含应用运行所需要的内容，是很精简的体积很小的镜像。</p>
 </li>
 </ul>
-
+<h2 id="2-编写"><a href="#2-编写" class="headerlink" title="2 编写"></a>2 编写</h2><ol>
+<li>怎样编写：</li>
+</ol>
+<ul>
+<li>Dockerfile 编写：</li>
+<li>docker-compose 编写：</li>
+</ul>
+<ol start="2">
+<li>示例：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">Dockerfile 编写</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">docker-compose 编写</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+<h2 id="3-使用方法"><a href="#3-使用方法" class="headerlink" title="3 使用方法"></a>3 使用方法</h2><ol>
+<li>构建并使用 docker-compose 运行容器：</li>
+</ol>
+<ul>
+<li>可以使用 Docker Hub 上的或本地存在的镜像。src 放制作镜像用到的东西，可以没有。</li>
+<li>Web 文件夹内的 Dockerfile 是构建 LAMP 环境的（没有 MySQL）。</li>
+<li>MySQL 文件夹内的 Dockerfile 是构建 MySQL 镜像的。</li>
+<li>这个 docker-compose.yml 是配置，描述了怎么样建立数据卷、怎样连接两个容器，怎样运行容器等。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">使用流程：</span><br><span class="line">编写 Dockerfile。</span><br><span class="line">编写 docker-compose.yml。</span><br><span class="line">进入并在 docker 文件夹中运行命令 docker-compose up -d，运行整个项目。</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">project/</span><br><span class="line">  |- src/</span><br><span class="line">  |- docker/</span><br><span class="line">      |- Web/</span><br><span class="line">      |   |- Dockerfile</span><br><span class="line">      |- MySQL/</span><br><span class="line">      |   |- Dockerfile</span><br><span class="line">      |- docker-compose.yml</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>需要的镜像已存在，使用 docker-compose 运行容器：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">使用流程：</span><br><span class="line">编写 docker-compose.yml。</span><br><span class="line">进入并在 docker 文件夹中运行命令 docker-compose up -d，运行整个项目。</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">project/</span><br><span class="line">  |- docker-compose.yml</span><br></pre></td></tr></table></figure>
                 <hr>
                 
 
@@ -401,7 +427,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-虚拟化种类"><span class="toc-text">1 虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Docker-原理与组成"><span class="toc-text">2 Docker 原理与组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Docker-使用场景"><span class="toc-text">3 Docker 使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Docker-的使用方式"><span class="toc-text">4 Docker 的使用方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本命令"><span class="toc-text">1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-制作、备份与迁移"><span class="toc-text">2 制作、备份与迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-部署运行实例"><span class="toc-text">3 部署运行实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充，Dockerfile-与-docker-compose"><span class="toc-text">五 补充，Dockerfile 与 docker-compose</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-Docker-概念与作用"><span class="toc-text">一 Docker 概念与作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-安装运行"><span class="toc-text">二 安装运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Docker"><span class="toc-text">三 Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-虚拟化种类"><span class="toc-text">1 虚拟化种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Docker-原理与组成"><span class="toc-text">2 Docker 原理与组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Docker-使用场景"><span class="toc-text">3 Docker 使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Docker-的使用方式"><span class="toc-text">4 Docker 的使用方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Docker-快速上手"><span class="toc-text">四 Docker 快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-基本命令"><span class="toc-text">1 基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-制作、备份与迁移"><span class="toc-text">2 制作、备份与迁移</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-部署运行实例"><span class="toc-text">3 部署运行实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-Dockerfile-与-docker-compose"><span class="toc-text">五 Dockerfile 与 docker-compose</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概念"><span class="toc-text">1 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-编写"><span class="toc-text">2 编写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-使用方法"><span class="toc-text">3 使用方法</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
