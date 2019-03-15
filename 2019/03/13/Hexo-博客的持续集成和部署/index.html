@@ -203,7 +203,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="https://www.jianshu.com/p/60de63b14ae5?from=jiantop.com" target="_blank" rel="noopener">Hexo的版本控制与持续集成</a><br>2、 <a href="https://blog.csdn.net/qq_20264891/article/details/82183614" target="_blank" rel="noopener">使用 Travis-CI 持续集成部署 HEXO 博客项目</a><br>3、 <a href="https://segmentfault.com/a/1190000004667156" target="_blank" rel="noopener">用 Travis CI 自动部署 hexo</a></p>
+<p>参考：<br>1、 <a href="https://www.jianshu.com/p/60de63b14ae5?from=jiantop.com" target="_blank" rel="noopener">Hexo的版本控制与持续集成</a><br>2、 <a href="https://blog.csdn.net/qq_20264891/article/details/82183614" target="_blank" rel="noopener">使用 Travis-CI 持续集成部署 HEXO 博客项目</a><br>3、 <a href="https://segmentfault.com/a/1190000004667156" target="_blank" rel="noopener">用 Travis CI 自动部署 hexo</a><br>4、 <a href="https://www.cnblogs.com/wowchky/p/9177036.html" target="_blank" rel="noopener">使用 Git Hook 实现网站的自动部署</a></p>
 </blockquote>
 <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ol>
 <li>实现原理（使用现成的 CI/CD 服务）：</li>
@@ -230,6 +230,10 @@
 <li>前者相当于完全复制一份本地的博客相关源码到中间存储仓库，远端服务环境负责构建，然后推送博客源码部署。</li>
 <li>后者相当于直接将博客相关源码、环境建在远端，本地只留一个存博文的文件夹，通过中间存储仓库更新远端的 post 文件夹，然后远端构建，再推送博客源码部署。</li>
 </ul>
+<ol start="4">
+<li>先备份：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scaffolds（文章模版）</span><br><span class="line">source（博客文章） </span><br><span class="line">themes（主题）</span><br><span class="line">.gitignore（限定在 push 时那些文件可以忽略）</span><br><span class="line">_config.yml（站点配置文件）</span><br><span class="line">package.json（安装包的名称）</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <h1 id="二-使用现成的-CI-CD-服务"><a href="#二-使用现成的-CI-CD-服务" class="headerlink" title="二 使用现成的 CI/CD 服务"></a>二 使用现成的 CI/CD 服务</h1><ul>
 <li><p>本地已建好可运行的 Hexo 博客。</p>
 </li>
@@ -238,10 +242,27 @@
 </li>
 <li><p>登陆 Travis-CI，选择 xxx.github.io 仓库。</p>
 </li>
+<li><p>GitHub 生成一个 Access Token（除了删仓库权限，其它全给）。</p>
+</li>
+<li><p>Travis 填入 Token。</p>
+</li>
+<li><p>中间存储文件夹（my-hexo-cicd）根目录下写 .travis.yml 配置文件（具体编写方法见网上的教程）。</p>
+</li>
+<li><p>推送到远程中间存储仓库，即可。</p>
+</li>
 </ul>
-<h1 id="三-自己用-Docker-搭建-CI-CD-服务"><a href="#三-自己用-Docker-搭建-CI-CD-服务" class="headerlink" title="三 自己用 Docker 搭建 CI/CD 服务"></a>三 自己用 Docker 搭建 CI/CD 服务</h1><blockquote>
+<h1 id="三-部署在远程-Docker-容器"><a href="#三-部署在远程-Docker-容器" class="headerlink" title="三 部署在远程 Docker 容器"></a>三 部署在远程 Docker 容器</h1><blockquote>
 <p>这里使用一台本地的 Ubuntu 虚拟机来模拟自己远端的服务器。</p>
 </blockquote>
+<ul>
+<li><p>先在本地已搭建好 Hexo，配好主题等，测试能正常运行。</p>
+</li>
+<li><p>准备好自己博客需要的文件，复制到一个新文件夹中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scaffolds（文章模版）</span><br><span class="line">source（博客文章） </span><br><span class="line">themes（主题）</span><br><span class="line">_config.yml（站点配置文件）</span><br><span class="line">package.json（安装包的名称）</span><br><span class="line"></span><br><span class="line">--------------------------</span><br><span class="line">将新文件夹中 source（博客文章）里 _post 文件夹中的内容清空，防止之后文件冲突。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先制作 docker 镜像：<br>基于 Ubuntu。（在本地制作镜像，制作完成后通过传输工具传到远程服务器上。不通过 Docker Hub 的话）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 80:80 -v test_lamp_www:/var/www --name 容器名 镜像名 /bin/bash</span><br><span class="line"></span><br><span class="line">apt-get install apache2</span><br><span class="line">无法重启 apache 服务：在 apache2.conf 中添加一行 ServerName 127.0.0.1:80</span><br><span class="line"></span><br><span class="line">安装 Node.js 和 Git</span><br></pre></td></tr></table></figure></li>
+</ul>
 
                 <hr>
                 
@@ -275,7 +296,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-使用现成的-CI-CD-服务"><span class="toc-text">二 使用现成的 CI/CD 服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-自己用-Docker-搭建-CI-CD-服务"><span class="toc-text">三 自己用 Docker 搭建 CI/CD 服务</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-使用现成的-CI-CD-服务"><span class="toc-text">二 使用现成的 CI/CD 服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-部署在远程-Docker-容器"><span class="toc-text">三 部署在远程 Docker 容器</span></a></li></ol>
                 </div>
             </div>
         </div>
