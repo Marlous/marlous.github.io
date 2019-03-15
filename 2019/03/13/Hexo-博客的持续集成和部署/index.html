@@ -202,7 +202,61 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote>
+<p>参考：<br>1、 <a href="https://www.jianshu.com/p/60de63b14ae5?from=jiantop.com" target="_blank" rel="noopener">Hexo的版本控制与持续集成</a><br>2、 <a href="https://blog.csdn.net/qq_20264891/article/details/82183614" target="_blank" rel="noopener">使用 Travis-CI 持续集成部署 HEXO 博客项目</a><br>3、 <a href="https://segmentfault.com/a/1190000004667156" target="_blank" rel="noopener">用 Travis CI 自动部署 hexo</a></p>
+</blockquote>
+<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ol>
+<li>使用：</li>
+</ol>
+<ul>
+<li>从零开始，在本地部署环境、安装运行 Hexo 博客，然后将此博客文件夹源码 push 到一个 GitHub 仓库中。</li>
+<li>每次写博文直接在对应的 post 文件夹新建博文.md 和与博文同名存图片的文件夹即可。</li>
+<li>每次写完博文，直接提交到对应 GitHub 仓库即可（换台电脑就把 GitHub 上对应的源码仓库拉下来）。</li>
+</ul>
+<ol start="2">
+<li>实现原理概述：</li>
+</ol>
+<ul>
+<li>第一次在本地安装环境，安装好 Hexo，测试运行博客（从零开始）。</li>
+<li>将此博客文件夹的全部内容 push 到一个仓库中（可以忽略 public 文件夹）。</li>
+<li>然后使用 CI/CD 服务（相当于在云端布置一个环境）拉此仓库的源码，进行构建。</li>
+<li>构建完后推送到 GitHub 上的用来提供 GitHub Pages 博客服务的仓库（之前已建好）中。</li>
+</ul>
+<ol start="3">
+<li>实现原理（使用现成的 CI/CD 服务）：</li>
+</ol>
+<ul>
+<li>本地准备好环境和可以运行 Hexo 后，将全部源码推到中间存储用的仓库。</li>
+<li>再在 CI/CD 服务器上搭建一个环境，这个环境专门用来生成博客源码。</li>
+<li>将本地的源码推到这个云端环境中去，CI/CD 服务器构建完后的博客源码推到博客仓库。</li>
+</ul>
+<ol start="4">
+<li>实现原理（自己用 Docker 搭建 CI/CD 服务）：</li>
+</ol>
+<ul>
+<li>直接在远端自己的服务器上搭建一个完整的环境和可以运行 Hexo 后（docker），这个环境专门用来生成博客源码。</li>
+<li>只推送自己的博文文件夹到中间存储用的仓库。</li>
+<li>docker 容器从中间存储用的仓库更新自己本地的 post 文件夹，并生成博客源码。</li>
+<li>将构建完后的博客源码推到博客仓库。</li>
+</ul>
+<ol start="5">
+<li>两者区别：</li>
+</ol>
+<ul>
+<li>前者相当于完全复制一份本地的博客相关源码到远端（中间存储仓库传送），远端环境中负责构建，然后推送博客源码部署。</li>
+<li>后者相当于直接将博客全部源码建在远端，本地只留一个存博文的文件夹，通过中间存储仓库更新远端的 post 文件夹，然后远端构建，再推送博客源码部署。</li>
+</ul>
+<h1 id="二-使用现成的-CI-CD-服务"><a href="#二-使用现成的-CI-CD-服务" class="headerlink" title="二 使用现成的 CI/CD 服务"></a>二 使用现成的 CI/CD 服务</h1><ul>
+<li><p>本地已建好可运行的 Hexo 博客。</p>
+</li>
+<li><p>将此博客文件夹中的部分文件复制到另一个文件夹（my-hexo-cicd），并 push 到自己建立的一个 GitHub 仓库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scaffolds（文章模版）</span><br><span class="line">source（博客文章） </span><br><span class="line">themes（主题）</span><br><span class="line">.gitignore（限定在 push 时那些文件可以忽略）</span><br><span class="line">_config.yml（站点配置文件）</span><br><span class="line">package.json（安装包的名称）</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="三-自己用-Docker-搭建-CI-CD-服务"><a href="#三-自己用-Docker-搭建-CI-CD-服务" class="headerlink" title="三 自己用 Docker 搭建 CI/CD 服务"></a>三 自己用 Docker 搭建 CI/CD 服务</h1><blockquote>
+<p>这里使用一台本地的 Ubuntu 虚拟机来模拟自己远端的服务器。</p>
+</blockquote>
+
                 <hr>
                 
 
@@ -232,7 +286,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-使用现成的-CI-CD-服务"><span class="toc-text">二 使用现成的 CI/CD 服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-自己用-Docker-搭建-CI-CD-服务"><span class="toc-text">三 自己用 Docker 搭建 CI/CD 服务</span></a></li></ol>
                 </div>
             </div>
         </div>
