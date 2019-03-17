@@ -202,7 +202,64 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote>
+<p>参考：<br>1、 <a href="https://www.mkshell.com/using-github-and-jenkins-deploy-hexo/" target="_blank" rel="noopener">[小题大做] Github + Jenkins 实现自动化部署 hexo 博客静态文件</a><br>2、 <a href="https://www.jianshu.com/p/2bdc9605e177" target="_blank" rel="noopener">ubuntu搭建Jenkins自动化部署服务</a></p>
+</blockquote>
+<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ul>
+<li><p>示例：<br>Hexo 的 CI/CD 持续集成和部署：把 nodejs 环境、Git、Jenkins 打包成 docker 镜像，然后在 VPS 上跑个容器，用 volumes 做数据持久化来保存部分配置。/ 本地只维护一个博文仓库，push 到远端仓库，触发 webhook 后，Jenkins 拉完博文执行脚本进行构建，网站根目录设置成 hexo/public 即可。</p>
+</li>
+<li><p>过程：<br>本地博文仓库 -&gt; GitHub 远程博文仓库 -&gt; GitHub 的 webhook 发消息给自己服务器上的 Jenkins -&gt; Jenkins 收到消息，自动拉取 Github 仓库代码，并执行脚本。</p>
+</li>
+</ul>
+<h1 id="二-使用前准备"><a href="#二-使用前准备" class="headerlink" title="二 使用前准备"></a>二 使用前准备</h1><ul>
+<li><p>服务器已经装好所有环境。</p>
+</li>
+<li><p>服务器配置好了自己喜欢的博客主题。</p>
+</li>
+<li><p>服务器配置好了自己的 Git。</p>
+</li>
+<li><p>服务器 <code>/var/www/hexo/source/_post</code> 目录已经初始化了仓库，与 GitHub 上博文仓库关联，可以正常拉取到博文。</p>
+</li>
+</ul>
+<h1 id="三-Jenkins-的使用"><a href="#三-Jenkins-的使用" class="headerlink" title="三 Jenkins 的使用"></a>三 Jenkins 的使用</h1><blockquote>
+<p>Jenkins 负责从博文仓库拉完博文、执行脚本进行构建。</p>
+</blockquote>
+<ol>
+<li>安装基础插件等：</li>
+</ol>
+<ul>
+<li><p>浏览器访问：公网ip:8080。</p>
+</li>
+<li><p>容器中访问提示的目录，复制填写初始密码（admin，vim /var/lib/jenkins/secrets/initialAdminPassword）。并选择安装推荐的插件。/ 使用管理员账号。<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图1.PNG" alt="容器中访问提示的目录"></p>
+</li>
+<li><p>出现空白页。解决：<a href="http://ip:8080/pluginManager/advanced" target="_blank" rel="noopener">http://ip:8080/pluginManager/advanced</a> 将升级站点下的 url 改为 http。/ 重新浏览器访问：公网ip:8080。<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图2.PNG" alt="出现空白页"><br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图3.PNG" alt="完成，进行配置"></p>
+</li>
+</ul>
+<ol start="2">
+<li>进行配置：</li>
+</ol>
+<ul>
+<li><p>创建一个新任务：<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图4.PNG" alt="创建一个新任务"></p>
+</li>
+<li><p>配置密钥，给 Jenkins 添加私钥（如果访问的仓库是公开的则不需要添加私钥）。仓库是所要拉取的仓库地址 ssh 方式克隆的地址（存放博文的仓库）。<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图5.PNG" alt="配置密钥"><br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图6.PNG" alt="配置密钥"></p>
+</li>
+<li><p>在 GitHub 上设置 webhook：<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图7.PNG" alt="在 GitHub 上设置 webhook"><br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图8.PNG" alt="在 GitHub 上设置 webhook"><br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图9.PNG" alt="在 GitHub 上设置 webhook"></p>
+</li>
+<li><p>配置之前创建的 job:<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图10.PNG" alt="配置之前创建的 job"></p>
+</li>
+<li><p>在构建中写 Jenkins 收到 GitHub 仓库变动后需要执行的脚本：<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图11.PNG" alt="需要执行的脚本"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">执行的脚本</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line">export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/usr/local/git/bin</span><br><span class="line">cd /var/www/hexo/source/_posts</span><br><span class="line">git pull origin master</span><br><span class="line">cd /var/www/hexo</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="四-Jenkins-调试"><a href="#四-Jenkins-调试" class="headerlink" title="四 Jenkins 调试"></a>四 Jenkins 调试</h1><ul>
+<li><p>在本地文章仓库修改一下文章，推送到 GitHub。然后看 Jenkins 状态、最终网站对应博文是否变化。</p>
+</li>
+<li><p>查看日志查错：<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图12.PNG" alt="查看日志"></p>
+</li>
+<li><p>错误原因：Jenkins 的权限问题，把它加入到 root 身份。成功！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -a root jenkins</span><br><span class="line"></span><br><span class="line">vim /etc/default/jenkins  // JENKINS_USER=&quot;root&quot;  JENKINS_GROUP=&quot;root&quot;</span><br><span class="line"></span><br><span class="line">service Jenkins restart</span><br></pre></td></tr></table></figure></li>
+</ul>
+
                 <hr>
                 
 
@@ -230,7 +287,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-使用前准备"><span class="toc-text">二 使用前准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Jenkins-的使用"><span class="toc-text">三 Jenkins 的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Jenkins-调试"><span class="toc-text">四 Jenkins 调试</span></a></li></ol>
                 </div>
             </div>
         </div>
