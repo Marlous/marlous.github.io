@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -257,7 +257,7 @@
 <li><p>查看日志查错：<br><img src="/2019/03/17/CI-CD-工具-Jenkins-的基本使用/图12.PNG" alt="查看日志"></p>
 </li>
 <li><p>错误原因：Jenkins 的权限问题，把它加入到 root 身份。成功！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -a root jenkins</span><br><span class="line"></span><br><span class="line">vim /etc/default/jenkins  // JENKINS_USER=&quot;root&quot;  JENKINS_GROUP=&quot;root&quot;</span><br><span class="line"></span><br><span class="line">service Jenkins restart</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -a root jenkins</span><br><span class="line"></span><br><span class="line">vim /etc/default/jenkins  // JENKINS_USER=&quot;root&quot;  JENKINS_GROUP=&quot;root&quot;</span><br><span class="line"></span><br><span class="line">service jenkins restart</span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 <hr>
