@@ -203,7 +203,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="http://blog.chinaunix.net/uid-23481299-id-3124965.html" target="_blank" rel="noopener">C程序怎样组织更有结构性</a><br>2、 <a href="http://mooc1.chaoxing.com/course/80433103.html" target="_blank" rel="noopener">C语言综合项目实战</a><br>3、 <a href="https://blog.csdn.net/xiaojiegege123456/article/details/25317061" target="_blank" rel="noopener">C语言头文件&amp;&amp; 实现文件 &amp;&amp; 工程文件组织</a><br>4、 <a href="https://www.cnblogs.com/SummerRain/archive/2012/07/23/2605783.html" target="_blank" rel="noopener">C语言项目中头文件/代码文件的组织问题（使用VC6.0）</a><br>5、 <a href="https://blog.csdn.net/javafoam/article/details/79066716?utm_source=blogxgwz6" target="_blank" rel="noopener">C语言多文件项目的例子</a><br>6、 <a href="https://github.com/nginx/nginx" target="_blank" rel="noopener">Nginx 项目实例</a><br>7、 <a href="https://blog.csdn.net/wy_zhang666/article/details/53098899" target="_blank" rel="noopener">软件工程（C语言实践篇）学习心得总结</a><br>8、 <a href="https://blog.csdn.net/fb524687/article/details/78514551" target="_blank" rel="noopener">软件工程(C编码实践篇)学习总结</a><br>9、 中国科学技术大学的《软件工程（C 编码实战）》<br>10、 参考博文《软件工程 C 实践二 课程总结笔记》</p>
+<p>参考：<br>1、 <a href="http://blog.chinaunix.net/uid-23481299-id-3124965.html" target="_blank" rel="noopener">C程序怎样组织更有结构性</a><br>2、 <a href="http://mooc1.chaoxing.com/course/80433103.html" target="_blank" rel="noopener">C语言综合项目实战</a><br>3、 <a href="https://blog.csdn.net/xiaojiegege123456/article/details/25317061" target="_blank" rel="noopener">C语言头文件&amp;&amp; 实现文件 &amp;&amp; 工程文件组织</a><br>4、 <a href="https://www.cnblogs.com/SummerRain/archive/2012/07/23/2605783.html" target="_blank" rel="noopener">C语言项目中头文件/代码文件的组织问题（使用VC6.0）</a><br>5、 <a href="https://blog.csdn.net/javafoam/article/details/79066716?utm_source=blogxgwz6" target="_blank" rel="noopener">C语言多文件项目的例子</a><br>6、 <a href="https://github.com/nginx/nginx" target="_blank" rel="noopener">Nginx 项目实例</a><br>7、 <a href="https://blog.csdn.net/wy_zhang666/article/details/53098899" target="_blank" rel="noopener">软件工程（C语言实践篇）学习心得总结</a><br>8、 <a href="https://blog.csdn.net/fb524687/article/details/78514551" target="_blank" rel="noopener">软件工程(C编码实践篇)学习总结</a><br>9、 中国科学技术大学的《软件工程（C 编码实战）》<br>10、 参考博文《软件工程 C 实践二 课程总结笔记》<br>11、 <a href="https://www.cnblogs.com/clover-toeic/archive/2014/05/14/3728026.html" target="_blank" rel="noopener">C语言头文件组织与包含原则</a><br>12、 <a href="http://tengine.taobao.org/book/appendix_a.html#nginx-100" target="_blank" rel="noopener">Nginx代码风格图示</a></p>
 </blockquote>
 <h1 id="一-接口定义内容"><a href="#一-接口定义内容" class="headerlink" title="一 接口定义内容"></a>一 接口定义内容</h1><p>补充：不同部分隔两行区分。<a href="https://github.com/nginx/nginx/blob/master/src/core/ngx_file.h" target="_blank" rel="noopener">参考 Nginx 头文件</a>。</p>
 <ul>
@@ -211,8 +211,7 @@
 <li>#ifndef、#define</li>
 <li>包含的头文件</li>
 <li>宏定义</li>
-<li>结构体定义</li>
-<li>变量定义</li>
+<li>结构体等声明</li>
 <li>函数声明</li>
 </ul>
 <h1 id="二-几种头文件写法"><a href="#二-几种头文件写法" class="headerlink" title="二 几种头文件写法"></a>二 几种头文件写法</h1><h2 id="1-为用户提供调用接口"><a href="#1-为用户提供调用接口" class="headerlink" title="1 为用户提供调用接口"></a>1 为用户提供调用接口</h2><ol>
@@ -227,7 +226,7 @@
 <li>尽量不要使用 extern 来声明一些共享的数据。因为这种做法是不安全的，外部其他模块的用户可能不能完全理解这些变量的含义，最好提供函数访问这些变量。</li>
 <li>尽量避免包含其他的头文件，除非这些头文件是独立存在的。这一点的意思是，在作为接口的头文件中，尽量不要包含其他模块的那些暴露 .c 文件中内容的头文件，但是可以包好一些不是用来暴露接口的头文件。</li>
 <li>不要包含那些只有在可执行文件中才使用的头文件，这些头文件应该在 .c 文件中包含。这一点如同上一点，为了提高接口的独立性和透明度。</li>
-<li>接口文件要有面向用户的充足的注释。从应用角度描述个暴露的内容。</li>
+<li>接口文件要有面向用户的充足的注释。从应用角度描述每个暴露的内容。</li>
 <li>接口文件在发布后尽量避免修改，即使修改也要保证不影响用户程序。</li>
 </ul>
 <h2 id="2-多个代码文件使用一个接口文件"><a href="#2-多个代码文件使用一个接口文件" class="headerlink" title="2 多个代码文件使用一个接口文件"></a>2 多个代码文件使用一个接口文件</h2><ol>
@@ -240,7 +239,7 @@
 <li>多个代码文件组成的一个模块只有一个接口文件。因为这些文件完成的是一个模块。</li>
 <li>使用模块下文件命名 &lt;系统名&gt;&lt;模块名命名&gt;。</li>
 <li>不要滥用这种文件。</li>
-<li>有时候也会出现几个 .c 文件用于共向数据的 .h 文件，这种文件的特点是在一个 .c 文件里定义全局变量，而在其他 .c 文件里使用，要将这种文件和用于暴露模块接口的文件区别。</li>
+<li>有时候也会出现几个 .c 文件用于共享数据的 .h 文件，这种文件的特点是在一个 .c 文件里定义全局变量，而在其他 .c 文件里使用，要将这种文件和用于暴露模块接口的文件区别。</li>
 <li>一个模块如果有几个子模块，可以用一个 .h 文件暴露接口，在这个文件里用 include 包含每个子模块的接口文件。</li>
 </ul>
 <h2 id="3-说明性头文件"><a href="#3-说明性头文件" class="headerlink" title="3 说明性头文件"></a>3 说明性头文件</h2><ol>
@@ -258,7 +257,7 @@
 </ul>
 <h1 id="三-建议"><a href="#三-建议" class="headerlink" title="三 建议"></a>三 建议</h1><ul>
 <li>命名方式：模块名.c。</li>
-<li>用static修饰本地的数据和函数。</li>
+<li>用 static 修饰本地的数据和函数。</li>
 <li>不要使用 external，这是在 .h 中使用的，可以被包含进来。</li>
 <li>无论什么时候定义内部的对象，确保独立与其他执行文件。</li>
 <li>这个文件里必须包含相应功能函数。</li>
@@ -291,12 +290,26 @@
 <li>core 文件夹为主程序文件夹。/ config.h 是为主程序提供的接口（所有子模块的聚合接口文件），core.h 是主程序内容相关重要的定义。</li>
 <li>补充：每个 .h 接口文件，即使向外暴露的接口，也可以是自己层级 c 程序文件要使用的一部分。</li>
 </ul>
-<h1 id="六-开源项目实例"><a href="#六-开源项目实例" class="headerlink" title="六 开源项目实例"></a>六 开源项目实例</h1><blockquote>
-<p>参考项目：<a href="https://github.com/nginx/nginx" target="_blank" rel="noopener">GitHub：Nginx</a></p>
-</blockquote>
-<blockquote>
-<p>参考：<br>1、 <a href="https://www.cnblogs.com/dormant/p/5220505.html" target="_blank" rel="noopener">Nginx源码结构</a></p>
-</blockquote>
+<h1 id="六-小结"><a href="#六-小结" class="headerlink" title="六 小结"></a>六 小结</h1><ol>
+<li>概述：</li>
+</ol>
+<ul>
+<li>每个 .c 都有一个对应的 .h 文件。/ 或多个 .c 对应一个 .h 文件。    </li>
+<li>每个 .c 都包含自己的头文件和需要用到其它 .c 中函数的头文件。/ 改进：包含公共的头文件（通常多处都用到的如 stdio、stdlib 等）、自己的头文件、要用到的头文件。</li>
+<li>.h 文件里只写声明，不写定义。</li>
+<li>自己 .c 的声明函数原型写在自己的 .h 文件中。用 static 限制只在自己的 .c 中使用。</li>
+</ul>
+<ol start="2">
+<li>头文件内容：</li>
+</ol>
+<ul>
+<li>版权等信息</li>
+<li>#ifndef、#define</li>
+<li>包含的头文件</li>
+<li>宏定义</li>
+<li>结构体等声明</li>
+<li>函数声明</li>
+</ul>
 
                 <hr>
                 
@@ -330,7 +343,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-接口定义内容"><span class="toc-text">一 接口定义内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-几种头文件写法"><span class="toc-text">二 几种头文件写法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-为用户提供调用接口"><span class="toc-text">1 为用户提供调用接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-多个代码文件使用一个接口文件"><span class="toc-text">2 多个代码文件使用一个接口文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-说明性头文件"><span class="toc-text">3 说明性头文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-建议"><span class="toc-text">三 建议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-接口写法示例"><span class="toc-text">四 接口写法示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-一般模块"><span class="toc-text">1 一般模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-子系统"><span class="toc-text">2 子系统</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践实例"><span class="toc-text">五 实践实例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-开源项目实例"><span class="toc-text">六 开源项目实例</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-接口定义内容"><span class="toc-text">一 接口定义内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-几种头文件写法"><span class="toc-text">二 几种头文件写法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-为用户提供调用接口"><span class="toc-text">1 为用户提供调用接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-多个代码文件使用一个接口文件"><span class="toc-text">2 多个代码文件使用一个接口文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-说明性头文件"><span class="toc-text">3 说明性头文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-建议"><span class="toc-text">三 建议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-接口写法示例"><span class="toc-text">四 接口写法示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-一般模块"><span class="toc-text">1 一般模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-子系统"><span class="toc-text">2 子系统</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-实践实例"><span class="toc-text">五 实践实例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-小结"><span class="toc-text">六 小结</span></a></li></ol>
                 </div>
             </div>
         </div>
