@@ -206,9 +206,49 @@
 <p>参考：<br>1、 <a href="https://python-web-guide.readthedocs.io/zh/latest/index.html" target="_blank" rel="noopener">Python Web 入坑指南</a></p>
 </blockquote>
 <h1 id="一-开发前准备"><a href="#一-开发前准备" class="headerlink" title="一 开发前准备"></a>一 开发前准备</h1><ol>
-<li>需求：</li>
+<li>基础环境：</li>
 </ol>
-<p>、导入顺序（isort）、编码规范（autopep8）、静态检测（pylint），甚至统一命名规范和名词术语（不要相信各种中式英语，换一个人就看不懂了）。</p>
+<ul>
+<li>安装 Python 某个版本的安装包。</li>
+<li>安装 IDE 或编辑器：PyCharm（本文以此为例。设置好要使用的 Python 解释器、编码等），VSCode（将配置备份，使用 setting sync）。</li>
+</ul>
+<ol start="2">
+<li>基础配置：<br>安装一些开发环境需要的包插件等（可以在 PyCharm 中的 “安装插件” 中安装；注意在所用的 Python 解释器下安装，不是某个具体项目的虚拟环境下，安装到 Python 所在目录；安装完怎样设置参考网上教程）。</li>
+</ol>
+<ul>
+<li>导入顺序（isort），<a href="https://www.cnblogs.com/wswang/p/5521595.html" target="_blank" rel="noopener">参考：python中isort的使用</a>。</li>
+<li>编码规范（autopep8），<a href="https://www.cnblogs.com/wuyongcong/p/9066531.html" target="_blank" rel="noopener">参考：Autopep8的使用</a>。</li>
+<li>静态检测（pep8，Pycharm 提供自动检查 pep8 风格的功能。）</li>
+<li>补充其它库：docker。</li>
+</ul>
+<ol start="3">
+<li>备份：</li>
+</ol>
+<ul>
+<li>将 PyCharm 配置文件导出备份到 GitHub。</li>
+</ul>
+<ol start="4">
+<li>新建项目：</li>
+</ol>
+<ul>
+<li><p>使用 PyCharm 新建一个项目，设置虚拟环境。<a href="https://www.jianshu.com/p/dcb281ee564e" target="_blank" rel="noopener">参考：Pycharm虚拟环境（Virtualenv）配置</a>/ 选择半新的虚拟环境（勾选继承全局安装的库）、或选择存在的完整环境选择 Existing（如 Anaconda）。</p>
+</li>
+<li><p>在该项目根目录初始化 git 仓库等，用 GitKraken 图形化的 git 客户端来进行版本控制。</p>
+</li>
+</ul>
+<ol start="5">
+<li>一些规范：</li>
+</ol>
+<ul>
+<li>统一命名规范和名词术语。</li>
+</ul>
+<h1 id="二-开发中"><a href="#二-开发中" class="headerlink" title="二 开发中"></a>二 开发中</h1><ol>
+<li>安装项目开发需要的库：</li>
+</ol>
+<ul>
+<li>在 File -&gt; Settings 中安装需要的库。</li>
+<li>补充：在代码时，自动安装库，让鼠标光标到红线的位置（导入库代码处），按 alt+enter 进行安装，<a href="https://jingyan.baidu.com/article/4853e1e54b845e1909f7268f.html" target="_blank" rel="noopener">参考：pycharm如何自动导入第三方库或模块？</a>。</li>
+</ul>
 
                 <hr>
                 
@@ -237,7 +277,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-开发前准备"><span class="toc-text">一 开发前准备</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-开发前准备"><span class="toc-text">一 开发前准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-开发中"><span class="toc-text">二 开发中</span></a></li></ol>
                 </div>
             </div>
         </div>
