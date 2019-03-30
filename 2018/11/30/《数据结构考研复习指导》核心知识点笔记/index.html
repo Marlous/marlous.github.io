@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -94,15 +88,21 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -301,6 +301,17 @@
 <li>特点：适用于数据相对稳定的线性表。可随机访问，存储密度高，插入删除操作需移动大量元素。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 静态分配的一维数组实现。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType data[MAX_SIZE]; <span class="comment">// 分配空间并确定最大容量</span></span><br><span class="line">	<span class="keyword">int</span> length; <span class="comment">// 当前的长度（当前存储数据元素的个数）</span></span><br><span class="line">&#125;sq_list_s;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动态分配的一维数组实现。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType *data; <span class="comment">// 指示动态分配数组的指针</span></span><br><span class="line">	<span class="keyword">int</span> max_size; <span class="comment">// 储存元素的数组的最大容量</span></span><br><span class="line">	<span class="keyword">int</span> length; <span class="comment">// 当前的长度（当前存储数据元素的个数）</span></span><br><span class="line">&#125;seq_list_s;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>顺序表的基本操作：</li>
+</ol>
+<ul>
+<li><p>InitList(&amp;L)：<br>申请内存初始化数组指针。/ 初始化容量。/ 初始化当前长度。</p>
+</li>
+<li><p>DestroyList(&amp;L)：<br>释放并置 NULL 指针。/ 重置容量。/ 重置长度。</p>
+</li>
+<li><p>ListInsert(&amp;L, i, e)：<br>判断顺序表实例存在。/ 判断插入位置合法。/ 判断容量是否满并扩容。/ 移动元素。/ 插入元素、表长加一。</p>
+</li>
+</ul>
 <h2 id="4-线性表的链式表示"><a href="#4-线性表的链式表示" class="headerlink" title="4 线性表的链式表示"></a>4 线性表的链式表示</h2><h3 id="（1）单链表-LNode"><a href="#（1）单链表-LNode" class="headerlink" title="（1）单链表 LNode"></a>（1）单链表 LNode</h3><h3 id="（2）双链表-DNode"><a href="#（2）双链表-DNode" class="headerlink" title="（2）双链表 DNode"></a>（2）双链表 DNode</h3><h3 id="（3）循环链表"><a href="#（3）循环链表" class="headerlink" title="（3）循环链表"></a>（3）循环链表</h3><h3 id="（4）静态链表-SlinkList"><a href="#（4）静态链表-SlinkList" class="headerlink" title="（4）静态链表 SlinkList"></a>（4）静态链表 SlinkList</h3><h1 id="三-栈与队列"><a href="#三-栈与队列" class="headerlink" title="三 栈与队列"></a>三 栈与队列</h1><h1 id="四-树与二叉树"><a href="#四-树与二叉树" class="headerlink" title="四 树与二叉树"></a>四 树与二叉树</h1><h1 id="五-图"><a href="#五-图" class="headerlink" title="五 图"></a>五 图</h1><h1 id="六-查找"><a href="#六-查找" class="headerlink" title="六 查找"></a>六 查找</h1><h1 id="七-排序"><a href="#七-排序" class="headerlink" title="七 排序"></a>七 排序</h1>
                 <hr>
                 
