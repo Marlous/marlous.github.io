@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -203,7 +203,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>此篇博文只有核心理论概念，具体代码见我的 GitHub 仓库，<a href="https://github.com/Marlous/Data-Structures-For-C-Language" target="_blank" rel="noopener">Data Structures For C Language</a>。</p>
+<p>此篇博文只有核心理论概念（只有定义，基本操作实现见仓库），具体代码见我的 GitHub 仓库，<a href="https://github.com/Marlous/Data-Structures-For-C-Language" target="_blank" rel="noopener">Data Structures For C Language</a>。</p>
 </blockquote>
 <h1 id="一-绪论"><a href="#一-绪论" class="headerlink" title="一 绪论"></a>一 绪论</h1><h2 id="1-知识框架"><a href="#1-知识框架" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/30/《数据结构考研复习指导》核心知识点笔记/图1.PNG" alt="知识框架"></p>
 <h2 id="2-数据结构基本概念"><a href="#2-数据结构基本概念" class="headerlink" title="2 数据结构基本概念"></a>2 数据结构基本概念</h2><ol>
@@ -285,10 +285,10 @@
 <ul>
 <li>InitList(&amp;L)：初始化一个空的线性表。</li>
 <li>DestroyList(&amp;L)：销毁操作。</li>
-<li>ListInsert(&amp;L,i,e)：按位置插入操作。</li>
-<li>ListDelete(&amp;L,i,&amp;e)：删除某位置操作。</li>
-<li>LocateElem(L,e)：按值查找。</li>
-<li>GetElem(L,i)：按位置查找。</li>
+<li>ListInsert(&amp;L, i, e)：按位置插入操作。</li>
+<li>ListDelete(&amp;L, i, &amp;e)：删除某位置操作。</li>
+<li>LocateElem(L, e)：按值查找。</li>
+<li>GetElem(L, i)：按位置查找。</li>
 <li>Length(L)：求表长，即元素个数。</li>
 <li>Empty(L)：判空操作。</li>
 <li>PrintList(L)：输出 L 操作。</li>
@@ -301,14 +301,6 @@
 <li>特点：适用于数据相对稳定的线性表。可随机访问，存储密度高，插入删除操作需移动大量元素。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 静态分配的一维数组实现。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType data[MAX_SIZE]; <span class="comment">// 分配空间并确定最大容量</span></span><br><span class="line">	<span class="keyword">int</span> length; <span class="comment">// 当前的长度（当前存储数据元素的个数）</span></span><br><span class="line">&#125;sq_list_s;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动态分配的一维数组实现。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType *data; <span class="comment">// 指示动态分配数组的指针</span></span><br><span class="line">	<span class="keyword">int</span> max_size; <span class="comment">// 储存元素的数组的最大容量</span></span><br><span class="line">	<span class="keyword">int</span> length; <span class="comment">// 当前的长度（当前存储数据元素的个数）</span></span><br><span class="line">&#125;seq_list_s;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>顺序表上的基本操作实现：</li>
-</ol>
-<ul>
-<li>插入操作：</li>
-<li>删除操作：</li>
-<li>按值查找：</li>
-</ul>
 <h2 id="4-线性表的链式表示"><a href="#4-线性表的链式表示" class="headerlink" title="4 线性表的链式表示"></a>4 线性表的链式表示</h2><h3 id="（1）单链表-LNode"><a href="#（1）单链表-LNode" class="headerlink" title="（1）单链表 LNode"></a>（1）单链表 LNode</h3><h3 id="（2）双链表-DNode"><a href="#（2）双链表-DNode" class="headerlink" title="（2）双链表 DNode"></a>（2）双链表 DNode</h3><h3 id="（3）循环链表"><a href="#（3）循环链表" class="headerlink" title="（3）循环链表"></a>（3）循环链表</h3><h3 id="（4）静态链表-SlinkList"><a href="#（4）静态链表-SlinkList" class="headerlink" title="（4）静态链表 SlinkList"></a>（4）静态链表 SlinkList</h3><h1 id="三-栈与队列"><a href="#三-栈与队列" class="headerlink" title="三 栈与队列"></a>三 栈与队列</h1><h1 id="四-树与二叉树"><a href="#四-树与二叉树" class="headerlink" title="四 树与二叉树"></a>四 树与二叉树</h1><h1 id="五-图"><a href="#五-图" class="headerlink" title="五 图"></a>五 图</h1><h1 id="六-查找"><a href="#六-查找" class="headerlink" title="六 查找"></a>六 查找</h1><h1 id="七-排序"><a href="#七-排序" class="headerlink" title="七 排序"></a>七 排序</h1>
                 <hr>
                 
