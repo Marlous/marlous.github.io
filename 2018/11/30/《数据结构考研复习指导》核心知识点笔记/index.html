@@ -203,7 +203,10 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>此篇博文只有核心理论概念（只有定义，基本操作实现见仓库），具体代码见我的 GitHub 仓库，<a href="https://github.com/Marlous/Data-Structures-For-C-Language" target="_blank" rel="noopener">Data Structures For C Language</a>。</p>
+<p>此篇博文只有核心理论概念（只有定义，基本操作实现见仓库），具体代码见我的 GitHub 仓库，<a href="https://github.com/Marlous/Data-Structures-For-C-Language" target="_blank" rel="noopener">Data Structures For C Language</a>。/ 参考了若干本书，都不尽相同，加上书中发现了不少错误，所以以我自己写出的实际能运行的代码为准（综合了若干本书中的内容）。</p>
+</blockquote>
+<blockquote>
+<p>参考：<br>1、 《数据结构考研复习指导》<br>2、 《大话数据结构》<br>3、 《数据结构算法解析》 高一凡<br>4、 《数据结构》 清华大学出版社</p>
 </blockquote>
 <h1 id="一-绪论"><a href="#一-绪论" class="headerlink" title="一 绪论"></a>一 绪论</h1><h2 id="1-知识框架"><a href="#1-知识框架" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/30/《数据结构考研复习指导》核心知识点笔记/图1.PNG" alt="知识框架"></p>
 <h2 id="2-数据结构基本概念"><a href="#2-数据结构基本概念" class="headerlink" title="2 数据结构基本概念"></a>2 数据结构基本概念</h2><ol>
@@ -302,7 +305,7 @@
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 静态分配的一维数组实现。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType data[MAX_SIZE]; <span class="comment">// 分配空间并确定最大容量</span></span><br><span class="line">	<span class="keyword">int</span> length; <span class="comment">// 当前的长度（当前存储数据元素的个数）</span></span><br><span class="line">&#125;sq_list_s;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 动态分配的一维数组实现。</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType *data; <span class="comment">// 指示动态分配数组的指针</span></span><br><span class="line">	<span class="keyword">int</span> max_size; <span class="comment">// 储存元素的数组的最大容量</span></span><br><span class="line">	<span class="keyword">int</span> length; <span class="comment">// 当前的长度（当前存储数据元素的个数）</span></span><br><span class="line">&#125;seq_list_s;</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>顺序表的基本操作：</li>
+<li>顺序表的基本操作：<br><a href="https://github.com/Marlous/data-structures-for-C-language/blob/master/src/linear_list/modules/SqList_SeqList.c" target="_blank" rel="noopener">顺序表的基本操作 GitHub 代码</a></li>
 </ol>
 <ul>
 <li><p>InitList(&amp;L)：<br>申请内存初始化数组指针。/ 初始化容量。/ 初始化当前长度。</p>
@@ -310,6 +313,10 @@
 <li><p>DestroyList(&amp;L)：<br>释放并置 NULL 指针。/ 重置容量。/ 重置长度。</p>
 </li>
 <li><p>ListInsert(&amp;L, i, e)：<br>判断顺序表实例存在。/ 判断插入位置合法。/ 判断容量是否满并扩容。/ 移动元素。/ 插入元素、表长加一。</p>
+</li>
+<li><p>ListDelete(&amp;L, i, &amp;e)：<br>判断顺序表实例存在。/ 判断插入位置合法。/ 删除元素（赋给一个变量，知道删除了啥）。/ 移动元素、表长减一。</p>
+</li>
+<li><p>LocateElem(L, e)：</p>
 </li>
 </ul>
 <h2 id="4-线性表的链式表示"><a href="#4-线性表的链式表示" class="headerlink" title="4 线性表的链式表示"></a>4 线性表的链式表示</h2><h3 id="（1）单链表-LNode"><a href="#（1）单链表-LNode" class="headerlink" title="（1）单链表 LNode"></a>（1）单链表 LNode</h3><h3 id="（2）双链表-DNode"><a href="#（2）双链表-DNode" class="headerlink" title="（2）双链表 DNode"></a>（2）双链表 DNode</h3><h3 id="（3）循环链表"><a href="#（3）循环链表" class="headerlink" title="（3）循环链表"></a>（3）循环链表</h3><h3 id="（4）静态链表-SlinkList"><a href="#（4）静态链表-SlinkList" class="headerlink" title="（4）静态链表 SlinkList"></a>（4）静态链表 SlinkList</h3><h1 id="三-栈与队列"><a href="#三-栈与队列" class="headerlink" title="三 栈与队列"></a>三 栈与队列</h1><h1 id="四-树与二叉树"><a href="#四-树与二叉树" class="headerlink" title="四 树与二叉树"></a>四 树与二叉树</h1><h1 id="五-图"><a href="#五-图" class="headerlink" title="五 图"></a>五 图</h1><h1 id="六-查找"><a href="#六-查找" class="headerlink" title="六 查找"></a>六 查找</h1><h1 id="七-排序"><a href="#七-排序" class="headerlink" title="七 排序"></a>七 排序</h1>
