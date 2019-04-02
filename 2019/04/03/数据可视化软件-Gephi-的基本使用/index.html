@@ -203,11 +203,43 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>参考：<br>1、 <a href="https://github.com/gephi/gephi/wiki" target="_blank" rel="noopener">Gephi 官方教程</a><br>2、 <a href="https://www.bilibili.com/video/av36736176/?p=3" target="_blank" rel="noopener">GEPHI中文教程</a><br>3、 <a href="https://blog.csdn.net/qq_35318838/article/details/79820923" target="_blank" rel="noopener">Gephi 入门使用</a><br>4、 <a href="https://zhuanlan.zhihu.com/p/26718634?utm_source=ZHShareTargetIDMore&amp;utm_medium=social&amp;utm_oi=30878197612544" target="_blank" rel="noopener">介绍用Gephi进行数据可视化</a><br>5、 <a href="https://www.jianshu.com/p/86145943695a" target="_blank" rel="noopener">Gephi网络图极简教程</a></p>
+<p>参考：<br>1、 <a href="https://github.com/gephi/gephi/wiki" target="_blank" rel="noopener">Gephi 官方教程</a><br>2、 <a href="https://www.bilibili.com/video/av36736176/?p=3" target="_blank" rel="noopener">GEPHI中文教程</a><br>3、 <a href="https://blog.csdn.net/qq_35318838/article/details/79820923" target="_blank" rel="noopener">Gephi 入门使用</a><br>4、 <a href="https://zhuanlan.zhihu.com/p/26718634?utm_source=ZHShareTargetIDMore&amp;utm_medium=social&amp;utm_oi=30878197612544" target="_blank" rel="noopener">介绍用Gephi进行数据可视化</a><br>5、 <a href="https://www.jianshu.com/p/86145943695a" target="_blank" rel="noopener">Gephi网络图极简教程</a><br>6、 <a href="https://blog.csdn.net/suncherrydream/article/details/62889400" target="_blank" rel="noopener">Gephi学习笔记-画出图形基本流程</a><br>7、 <a href="https://wenku.baidu.com/view/29328a9f19e8b8f67d1cb92d.html" target="_blank" rel="noopener">Gephi快速入门指南 PDF 文档</a><br>8、 <a href="https://www.jianshu.com/p/0966edb9c17f" target="_blank" rel="noopener">使用Gephi分析论坛社交关系网络</a><br>9、 <a href="http://www.martingrandjean.ch/gephi-introduction/" target="_blank" rel="noopener">GEPHI – Introduction to Network Analysis and Visualization</a><br>10、 <a href="https://zhuanlan.zhihu.com/p/28438481" target="_blank" rel="noopener">Gephi的实战又美观的运用 – 用社会关系图谱筛选作弊用户</a></p>
 </blockquote>
-<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><p>Gephi 常用来分析网络关系，如社交网络好友关系等。</p>
-<h1 id="二-使用"><a href="#二-使用" class="headerlink" title="二 使用"></a>二 使用</h1><p>具体怎样使用可见教程。这里主要讲解下怎样收集数据、怎样将数据导入 Gephi，对数据格式有怎样的要求。</p>
-<h2 id="1-CSV-文件"><a href="#1-CSV-文件" class="headerlink" title="1 CSV 文件"></a>1 CSV 文件</h2><h2 id="2-MySQL"><a href="#2-MySQL" class="headerlink" title="2 MySQL"></a>2 MySQL</h2>
+<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><p>Gephi（0.9.2）常用来分析网络关系，如社交网络好友关系等。</p>
+<h1 id="二-数据文件构成"><a href="#二-数据文件构成" class="headerlink" title="二 数据文件构成"></a>二 数据文件构成</h1><ol>
+<li>一份关系由节点和边两个表组成。节点表存放的是各个主体，边表存放的是主体之间的关系。</li>
+</ol>
+<ul>
+<li>节点：Id、Label、Interval、Modularity Class</li>
+<li>边：Source、Target、Type、Id、Label、Interval、Weight</li>
+</ul>
+<ol start="2">
+<li>解释：</li>
+</ol>
+<ul>
+<li>Id：用来表明结点的实体</li>
+<li>Source、Target：两个结点，值是节点中的 Id 值。</li>
+<li>Type：有向或无向。</li>
+<li>Label：可以是名字等，也可以与 Id 一样。</li>
+<li>Weight：权值。</li>
+</ul>
+<h1 id="三-使用"><a href="#三-使用" class="headerlink" title="三 使用"></a>三 使用</h1><ul>
+<li>具体怎样使用可见教程（参考 7）。这里主要讲解下怎样收集数据、怎样将数据导入 Gephi，对数据格式有怎样的要求。</li>
+<li>补充：<a href="https://www.zhihu.com/question/21268129?sort=created" target="_blank" rel="noopener">gephi安装好了，为何打不开？</a>，找到 gephi 的安装路径，修改 etc 下的 gephi.conf 文件（记事本打开），将 jdkhome 的 # 号注释去掉，并设置 jre 的安装路径。如 <code>jdkhome=&quot;C:\Program Files (x86)\Java\jdk1.8.0_172&quot;</code>。</li>
+</ul>
+<h2 id="1-CSV-文件"><a href="#1-CSV-文件" class="headerlink" title="1 CSV 文件"></a>1 CSV 文件</h2><p>先新建项目。<br><img src="/2019/04/03/数据可视化软件-Gephi-的基本使用/图1.PNG" alt="CSV 文件"></p>
+<h2 id="2-MySQL"><a href="#2-MySQL" class="headerlink" title="2 MySQL"></a>2 MySQL</h2><p><img src="/2019/04/03/数据可视化软件-Gephi-的基本使用/图2.PNG" alt="MySQL"></p>
+<ol>
+<li>收集数据时数据库设计：<br>以分析社交网络为例。分为两个表，一个表叫 Node，另一个叫 Edge。/ 然后写代码等方式收集数据写入数据库。</li>
+</ol>
+<ul>
+<li>Node 表属性：Id、Label。分别为微博用户的唯一 id、微博用户名</li>
+<li>Edge 表属性：Source、Target。分别为两个用户，表明两个用户间的关系。</li>
+</ul>
+<ol start="2">
+<li>Gephi 进行分析时：<br>使用 Gephi 连接 MySQL 时，节点查询语句 <code>SELECT * from Node;</code>，边查询语句为<code>SELECT * from Edge;</code>。</li>
+</ol>
+
                 <hr>
                 
 
@@ -235,7 +267,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-使用"><span class="toc-text">二 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CSV-文件"><span class="toc-text">1 CSV 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MySQL"><span class="toc-text">2 MySQL</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据文件构成"><span class="toc-text">二 数据文件构成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-使用"><span class="toc-text">三 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CSV-文件"><span class="toc-text">1 CSV 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MySQL"><span class="toc-text">2 MySQL</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
