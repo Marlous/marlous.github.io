@@ -265,7 +265,7 @@
 <li>因为使用 Gephi 数据可视化软件来分析关系，Gephi 需要规定的格式。所以先把原始数据全存到 MySQL 中，然后从中导出 Gephi 需要的格式。</li>
 <li>MySQL 数据库设计：分为三张表，两张表用来存放人际关系。另一张表用来存放每个用户的详细信息。</li>
 </ul>
-<h1 id="四-具体实践"><a href="#四-具体实践" class="headerlink" title="四 具体实践"></a>四 具体实践</h1><h2 id="1-设计准备好数据库"><a href="#1-设计准备好数据库" class="headerlink" title="1 设计准备好数据库"></a>1 设计准备好数据库</h2><p>使用 MySQL，设计三张表。</p>
+<h1 id="四-具体实践"><a href="#四-具体实践" class="headerlink" title="四 具体实践"></a>四 具体实践</h1><h2 id="1-设计准备好数据库"><a href="#1-设计准备好数据库" class="headerlink" title="1 设计准备好数据库"></a>1 设计准备好数据库</h2><p>使用 MySQL，设计三张表，用 MySQL 图形界面完成操作。</p>
 <ol>
 <li><p>创建数据库：<code>CREATE DATABASE weibo-friends-analysis;</code></p>
 </li>
@@ -276,9 +276,25 @@
 <li>Node 表属性：Id、Label。分别为微博用户的唯一 id、微博用户名</li>
 <li>Edge 表属性：Source、Target、Weight。分别为两个用户，表明两个用户间的关系。Weight 表示第几度人脉。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `weibo-friends-analysis`.`node` (</span><br><span class="line">  `id` CHAR(10) NOT NULL,</span><br><span class="line">  `label` VARCHAR(45) NOT NULL,</span><br><span class="line">  `gender` CHAR(1) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`id`));</span><br><span class="line"></span><br><span class="line">CREATE TABLE `weibo-friends-analysis`.`edge` (</span><br><span class="line">  `source` CHAR(10) NOT NULL,</span><br><span class="line">  `target` CHAR(10) NOT NULL,</span><br><span class="line">  `weight` INT NOT NULL,</span><br><span class="line">  PRIMARY KEY (`source`, `target`));</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `weibo-friends-analysis`.`node` (</span><br><span class="line">  `id` VARCHAR(20) NOT NULL,</span><br><span class="line">  `label` VARCHAR(32) NOT NULL,</span><br><span class="line">  `gender` CHAR(1) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`id`));</span><br><span class="line"></span><br><span class="line">CREATE TABLE `weibo-friends-analysis`.`edge` (</span><br><span class="line">  `source` VARCHAR(20) NOT NULL,</span><br><span class="line">  `target` VARCHAR(20) NOT NULL,</span><br><span class="line">  `weight` INT(1) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`source`, `target`));</span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li>用户信息表：</li>
+<li>用户信息表：<br>userinfo 表属性有：uid、name（微博名）、weight（第几度人脉）、gender、follows、fans、location、articlesnum。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `weibo-friends-analysis`.`userinfo` (</span><br><span class="line">  `uid` VARCHAR(20) NOT NULL,</span><br><span class="line">  `name` VARCHAR(32) NOT NULL,</span><br><span class="line">  `weight` INT(1) NOT NULL,</span><br><span class="line">  `gender` CHAR(1) NOT NULL,</span><br><span class="line">  `follows` INT(2) NOT NULL,</span><br><span class="line">  `fans` INT NOT NULL,</span><br><span class="line">  `location` VARCHAR(15) NOT NULL,</span><br><span class="line">  `articlesnum` INT NOT NULL,</span><br><span class="line">  PRIMARY KEY (`uid`));</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>数据库已经创建好：<br><img src="/2019/04/02/爬虫：微博好友关系分析/图2.PNG" alt="数据库创建好"></li>
+</ol>
+<h2 id="2-爬虫程序编写"><a href="#2-爬虫程序编写" class="headerlink" title="2 爬虫程序编写"></a>2 爬虫程序编写</h2><ol>
+<li>了解 Python 项目的目录结构：</li>
+</ol>
+<ul>
+<li><a href="https://github.com/Alfred1984/interesting-python" target="_blank" rel="noopener">有趣的Python爬虫和Python数据分析小项目</a></li>
+<li><a href="https://www.cnblogs.com/bigberg/p/6423164.html" target="_blank" rel="noopener">python基础6–目录结构</a></li>
+<li><a href="http://blog.chinaunix.net/uid-26602509-id-3499026.html" target="_blank" rel="noopener">开篇python–明白python文件如何组织，理解建立源文件</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Foo/</span><br><span class="line">|-- bin/</span><br><span class="line">|   |-- foo</span><br><span class="line">|</span><br><span class="line">|-- foo/</span><br><span class="line">|   |-- tests/</span><br><span class="line">|   |   |-- __init__.py</span><br><span class="line">|   |   |-- test_main.py</span><br><span class="line">|   |</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- main.py</span><br><span class="line">|</span><br><span class="line">|-- docs/</span><br><span class="line">|   |-- conf.py</span><br><span class="line">|   |-- abc.rst</span><br><span class="line">|</span><br><span class="line">|-- setup.py</span><br><span class="line">|-- requirements.txt</span><br><span class="line">|-- README</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>安装需要的库，项目根目录生成 requirements.txt 来记录需要的库，<code>pip freeze &gt; requirements.txt</code>，安装的话 <code>pip install -r requirements.txt</code>。</li>
 </ol>
 <h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1>
                 <hr>
@@ -313,7 +329,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-设计准备好数据库"><span class="toc-text">1 设计准备好数据库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-设计准备好数据库"><span class="toc-text">1 设计准备好数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-爬虫程序编写"><span class="toc-text">2 爬虫程序编写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
                 </div>
             </div>
         </div>
