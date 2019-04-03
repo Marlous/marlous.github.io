@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,7 +202,11 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-想法"><a href="#一-想法" class="headerlink" title="一 想法"></a>一 想法</h1><ol>
+                <blockquote>
+<p>本项目仓库：<a href="https://github.com/Marlous/weibo-friends-analysis" target="_blank" rel="noopener">weibo-friends-analysis
+</a></p>
+</blockquote>
+<h1 id="一-想法"><a href="#一-想法" class="headerlink" title="一 想法"></a>一 想法</h1><ol>
 <li><p>通过微博抓取微博好友，然后抓取好友的好友，以自己到直接好友为一度人脉，依次类推。/ 社交关系网络的构成是节点和边，人物就是节点，边（连线）即是关系。即为 source、target。</p>
 </li>
 <li><p>分析问题复杂度，为简单，化简为只抓取互相关注的（微博客户端用户粉丝里可直接看到相互关注的），这也符合常理，通常相互关注的更可能是好友关系。假设每个人互关的好友数是常数 a = 20 人，那么一共要抓取的人数（总数关系的数据量）y 是人脉度数 x 的幂函数。一度人脉一个乘号，假设 2 度人脉，每个人互关好友 20 人，即 y = 20 x 20 = 400。这个数据量还可以接受。所以决定抓取二度人脉进行分析。考虑到二度人脉做可视化分析、爬取难度等方面比较合适。<br><img src="/2019/04/02/爬虫：微博好友关系分析/图1.PNG" alt="分析问题复杂度"></p>
@@ -284,19 +288,29 @@
 <ol start="4">
 <li>数据库已经创建好：<br><img src="/2019/04/02/爬虫：微博好友关系分析/图2.PNG" alt="数据库创建好"></li>
 </ol>
-<h2 id="2-爬虫程序编写"><a href="#2-爬虫程序编写" class="headerlink" title="2 爬虫程序编写"></a>2 爬虫程序编写</h2><ol>
+<h2 id="2-爬虫程序编写前准备"><a href="#2-爬虫程序编写前准备" class="headerlink" title="2 爬虫程序编写前准备"></a>2 爬虫程序编写前准备</h2><ol>
 <li>了解 Python 项目的目录结构：</li>
 </ol>
 <ul>
 <li><a href="https://github.com/Alfred1984/interesting-python" target="_blank" rel="noopener">有趣的Python爬虫和Python数据分析小项目</a></li>
 <li><a href="https://www.cnblogs.com/bigberg/p/6423164.html" target="_blank" rel="noopener">python基础6–目录结构</a></li>
 <li><a href="http://blog.chinaunix.net/uid-26602509-id-3499026.html" target="_blank" rel="noopener">开篇python–明白python文件如何组织，理解建立源文件</a></li>
+<li><a href="https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/" target="_blank" rel="noopener">Open Sourcing a Python Project the Right Way</a></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Foo/</span><br><span class="line">|-- bin/</span><br><span class="line">|   |-- foo</span><br><span class="line">|</span><br><span class="line">|-- foo/</span><br><span class="line">|   |-- tests/</span><br><span class="line">|   |   |-- __init__.py</span><br><span class="line">|   |   |-- test_main.py</span><br><span class="line">|   |</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- main.py</span><br><span class="line">|</span><br><span class="line">|-- docs/</span><br><span class="line">|   |-- conf.py</span><br><span class="line">|   |-- abc.rst</span><br><span class="line">|</span><br><span class="line">|-- setup.py</span><br><span class="line">|-- requirements.txt</span><br><span class="line">|-- README</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">weibo-friends-analysis/</span><br><span class="line">|-- bin/ 或 Scripts/</span><br><span class="line">|   |-- ...</span><br><span class="line">|</span><br><span class="line">|-- friendsnet/</span><br><span class="line">|   |-- tests/</span><br><span class="line">|   |   |-- __init__.py</span><br><span class="line">|   |   |-- test_main.py</span><br><span class="line">|   |</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- main.py</span><br><span class="line">|   |-- ...</span><br><span class="line">|</span><br><span class="line">|-- docs/</span><br><span class="line">|   |-- abc.rst</span><br><span class="line">|</span><br><span class="line">|-- conf.py</span><br><span class="line">|-- setup.py</span><br><span class="line">|-- requirements.txt</span><br><span class="line">|-- README</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>安装需要的库，项目根目录生成 requirements.txt 来记录需要的库，<code>pip freeze &gt; requirements.txt</code>，安装的话 <code>pip install -r requirements.txt</code>。</li>
 </ol>
-<h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1>
+<h2 id="3-编写创建数据库模块"><a href="#3-编写创建数据库模块" class="headerlink" title="3 编写创建数据库模块"></a>3 编写创建数据库模块</h2><h2 id="4-编写模拟登陆模块"><a href="#4-编写模拟登陆模块" class="headerlink" title="4 编写模拟登陆模块"></a>4 编写模拟登陆模块</h2><ol>
+<li>微博分为 PC / 移动的网页版、客户端版。这里抓移动网页版（一般手机网页版反爬机制弱）。</li>
+</ol>
+<h2 id="5-编写分析爬取并存储模块"><a href="#5-编写分析爬取并存储模块" class="headerlink" title="5 编写分析爬取并存储模块"></a>5 编写分析爬取并存储模块</h2><h2 id="6-编写主程序模块"><a href="#6-编写主程序模块" class="headerlink" title="6 编写主程序模块"></a>6 编写主程序模块</h2><h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><ul>
+<li><p>整个软件由几个模块组成。主模块（main.py）调用各个子模块、包。</p>
+</li>
+<li><p>主模块。/ 创建数据库模块、模拟登陆模块、分析爬取并存储模块。</p>
+</li>
+</ul>
+
                 <hr>
                 
 
@@ -329,7 +343,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-设计准备好数据库"><span class="toc-text">1 设计准备好数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-爬虫程序编写"><span class="toc-text">2 爬虫程序编写</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-设计准备好数据库"><span class="toc-text">1 设计准备好数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-爬虫程序编写前准备"><span class="toc-text">2 爬虫程序编写前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-编写创建数据库模块"><span class="toc-text">3 编写创建数据库模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-编写模拟登陆模块"><span class="toc-text">4 编写模拟登陆模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-编写分析爬取并存储模块"><span class="toc-text">5 编写分析爬取并存储模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-编写主程序模块"><span class="toc-text">6 编写主程序模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
                 </div>
             </div>
         </div>

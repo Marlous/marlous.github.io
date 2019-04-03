@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,7 +202,101 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote>
+<p>参考：<br>1、 <a href="https://github.com/Alfred1984/interesting-python" target="_blank" rel="noopener">有趣的Python爬虫和Python数据分析小项目</a><br>2、 <a href="https://www.cnblogs.com/bigberg/p/6423164.html" target="_blank" rel="noopener">python基础6–目录结构</a><br>3、 <a href="http://blog.chinaunix.net/uid-26602509-id-3499026.html" target="_blank" rel="noopener">开篇python–明白python文件如何组织，理解建立源文件</a><br>4、 <a href="https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/" target="_blank" rel="noopener">Open Sourcing a Python Project the Right Way</a><br>5、 <a href="https://www.jianshu.com/p/6b79c1f32ac7" target="_blank" rel="noopener">python模块和包,项目结构</a><br>6、 <a href="http://python.jobbole.com/81922/" target="_blank" rel="noopener">Python Guide 系列 2.1：结构化你的项目</a><br>7、 <a href="https://github.com/kennethreitz/requests" target="_blank" rel="noopener">requests 库项目参考</a><br>8、 <a href="https://www.jianshu.com/p/a60443bad8e9" target="_blank" rel="noopener">Requests源码阅读</a><br>9、 <a href="https://github.com/Marlous/weibo-friends-analysis" target="_blank" rel="noopener">我的项目：weibo-friends-analysis</a></p>
+</blockquote>
+<h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一 基本概念"></a>一 基本概念</h1><ol>
+<li>包、模块、类：</li>
+</ol>
+<ul>
+<li><p>包：<br>文件夹中包含多个 <code>.py</code> 文件，一个 <code>__init__.py</code> 文件（内容可以为空）。</p>
+</li>
+<li><p>模块：<br>模块对应的是一个<code>.py</code> 文件。</p>
+</li>
+<li><p>类：<br>包含函数、变量。类中有属性和方法。一个对象就是一个类的实例。</p>
+</li>
+</ul>
+<ol start="2">
+<li>import 优先级：</li>
+</ol>
+<ul>
+<li>当前文件目录</li>
+<li>环境变量 PYTHONPATH</li>
+<li>sys.path（list 类型） </li>
+</ul>
+<ol start="3">
+<li>关于主函数代码：</li>
+</ol>
+<ul>
+<li>没有缩进的代码（非函数定义和类定义），都会在载入时自动执行，这些代码，可以认为是 Python 的 main 函数。</li>
+<li>为了区分主执行文件还是被调用的文件，Python 引入了一个变量 <code>__name__</code>，当文件是被调用时，<code>__name__</code> 的值为模块名，当文件被执行时，<code>__name__</code> 为 <code>__main__</code>。</li>
+<li>当我们在命令行运行模块文件时，Python 解释器把一个特殊变量 <code>__name__</code> 置为 <code>__main__</code>，而如果在其他地方导入该模块时，if 判断将失败，因此，这种 if 测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos; :</span><br><span class="line">	test()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="4">
+<li><p><code>__init__.py</code> 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__all__ = [&apos;模块名&apos;] # 定义该包下哪些模块可以被其它模块引用。</span><br><span class="line"></span><br><span class="line">import sys # 批量导入模块</span><br><span class="line">import io</span><br><span class="line">import datetime</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一些模块内置变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__name__ 表示命名空间</span><br><span class="line">__package__ 表示包名称</span><br><span class="line">__doc__ 表示模块注释，文档写在两行双引号中间</span><br><span class="line">__file__  表示模块路径</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不同作用域、用途的变量：</p>
+</li>
+</ol>
+<ul>
+<li><code>__xxx__</code> 是特殊变量，可以被直接引用。</li>
+<li><code>_xxx 和 __xxx</code> 这样的函数或变量就是非公开的（private），不应该被直接引用。外部不需要引用的函数全部定义成 private，只有外部需要引用的函数才定义为 public。</li>
+</ul>
+<h1 id="二-文件组织"><a href="#二-文件组织" class="headerlink" title="二 文件组织"></a>二 文件组织</h1><ol>
+<li>实例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">weibo-friends-analysis/</span><br><span class="line">|-- bin/ 或 Scripts/</span><br><span class="line">|   |-- ...</span><br><span class="line">|</span><br><span class="line">|-- src/</span><br><span class="line">|   |-- tests/</span><br><span class="line">|   |   |-- __init__.py</span><br><span class="line">|   |   |-- test_main.py</span><br><span class="line">|   |</span><br><span class="line">|   |-- one/</span><br><span class="line">|   |   |-- __init__.py</span><br><span class="line">|   |   |-- one.py</span><br><span class="line">|   |</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- main.py</span><br><span class="line">|   |-- fun.py</span><br><span class="line">|   |-- setting.py</span><br><span class="line">|</span><br><span class="line">|-- docs/</span><br><span class="line">|   |-- abc.rst</span><br><span class="line">|   |-- conf.py</span><br><span class="line">|</span><br><span class="line">|-- setup.py</span><br><span class="line">|-- requirements.txt</span><br><span class="line">|-- README</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>setting.py：<br>包含 setting 类，这个类只包含方法 <code>__init__()</code>，用来初始化一些东西。</p>
+</li>
+<li><p>requirements.txt：<br>此文件列出项目所需的任何第三方依赖项。它让其他人知道为了处理项目需要哪些库。简单来说，它是一个 pip 安装要求列表。</p>
+</li>
+<li><p>setup.py：<br>安装、部署、打包的脚本。在 setup.py 文件中写明依赖的库和版本，以便到目标机器上能够使用 <code>python setup.py install</code> 安装。</p>
+</li>
+<li><p>scripts/<br>项目用到的各种脚本。</p>
+</li>
+<li><p>docs/<br>项目文档，一般来说里面还包含 config.py。</p>
+</li>
+<li><p>etc/<br>用来存放配置文件的样例。</p>
+</li>
+<li><p>tools/<br>用来存放与工具有关的shell脚本。</p>
+</li>
+<li><p>bin/<br>用来存放将被setup.py安装的二进制脚本。</p>
+</li>
+<li><p>data/<br>用来存放其他类型的文件，如媒体文件。</p>
+</li>
+<li><p>如果是发行自己的模块，顶层目录还需要下面三个文件：<br>setup.cfg： 包含 setup.py 默认命令选项的 ini 文件。/ LICENSE.txt 项目许可说明文件。如果需要使用 setuptools 等工具进打包发行，那么需要一个许可文件。/ MANIFEST.in：装箱清单文件，当需要打包源码中不自动包含的附加文件时使用。</p>
+</li>
+</ul>
+<ol start="2">
+<li>调用方法：</li>
+</ol>
+<ul>
+<li><p>主程序与模块程序在同一目录：<br>main.py 中直接使用 <code>import fun</code> 或 <code>from fun import *</code>。</p>
+</li>
+<li><p>主程序使用子目录下的模块：<br>main.py 中直接使用 <code>import tests.test_main</code> 或 <code>from tests.test_main import *</code>。</p>
+</li>
+<li><p>子模块使用上级 / 其它同级包中模块：<br>test_main.py 使用 main.py 和 one.py，在 test_main.py 中直接导入使用，然后在 <code>tests/</code> 文件夹中执行 test_main.py。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.path.append(&quot;..&quot;)</span><br><span class="line">import src.main</span><br><span class="line">import one.one</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="3">
+<li>小结：<br>导入模块关键是能够根据 sys.path 环境变量的值，找到具体模块的路径。</li>
+</ol>
+<h1 id="三-单个文件结构"><a href="#三-单个文件结构" class="headerlink" title="三 单个文件结构"></a>三 单个文件结构</h1><p><img src="/2019/04/03/Python-软件项目文件结构组织/图1.PNG" alt="单个文件结构"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python        可以让这个py文件直接在Unix/Linux/Mac上运行</span><br><span class="line"># -*- coding: utf-8 -*-      使用标准UTF-8编码；</span><br><span class="line"></span><br><span class="line">&apos; a test module &apos;            #表示模块的文档注释</span><br><span class="line"></span><br><span class="line">__author__ = &apos;Michael Liao&apos;  #作者名</span><br><span class="line"></span><br><span class="line">import sys                   #导入其他模块</span><br><span class="line">import cStringIO as StringIO #导入其他模块，并使用as命名别名</span><br><span class="line"></span><br><span class="line">def test():</span><br><span class="line">    return True</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">当我们在命令行运行模块文件时，Python解释器把一个特殊变量__name__置为__main__，</span><br><span class="line">而如果在其他地方导入该hello模块时，if判断将失败，</span><br><span class="line">因此，这种if测试可以让一个模块通过命令行运行时执行一些额外的代码，</span><br><span class="line">最常见的就是运行测试。</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">if __name__==&apos;__main__&apos;:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>在每个文件模块里放置了一个函数，可以放置许多函数；也可以在这些文件里定义 Python 的类，然后为这些类建一个包。</p>
+</li>
+<li><p>多个文件相互调用组织：<br>将主逻辑定义成函数写在 main.py 中并在其中运行（类似面向过程）。主函数模块用到的子模块、包在前面导入；剩下的类、函数等全部拆成模块、包，被 main.py 中的主逻辑函数调用（面向过程、面向对象）。</p>
+</li>
+</ul>
+
                 <hr>
                 
 
@@ -230,7 +324,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-基本概念"><span class="toc-text">一 基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-文件组织"><span class="toc-text">二 文件组织</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-单个文件结构"><span class="toc-text">三 单个文件结构</span></a></li></ol>
                 </div>
             </div>
         </div>
