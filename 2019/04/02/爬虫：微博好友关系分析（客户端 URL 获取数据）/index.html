@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        爬虫：微博好友关系分析｜Mo&#39;s blog
+        爬虫：微博好友关系分析（客户端 URL 获取数据）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/04/02/爬虫：微博好友关系分析/">
+    <link rel="canonical" href="https://marlous.github.io/2019/04/02/爬虫：微博好友关系分析（客户端 URL 获取数据）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -96,6 +90,12 @@
                         <li>
                             <a href="/tags/">tags</a>
                         </li>
+							
+						
+                    
+                        
+							
+								
 							
 						
                     
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>爬虫：微博好友关系分析</h1>
+                    <h1>爬虫：微博好友关系分析（客户端 URL 获取数据）</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            爬虫：微博好友关系分析
+            爬虫：微博好友关系分析（客户端 URL 获取数据）
         </span>
     </div>
 </header>
@@ -209,7 +209,7 @@
 <h1 id="一-想法"><a href="#一-想法" class="headerlink" title="一 想法"></a>一 想法</h1><ol>
 <li><p>通过微博抓取微博好友，然后抓取好友的好友，以自己到直接好友为一度人脉，依次类推。/ 社交关系网络的构成是节点和边，人物就是节点，边（连线）即是关系。即为 source、target。</p>
 </li>
-<li><p>分析问题复杂度，为简单，化简为只抓取互相关注的（微博客户端用户粉丝里可直接看到相互关注的），这也符合常理，通常相互关注的更可能是好友关系。假设每个人互关的好友数是常数 a = 20 人，那么一共要抓取的人数（总数关系的数据量）y 是人脉度数 x 的幂函数。一度人脉一个乘号，假设 2 度人脉，每个人互关好友 20 人，即 y = 20 x 20 = 400。这个数据量还可以接受。所以决定抓取二度人脉进行分析。考虑到二度人脉做可视化分析、爬取难度等方面比较合适。<br><img src="/2019/04/02/爬虫：微博好友关系分析/图1.PNG" alt="分析问题复杂度"></p>
+<li><p>分析问题复杂度，为简单，化简为只抓取互相关注的（微博客户端用户粉丝里可直接看到相互关注的），这也符合常理，通常相互关注的更可能是好友关系。假设每个人互关的好友数是常数 a = 20 人，那么一共要抓取的人数（总数关系的数据量）y 是人脉度数 x 的幂函数。一度人脉一个乘号，假设 2 度人脉，每个人互关好友 20 人，即 y = 20 x 20 = 400。这个数据量还可以接受。所以决定抓取二度人脉进行分析。考虑到二度人脉做可视化分析、爬取难度等方面比较合适。<br><img src="/2019/04/02/爬虫：微博好友关系分析（客户端 URL 获取数据）/图1.PNG" alt="分析问题复杂度"></p>
 </li>
 <li><p>步骤：<br>先抓取用户信息，然后对原始数据进行分析。</p>
 </li>
@@ -257,8 +257,8 @@
 <li>设计：</li>
 </ol>
 <ul>
-<li>模拟登陆</li>
-<li>从自己的账号下开始，获取相互关注列表中第一个用户，记录下信息，此列表中的用户标记为一度人脉，标记是谁的好友（来源）</li>
+<li>模拟登陆或其它能抓取到数据的前提。</li>
+<li>从自己的账号下开始，获取相互关注列表中第一个用户，记录下信息，此列表中的用户标记为一度人脉，标记是谁的好友（来源）。</li>
 <li>按照一度人脉列表中第一个，去爬二度人脉的互关列表，记录下列表中每个用户信息。</li>
 <li>返回到一度人脉列表中第二个，依次递归下去。</li>
 </ul>
@@ -269,7 +269,10 @@
 <li>因为使用 Gephi 数据可视化软件来分析关系，Gephi 需要规定的格式。所以先把原始数据全存到 MySQL 中，然后从中导出 Gephi 需要的格式。</li>
 <li>MySQL 数据库设计：分为三张表，两张表用来存放人际关系。另一张表用来存放每个用户的详细信息。</li>
 </ul>
-<h1 id="四-具体实践"><a href="#四-具体实践" class="headerlink" title="四 具体实践"></a>四 具体实践</h1><h2 id="1-设计准备好数据库"><a href="#1-设计准备好数据库" class="headerlink" title="1 设计准备好数据库"></a>1 设计准备好数据库</h2><p>使用 MySQL，设计三张表，用 MySQL 图形界面完成操作。</p>
+<h1 id="四-具体实践"><a href="#四-具体实践" class="headerlink" title="四 具体实践"></a>四 具体实践</h1><h2 id="1-方案一：使用数据库"><a href="#1-方案一：使用数据库" class="headerlink" title="1 方案一：使用数据库"></a>1 方案一：使用数据库</h2><blockquote>
+<p>为什么要用数据库，用 CSV 也可以分析好友关系。用数据库可以更方便存储更多的用户信息。</p>
+</blockquote>
+<p>使用 MySQL，设计三张表，用 MySQL 图形界面完成操作。</p>
 <ol>
 <li><p>创建数据库：<code>CREATE DATABASE weibo-friends-analysis;</code></p>
 </li>
@@ -286,9 +289,26 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `weibo-friends-analysis`.`userinfo` (</span><br><span class="line">  `uid` VARCHAR(20) NOT NULL,</span><br><span class="line">  `name` VARCHAR(32) NOT NULL,</span><br><span class="line">  `weight` INT(1) NOT NULL,</span><br><span class="line">  `gender` CHAR(1) NOT NULL,</span><br><span class="line">  `follows` INT(2) NOT NULL,</span><br><span class="line">  `fans` INT NOT NULL,</span><br><span class="line">  `location` VARCHAR(15) NOT NULL,</span><br><span class="line">  `articlesnum` INT NOT NULL,</span><br><span class="line">  PRIMARY KEY (`uid`));</span><br></pre></td></tr></table></figure>
 <ol start="4">
-<li>数据库已经创建好：<br><img src="/2019/04/02/爬虫：微博好友关系分析/图2.PNG" alt="数据库创建好"></li>
+<li><p>数据库已经创建好：<br><img src="/2019/04/02/爬虫：微博好友关系分析（客户端 URL 获取数据）/图2.PNG" alt="数据库创建好"></p>
+</li>
+<li><p>获取数据，然后分析 json 文件，将信息提取后写入 MySQL，然后做数据分析。/ 怎样爬信息参见我的博文 《通过微博手机客户端爬取数据的分析》。</p>
+</li>
 </ol>
-<h2 id="2-爬虫程序编写前准备"><a href="#2-爬虫程序编写前准备" class="headerlink" title="2 爬虫程序编写前准备"></a>2 爬虫程序编写前准备</h2><ol>
+<h2 id="2-方案二：使用-CSV"><a href="#2-方案二：使用-CSV" class="headerlink" title="2 方案二：使用 CSV"></a>2 方案二：使用 CSV</h2><ol>
+<li><p>获取数据，然后分析 json 文件，将信息提取后写入 CSV 文件，然后做数据分析。/ 怎样爬信息参见我的博文 《通过微博手机客户端爬取数据的分析》。</p>
+</li>
+<li><p>写入 CSV 文件方法：<a href="https://cuiqingcai.com/5571.html" target="_blank" rel="noopener">[Python3网络爬虫开发实战] 5.1.3-CSV文件存储</a></p>
+</li>
+</ol>
+<h2 id="3-选择具体实现思路"><a href="#3-选择具体实现思路" class="headerlink" title="3 选择具体实现思路"></a>3 选择具体实现思路</h2><ul>
+<li><p>先自己手机微博客户端抓包，得到数据包并配置到代码中去，查看其中的 URL：<br><img src="/2019/04/02/爬虫：微博好友关系分析（客户端 URL 获取数据）/图3.PNG" alt="得到数据包"><br>其中需要的 URL 如：<code>https://api.weibo.cn/2/friendships/bilateral?aid=XXX.&amp;c=weicoabroad&amp;count=50&amp;from=XXX&amp;gsid=XXX&amp;i=XXX&amp;lang=zh_CN&amp;page=1&amp;real_relationships=1&amp;s=XXX&amp;trim_status=1&amp;ua=iPhone6%2C1_iOS12.2_Weibo_intl._3450_wifi&amp;uid=用户&amp;v_p=XXX</code></p>
+</li>
+<li><p>在爬虫代码中利用此 URL，获取到互关好友的数据（json 文件）。</p>
+</li>
+<li><p>分析这些 json 文件，提取其中的信息，写入到 CSV 文件。</p>
+</li>
+</ul>
+<h2 id="4-爬虫程序编写前准备"><a href="#4-爬虫程序编写前准备" class="headerlink" title="4 爬虫程序编写前准备"></a>4 爬虫程序编写前准备</h2><ol>
 <li>了解 Python 项目的目录结构：</li>
 </ol>
 <ul>
@@ -298,13 +318,13 @@
 <li><a href="https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/" target="_blank" rel="noopener">Open Sourcing a Python Project the Right Way</a></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">weibo-friends-analysis/</span><br><span class="line">|-- bin/ 或 Scripts/</span><br><span class="line">|   |-- ...</span><br><span class="line">|</span><br><span class="line">|-- friendsnet/</span><br><span class="line">|   |-- tests/</span><br><span class="line">|   |   |-- __init__.py</span><br><span class="line">|   |   |-- test_main.py</span><br><span class="line">|   |</span><br><span class="line">|   |-- __init__.py</span><br><span class="line">|   |-- main.py</span><br><span class="line">|   |-- ...</span><br><span class="line">|</span><br><span class="line">|-- docs/</span><br><span class="line">|   |-- abc.rst</span><br><span class="line">|</span><br><span class="line">|-- conf.py</span><br><span class="line">|-- setup.py</span><br><span class="line">|-- requirements.txt</span><br><span class="line">|-- README</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：怎样爬信息参见我的博文 《通过微博手机客户端爬取数据的分析》，因为通过手机客户端抓包分析，可以通过构造的 URL 直接得到用户互关好友数据，所以不需要模拟登陆。</li>
+</ul>
 <ol start="2">
 <li>安装需要的库，项目根目录生成 requirements.txt 来记录需要的库，<code>pip freeze &gt; requirements.txt</code>，安装的话 <code>pip install -r requirements.txt</code>。</li>
 </ol>
-<h2 id="3-编写创建数据库模块"><a href="#3-编写创建数据库模块" class="headerlink" title="3 编写创建数据库模块"></a>3 编写创建数据库模块</h2><h2 id="4-编写模拟登陆模块"><a href="#4-编写模拟登陆模块" class="headerlink" title="4 编写模拟登陆模块"></a>4 编写模拟登陆模块</h2><ol>
-<li>微博分为 PC / 移动的网页版、客户端版。这里抓移动网页版（一般手机网页版反爬机制弱）。</li>
-</ol>
-<h2 id="5-编写分析爬取并存储模块"><a href="#5-编写分析爬取并存储模块" class="headerlink" title="5 编写分析爬取并存储模块"></a>5 编写分析爬取并存储模块</h2><h2 id="6-编写主程序模块"><a href="#6-编写主程序模块" class="headerlink" title="6 编写主程序模块"></a>6 编写主程序模块</h2><h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><ul>
+<h2 id="5-编写主程序模块"><a href="#5-编写主程序模块" class="headerlink" title="5 编写主程序模块"></a>5 编写主程序模块</h2><h2 id="6-编写分析爬取并存储模块"><a href="#6-编写分析爬取并存储模块" class="headerlink" title="6 编写分析爬取并存储模块"></a>6 编写分析爬取并存储模块</h2><h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><ul>
 <li><p>整个软件由几个模块组成。主模块（main.py）调用各个子模块、包。</p>
 </li>
 <li><p>主模块。/ 创建数据库模块、模拟登陆模块、分析爬取并存储模块。</p>
@@ -343,7 +363,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-设计准备好数据库"><span class="toc-text">1 设计准备好数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-爬虫程序编写前准备"><span class="toc-text">2 爬虫程序编写前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-编写创建数据库模块"><span class="toc-text">3 编写创建数据库模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-编写模拟登陆模块"><span class="toc-text">4 编写模拟登陆模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-编写分析爬取并存储模块"><span class="toc-text">5 编写分析爬取并存储模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-编写主程序模块"><span class="toc-text">6 编写主程序模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-方案一：使用数据库"><span class="toc-text">1 方案一：使用数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方案二：使用-CSV"><span class="toc-text">2 方案二：使用 CSV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-选择具体实现思路"><span class="toc-text">3 选择具体实现思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-爬虫程序编写前准备"><span class="toc-text">4 爬虫程序编写前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-编写主程序模块"><span class="toc-text">5 编写主程序模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-编写分析爬取并存储模块"><span class="toc-text">6 编写分析爬取并存储模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
                 </div>
             </div>
         </div>
