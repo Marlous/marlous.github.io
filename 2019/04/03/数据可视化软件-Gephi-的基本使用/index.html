@@ -251,6 +251,22 @@
 <li>Edge 表属性：Source、Target、Weight。分别为两个用户，表明两个用户间的关系。Weight 表示第几度人脉。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `weibo-friends-analysis`.`node` (</span><br><span class="line">  `id` VARCHAR(20) NOT NULL,</span><br><span class="line">  `label` VARCHAR(32) NOT NULL,</span><br><span class="line">  `gender` CHAR(1) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`id`));</span><br><span class="line"></span><br><span class="line">CREATE TABLE `weibo-friends-analysis`.`edge` (</span><br><span class="line">  `source` VARCHAR(20) NOT NULL,</span><br><span class="line">  `target` VARCHAR(20) NOT NULL,</span><br><span class="line">  `weight` INT(1) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`source`, `target`));</span><br></pre></td></tr></table></figure>
+<h1 id="四-示例"><a href="#四-示例" class="headerlink" title="四 示例"></a>四 示例</h1><p><img src="/2019/04/03/数据可视化软件-Gephi-的基本使用/图3.PNG" alt="Gephi 的处理操作"></p>
+<ul>
+<li>导入是有中文，编码选 GB2312，导入第二个文件（edge.csv）时，记得选择添加到已存在的工作区。</li>
+<li>注意：边文件中的权值可以设置差异大些，这样在 Gephi 中可以容易看出自己（研究用户）的点</li>
+<li>背景颜色</li>
+<li>节点 - 颜色 - Ranking（度）</li>
+<li>节点 - 大小 - Ranking（度）</li>
+<li>边 - 颜色 - Ranking（权重）- 换个颜色</li>
+<li>边权重尺度</li>
+<li>找到自己的点</li>
+<li>格式刷（扩散可选没有、邻居）</li>
+<li>字体设置为微软雅黑</li>
+<li>调整好中心点的位置</li>
+<li>布局使用 Force Atlas（斥力 500），也可用其它布局</li>
+</ul>
+
                 <hr>
                 
 
@@ -283,7 +299,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据文件构成"><span class="toc-text">二 数据文件构成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-使用"><span class="toc-text">三 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CSV-文件"><span class="toc-text">1 CSV 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MySQL"><span class="toc-text">2 MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-补充：设计数据库实例"><span class="toc-text">3 补充：设计数据库实例</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-概述"><span class="toc-text">一 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据文件构成"><span class="toc-text">二 数据文件构成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-使用"><span class="toc-text">三 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-CSV-文件"><span class="toc-text">1 CSV 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MySQL"><span class="toc-text">2 MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-补充：设计数据库实例"><span class="toc-text">3 补充：设计数据库实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-示例"><span class="toc-text">四 示例</span></a></li></ol>
                 </div>
             </div>
         </div>

@@ -202,7 +202,65 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <h1 id="一-处理数据"><a href="#一-处理数据" class="headerlink" title="一 处理数据"></a>一 处理数据</h1><ol>
+<li>使用图数据结构处理社交网络数据：</li>
+</ol>
+<ul>
+<li>每个节点就是一个人。</li>
+<li>每个节点的度表示关系数。</li>
+</ul>
+<ol start="2">
+<li>为 Gephi 数据可视化软件准备数据：</li>
+</ol>
+<ul>
+<li>节点 csv 文件：node.csv（列标题：id、label；值分别是微博用户 uid、微博用户名。）</li>
+<li>边 csv 文件：edge.csv（列标题：source、target、weight；值分别是微博用户 id、微博用户 id、权值。权值可以是人脉度数）</li>
+</ul>
+<ol start="3">
+<li>Gephi 的处理操作：<br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图0.PNG" alt="Gephi 的处理操作"></li>
+</ol>
+<ul>
+<li>注意：边文件中的权值可以设置差异大些，这样在 Gephi 中可以容易看出自己（研究用户）的点</li>
+<li>背景颜色</li>
+<li>节点 - 颜色 - Ranking（度）</li>
+<li>节点 - 大小 - Ranking（度）</li>
+<li>边 - 颜色 - Ranking（权重）- 换个颜色</li>
+<li>边权重尺度</li>
+<li>找到自己的点</li>
+<li>格式刷（扩散可选没有、邻居）</li>
+<li>字体设置为微软雅黑</li>
+<li>调整好中心点的位置</li>
+<li>布局使用 Force Atlas（斥力 500），也可用其它布局</li>
+</ul>
+<h1 id="二-数据可视化细节"><a href="#二-数据可视化细节" class="headerlink" title="二 数据可视化细节"></a>二 数据可视化细节</h1><p><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图1.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图2.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图3.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图4.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图5.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图6.PNG" alt="数据可视化细节"></p>
+<h1 id="三-结论小结"><a href="#三-结论小结" class="headerlink" title="三 结论小结"></a>三 结论小结</h1><blockquote>
+<p>以下结论只在比较重度使用微博，或人际关系网在微博上的用户成立。</p>
+</blockquote>
+<ul>
+<li><p>红点表示自己。与之直接相连的节点为一度人脉（直接好友）。</p>
+</li>
+<li><p>除去直接与自己相连的，其它全部为二度人脉。</p>
+</li>
+<li><p>蓝点越大颜色越深表示其相互关注的好友数量越多。</p>
+</li>
+<li><p>二度人脉节点度为 1 的，表示大概率不属于自己的圈子。/ 二度人脉节点度不为 1 的，表示大概率可能是自己的好友（好友间共同的朋友），或有相同的兴趣爱好。</p>
+</li>
+<li><p>所有节点除去节点的度为 1 的（假设没有一个一度人脉只关注了自己，没任何其它好友）。剩下的是好友圈子里的二度人脉，表示介于一度好友们之间的人，他们在直接的一度好友间起到了桥梁的作用。/ 注意：只能分析到第二度人脉，路径深度为二，但无法分析第二度人脉之间的关系！</p>
+</li>
+<li><p>对于一度人脉来说：<br>其除去度为 1 的节点外，连线分为与一度好友的连线、与二度好友的连线。/ 与一度好友的连线越多、与二度好友的连线越少，表示在一度好友圈子里的关系越紧密，与自己关系越大。/ 相反的，与一度好友的连线越少、与二度好友的连线越多，表示越偏离自己的圈子，与二度好友圈子约亲密。</p>
+</li>
+<li><p>对于二度人脉来说：<br>其除去度为 1 的节点外，连线越多，表示在好友间的关系越复杂，与自己朋友圈越亲密。</p>
+</li>
+<li><p>重要结论：如果一个非一度人脉节点，与自己一度人脉连接 &gt;= 2 则是一个圈子的（至少两个共同好友），连接数越多，与自己圈子越亲密。</p>
+</li>
+</ul>
+<h1 id="四-补充"><a href="#四-补充" class="headerlink" title="四 补充"></a>四 补充</h1><ul>
+<li><p>抓二度人脉数据，即人脉深度为二（图深度为二）。/ 只能分析出第二度人脉与第一度人脉间的关系。</p>
+</li>
+<li><p>只能完整分析一度人脉好友，无法分析第二度人脉的好友（无法分析朋友的朋友与其间的关系。）。</p>
+</li>
+</ul>
+
                 <hr>
                 
 
@@ -230,7 +288,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-处理数据"><span class="toc-text">一 处理数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据可视化细节"><span class="toc-text">二 数据可视化细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-结论小结"><span class="toc-text">三 结论小结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-补充"><span class="toc-text">四 补充</span></a></li></ol>
                 </div>
             </div>
         </div>

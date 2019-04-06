@@ -324,7 +324,11 @@
 <ol start="2">
 <li>安装需要的库，项目根目录生成 requirements.txt 来记录需要的库，<code>pip freeze &gt; requirements.txt</code>，安装的话 <code>pip install -r requirements.txt</code>。</li>
 </ol>
-<h2 id="5-编写主程序模块"><a href="#5-编写主程序模块" class="headerlink" title="5 编写主程序模块"></a>5 编写主程序模块</h2><h2 id="6-编写分析爬取并存储模块"><a href="#6-编写分析爬取并存储模块" class="headerlink" title="6 编写分析爬取并存储模块"></a>6 编写分析爬取并存储模块</h2><h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><ul>
+<h2 id="5-编写分析爬取模块"><a href="#5-编写分析爬取模块" class="headerlink" title="5 编写分析爬取模块"></a>5 编写分析爬取模块</h2><h2 id="6-编写存储模块"><a href="#6-编写存储模块" class="headerlink" title="6 编写存储模块"></a>6 编写存储模块</h2><h2 id="7-编写主程序模块"><a href="#7-编写主程序模块" class="headerlink" title="7 编写主程序模块"></a>7 编写主程序模块</h2><ul>
+<li>写好功能模块后，对其进形更细致的优化，模块化。在主程序模块中调用各个子模块。</li>
+<li>每个子模块可以单独运行，完成指定的工作。</li>
+</ul>
+<h1 id="五-总结"><a href="#五-总结" class="headerlink" title="五 总结"></a>五 总结</h1><ul>
 <li><p>整个软件由几个模块组成。主模块（main.py）调用各个子模块、包。</p>
 </li>
 <li><p>主模块。/ 创建数据库模块、模拟登陆模块、分析爬取并存储模块。</p>
@@ -363,7 +367,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-方案一：使用数据库"><span class="toc-text">1 方案一：使用数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方案二：使用-CSV"><span class="toc-text">2 方案二：使用 CSV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-选择具体实现思路"><span class="toc-text">3 选择具体实现思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-爬虫程序编写前准备"><span class="toc-text">4 爬虫程序编写前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-编写主程序模块"><span class="toc-text">5 编写主程序模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-编写分析爬取并存储模块"><span class="toc-text">6 编写分析爬取并存储模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-参考资料"><span class="toc-text">二 参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-需求分析与设计"><span class="toc-text">三 需求分析与设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体实践"><span class="toc-text">四 具体实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-方案一：使用数据库"><span class="toc-text">1 方案一：使用数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方案二：使用-CSV"><span class="toc-text">2 方案二：使用 CSV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-选择具体实现思路"><span class="toc-text">3 选择具体实现思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-爬虫程序编写前准备"><span class="toc-text">4 爬虫程序编写前准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-编写分析爬取模块"><span class="toc-text">5 编写分析爬取模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-编写存储模块"><span class="toc-text">6 编写存储模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-编写主程序模块"><span class="toc-text">7 编写主程序模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-总结"><span class="toc-text">五 总结</span></a></li></ol>
                 </div>
             </div>
         </div>
