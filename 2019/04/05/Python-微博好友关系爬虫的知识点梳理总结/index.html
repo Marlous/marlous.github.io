@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        通过微博手机客户端爬取数据的分析｜Mo&#39;s blog
+        Python 微博好友关系爬虫的知识点梳理总结｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/04/04/通过微博手机客户端爬取数据的分析/">
+    <link rel="canonical" href="https://marlous.github.io/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,12 +171,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>通过微博手机客户端爬取数据的分析</h1>
+                    <h1>Python 微博好友关系爬虫的知识点梳理总结</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2019-04-04
+                          日期 2019-04-05
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            通过微博手机客户端爬取数据的分析
+            Python 微博好友关系爬虫的知识点梳理总结
         </span>
     </div>
 </header>
@@ -202,108 +202,21 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>参考：<br>1、 <a href="https://blog.csdn.net/qq_37634812/article/details/77658066" target="_blank" rel="noopener">爬虫打破封禁的六种方法</a><br>2、 <a href="https://open.weibo.com/wiki/Rate-limiting" target="_blank" rel="noopener"> 接口访问频次权限
-</a><br>3、 <a href="https://open.weibo.com/wiki/2/friendships/friends/bilateral" target="_blank" rel="noopener">friendships/friends/bilateral</a><br>4、 <a href="https://github.com/sinaweibosdk" target="_blank" rel="noopener">微博 SDK</a></p>
-</blockquote>
-<h1 id="一-想法"><a href="#一-想法" class="headerlink" title="一 想法"></a>一 想法</h1><blockquote>
-<p>此处参考我的另一篇博文：《爬虫：微博好友关系分析》</p>
-</blockquote>
-<ol>
-<li><p>通过微博抓取微博好友，然后抓取好友的好友，以自己到直接好友为一度人脉，依次类推。/ 社交关系网络的构成是节点和边，人物就是节点，边（连线）即是关系。即为 source、target。</p>
-</li>
-<li><p>分析问题复杂度，为简单，化简为只抓取互相关注的（微博客户端用户粉丝里可直接看到相互关注的），这也符合常理，通常相互关注的更可能是好友关系。假设每个人互关的好友数是常数 a = 20 人，那么一共要抓取的人数（总数关系的数据量）y 是人脉度数 x 的幂函数。一度人脉一个乘号，假设 2 度人脉，每个人互关好友 20 人，即 y = 20 x 20 = 400。这个数据量还可以接受。所以决定抓取二度人脉进行分析。考虑到二度人脉做可视化分析、爬取难度等方面比较合适。</p>
-</li>
-<li><p>步骤：<br>先抓取用户信息，然后对原始数据进行分析。</p>
-</li>
-<li><p>问题细化：</p>
-</li>
-</ol>
-<ul>
-<li>怎样模拟登陆微博，要不要考虑 IP 地址被禁问题</li>
-<li>怎样抓取到数据</li>
-<li>需要抓那些数据</li>
-<li>数据存放在哪、怎样存放</li>
-<li>怎样对数据清洗筛选</li>
-<li>用什么工具、怎样分析数据得出有价值的结论</li>
-</ul>
-<h1 id="二-为什么通过手机客户端"><a href="#二-为什么通过手机客户端" class="headerlink" title="二 为什么通过手机客户端"></a>二 为什么通过手机客户端</h1><ul>
-<li><p>爬虫的核心问题就是抓取自己想要的数据。但是有两个问题，怎样抓到想要的数据？爬虫程序会不会被反爬机制限制？显然后者更重要，如果被限制就根本无法抓取数据了。</p>
-</li>
-<li><p>通过查阅资料，通常的技巧是抓取手机网页版的，而不是 pc 网页版，因为前者反爬机制通常更弱，这算是一个小技巧。</p>
-</li>
-<li><p>但是手机网页版的数据太少，那么要不要考虑一下手机客户端呢，于是有了此篇博文。</p>
-</li>
-</ul>
-<h1 id="三-先上结论"><a href="#三-先上结论" class="headerlink" title="三 先上结论"></a>三 先上结论</h1><ul>
-<li><p>抓取一个用户的互关好友及其详细信息，可以直接通过此用户 uid 构造 URL 来获得一个 json 文件，此 json 文件包含了所有互关好友的详细信息。</p>
-</li>
-<li><p>假设每个人 20 个互关好友，一个人的二度人脉总数是 400 人。通过获取一个用户互关好友 json 的方法，只需要一共请求 21 次（一度人脉 + 二度人脉）即可！然后分析 json 文件即可得到约 400 人信息（假设不重复）。</p>
-</li>
-<li><p>通过导出的 URL 放到 PC 浏览器中，可以看到 json 文件的请求头，可以根据 json 文件构造爬虫代码。</p>
-</li>
-</ul>
-<h1 id="四-具体分析过程"><a href="#四-具体分析过程" class="headerlink" title="四 具体分析过程"></a>四 具体分析过程</h1><ul>
-<li><p>使用 iPhone 微博国际版。</p>
-</li>
-<li><p>使用一个买来的小号登录。</p>
-</li>
-<li><p>搜索想要研究的对象（如自己）。</p>
-</li>
-<li><p>停留在研究对象的主页。</p>
-</li>
-<li><p>开始使用手机上的 Thor 抓包，记录下互相关注的一度人脉（点击粉丝 -&gt; 点击互相关注全部 -&gt; 停止抓包）。分析获取到 json 的数据包。完成一度人脉获取的方法。</p>
-</li>
-<li><p>返回到研究对象的一度人脉列表，点击第一个好友，点击粉丝 -&gt; 点击互相关注全部 -&gt; 停止抓包。再重复此动作两次。获得三个获取二度人脉的数据包样本。</p>
-</li>
-<li><p>分析抓到的数据包，发现其中两个数据包就是请求的某个用户的互关好友信息（json 文件）。/ 通过对比发现这两个区别在于导出的 URL 中只有 count 参数不同，一个是 50，一个是 10，前者的 json 文件也大些。参数为 10 的只有 10 个互关好友的信息。因此用参数 50。推测最多能获取到一个人互关的 50 个好友信息。查看微博开发文档发现默认为 50，上限 500，返回 30% 的互关好友。必须要授权才能访问，<a href="https://open.weibo.com/wiki/2/friendships/friends/bilateral" target="_blank" rel="noopener">friendships/friends/bilateral</a>。<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图1.PNG" alt="分析抓到的数据包"><br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图2.PNG" alt="分析抓到的数据包"></p>
-</li>
-<li><p>分析这些可以获得信息的有效数据包，找出共同规律。（第一个为一度人脉互关好友，剩下依次为互关好友中第一个好友的互关好友信息，互关好友中第二个…）<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图3.PNG" alt="分析抓到的数据包"></p>
-</li>
-<li><p>通过分析客户端数据包，发现可以通过构造 URI 来直接获得某个用户互关好友的 json 文件。uid 就是指定的用户，其他参数可以构造出来。（这里需要构造的参数就是微博小号在分析过程中抓到的可以获取 json 的 URL 除去 uid 部分。（可以直接使用，爬虫程序中 uid 作为变量即可。）/ 在 Thor 软件中导出原始连接，可以直接在浏览器中打开。<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图4.PNG" alt="分析抓到的数据包"><br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图5.PNG" alt="分析抓到的数据包"></p>
-</li>
-</ul>
-<h1 id="五-获取数据的-URL"><a href="#五-获取数据的-URL" class="headerlink" title="五 获取数据的 URL"></a>五 获取数据的 URL</h1><ol>
-<li>其 URL 构成：<br>想要获得数据，必须要构造出 URL，URL 中有几个参数不确定，任务是想办法获取到参数值。/ 用两台不同的手机不同账号下抓包对比。</li>
-</ol>
-<p><code>https://api.weibo.cn/2/friendships/bilateral?aid=XXX.&amp;c=weicoabroad&amp;count=50&amp;from=XXX&amp;gsid=XXX&amp;i=XXX&amp;lang=zh_CN&amp;page=1&amp;real_relationships=1&amp;s=XXX&amp;trim_status=1&amp;ua=iPhone6%2C1_iOS12.2_Weibo_intl._3450_wifi&amp;uid=用户&amp;v_p=XXX</code></p>
-<ol start="2">
-<li>重要的 URL 参数：</li>
-</ol>
-<ul>
-<li>aid</li>
-<li>gsid</li>
-<li>i</li>
-<li>s</li>
-<li>uid（指定用户的 uid）</li>
-</ul>
-<ol start="3">
-<li><p>通过观察发现，只需要获得四个参数值即可。参数值要么是客户端生成的，要么是服务器生成的，所以从登陆客户端开始抓包试试。删掉客户端重新下载，从打开开始抓包。<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图6.PNG" alt="分析抓到的数据包"></p>
-</li>
-<li><p>通过分析手机客户端登录过程，发现两个重要的数据包。一个是通过加盐等方法请求授权的，另一个是通过某种方法得到的参数 aid、i、s 等参数构造请求，然后返回一个 gsid。/ 但是没弄清是怎样得到这些参数的，所以想通过模拟客户端登陆来获得参数，然后构造出 URL 的想法宣告失败。</p>
-</li>
-</ol>
-<h1 id="六-总结"><a href="#六-总结" class="headerlink" title="六 总结"></a>六 总结</h1><ul>
-<li><p>虽然想通过模拟客户端登陆来获得参数，然后构造出 URL 的想法宣告失败。但可以曲线救国，直接通过抓包获得 URL，在 Python 爬虫代码中直接使用这个 URL 即可，不用去自己构造，但是爬虫的功能减弱，意味着使用此爬虫的人需要自己用手机客户端抓包去获得这个 URL，然后配置在代码里。/ 之所以用客户端方式，不去模拟网页登陆是因为，客户端可以直接获得互关好友，而网页需要抓取关注和粉丝数据然后自己取交集计算。</p>
-</li>
-<li><p>爬虫分析人际关系的两种思路：a）直接客户端抓包获取可以得到互关好友信息的 json 文件，然后数据分析。请求数在几十个，非常少。 b）通过网页方法，抓取关注和粉丝进行分析。请求数很多，必须要考虑反爬问题。</p>
-</li>
-</ul>
-
+                
                 <hr>
                 
 
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结/" data-toggle="tooltip" data-placement="top"
-                           title="Python 微博好友关系爬虫的知识点梳理总结">&larr; Previous Post</a>
+                        <a href="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/" data-toggle="tooltip" data-placement="top"
+                           title="用爬虫和 Gephi 研究微博好友二度人脉分析报告">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2019/04/03/Python-软件项目文件结构组织/" data-toggle="tooltip" data-placement="top"
-                           title="Python 软件项目文件结构组织">Next Post &rarr;</a>
+                        <a href="/2019/04/04/通过微博手机客户端爬取数据的分析/" data-toggle="tooltip" data-placement="top"
+                           title="通过微博手机客户端爬取数据的分析">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -322,7 +235,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-想法"><span class="toc-text">一 想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-为什么通过手机客户端"><span class="toc-text">二 为什么通过手机客户端</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-先上结论"><span class="toc-text">三 先上结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-具体分析过程"><span class="toc-text">四 具体分析过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-获取数据的-URL"><span class="toc-text">五 获取数据的 URL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-总结"><span class="toc-text">六 总结</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
