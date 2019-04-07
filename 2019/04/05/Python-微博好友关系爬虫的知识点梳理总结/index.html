@@ -202,7 +202,41 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote>
+<p>本项目仓库：<a href="https://github.com/Marlous/weibo-friends-analysis" target="_blank" rel="noopener">GitHub：weibo-friends-analysis
+</a></p>
+</blockquote>
+<h1 id="一-软件概况"><a href="#一-软件概况" class="headerlink" title="一 软件概况"></a>一 软件概况</h1><h2 id="1-软件功能"><a href="#1-软件功能" class="headerlink" title="1 软件功能"></a>1 软件功能</h2><ul>
+<li><p>可以分析任意微博用户的二度人脉（全部为互关好友）情况，人脉深度为 2（生成数据可视化软件 Gephi 所需要的节点文件和边文件 node.csv、edge.csv）。</p>
+</li>
+<li><p>模块化设计，可以直接使用 main.py；也可以单独使用 get_data.py 来获取到 n 度好友的详细信息；或单独使用 analysis_store_data.py 来对已有（之前 get_data.py 模块下载好的）文件生成 node.csv、edge.csv。</p>
+</li>
+<li><p>软件使用前需要设置：<br>可以通过一个小号，分析数据包获得微博授权的 api 链接（详见我的博文 《通过微博手机客户端爬取数据的分析》），通过此链接可以获得某用户互关好友列表的 json 文件。</p>
+</li>
+<li><p>生成 temp 文件夹存放每个用户的互关好友列表文件（以该用户 uid 命名）；生成 data 文件夹存放要生成的 node.csv、dege.csv 文件。</p>
+</li>
+<li><p>temp 文件夹中以数字命名的文件夹是存几度人脉的好友信息文件。其中每个文件以该用户 uid 命名。</p>
+</li>
+</ul>
+<h2 id="2-软件运行逻辑"><a href="#2-软件运行逻辑" class="headerlink" title="2 软件运行逻辑"></a>2 软件运行逻辑</h2><ul>
+<li><p>初始化生成一个配置文件 config.json。</p>
+</li>
+<li><p>进行配置（授权用的私有链接、需要研究的用户微博名）。</p>
+</li>
+<li><p>将授权的私有链接拆解，组装成可以下载某用户信息文件的链接、组装成可以获取某用户互关好友列表文件的链接。</p>
+</li>
+<li><p>下载所要分析用户的用户信息文件，获取其 uid，然后下载其互关好友列表文件（一度人脉），文件名以他的 uid 命名。</p>
+</li>
+<li><p>通过此，所要研究的用户的互关好友列表文件作为启动种子文件，以此为起点。</p>
+</li>
+<li><p>以人脉深度为循环次数（默认已有一度人脉好友互关信息的文件、文件夹，以此为起点遍历下载）。遍历好友互关信息文件中的每个 uid，下载列表中每个好友的互关好友列表为文件。/ 具体方法：从第一个文件夹开始遍历文件夹 -&gt; 遍历其中的文件 -&gt; 遍历每个文件中 uid -&gt; 下载其 uid 的互关好友信息。/ 重点： <code>从 level 为 1 开始循环，循环设置的层级数。从 1 开始，创建下一度人脉文件夹；遍历本层人脉文件夹中的文件；遍历每个文件中的 uid，判断是否下载其好友信息文件（下载的文件以其 uid 命名，存到下一度人脉文件夹中）。</code></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|- 1</span><br><span class="line">|  |- XXX.json （已创建好）</span><br><span class="line">|</span><br><span class="line">| （以下遍历创建文件夹，下载好友列表文件。）</span><br><span class="line">|- 2</span><br><span class="line">|  |- XXX.json</span><br><span class="line">|  |- ...</span><br><span class="line">|</span><br><span class="line">|- ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取到所有信息信息文件后。循环文件夹个数次（遍历文件夹）-&gt; 遍历文件夹中文件 -&gt; 遍历文件中 uid 写入节点和边文件。/ 第一个节点为所研究的用户，先写入 node.csv。edge.csv 文件以 <code>文件夹中文件名、其文件中遍历的 uid、文件夹名</code> 的形式写入，表示节点构成的边、权重为人脉深度。</li>
+</ul>
+<h1 id="二-软件模块化设计"><a href="#二-软件模块化设计" class="headerlink" title="二 软件模块化设计"></a>二 软件模块化设计</h1><h1 id="三-涉及的详细知识点"><a href="#三-涉及的详细知识点" class="headerlink" title="三 涉及的详细知识点"></a>三 涉及的详细知识点</h1>
                 <hr>
                 
 
@@ -235,7 +269,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件概况"><span class="toc-text">一 软件概况</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-软件功能"><span class="toc-text">1 软件功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-软件运行逻辑"><span class="toc-text">2 软件运行逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件模块化设计"><span class="toc-text">二 软件模块化设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-涉及的详细知识点"><span class="toc-text">三 涉及的详细知识点</span></a></li></ol>
                 </div>
             </div>
         </div>
