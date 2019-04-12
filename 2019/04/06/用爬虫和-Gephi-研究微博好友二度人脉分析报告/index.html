@@ -79,16 +79,14 @@
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -103,7 +101,9 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
 							
 						
                     
@@ -230,7 +230,8 @@
 <li>格式刷（扩散可选没有、邻居）</li>
 <li>字体设置为微软雅黑</li>
 <li>调整好中心点的位置</li>
-<li>布局使用 Force Atlas（斥力 500），也可用其它布局</li>
+<li>布局使用 Force Atlas（斥力 600），也可用其它布局</li>
+<li>右侧统计计算平均度，然后用过滤，通过设置度（范围）为 2 及以上的节点保留，来分析自己圈子中的二度好友关系（这样可以看的更清晰）。</li>
 </ul>
 <h1 id="二-数据可视化细节"><a href="#二-数据可视化细节" class="headerlink" title="二 数据可视化细节"></a>二 数据可视化细节</h1><p><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图1.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图2.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图3.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图4.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图5.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析报告/图6.PNG" alt="数据可视化细节"></p>
 <h1 id="三-结论小结"><a href="#三-结论小结" class="headerlink" title="三 结论小结"></a>三 结论小结</h1><blockquote>
@@ -254,12 +255,38 @@
 <li><p>重要结论：如果一个非一度人脉节点，与自己一度人脉连接 &gt;= 2 则是一个圈子的（至少两个共同好友），连接数越多，与自己圈子越亲密。</p>
 </li>
 </ul>
-<h1 id="四-补充"><a href="#四-补充" class="headerlink" title="四 补充"></a>四 补充</h1><ul>
+<h1 id="四-补充说明"><a href="#四-补充说明" class="headerlink" title="四 补充说明"></a>四 补充说明</h1><ul>
 <li><p>抓二度人脉数据，即人脉深度为二（图深度为二）。/ 只能分析出第二度人脉与第一度人脉间的关系。</p>
 </li>
 <li><p>只能完整分析一度人脉好友，无法分析第二度人脉的好友（无法分析朋友的朋友与其间的关系。）。</p>
 </li>
 </ul>
+<h1 id="五-基本数据的扩展分析"><a href="#五-基本数据的扩展分析" class="headerlink" title="五 基本数据的扩展分析"></a>五 基本数据的扩展分析</h1><blockquote>
+<p>通过基本数据，可以分析出一些有意思的结果。此项目的 mysql_query.py 模块已经将分析过程定义写成了 MySQL 语句，直接在主菜单使用 detail 命令即可看到所有相关统计结果。<br>GitHub：<a href="https://github.com/Marlous/WFACat" target="_blank" rel="noopener">WFACat</a></p>
+</blockquote>
+<ol>
+<li>查询（tools 模块）：</li>
+</ol>
+<ul>
+<li>某任意用户信息实时查询</li>
+<li>某一互关好友信息实时查询</li>
+<li>某一用户信息本地查询（数据库直接能查到的）</li>
+<li>某个（或全部）一度好友可能通过哪些人认识另外的一度好友</li>
+<li>某个（或全部）圈内二度人脉能连接哪些好友，连接几个、哪个是连接最多的（视图）</li>
+</ul>
+<ol start="2">
+<li>统计（mysql query 模块）：</li>
+</ol>
+<ul>
+<li>所有一度人脉信息</li>
+<li>所有除节点度为 1 的二度人脉信息</li>
+<li>能关联最多一度好友的二度好友，排序</li>
+<li>总人数、一度好友数、圈内二度好友数、二度好友数</li>
+<li>数据库中若干属性统计（分为总体、一度、二度圈内好友、二度好友）</li>
+</ul>
+<ol start="3">
+<li>推测：<br>根据统计的结果做出一些有趣的推测（如统计手机客户端型号等）。</li>
+</ol>
 
                 <hr>
                 
@@ -273,8 +300,8 @@
                     
                     
                     <li class="next">
-                        <a href="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结/" data-toggle="tooltip" data-placement="top"
-                           title="Python 微博好友关系爬虫的知识点梳理总结">Next Post &rarr;</a>
+                        <a href="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/" data-toggle="tooltip" data-placement="top"
+                           title="Python 微博好友关系爬虫的知识点梳理总结（项目架构）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -293,7 +320,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-处理数据"><span class="toc-text">一 处理数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据可视化细节"><span class="toc-text">二 数据可视化细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-结论小结"><span class="toc-text">三 结论小结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-补充"><span class="toc-text">四 补充</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-处理数据"><span class="toc-text">一 处理数据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据可视化细节"><span class="toc-text">二 数据可视化细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-结论小结"><span class="toc-text">三 结论小结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-补充说明"><span class="toc-text">四 补充说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-基本数据的扩展分析"><span class="toc-text">五 基本数据的扩展分析</span></a></li></ol>
                 </div>
             </div>
         </div>

@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Python 微博好友关系爬虫的知识点梳理总结｜Mo&#39;s blog
+        Python 微博好友关系爬虫的知识点梳理总结（项目架构）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结/">
+    <link rel="canonical" href="https://marlous.github.io/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,16 +79,14 @@
                     
                         
 							
-                        <li>
-                            <a href="/archives/">archives</a>
-                        </li>
+								
 							
 						
                     
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -103,7 +101,9 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
 							
 						
                     
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Python 微博好友关系爬虫的知识点梳理总结</h1>
+                    <h1>Python 微博好友关系爬虫的知识点梳理总结（项目架构）</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Python 微博好友关系爬虫的知识点梳理总结
+            Python 微博好友关系爬虫的知识点梳理总结（项目架构）
         </span>
     </div>
 </header>
@@ -203,10 +203,12 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p>本项目仓库：<a href="https://github.com/Marlous/weibo-friends-analysis" target="_blank" rel="noopener">GitHub：weibo-friends-analysis
-</a></p>
+<p>本项目仓库：<a href="https://github.com/Marlous/WFACat" target="_blank" rel="noopener">GitHub：WFACat</a><br>具体代码涉及的知识点见我的博文 《Python 微博好友关系爬虫的知识点梳理总结（具体代码）》</p>
 </blockquote>
-<h1 id="一-软件概况"><a href="#一-软件概况" class="headerlink" title="一 软件概况"></a>一 软件概况</h1><h2 id="1-软件功能"><a href="#1-软件功能" class="headerlink" title="1 软件功能"></a>1 软件功能</h2><ul>
+<h1 id="一-软件概况"><a href="#一-软件概况" class="headerlink" title="一 软件概况"></a>一 软件概况</h1><ol>
+<li>软件功能概述：</li>
+</ol>
+<ul>
 <li><p>可以分析任意微博用户的二度人脉（全部为互关好友）情况，人脉深度为 2（生成数据可视化软件 Gephi 所需要的节点文件和边文件 node.csv、edge.csv）。</p>
 </li>
 <li><p>模块化设计，可以直接使用 main.py；也可以单独使用 get_data.py 来获取到 n 度好友的详细信息；或单独使用 analysis_store_data.py 来对已有（之前 get_data.py 模块下载好的）文件生成 node.csv、edge.csv。</p>
@@ -218,7 +220,16 @@
 <li><p>temp 文件夹中以数字命名的文件夹是存几度人脉的好友信息文件。其中每个文件以该用户 uid 命名。</p>
 </li>
 </ul>
-<h2 id="2-软件运行逻辑"><a href="#2-软件运行逻辑" class="headerlink" title="2 软件运行逻辑"></a>2 软件运行逻辑</h2><ul>
+<ol start="2">
+<li>软件功能功能小结：</li>
+</ol>
+<ul>
+<li><p>需要准备：一个用来获得授权的链接（通过微博账号）、所要研究的用户其用户名。</p>
+</li>
+<li><p>通过此软件能得到：<br>a）用于 Gephi 数据可视化软件分析的 node.csv、edge.csv 文件。<br>b）一些信息<br>查询（tools 模块）：<br>某任意用户信息实时查询；/ 某一互关好友信息实时查询；/ 某一用户信息本地查询（数据库直接能查到的）；/ 某个（或全部）一度好友可能通过哪些人认识另外的一度好友；/ 某个（或全部）圈内二度人脉能连接哪些好友，连接几个、哪个是连接最多的（视图）。<br>统计（mysql query 模块）：<br>所有一度人脉信息；/ 所有除节点度为 1 的二度人脉信息；/ 能关联最多一度好友的二度好友，排序；/ 总人数、一度好友数、圈内二度好友数、二度好友数；/ 数据库中若干属性统计（分为总体、一度、二度圈内好友、二度好友）。<br>推测：<br>根据统计的结果做出一些有趣的推测（如统计手机客户端型号等）。</p>
+</li>
+</ul>
+<h1 id="二-软件运行逻辑详解"><a href="#二-软件运行逻辑详解" class="headerlink" title="二 软件运行逻辑详解"></a>二 软件运行逻辑详解</h1><ul>
 <li><p>初始化生成一个配置文件 config.json。</p>
 </li>
 <li><p>进行配置（授权用的私有链接、需要研究的用户微博名）、读取配置。</p>
@@ -236,7 +247,7 @@
 <ul>
 <li>获取到所有信息信息文件后。循环文件夹个数次（遍历文件夹）-&gt; 遍历文件夹中文件 -&gt; 遍历文件中 uid 写入节点和边文件。/ 第一个节点为所研究的用户，先写入 node.csv。edge.csv 文件以 <code>文件夹中文件名、其文件中遍历的 uid、文件夹名</code> 的形式写入，表示节点构成的边、权重为人脉深度。</li>
 </ul>
-<h1 id="二-软件模块化设计"><a href="#二-软件模块化设计" class="headerlink" title="二 软件模块化设计"></a>二 软件模块化设计</h1><h1 id="三-涉及的详细知识点"><a href="#三-涉及的详细知识点" class="headerlink" title="三 涉及的详细知识点"></a>三 涉及的详细知识点</h1>
+<h1 id="三-软件运行逻辑（思维导图）"><a href="#三-软件运行逻辑（思维导图）" class="headerlink" title="三 软件运行逻辑（思维导图）"></a>三 软件运行逻辑（思维导图）</h1><h1 id="四-软件模块（思维导图）"><a href="#四-软件模块（思维导图）" class="headerlink" title="四 软件模块（思维导图）"></a>四 软件模块（思维导图）</h1><h1 id="五-使用部分截图"><a href="#五-使用部分截图" class="headerlink" title="五 使用部分截图"></a>五 使用部分截图</h1>
                 <hr>
                 
 
@@ -269,7 +280,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件概况"><span class="toc-text">一 软件概况</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-软件功能"><span class="toc-text">1 软件功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-软件运行逻辑"><span class="toc-text">2 软件运行逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件模块化设计"><span class="toc-text">二 软件模块化设计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-涉及的详细知识点"><span class="toc-text">三 涉及的详细知识点</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件概况"><span class="toc-text">一 软件概况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件运行逻辑详解"><span class="toc-text">二 软件运行逻辑详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-软件运行逻辑（思维导图）"><span class="toc-text">三 软件运行逻辑（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-软件模块（思维导图）"><span class="toc-text">四 软件模块（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-使用部分截图"><span class="toc-text">五 使用部分截图</span></a></li></ol>
                 </div>
             </div>
         </div>
