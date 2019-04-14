@@ -202,7 +202,53 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-项目创建"><a href="#一-项目创建" class="headerlink" title="一 项目创建"></a>一 项目创建</h1><h2 id="1-项目创建"><a href="#1-项目创建" class="headerlink" title="1 项目创建"></a>1 项目创建</h2><h2 id="2-项目依赖"><a href="#2-项目依赖" class="headerlink" title="2 项目依赖"></a>2 项目依赖</h2><h1 id="二-项目部署"><a href="#二-项目部署" class="headerlink" title="二 项目部署"></a>二 项目部署</h1><h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2>
+                <blockquote>
+<p>参考：<br>1、 <a href="https://farer.org/2018/01/16/pipenv-notes/" target="_blank" rel="noopener">pipenv 笔记</a><br>2、 <a href="https://www.cnblogs.com/maociping/p/6633948.html" target="_blank" rel="noopener">python的构建工具setup.py</a><br>3、 <a href="https://blog.csdn.net/ztsghjls/article/details/54426169" target="_blank" rel="noopener">关于python打包成exe的一点经验之谈</a><br>4、 <a href="https://blog.csdn.net/qq_38170230/article/details/87459719" target="_blank" rel="noopener">使用pycharm将python项目打包成exe运行文件</a><br>5、 <a href="https://blog.csdn.net/bearstarx/article/details/81054134" target="_blank" rel="noopener">pyinstaller参数介绍以及总结</a></p>
+</blockquote>
+<h1 id="一-项目创建"><a href="#一-项目创建" class="headerlink" title="一 项目创建"></a>一 项目创建</h1><ol>
+<li>全新的项目：</li>
+</ol>
+<ul>
+<li><p>已经安装了 Pipenv 库。</p>
+</li>
+<li><p>创建项目的文件夹。</p>
+</li>
+<li><p>命令行下进入此文件夹，<code>pipenv install</code> 创建虚拟环境。使用 IDE 无需激活环境，因为手动设置了解释器。在部署时，使用 <code>pipenv shell</code> 激活虚拟环境。</p>
+</li>
+<li><p>PyCharm 创建项目选择刚才创建的文件夹。</p>
+</li>
+<li><p>设置解释器为刚才创建的虚拟环境下的（会自动选择好）。</p>
+</li>
+<li><p>每次安装库时，用命令行在项目文件夹根目录使用 <code>pip install XXX</code>。</p>
+</li>
+</ul>
+<ol start="2">
+<li>pull 已存在的项目：</li>
+</ol>
+<ul>
+<li><p>拉取项目到本地。</p>
+</li>
+<li><p>PyCharm 创建项目选择刚才创建的文件夹。</p>
+</li>
+<li><p>如果该项目使用 Pipenv 进行包管理，直接命令行下进入此文件夹，<code>pipenv install</code>，会自动创建虚拟环境和安装 pipfile 中的库。</p>
+</li>
+</ul>
+<h1 id="二-项目部署"><a href="#二-项目部署" class="headerlink" title="二 项目部署"></a>二 项目部署</h1><h2 id="1-setup-py-构建工具"><a href="#1-setup-py-构建工具" class="headerlink" title="1 setup.py 构建工具"></a>1 setup.py 构建工具</h2><blockquote>
+<p><a href="https://www.cnblogs.com/maociping/p/6633948.html" target="_blank" rel="noopener">python的构建工具setup.py</a></p>
+</blockquote>
+<h2 id="2-打包成-exe-文件"><a href="#2-打包成-exe-文件" class="headerlink" title="2 打包成 exe 文件"></a>2 打包成 exe 文件</h2><blockquote>
+<p><a href="https://blog.csdn.net/qq_38170230/article/details/87459719" target="_blank" rel="noopener">使用pycharm将python项目打包成exe运行文件</a></p>
+</blockquote>
+<ul>
+<li><p>在 PyCharm 中的默认设置安装 PyInstaller。</p>
+</li>
+<li><p>PyCharm 中打开终端，<code>pyinstaller -F XXXX.py</code>，XXXX.py 是主程序名（指明路径）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">一些参数：</span><br><span class="line"></span><br><span class="line">–icon=图标路径（pyinstaller -F --icon=my.ico XXXX.py）</span><br><span class="line">-F 打包成一个exe文件</span><br><span class="line">-w 使用窗口，无控制台</span><br><span class="line">-c 使用控制台，无窗口</span><br><span class="line">-D 创建一个目录，里面包含 exe 以及其他一些依赖性文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为了方便可以写成 python 脚本，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">打包成 exe 可执行文件</span><br><span class="line">需要先安装 PyInstaller</span><br><span class="line">目录结构为:</span><br><span class="line">WFACat\setup\setup_PyInstaller\setup_PyInstaller.py</span><br><span class="line">WFACat\WFACatPro\main.py</span><br><span class="line">打包好的文件会生成在 WFACat\setup\setup_PyInstaller\ 文件夹下</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    os.system(&quot;pyinstaller --icon=\&quot;../../asset/icon_128.ico\&quot; --name=\&quot;WFACatPro by Marlous\&quot; -c \&quot;../../WFACatPro/main.py\&quot;&quot;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
                 <hr>
                 
 
@@ -230,7 +276,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-项目创建"><span class="toc-text">一 项目创建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-项目创建"><span class="toc-text">1 项目创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目依赖"><span class="toc-text">2 项目依赖</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-项目部署"><span class="toc-text">二 项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-text">1</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-项目创建"><span class="toc-text">一 项目创建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-项目部署"><span class="toc-text">二 项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-setup-py-构建工具"><span class="toc-text">1 setup.py 构建工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-打包成-exe-文件"><span class="toc-text">2 打包成 exe 文件</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
