@@ -226,7 +226,7 @@
 <ul>
 <li><p>需要准备：一个用来获得授权的链接（通过微博账号）、所要研究的用户其用户名。</p>
 </li>
-<li><p>通过此软件能得到：<br>a）用于 Gephi 数据可视化软件分析的 node.csv、edge.csv 文件。<br>b）一些信息<br>查询（tools 模块）：<br>某任意用户信息实时查询；/ 某一互关好友信息实时查询；/ 某一用户信息本地查询（数据库直接能查到的）；/ 某个（或全部）一度好友可能通过哪些人认识另外的一度好友；/ 某个（或全部）圈内二度人脉能连接哪些好友，连接几个、哪个是连接最多的（视图）。<br>统计（mysql query 模块）：<br>所有一度人脉信息；/ 所有除节点度为 1 的二度人脉信息；/ 能关联最多一度好友的二度好友，排序；/ 总人数、一度好友数、圈内二度好友数、二度好友数；/ 数据库中若干属性统计（分为总体、一度、二度圈内好友、二度好友）。<br>推测：<br>根据统计的结果做出一些有趣的推测（如统计手机客户端型号等）。</p>
+<li><p>通过此软件能得到：<br>a）tools 模块：某用户信息查询、某用户互关好友列表查询。<br>b）用于 Gephi 数据可视化软件分析的 node.csv、edge.csv 文件。<br>c）深度分析的信息（更新中）：<br><code>查询</code>：<br>某任意用户信息实时查询；/ 某一互关好友信息实时查询；/ 某一用户信息本地查询（数据库直接能查到的）；/ 某个（或全部）一度好友可能通过哪些人认识另外的一度好友；/ 某个（或全部）圈内二度人脉能连接哪些好友，连接几个、哪个是连接最多的（视图）。<br><code>统计（mysql query 模块）</code>：<br>所有一度人脉信息；/ 所有除节点度为 1 的二度人脉信息；/ 能关联最多一度好友的二度好友，排序；/ 总人数、一度好友数、圈内二度好友数、二度好友数；/ 数据库中若干属性统计（分为总体、一度、二度圈内好友、二度好友）。<br><code>推测</code>：<br>根据统计的结果做出一些有趣的推测（该用户真实生活城市、在哪个城市生活过（通过一度人脉位置统计）等）。</p>
 </li>
 </ul>
 <h1 id="二-软件使用方法"><a href="#二-软件使用方法" class="headerlink" title="二 软件使用方法"></a>二 软件使用方法</h1><ol>
@@ -257,25 +257,85 @@
 <li><p>temp 文件夹存放互关好友数据。person.json 是研究对象的个人信息，用来提取其 uid 然后生成 1 度人脉文件夹，获取他自己的一度人脉信息（2 度人脉以他的一度人脉信息为种子，遍历下载一度人脉每个好友的好友信息）。数字文件夹表示第几度人脉，其中以 uid 命名的文件夹表示用户，其中的 json 文件是该用户的互关好友信息。</p>
 </li>
 </ul>
-<h1 id="三-软件运行逻辑详解"><a href="#三-软件运行逻辑详解" class="headerlink" title="三 软件运行逻辑详解"></a>三 软件运行逻辑详解</h1><ul>
-<li><p>初始化生成一个配置文件 config.json。</p>
+<ol start="3">
+<li>生成的 MySQL 数据库数据：</li>
+</ol>
+<ul>
+<li><p>表 peopleinfo 里存放整个二度人脉每个人的详细信息（除研究对象）。其中 rel_me 属性 1 表示一度好友、2 表示圈内二度好友、2.1 表示节点度为一的二度好友；/ connect_to_my_friends 属性是研究对象与一度好友间共同关注的一度好友；/ connect_to_two_level_friends 属性表示圈内二度好友列表；/ total_number 属性表示一共的互关好友数。</p>
+</li>
+<li><p>表 mutualinfo 里存放每个一度好友的互关好友信息。</p>
+</li>
+<li><p>表 u 开头的是每个一度好友可以间接认识的人，通过谁（除节点度为 1 的二度好友），一共几个人。</p>
+</li>
+</ul>
+<p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图1.PNG" alt="生成的 MySQL 数据库数据"><br><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图2.PNG" alt="生成的 MySQL 数据库数据"></p>
+<h1 id="三-软件运行逻辑概述"><a href="#三-软件运行逻辑概述" class="headerlink" title="三 软件运行逻辑概述"></a>三 软件运行逻辑概述</h1><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图6.PNG" alt="软件运行逻辑细节）"></p>
+<h2 id="1-准备（settings-py）"><a href="#1-准备（settings-py）" class="headerlink" title="1 准备（settings.py）"></a>1 准备（settings.py）</h2><ul>
+<li><p>main.py 中初始化生成一个配置文件 config.json。</p>
 </li>
 <li><p>进行配置（授权用的私有链接、需要研究的用户微博名）、读取配置。</p>
 </li>
 <li><p>将授权的私有链接拆解，组装成可以下载某用户信息文件的链接、组装成可以获取某用户互关好友列表文件的链接。</p>
 </li>
+</ul>
+<h2 id="2-下载数据文件（get-data-py）"><a href="#2-下载数据文件（get-data-py）" class="headerlink" title="2 下载数据文件（get_data.py）"></a>2 下载数据文件（get_data.py）</h2><ul>
 <li><p>下载所要分析用户的用户信息文件，获取其 uid，然后下载其互关好友列表文件（一度人脉），文件名以他的 uid 命名。</p>
 </li>
-<li><p>通过此，所要研究的用户的互关好友列表文件作为启动种子文件，以此为起点。</p>
+<li><p>通过此，所要研究的用户的互关好友列表文件作为启动种子文件，以此为起点。存放在 <code>\WFACat_data\temp\1\XX(uid)XX</code> 文件夹中。</p>
 </li>
-<li><p>以人脉深度为循环次数（默认已有一度人脉好友互关信息的文件、文件夹，以此为起点遍历下载）。遍历好友互关信息文件中的每个 uid，下载列表中每个好友的互关好友列表为文件。/ 具体方法：从第一个文件夹开始遍历文件夹 -&gt; 遍历其中的文件 -&gt; 遍历每个文件中 uid -&gt; 下载其 uid 的互关好友信息。/ 重点： <code>从 level 为 1 开始循环，循环设置的层级数。从 1 开始，创建下一度人脉文件夹；遍历本层人脉文件夹中的文件；遍历每个文件中的 uid，判断是否下载其好友信息文件（下载的文件以其 uid 命名，存到下一度人脉文件夹中）。</code></p>
+<li><p>以人脉深度为循环次数，从文件夹 1 开始 -&gt; 遍历用户文件夹 -&gt; 遍历用户文件夹中的 json 文件 -&gt; 遍历 json 中每个 uid，根据此 uid 下载好友信息的 json 文件。存在下一度人脉文件夹中对应 uid 用户文件夹中（注意，下载该用户全部好友信息的 json 文件写成函数，page 参数累加构造请求来下载）。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|- 1</span><br><span class="line">|  |- XXX.json （已创建好）</span><br><span class="line">|</span><br><span class="line">| （以下遍历创建文件夹，下载好友列表文件。）</span><br><span class="line">|- 2</span><br><span class="line">|  |- XXX.json</span><br><span class="line">|  |- ...</span><br><span class="line">|</span><br><span class="line">|- ...</span><br></pre></td></tr></table></figure>
-<ul>
-<li>获取到所有信息信息文件后。循环文件夹个数次（遍历文件夹）-&gt; 遍历文件夹中文件 -&gt; 遍历文件中 uid 写入节点和边文件。/ 第一个节点为所研究的用户，先写入 node.csv。edge.csv 文件以 <code>文件夹中文件名、其文件中遍历的 uid、文件夹名</code> 的形式写入，表示节点构成的边、权重为人脉深度。</li>
+<h2 id="3-生成-csv-或写入-MySQL"><a href="#3-生成-csv-或写入-MySQL" class="headerlink" title="3 生成 csv 或写入 MySQL"></a>3 生成 csv 或写入 MySQL</h2><ul>
+<li><p>获取到所有基本信息文件后。以人脉深度为循环次数，从文件夹 1 开始 -&gt; 遍历用户文件夹 -&gt; 遍历用户文件夹中的 json 文件 -&gt; 遍历 json 中每个 uid 等信息。</p>
+</li>
+<li><p>生成 csv 文件或写入 MySQL（具体方法见上面分析）。核心在于怎样遍历，读取到用户信息，然后根据此信息分析写入数据。</p>
+</li>
 </ul>
-<h1 id="四-软件运行逻辑（思维导图）"><a href="#四-软件运行逻辑（思维导图）" class="headerlink" title="四 软件运行逻辑（思维导图）"></a>四 软件运行逻辑（思维导图）</h1><h1 id="五-软件模块（思维导图）"><a href="#五-软件模块（思维导图）" class="headerlink" title="五 软件模块（思维导图）"></a>五 软件模块（思维导图）</h1><h1 id="六-遇到的问题"><a href="#六-遇到的问题" class="headerlink" title="六 遇到的问题"></a>六 遇到的问题</h1><h1 id="七-使用部分截图"><a href="#七-使用部分截图" class="headerlink" title="七 使用部分截图"></a>七 使用部分截图</h1>
+<h1 id="四-软件运行逻辑详解（思维导图）"><a href="#四-软件运行逻辑详解（思维导图）" class="headerlink" title="四 软件运行逻辑详解（思维导图）"></a>四 软件运行逻辑详解（思维导图）</h1><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图3.PNG" alt="软件运行逻辑（思维导图）"></p>
+<h2 id="1-解释"><a href="#1-解释" class="headerlink" title="1 解释"></a>1 解释</h2><ul>
+<li><p>整个二度人脉所有人（节点）集合可分为四类：<br>研究对象（如自己）、一度好友、圈内二度好友（连接各个一度好友）、圈外二度好友（节点的度为 1，大概率与自己朋友圈无关，本项目不研究）。</p>
+</li>
+<li><p>自己的互关好友列表（用一个字典 A 表示：自己的 uid 为键，互关列表为值）。<code>my_friendinfo_dict</code>。</p>
+</li>
+<li><p>若干个一度好友的互关列表（同样用一个字典 B 表示：该一度好友的 uid 为键，互关列表为值）。<code>friends_friendinfo_dict</code>。</p>
+</li>
+<li><p>圈内二度好友（除节点度为 1 的二度好友）集合 C：<br>通过字典 B 中每个值（一度好友互关列表）两两取交集，然后除去自己和所有一度好友。<code>two_level_useful_friends_list</code>。</p>
+</li>
+<li><p>计算每个一度好友与自己共同关注的一度好友：<br>字典 B 中某值与字典 A 中值取交集，直接写入数据库。</p>
+</li>
+<li><p>计算每个一度好友的圈内二度好友（用字典 D 表示：键为该一度好友 uid，值为圈内二度好友列表）：<br>字典 B 中某值与 C 取交集。<code>friends_two_level_friendinfo_dict</code>。</p>
+</li>
+<li><p>计算每个一度好友能间接认识哪些一度好友：<br>字典 D 的值（圈内二度好友列表）两两取交集，有交集表示可以间接认识，交集部分是通过谁认识的。<br>有交集则创建彼此 uid 的表，分别将对方 uid 写入自己的表，并写入交集部分，交集列表长度即通过多少人认识。</p>
+</li>
+</ul>
+<h2 id="2-补充"><a href="#2-补充" class="headerlink" title="2 补充"></a>2 补充</h2><p>两两取交集的意思：<br><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图4.PNG" alt="两两取交集的意思）"></p>
+<p>通过两层循环（外循环遍历从第一个元素到倒数第二个元素；内循环拿外循环这个元素分别与自己的下一个元素比较，到最后一个元素），有若干个元素两两比较，不重复比较。总比较次数为排列组合中 C n 2 次。如图假设自己共 30 个互关的一度人脉好友。</p>
+<p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图5.PNG" alt="两两取交集的意思）"></p>
+<h2 id="3-对数据库深度分析（mysql-query-py）"><a href="#3-对数据库深度分析（mysql-query-py）" class="headerlink" title="3 对数据库深度分析（mysql_query.py）"></a>3 对数据库深度分析（mysql_query.py）</h2><h1 id="五-遇到的问题"><a href="#五-遇到的问题" class="headerlink" title="五 遇到的问题"></a>五 遇到的问题</h1><ul>
+<li>拆分授权链接、拆分授权链接中请求参数</li>
+<li>组装请求链接</li>
+<li>判断、创建文件夹</li>
+<li>读写 json、csv 文件</li>
+<li>下载文件，判断是否有下载异常</li>
+<li>通过循环、多层遍历访问文件夹、文件</li>
+<li>Python 中使用 MySQL</li>
+<li>所要获得的数据计算思路</li>
+<li>判断某数据库是否存在</li>
+<li>根据想要获得存储的信息设计数据库、表（数据库要用 utf8mb4，否则无法存储 4 字节的 Emoji 表情）</li>
+<li>读取 json 文件想要的信息时的对数据的处理：判断某个键是否存在。/ 用正则表达式转义特殊字符。/ 用正则表达式过滤想要的字符串。</li>
+<li>通过写入数据库的基本信息，设计 mysql_query.py 模块做深度分析（基本数据查询、统计、推测判断）。</li>
+</ul>
+<h1 id="六-使用部分截图"><a href="#六-使用部分截图" class="headerlink" title="六 使用部分截图"></a>六 使用部分截图</h1><blockquote>
+<p>所有操作都通过 main.py 完成。</p>
+</blockquote>
+<h2 id="1-main-py、help-py"><a href="#1-main-py、help-py" class="headerlink" title="1 main.py、help.py"></a>1 main.py、help.py</h2><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图7.PNG" alt="main.py"></p>
+<h2 id="2-settings-py"><a href="#2-settings-py" class="headerlink" title="2 settings.py"></a>2 settings.py</h2><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图8.PNG" alt="settings.py"></p>
+<h2 id="3-get-data-py"><a href="#3-get-data-py" class="headerlink" title="3 get_data.py"></a>3 get_data.py</h2><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图9.PNG" alt="get_data.py"></p>
+<h2 id="4-analysis-to-csv-py"><a href="#4-analysis-to-csv-py" class="headerlink" title="4 analysis_to_csv.py"></a>4 analysis_to_csv.py</h2><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图10.PNG" alt="analysis_to_csv.py"></p>
+<h2 id="5-analysis-to-mysql"><a href="#5-analysis-to-mysql" class="headerlink" title="5 analysis_to_mysql"></a>5 analysis_to_mysql</h2><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图11.PNG" alt="analysis_to_mysql"></p>
+<h2 id="6-tools-py"><a href="#6-tools-py" class="headerlink" title="6 tools.py"></a>6 tools.py</h2><p><img src="/2019/04/05/Python-微博好友关系爬虫的知识点梳理总结（项目架构）/图12.PNG" alt="tools.py"></p>
+<h2 id="7-mysql-query-py"><a href="#7-mysql-query-py" class="headerlink" title="7 mysql_query.py"></a>7 mysql_query.py</h2>
                 <hr>
                 
 
@@ -308,7 +368,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件概况"><span class="toc-text">一 软件概况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件使用方法"><span class="toc-text">二 软件使用方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-软件运行逻辑详解"><span class="toc-text">三 软件运行逻辑详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-软件运行逻辑（思维导图）"><span class="toc-text">四 软件运行逻辑（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-软件模块（思维导图）"><span class="toc-text">五 软件模块（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-遇到的问题"><span class="toc-text">六 遇到的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-使用部分截图"><span class="toc-text">七 使用部分截图</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件概况"><span class="toc-text">一 软件概况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件使用方法"><span class="toc-text">二 软件使用方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-软件运行逻辑概述"><span class="toc-text">三 软件运行逻辑概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-准备（settings-py）"><span class="toc-text">1 准备（settings.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-下载数据文件（get-data-py）"><span class="toc-text">2 下载数据文件（get_data.py）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-生成-csv-或写入-MySQL"><span class="toc-text">3 生成 csv 或写入 MySQL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-软件运行逻辑详解（思维导图）"><span class="toc-text">四 软件运行逻辑详解（思维导图）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-解释"><span class="toc-text">1 解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-补充"><span class="toc-text">2 补充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-对数据库深度分析（mysql-query-py）"><span class="toc-text">3 对数据库深度分析（mysql_query.py）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-遇到的问题"><span class="toc-text">五 遇到的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-使用部分截图"><span class="toc-text">六 使用部分截图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-main-py、help-py"><span class="toc-text">1 main.py、help.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-settings-py"><span class="toc-text">2 settings.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-get-data-py"><span class="toc-text">3 get_data.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-analysis-to-csv-py"><span class="toc-text">4 analysis_to_csv.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-analysis-to-mysql"><span class="toc-text">5 analysis_to_mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-tools-py"><span class="toc-text">6 tools.py</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-mysql-query-py"><span class="toc-text">7 mysql_query.py</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
