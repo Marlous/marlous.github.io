@@ -79,7 +79,9 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/work/">works</a>
+                        </li>
 							
 						
                     
@@ -93,16 +95,14 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -229,7 +229,35 @@
 <li><p>通过此软件能得到：<br>a）用于 Gephi 数据可视化软件分析的 node.csv、edge.csv 文件。<br>b）一些信息<br>查询（tools 模块）：<br>某任意用户信息实时查询；/ 某一互关好友信息实时查询；/ 某一用户信息本地查询（数据库直接能查到的）；/ 某个（或全部）一度好友可能通过哪些人认识另外的一度好友；/ 某个（或全部）圈内二度人脉能连接哪些好友，连接几个、哪个是连接最多的（视图）。<br>统计（mysql query 模块）：<br>所有一度人脉信息；/ 所有除节点度为 1 的二度人脉信息；/ 能关联最多一度好友的二度好友，排序；/ 总人数、一度好友数、圈内二度好友数、二度好友数；/ 数据库中若干属性统计（分为总体、一度、二度圈内好友、二度好友）。<br>推测：<br>根据统计的结果做出一些有趣的推测（如统计手机客户端型号等）。</p>
 </li>
 </ul>
-<h1 id="二-软件运行逻辑详解"><a href="#二-软件运行逻辑详解" class="headerlink" title="二 软件运行逻辑详解"></a>二 软件运行逻辑详解</h1><ul>
+<h1 id="二-软件使用方法"><a href="#二-软件使用方法" class="headerlink" title="二 软件使用方法"></a>二 软件使用方法</h1><ol>
+<li>使用方法：</li>
+</ol>
+<ul>
+<li><p>运行 main.py，使用 help 命令查看可以使用的命令。</p>
+</li>
+<li><p>conf 命令进行配置（配置授权链接（必填）、要研究对象的微博名称（只使用 tools 模块可以不填）），此配置供生成 csv 文件和数据写入 MySQL 使用。</p>
+</li>
+<li><p>想生成 csv 文件和数据写入 MySQL，必须先使用 get 命令获得基本的原始数据。</p>
+</li>
+<li><p>然后分别用 tocsv、tomysql 命令生成 csv 文件供 Gephi 使用，写入数据库供 mysql_query 模块使用（用 detail 命令）。</p>
+</li>
+<li><p>如果想获得详细的分析结果，使用 detail 命令（首先必须 get、tomysql 将数据写入数据库）。</p>
+</li>
+<li><p>tool 命令可以查某一个微博用户的详细信息；查某一个微博用户的相互关注的人列表及其互关人的详细信息。（此模块运行只需要配置授权链接即可）</p>
+</li>
+</ul>
+<ol start="2">
+<li>生成的文件夹：</li>
+</ol>
+<ul>
+<li><p>所有基本数据会在 WFACat_data 文件夹中。</p>
+</li>
+<li><p>data 文件夹存放生成的 node.csv、edge.csv 文件，供数据可视化软件 Gephi 分析。</p>
+</li>
+<li><p>temp 文件夹存放互关好友数据。person.json 是研究对象的个人信息，用来提取其 uid 然后生成 1 度人脉文件夹，获取他自己的一度人脉信息（2 度人脉以他的一度人脉信息为种子，遍历下载一度人脉每个好友的好友信息）。数字文件夹表示第几度人脉，其中以 uid 命名的文件夹表示用户，其中的 json 文件是该用户的互关好友信息。</p>
+</li>
+</ul>
+<h1 id="三-软件运行逻辑详解"><a href="#三-软件运行逻辑详解" class="headerlink" title="三 软件运行逻辑详解"></a>三 软件运行逻辑详解</h1><ul>
 <li><p>初始化生成一个配置文件 config.json。</p>
 </li>
 <li><p>进行配置（授权用的私有链接、需要研究的用户微博名）、读取配置。</p>
@@ -247,7 +275,7 @@
 <ul>
 <li>获取到所有信息信息文件后。循环文件夹个数次（遍历文件夹）-&gt; 遍历文件夹中文件 -&gt; 遍历文件中 uid 写入节点和边文件。/ 第一个节点为所研究的用户，先写入 node.csv。edge.csv 文件以 <code>文件夹中文件名、其文件中遍历的 uid、文件夹名</code> 的形式写入，表示节点构成的边、权重为人脉深度。</li>
 </ul>
-<h1 id="三-软件运行逻辑（思维导图）"><a href="#三-软件运行逻辑（思维导图）" class="headerlink" title="三 软件运行逻辑（思维导图）"></a>三 软件运行逻辑（思维导图）</h1><h1 id="四-软件模块（思维导图）"><a href="#四-软件模块（思维导图）" class="headerlink" title="四 软件模块（思维导图）"></a>四 软件模块（思维导图）</h1><h1 id="五-使用部分截图"><a href="#五-使用部分截图" class="headerlink" title="五 使用部分截图"></a>五 使用部分截图</h1>
+<h1 id="四-软件运行逻辑（思维导图）"><a href="#四-软件运行逻辑（思维导图）" class="headerlink" title="四 软件运行逻辑（思维导图）"></a>四 软件运行逻辑（思维导图）</h1><h1 id="五-软件模块（思维导图）"><a href="#五-软件模块（思维导图）" class="headerlink" title="五 软件模块（思维导图）"></a>五 软件模块（思维导图）</h1><h1 id="六-遇到的问题"><a href="#六-遇到的问题" class="headerlink" title="六 遇到的问题"></a>六 遇到的问题</h1><h1 id="七-使用部分截图"><a href="#七-使用部分截图" class="headerlink" title="七 使用部分截图"></a>七 使用部分截图</h1>
                 <hr>
                 
 
@@ -280,7 +308,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件概况"><span class="toc-text">一 软件概况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件运行逻辑详解"><span class="toc-text">二 软件运行逻辑详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-软件运行逻辑（思维导图）"><span class="toc-text">三 软件运行逻辑（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-软件模块（思维导图）"><span class="toc-text">四 软件模块（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-使用部分截图"><span class="toc-text">五 使用部分截图</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件概况"><span class="toc-text">一 软件概况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-软件使用方法"><span class="toc-text">二 软件使用方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-软件运行逻辑详解"><span class="toc-text">三 软件运行逻辑详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-软件运行逻辑（思维导图）"><span class="toc-text">四 软件运行逻辑（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-软件模块（思维导图）"><span class="toc-text">五 软件模块（思维导图）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-遇到的问题"><span class="toc-text">六 遇到的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七-使用部分截图"><span class="toc-text">七 使用部分截图</span></a></li></ol>
                 </div>
             </div>
         </div>
