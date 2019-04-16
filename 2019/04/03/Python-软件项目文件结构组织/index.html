@@ -295,7 +295,7 @@
 </li>
 </ol>
 <ul>
-<li><p>主函数中 <code>os.system(&#39;python ./自己的包名/XXX.py&#39;)</code>，如果是同级目录的话 <code>os.system(&#39;XXX.py&#39;)</code>，主函数中用 <code>from 自己的包名 import 模块名</code></p>
+<li><p>主函数中 <code>os.system(&#39;python ./自己的包名/XXX.py&#39;)</code>，如果是同级目录的话 <code>os.system(&#39;XXX.py&#39;)</code>，最好是先拼出绝对路径再执行 <code>this_file_path = os.path.abspath(__file__)[:-7]</code> <code>os.system(this_file_path + &#39;modules/help.py&#39;)</code>；主函数中用 <code>from 自己的包名 import 模块名</code></p>
 </li>
 <li><p>包中的模块使用同级其它模块 <code>from 自己的包名 import 模块名</code></p>
 </li>
