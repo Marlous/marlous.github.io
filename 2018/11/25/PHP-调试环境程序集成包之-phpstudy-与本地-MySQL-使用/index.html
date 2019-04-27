@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -212,10 +212,10 @@
 </ol>
 <ul>
 <li>phpstudy 使用教程，<a href="http://www.php.cn/course/639.html" target="_blank" rel="noopener">教程视频</a>。点击运行后查看是否安装成功，在其他选项菜单 -&gt; php 探针，打开页面在其中检测（MySQL 默认用户名密码为 root）。</li>
-<li>通过任务管理器快速了解 phpstudy 运行的程序。在其他选项菜单 -&gt; 服务管理器，启动或停止某个服务。<br><img src="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图1.PNG" alt="phpstudy 运行的程序"></li>
+<li>通过任务管理器快速了解 phpstudy 运行的程序。在其他选项菜单 -&gt; 服务管理器，启动或停止某个服务。<br><img src="/blog/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图1.PNG" alt="phpstudy 运行的程序"></li>
 </ul>
 <ol start="2">
-<li><p>为了使两个 MySQL 服务都能正常使用，可以修改其中一个的端口号，这里修改的是 phpstudy 自带的，改为 3307。注意，使用 phpMyAdmin 来管理两个数据库时，因为配置不同，需要对其进行配置后才能使用。配置在 <code>phpStudy\PHPTutorial\WWW\phpMyAdmin\libraries\config.default.php</code>，<a href="http://www.php.cn/php-weizijiaocheng-383120.html" target="_blank" rel="noopener">配置教程</a>。<br><img src="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图2.PNG" alt="修改自带的 MySQL 端口号"><br><img src="/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图3.PNG" alt="修改 phpMyAdmin 配置的 MySQL 端口号"></p>
+<li><p>为了使两个 MySQL 服务都能正常使用，可以修改其中一个的端口号，这里修改的是 phpstudy 自带的，改为 3307。注意，使用 phpMyAdmin 来管理两个数据库时，因为配置不同，需要对其进行配置后才能使用。配置在 <code>phpStudy\PHPTutorial\WWW\phpMyAdmin\libraries\config.default.php</code>，<a href="http://www.php.cn/php-weizijiaocheng-383120.html" target="_blank" rel="noopener">配置教程</a>。<br><img src="/blog/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图2.PNG" alt="修改自带的 MySQL 端口号"><br><img src="/blog/2018/11/25/PHP-调试环境程序集成包之-phpstudy-与本地-MySQL-使用/图3.PNG" alt="修改 phpMyAdmin 配置的 MySQL 端口号"></p>
 </li>
 <li><p>使用本地之前安装的 MySQL5.7，启动服务。修改 phpMyAdmin 配置，其端口号为默认的 3306，即可通过 phpMyAdmin 管理本地之前安装的 MySQL5.7。</p>
 </li>
@@ -389,7 +389,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/06/13/Git-工作流/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/06/13/Git-工作流/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -262,7 +262,7 @@
 <h1 id="四-各分支使用"><a href="#四-各分支使用" class="headerlink" title="四 各分支使用"></a>四 各分支使用</h1><blockquote>
 <p>GitFlow：git 的最佳实践。<br>项目地址：<a href="https://github.com/nvie/gitflow" target="_blank" rel="noopener">https://github.com/nvie/gitflow</a><br>文章：<a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">https://nvie.com/posts/a-successful-git-branching-model/</a></p>
 </blockquote>
-<p>git 的最佳实践简化图：<br><img src="/2018/06/13/Git-工作流/图0.PNG" alt="最佳实践简化图"></p>
+<p>git 的最佳实践简化图：<br><img src="/blog/2018/06/13/Git-工作流/图0.PNG" alt="最佳实践简化图"></p>
 <ol>
 <li><p>master 分支作为中央仓库主分支，并且功能分支不是从 master 分支上拉出新分支，而是使用 dev 分支作为父分支。</p>
 </li>
@@ -503,7 +503,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

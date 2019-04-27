@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/06/13/Git-Tips/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/06/13/Git-Tips/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -215,14 +215,14 @@
 <li><p>解决问题后推送，命令 <code>git push -u origin master</code> 。</p>
 </li>
 </ol>
-<p>注意：出现电子邮箱设置为 private 而无法 push，则可参考如下：<br>github 网站电子邮件设置中这一选项不打勾。<br><img src="/2018/06/13/Git-Tips/图1.png" alt="图1 电子邮箱设置"></p>
-<h1 id="二-更改仓库用户名邮箱"><a href="#二-更改仓库用户名邮箱" class="headerlink" title="二 更改仓库用户名邮箱"></a>二 更改仓库用户名邮箱</h1><p>见图，以及链接 <a href="https://help.github.com/articles/setting-your-commit-email-address-in-git/" target="_blank" rel="noopener">主题文档教程</a><br><img src="/2018/06/13/Git-Tips/图2.png" alt="图2 电子邮箱设置"></p>
+<p>注意：出现电子邮箱设置为 private 而无法 push，则可参考如下：<br>github 网站电子邮件设置中这一选项不打勾。<br><img src="/blog/2018/06/13/Git-Tips/图1.png" alt="图1 电子邮箱设置"></p>
+<h1 id="二-更改仓库用户名邮箱"><a href="#二-更改仓库用户名邮箱" class="headerlink" title="二 更改仓库用户名邮箱"></a>二 更改仓库用户名邮箱</h1><p>见图，以及链接 <a href="https://help.github.com/articles/setting-your-commit-email-address-in-git/" target="_blank" rel="noopener">主题文档教程</a><br><img src="/blog/2018/06/13/Git-Tips/图2.png" alt="图2 电子邮箱设置"></p>
 <h1 id="三-SSH-与-Public-Key"><a href="#三-SSH-与-Public-Key" class="headerlink" title="三 SSH 与 Public Key"></a>三 SSH 与 Public Key</h1><ol>
 <li><p>用 SSH 和 Github 服务器链接，如链接不上，注意本机 Public Key 是否有问题，若有问题可生成新的 Public Key。</p>
 </li>
-<li><p>在 git bash 中使用命令 <code>ssh-keygen -t rsa</code> 生成。<br><img src="/2018/06/13/Git-Tips/图3.png" alt="图2 生成Public Key"></p>
+<li><p>在 git bash 中使用命令 <code>ssh-keygen -t rsa</code> 生成。<br><img src="/blog/2018/06/13/Git-Tips/图3.png" alt="图2 生成Public Key"></p>
 </li>
-<li><p>Id_rsa.pub 内容编辑器打开复制粘贴到 Github 网站。<br><img src="/2018/06/13/Git-Tips/图4.png" alt="图4 添加Public Key"></p>
+<li><p>Id_rsa.pub 内容编辑器打开复制粘贴到 Github 网站。<br><img src="/blog/2018/06/13/Git-Tips/图4.png" alt="图4 添加Public Key"></p>
 </li>
 <li><p>用命令 <code>ssh -T git@github.com</code> 验证是否成功。</p>
 </li>
@@ -389,7 +389,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

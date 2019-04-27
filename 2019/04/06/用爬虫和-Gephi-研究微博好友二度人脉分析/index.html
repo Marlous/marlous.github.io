@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -217,7 +217,7 @@
 <li>边 csv 文件：edge.csv（列标题：source、target、weight；值分别是微博用户 id、微博用户 id、权值。权值可以是人脉度数）</li>
 </ul>
 <ol start="3">
-<li>Gephi 的处理操作：<br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图0.PNG" alt="Gephi 的处理操作"></li>
+<li>Gephi 的处理操作：<br><img src="/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图0.PNG" alt="Gephi 的处理操作"></li>
 </ol>
 <ul>
 <li>注意：边文件中的权值可以设置差异大些，这样在 Gephi 中可以容易看出自己（研究用户）的点</li>
@@ -233,7 +233,7 @@
 <li>布局使用 Force Atlas（斥力 600），也可用其它布局</li>
 <li>右侧统计计算平均度，然后用过滤，通过设置度（范围）为 2 及以上的节点保留，来分析自己圈子中的二度好友关系（这样可以看的更清晰）。</li>
 </ul>
-<h1 id="二-数据可视化细节"><a href="#二-数据可视化细节" class="headerlink" title="二 数据可视化细节"></a>二 数据可视化细节</h1><p><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图1.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图2.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图3.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图4.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图5.PNG" alt="数据可视化细节"><br><img src="/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图6.PNG" alt="数据可视化细节"></p>
+<h1 id="二-数据可视化细节"><a href="#二-数据可视化细节" class="headerlink" title="二 数据可视化细节"></a>二 数据可视化细节</h1><p><img src="/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图1.PNG" alt="数据可视化细节"><br><img src="/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图2.PNG" alt="数据可视化细节"><br><img src="/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图3.PNG" alt="数据可视化细节"><br><img src="/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图4.PNG" alt="数据可视化细节"><br><img src="/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图5.PNG" alt="数据可视化细节"><br><img src="/blog/2019/04/06/用爬虫和-Gephi-研究微博好友二度人脉分析/图6.PNG" alt="数据可视化细节"></p>
 <h1 id="三-结论小结"><a href="#三-结论小结" class="headerlink" title="三 结论小结"></a>三 结论小结</h1><blockquote>
 <p>以下结论只在比较重度使用微博，或人际关系网在微博上的用户成立。</p>
 </blockquote>
@@ -463,7 +463,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

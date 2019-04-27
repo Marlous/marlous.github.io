@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/06/21/JavaScript-基础一-面向对象/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/06/21/JavaScript-基础一-面向对象/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -233,14 +233,14 @@
 </li>
 <li><p>eval() 中的 this:<br><code>eval(&#39;alert(this)&#39;);</code> 指代调用上下文中的 this。</p>
 </li>
-<li><p>小结：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图1.PNG" alt="this 小结"></p>
+<li><p>小结：<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图1.PNG" alt="this 小结"></p>
 </li>
 <li><p>apply 和 call：<br>改变其他构造函数中方法的 this 指代，改为参数中的对象。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">point.move(1,1);  // 其他对象方法</span><br><span class="line"></span><br><span class="line">point.move.call(circle,1,1);  // 想使用其他对象的方法</span><br><span class="line">point.move.apply(circle,[1,1]);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="四-原型继承"><a href="#四-原型继承" class="headerlink" title="四 原型继承"></a>四 原型继承</h1><p>prototype，让创建的对象共享一个原型的值，不浪费空间（生成多个占用不同空间的值）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Teacher()&#123;</span><br><span class="line">	this.course = [];</span><br><span class="line">&#125;	</span><br><span class="line">Teacher.prototype = &#123;</span><br><span class="line">	job: &apos;teacher&apos;,</span><br><span class="line">	setName: function(name)&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;,</span><br><span class="line">	addCourse: function(course)&#123;</span><br><span class="line">		this.course.push(course);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="五-原型链"><a href="#五-原型链" class="headerlink" title="五 原型链"></a>五 原型链</h1><h2 id="1-属性查找"><a href="#1-属性查找" class="headerlink" title="1 属性查找"></a>1 属性查找</h2><p>在对象本身中找，没有则去其原型中找，没有再去 Object.prototype 中查找。<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图2.PNG" alt="属性查找"></p>
+<h1 id="五-原型链"><a href="#五-原型链" class="headerlink" title="五 原型链"></a>五 原型链</h1><h2 id="1-属性查找"><a href="#1-属性查找" class="headerlink" title="1 属性查找"></a>1 属性查找</h2><p>在对象本身中找，没有则去其原型中找，没有再去 Object.prototype 中查找。<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图2.PNG" alt="属性查找"></p>
 <h2 id="2-属性修改"><a href="#2-属性修改" class="headerlink" title="2 属性修改"></a>2 属性修改</h2><p>永远只修改对象本身的属性，不管名字来源于对象本身还是其原型。<br>和原型上的属性相同只会在对象本身上创建一个属性，想修改原型的属性值必须用 <code>Teacher.prototype.job = &#39;XXX&#39;;</code></p>
 <h2 id="3-属性删除"><a href="#3-属性删除" class="headerlink" title="3 属性删除"></a>3 属性删除</h2><ol>
 <li><p>与修改类似，删除只能删除对象本身的属性，无法删除原型的属性。</p>
@@ -260,20 +260,20 @@
 <li>在程序内内直接给一个变量赋值，但不用 var 定义。<br>后两种定义在 window 对象上，可以用 delete 删除。</li>
 </ul>
 <ol start="2">
-<li>其他两种全局变量情况：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图3.PNG" alt="全局变量情况"></li>
+<li>其他两种全局变量情况：<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图3.PNG" alt="全局变量情况"></li>
 </ol>
 <h2 id="2-封装"><a href="#2-封装" class="headerlink" title="2 封装"></a>2 封装</h2><ol>
-<li><p>信息隐藏：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图4.PNG" alt="信息隐藏"></p>
+<li><p>信息隐藏：<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图4.PNG" alt="信息隐藏"></p>
 </li>
-<li><p>Java 中的封装权限：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图5.PNG" alt="Java 中的封装权限"></p>
+<li><p>Java 中的封装权限：<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图5.PNG" alt="Java 中的封装权限"></p>
 </li>
-<li><p>JavaScript 中的封装：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图6.PNG" alt="JavaScript 中的封装"></p>
+<li><p>JavaScript 中的封装：<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图6.PNG" alt="JavaScript 中的封装"></p>
 </li>
 </ol>
 <h2 id="3-继承"><a href="#3-继承" class="headerlink" title="3 继承"></a>3 继承</h2><ol>
-<li><p>原型继承：<br>类继承。<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图7.PNG" alt="原型继承"></p>
+<li><p>原型继承：<br>类继承。<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图7.PNG" alt="原型继承"></p>
 </li>
-<li><p>原型继承结构：<br><img src="/2018/06/21/JavaScript-基础一-面向对象/图8.PNG" alt="原型继承结构"></p>
+<li><p>原型继承结构：<br><img src="/blog/2018/06/21/JavaScript-基础一-面向对象/图8.PNG" alt="原型继承结构"></p>
 </li>
 </ol>
 
@@ -438,7 +438,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

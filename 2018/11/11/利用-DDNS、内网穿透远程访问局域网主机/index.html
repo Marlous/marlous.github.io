@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -237,9 +237,9 @@
 </ul>
 <h1 id="二-DDNS-实践"><a href="#二-DDNS-实践" class="headerlink" title="二 DDNS 实践"></a>二 DDNS 实践</h1><p>分配到的是公网 IP，可以正常使用 DDNS。</p>
 <ul>
-<li><p>远程访问局域网路由器登陆界面：<br>登陆进路由器，找到 DDNS 设置，华硕提供了 DDNS 服务，打开开关后，起个主机名称即注册成功。也可以使用如花生壳等其它服务将注册的域名填写好即可。在 系统管理 -&gt; 系统设置 -&gt; 设置端口，如图，即可通过访问 <code>注册的 DDNS 服务域名:1234</code> 形式在外网访问路由器 Web 登陆界面。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图1.PNG" alt="远程访问局域网路由器登陆界面 设置端口"></p>
+<li><p>远程访问局域网路由器登陆界面：<br>登陆进路由器，找到 DDNS 设置，华硕提供了 DDNS 服务，打开开关后，起个主机名称即注册成功。也可以使用如花生壳等其它服务将注册的域名填写好即可。在 系统管理 -&gt; 系统设置 -&gt; 设置端口，如图，即可通过访问 <code>注册的 DDNS 服务域名:1234</code> 形式在外网访问路由器 Web 登陆界面。<br><img src="/blog/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图1.PNG" alt="远程访问局域网路由器登陆界面 设置端口"></p>
 </li>
-<li><p>远程访问局域网内其它主机：<br>以访问 NAS 为例，在 NAS 上设置好被访问的端口号；然后在路由器中设置，外部网络 -&gt; 端口转发。如图，填入 NAS 的局域网 IP 和端口号。即可通过访问 <code>注册的 DDNS 服务域名:端口号</code> 形式在外网访问 NAS。也可以直接在 NAS 中对端口转发设置，<a href="https://jingyan.baidu.com/article/84b4f565af615e60f6da32c9.html" target="_blank" rel="noopener">参考教程</a>。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图2.PNG" alt="远程访问局域网内其它主机 设置端口"></p>
+<li><p>远程访问局域网内其它主机：<br>以访问 NAS 为例，在 NAS 上设置好被访问的端口号；然后在路由器中设置，外部网络 -&gt; 端口转发。如图，填入 NAS 的局域网 IP 和端口号。即可通过访问 <code>注册的 DDNS 服务域名:端口号</code> 形式在外网访问 NAS。也可以直接在 NAS 中对端口转发设置，<a href="https://jingyan.baidu.com/article/84b4f565af615e60f6da32c9.html" target="_blank" rel="noopener">参考教程</a>。<br><img src="/blog/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图2.PNG" alt="远程访问局域网内其它主机 设置端口"></p>
 </li>
 </ul>
 
@@ -404,7 +404,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

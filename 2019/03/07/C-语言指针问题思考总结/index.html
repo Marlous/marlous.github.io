@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/03/07/C-语言指针问题思考总结/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/03/07/C-语言指针问题思考总结/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -244,10 +244,10 @@
 <li><p>字符串（数组）：<br>（位置上的值、这个位置本身）数组的首地址可以引用其值即字符串数组，或方框星号 <code>[] *</code> 解引用来取这个位置上的值。</p>
 </li>
 </ul>
-<h1 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h1><h2 id="1-概念间关系"><a href="#1-概念间关系" class="headerlink" title="1 概念间关系"></a>1 概念间关系</h2><p><img src="/2019/03/07/C-语言指针问题思考总结/图1.PNG" alt="总结"></p>
+<h1 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h1><h2 id="1-概念间关系"><a href="#1-概念间关系" class="headerlink" title="1 概念间关系"></a>1 概念间关系</h2><p><img src="/blog/2019/03/07/C-语言指针问题思考总结/图1.PNG" alt="总结"></p>
 <h2 id="2-指针数组总结"><a href="#2-指针数组总结" class="headerlink" title="2 指针数组总结"></a>2 指针数组总结</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">char</span> *people[<span class="number">3</span>];</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">char</span> name1[<span class="number">10</span>] = &#123;<span class="string">"hello"</span>&#125;;</span><br><span class="line">	<span class="keyword">char</span> name2 = <span class="string">'D'</span>;</span><br><span class="line">	<span class="keyword">char</span> name3[<span class="number">10</span>] = &#123;<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		people[i] = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="keyword">char</span>)); <span class="comment">// 每个元素是一个指针（存储名字的数组首地址）</span></span><br><span class="line">	&#125;</span><br><span class="line">	people[<span class="number">0</span>] = name1; <span class="comment">// 字符串</span></span><br><span class="line">	people[<span class="number">1</span>] = &amp;name2; <span class="comment">// 基本类型变量</span></span><br><span class="line">	people[<span class="number">2</span>] = name3; <span class="comment">// 数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出方式：指针数组里的指针变量自己的地址、指针数组变量存的值（地址）、指针数组变量引用值  */</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" people+2 address is %p\n"</span>, people+<span class="number">2</span> ); <span class="comment">// 指针数组变量自己的地址</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" people[2] value is %p\n"</span>, people[<span class="number">2</span>] ); <span class="comment">// 指针数组变量存的值（地址）</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" people[2] value is %p\n"</span>, *(people+<span class="number">2</span>) );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %s\n"</span>, people[<span class="number">0</span>] ); <span class="comment">// 指针数组变量引用值：字符串数组</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %s\n"</span>, *(people+<span class="number">0</span>) );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %c\n"</span>, *(people[<span class="number">1</span>]) ); <span class="comment">// 指针数组变量引用值：基本类型变量</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[1] value is %c\n"</span>, *(*(people+<span class="number">1</span>)) );</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[2] value is %c\n"</span>, people[<span class="number">2</span>][<span class="number">1</span>] ); <span class="comment">// 指针数组变量引用值：数组</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" * people[2] value is %c\n"</span>, (*(people+<span class="number">2</span>))[<span class="number">1</span>] );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* 输出 */</span><br><span class="line"> people+2 address is 0061FF28 // 指针数组变量自己的地址</span><br><span class="line"> people[2] value is 0061FF0B // 指针数组变量存的值（地址）</span><br><span class="line"> people[2] value is 0061FF0B // ...</span><br><span class="line"> * people[1] value is hello // 指针数组变量引用值：字符串数组</span><br><span class="line"> * people[1] value is hello //...</span><br><span class="line"> * people[1] value is D // 指针数组变量引用值：基本类型变量</span><br><span class="line"> * people[1] value is D //...</span><br><span class="line"> * people[2] value is h // 指针数组变量引用值：数组</span><br><span class="line"> * people[2] value is h //...</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/03/07/C-语言指针问题思考总结/图2.PNG" alt="指针数组总结"></p>
+<p><img src="/blog/2019/03/07/C-语言指针问题思考总结/图2.PNG" alt="指针数组总结"></p>
 <ul>
 <li>指针数组、二维数组的统一：<br>指针数组是先有指针（一组指针变量），用指针去表示是引用值。/ 二维数组是现有数组，后将数组的一维地址赋给指针，然后用指针去引用值。/ 两者在引用值上相同，但定义初始化不同：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">指针数组：</span><br><span class="line"><span class="keyword">char</span> *people[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">char</span> name3[<span class="number">10</span>] = &#123;<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>&#125;;</span><br><span class="line">people[<span class="number">2</span>] = name3;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">" * people[2] value is %c\n"</span>, (*(people+<span class="number">2</span>))[<span class="number">1</span>] );</span><br><span class="line"></span><br><span class="line">二维数组：</span><br><span class="line"><span class="keyword">char</span> name[<span class="number">3</span>][<span class="number">3</span>] = &#123;&#123;...&#125;,&#123;...&#125;,&#123;<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">char</span> (*p)[<span class="number">4</span>];</span><br><span class="line">p = &amp;name[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">" name[2][1] value is %c\n"</span>, (*(p+<span class="number">2</span>))[<span class="number">1</span>] ); <span class="comment">// h</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -426,7 +426,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

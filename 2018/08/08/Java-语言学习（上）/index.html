@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/08/08/Java-语言学习（上）/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/08/08/Java-语言学习（上）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -209,7 +209,7 @@
 <ol start="2">
 <li><p>环境变量配置：<br>（Windows 10 安装 jdk1.8.0_172）<br>下载 JDK 安装。<br>新建变量名为 <code>JAVA_HOME</code> ，值为 <code>C:\Program Files\Java\jdk1.8.0_172</code> （JDK 的安装目录）。<br>新建变量名为 <code>CLASSPATH</code> ，值为 <code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code> 。<br>已有的变量名 <code>path</code> ，值为 <code>%JAVA_HOME%\bin</code> 和 <code>%JAVA_HOME%\jre\bin</code>。</p>
 </li>
-<li><p>验证成功配置和安装：<br>命令行分别输入 <code>java -version</code> 和 <code>javac -version</code> 。<br><img src="/2018/08/08/Java-语言学习（上）/图1.PNG" alt="验证成功"></p>
+<li><p>验证成功配置和安装：<br>命令行分别输入 <code>java -version</code> 和 <code>javac -version</code> 。<br><img src="/blog/2018/08/08/Java-语言学习（上）/图1.PNG" alt="验证成功"></p>
 </li>
 </ol>
 
@@ -374,7 +374,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

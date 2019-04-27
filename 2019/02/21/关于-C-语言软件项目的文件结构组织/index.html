@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/02/21/关于-C-语言软件项目的文件结构组织/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/02/21/关于-C-语言软件项目的文件结构组织/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -275,13 +275,13 @@
 <li>头文件包含问题：</li>
 </ol>
 <ul>
-<li><p>头文件分散在不同地方：<br>选中工程再右键点击，选择右键菜单的 Propertise：C/C++ Build -&gt; Settings -&gt; Tool Settings -&gt; Includes 点击添加的符号，会出现选择头文件的对话框，此时可以选择头文件或头文件所在目录。需要将涉及到的文件夹都添加。<br><img src="/2019/02/21/关于-C-语言软件项目的文件结构组织/图1.PNG" alt="头文件分散在不同地方"></p>
+<li><p>头文件分散在不同地方：<br>选中工程再右键点击，选择右键菜单的 Propertise：C/C++ Build -&gt; Settings -&gt; Tool Settings -&gt; Includes 点击添加的符号，会出现选择头文件的对话框，此时可以选择头文件或头文件所在目录。需要将涉及到的文件夹都添加。<br><img src="/blog/2019/02/21/关于-C-语言软件项目的文件结构组织/图1.PNG" alt="头文件分散在不同地方"></p>
 </li>
 <li><p>头文件集中在 includes 文件夹中：<br>只要如上，添加 includes 文件夹就行了。</p>
 </li>
 </ul>
 <ol start="2">
-<li>项目文件结构：<br><img src="/2019/02/21/关于-C-语言软件项目的文件结构组织/图2.PNG" alt="项目文件结构"></li>
+<li>项目文件结构：<br><img src="/blog/2019/02/21/关于-C-语言软件项目的文件结构组织/图2.PNG" alt="项目文件结构"></li>
 </ol>
 <ul>
 <li>如图（未完成），只有一个线性表模块；主程序由线性表模块等构成；每个模块由子模块（modules 文件夹中）构成。</li>
@@ -472,7 +472,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

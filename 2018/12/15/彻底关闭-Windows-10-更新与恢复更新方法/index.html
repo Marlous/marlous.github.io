@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/12/15/彻底关闭-Windows-10-更新与恢复更新方法/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/12/15/彻底关闭-Windows-10-更新与恢复更新方法/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -206,7 +206,7 @@
 <p>参考资料：<br>关闭更新：<a href="https://jingyan.baidu.com/article/636f38bb9f7b29d6b84610cf.html" target="_blank" rel="noopener">链接</a><br>恢复更新：<a href="https://jingyan.baidu.com/article/3c343ff72eeec70d377963f7.html" target="_blank" rel="noopener">链接</a></p>
 </blockquote>
 <h1 id="一-关闭更新"><a href="#一-关闭更新" class="headerlink" title="一 关闭更新"></a>一 关闭更新</h1><ol>
-<li><p>在服务中找到 windows update 关闭，并在“恢复”选项卡中将第…次失败全设置成无操作（任务管理器中）。<br><img src="/2018/12/15/彻底关闭-Windows-10-更新与恢复更新方法/图1.PNG" alt="服务"></p>
+<li><p>在服务中找到 windows update 关闭，并在“恢复”选项卡中将第…次失败全设置成无操作（任务管理器中）。<br><img src="/blog/2018/12/15/彻底关闭-Windows-10-更新与恢复更新方法/图1.PNG" alt="服务"></p>
 </li>
 <li><p>先备份注册表，按 WIN+R，输入 regedit，打开注册表。</p>
 </li>
@@ -219,7 +219,7 @@
 <li>在刚才找到的注册表中，将 Imagepath 的值改为 <code>%systemroot%\system32\NOUPDATE.exe</code></li>
 </ul>
 <h1 id="二-恢复更新"><a href="#二-恢复更新" class="headerlink" title="二 恢复更新"></a>二 恢复更新</h1><ol>
-<li><p>如果修改完注册表后，使用系统管理软件清理注册表会导致修改的部分被清理掉。这时想恢复更新，设置中会显示错误代码 0x80070424<br><img src="/2018/12/15/彻底关闭-Windows-10-更新与恢复更新方法/图2.PNG" alt="错误代码"></p>
+<li><p>如果修改完注册表后，使用系统管理软件清理注册表会导致修改的部分被清理掉。这时想恢复更新，设置中会显示错误代码 0x80070424<br><img src="/blog/2018/12/15/彻底关闭-Windows-10-更新与恢复更新方法/图2.PNG" alt="错误代码"></p>
 </li>
 <li><p>几个解决方法参考：<a href="https://jingyan.baidu.com/article/3c343ff72eeec70d377963f7.html" target="_blank" rel="noopener">链接</a></p>
 </li>
@@ -392,7 +392,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/28/《操作系统考研复习指导》核心知识点笔记/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,7 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-操作系统概述"><a href="#一-操作系统概述" class="headerlink" title="一 操作系统概述"></a>一 操作系统概述</h1><h2 id="1-知识框架"><a href="#1-知识框架" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图1.PNG" alt="知识框架"></p>
+                <h1 id="一-操作系统概述"><a href="#一-操作系统概述" class="headerlink" title="一 操作系统概述"></a>一 操作系统概述</h1><h2 id="1-知识框架"><a href="#1-知识框架" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图1.PNG" alt="知识框架"></p>
 <h2 id="2-操作系统基本概念"><a href="#2-操作系统基本概念" class="headerlink" title="2 操作系统基本概念"></a>2 操作系统基本概念</h2><ol>
 <li><p>操作系统概念：<br>计算机系统自下而上粗分为硬件、操作系统、应用程序、用户。操作系统控制管理计算机系统的硬件、软件资源，为用户和应用程序提供接口、环境。充当硬件与用户之间的中介。</p>
 </li>
@@ -250,7 +250,7 @@
 <li>原语：操作系统底层可被调用的小程序（最接近硬件、原子操作、调用频繁运行时间短）。</li>
 </ul>
 <ol start="3">
-<li>补充：中断与异常<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图2.PNG" alt="补充：中断与异常"></li>
+<li>补充：中断与异常<br><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图2.PNG" alt="补充：中断与异常"></li>
 </ol>
 <h2 id="5-操作系统的体系结构"><a href="#5-操作系统的体系结构" class="headerlink" title="5 操作系统的体系结构"></a>5 操作系统的体系结构</h2><p>根据操作系统提供服务的内容与方法，形成两种主要的体系结构。</p>
 <ul>
@@ -261,7 +261,7 @@
 <li>访管指令与访管中断：<br>访管指令本身不是特权指令，它是运行在用户态下的，通过访管指令引起访管中断（访管中断处理程序），系统调用。<br>应用程序 -&gt; 访管指令（非特权指令） -&gt; 访管中断 -&gt; 系统调用（中断与异常，特权指令）。</li>
 <li>系统调用通过中断（外中断、异常）来在用户态、核心态间切换，进入核心态执行系统调用的功能。</li>
 </ul>
-<h1 id="二-进程管理"><a href="#二-进程管理" class="headerlink" title="二 进程管理"></a>二 进程管理</h1><h2 id="1-知识框架-1"><a href="#1-知识框架-1" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图3.PNG" alt="知识框架"></p>
+<h1 id="二-进程管理"><a href="#二-进程管理" class="headerlink" title="二 进程管理"></a>二 进程管理</h1><h2 id="1-知识框架-1"><a href="#1-知识框架-1" class="headerlink" title="1 知识框架"></a>1 知识框架</h2><p><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图3.PNG" alt="知识框架"></p>
 <h2 id="2-进程与线程"><a href="#2-进程与线程" class="headerlink" title="2 进程与线程"></a>2 进程与线程</h2><h3 id="（1）进程"><a href="#（1）进程" class="headerlink" title="（1）进程"></a>（1）进程</h3><ol>
 <li>进程的概念：</li>
 </ol>
@@ -279,7 +279,7 @@
 <li>数据段：存储程序运行期间的相关数据。可是原始数据或处理后的结果。</li>
 </ul>
 <ol start="3">
-<li><p>进程状态与转换：<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图4.PNG" alt="进程的状态与转换"></p>
+<li><p>进程状态与转换：<br><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图4.PNG" alt="进程的状态与转换"></p>
 </li>
 <li><p>进程控制：</p>
 </li>
@@ -304,7 +304,7 @@
 <li>高级通信方式指高效传输大量数据的通信方式。</li>
 <li>管道只采用半双工通信，父子进程双向传输需定义两个管道。/ 管道通信是共享存储的优化和发展。/ pipe 需要三方面能力：同步、互斥、确定对方存在。</li>
 </ul>
-<p><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图5.PNG" alt="进程通信"></p>
+<p><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图5.PNG" alt="进程通信"></p>
 <ol start="6">
 <li>进程的代价：</li>
 </ol>
@@ -324,7 +324,7 @@
 <ol start="2">
 <li><p>引入线程的目的：<br>使多道程序更好的并发执行。</p>
 </li>
-<li><p>线程的实现方式、多线程模型：<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图6.PNG" alt="线程的实现方式、多线程模型"></p>
+<li><p>线程的实现方式、多线程模型：<br><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图6.PNG" alt="线程的实现方式、多线程模型"></p>
 </li>
 </ol>
 <ul>
@@ -337,7 +337,7 @@
 </ol>
 <ul>
 <li>处理机调度就是对处理机的分配。通过算法从就绪队列中选择一个进程，将处理机分配给它运行，实现进程的并发执行（合理利用计算机硬件资源）。</li>
-<li>作业的三级调度： <img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图7.PNG" alt="作业的三级调度"></li>
+<li>作业的三级调度： <img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图7.PNG" alt="作业的三级调度"></li>
 </ul>
 <ol start="2">
 <li>调度方式：<br>进程调度方式指，当有优先权更高的进程进入就绪队列，该如何分配处理机资源。</li>
@@ -357,7 +357,7 @@
 <li>响应时间（用户提交请求到系统首次响应所用的时间）。</li>
 </ul>
 <ol start="4">
-<li>典型调度算法：<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图8.PNG" alt="典型调度算法"></li>
+<li>典型调度算法：<br><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图8.PNG" alt="典型调度算法"></li>
 </ol>
 <h2 id="4-进程同步"><a href="#4-进程同步" class="headerlink" title="4 进程同步"></a>4 进程同步</h2><blockquote>
 <p>参考：<br>1、 <a href="https://www.jianshu.com/p/f25a813a75de" target="_blank" rel="noopener">简书：进程同步一</a></p>
@@ -371,10 +371,10 @@
 <li>补充，共享：分为互斥访问（临界资源、独占资源）、同时访问（微观上为分时访问）两种共享方式。</li>
 </ul>
 <ol start="2">
-<li>临界区互斥：<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图9.PNG" alt="临界区互斥"></li>
+<li>临界区互斥：<br><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图9.PNG" alt="临界区互斥"></li>
 </ol>
 <ul>
-<li>补充，信号量：<br>信号量是一种功能较强的机制，解决同步、互斥问题。它只能被两个标准的原语 wait(S)、signal(S) 来访问，也可以记作 P 操作、V 操作。<br><img src="/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图10.PNG" alt="补充，信号量"></li>
+<li>补充，信号量：<br>信号量是一种功能较强的机制，解决同步、互斥问题。它只能被两个标准的原语 wait(S)、signal(S) 来访问，也可以记作 P 操作、V 操作。<br><img src="/blog/2018/11/28/《操作系统考研复习指导》核心知识点笔记/图10.PNG" alt="补充，信号量"></li>
 </ul>
 <ol start="3">
 <li>管程：</li>
@@ -552,7 +552,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

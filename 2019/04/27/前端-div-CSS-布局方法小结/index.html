@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/04/27/前端-div-CSS-布局方法小结/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/04/27/前端-div-CSS-布局方法小结/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,7 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-布局方法"><a href="#一-布局方法" class="headerlink" title="一 布局方法"></a>一 布局方法</h1><p><img src="/2019/04/27/前端-div-CSS-布局方法小结/图1.PNG" alt="布局图示"></p>
+                <h1 id="一-布局方法"><a href="#一-布局方法" class="headerlink" title="一 布局方法"></a>一 布局方法</h1><p><img src="/blog/2019/04/27/前端-div-CSS-布局方法小结/图1.PNG" alt="布局图示"></p>
 <h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1 准备工作"></a>1 准备工作</h2><ul>
 <li><p>用 div 标签作为容器，进行嵌套布局。</p>
 </li>
@@ -234,6 +234,7 @@
 <li>想把哪个条状块区域分割成几个列区域，就将子元素若干个列块设置成 float，同时其父元素条状块清除浮动。</li>
 <li>每个块都可看作是一个新的文档流，然后在其中分成若干个条状块区域，或分割成几个列块区域。</li>
 <li>使用递归的思想。</li>
+<li>margin 是元素之间的距离。记得 padding、border 也会占距离，一开始设计时就要考虑，因为设置的宽度高度是内容的，后添加 padding、border 的话，距离会向外扩展。</li>
 </ul>
 <h2 id="5-注意"><a href="#5-注意" class="headerlink" title="5 注意"></a>5 注意</h2><blockquote>
 <p>参考：<br>1、 <a href="https://www.zhihu.com/question/21042513" target="_blank" rel="noopener">设计网页，常见的宽度是多少像素？</a><br>2、 <a href="https://www.zhihu.com/question/21679928" target="_blank" rel="noopener">流布局与响应式网页设计有什么区别？</a></p>
@@ -242,7 +243,7 @@
 <li>PC 屏幕：</li>
 </ol>
 <ul>
-<li>条状块区域左右使用 margin auto，设置固定宽度来确保此条状区域位于文档流中央，不会因为屏幕改变而使整个网页宽度变形（具体宽度可以使用 1024px 为基准）。/ 使用 flex 布局。</li>
+<li>条状块区域左右使用 margin auto，设置固定宽度来确保此条状区域位于文档流中央，不会因为屏幕改变而使整个网页宽度变形（具体宽度可以使用 1024px 为基准）。/ 使用 flex 布局。/ 页面宽度小于等于手机竖着的屏幕宽度，同时两边的 margin 设为 auto；高度在网页主区域上下使用 vh。这样手机、PC 上都可以正常显示。</li>
 </ul>
 <ol start="2">
 <li>适配不同屏幕：</li>
@@ -250,7 +251,8 @@
 <ul>
 <li>使用响应式布局，使用前端框架（<a href="https://blog.csdn.net/cyyax/article/details/51265248" target="_blank" rel="noopener">参考</a>）。</li>
 </ul>
-<h1 id="二-示例代码"><a href="#二-示例代码" class="headerlink" title="二 示例代码"></a>二 示例代码</h1>
+<h1 id="二-示例代码"><a href="#二-示例代码" class="headerlink" title="二 示例代码"></a>二 示例代码</h1><h2 id="1-HTML"><a href="#1-HTML" class="headerlink" title="1 HTML"></a>1 HTML</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;link type=&quot;text/css&quot; href=&quot;./main.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">    &lt;title&gt;Test Web&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;div class=&quot;nav clearfix&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;nav-left-item&quot;&gt;Home&lt;/div&gt;</span><br><span class="line">        &lt;ul class=&quot;nav-right-item&quot;&gt;</span><br><span class="line">            &lt;li&gt;Blog&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;Works&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;About&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=&quot;content clearfix&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;content-left&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;content-left-item&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;content-left-item&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;content-left-item&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;content-right&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;content-right-top&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;content-right-top-bar&quot;&gt;&lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;content-right-top-articles&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;content-right-bottom&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=&quot;footer clearfix&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-CSS"><a href="#2-CSS" class="headerlink" title="2 CSS"></a>2 CSS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">.clearfix::after&#123;</span><br><span class="line">    content: &quot; &quot;;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* nav */</span><br><span class="line"></span><br><span class="line">.nav&#123;</span><br><span class="line">    height: 70px;</span><br><span class="line">    width: 100%;</span><br><span class="line">    background-color: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-left-item&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    height: 70px;</span><br><span class="line">    width: 120px;</span><br><span class="line">    margin-left: 80px;</span><br><span class="line">    color: aliceblue;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 70px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-right-item&#123;</span><br><span class="line">    float: right;</span><br><span class="line">    height: 70px;</span><br><span class="line">    width: 320px;</span><br><span class="line">    list-style: none;</span><br><span class="line">    margin: 0 50px 0 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-right-item li&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    height: 70px;</span><br><span class="line">    width: 30%;</span><br><span class="line">    color: aliceblue;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 70px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* content */</span><br><span class="line"></span><br><span class="line">.content&#123;</span><br><span class="line">    height: 550px;</span><br><span class="line">    width: 100%;</span><br><span class="line">    background-color: aqua;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-left&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    height: 550px;</span><br><span class="line">    width: 40%;</span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-left-item&#123;</span><br><span class="line">    height: 170px;</span><br><span class="line">    width: 95%;</span><br><span class="line">    margin: 10px 2.5% 0 2.5%;</span><br><span class="line">    background-color: bisque;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-right&#123;</span><br><span class="line">    float: right;</span><br><span class="line">    height: 550px;</span><br><span class="line">    width: 58%;</span><br><span class="line">    background-color: blueviolet;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-right-top&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    height: 200px;</span><br><span class="line">    width: 95%;</span><br><span class="line">    margin: 10px 2.5% 0 2.5%;</span><br><span class="line">    background-color: cadetblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-right-top-bar&#123;</span><br><span class="line">    height: 30px;</span><br><span class="line">    margin: 5px 5px 0 5px;</span><br><span class="line">    background-color: chartreuse;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-right-top-articles&#123;</span><br><span class="line">    height: 160px;</span><br><span class="line">    margin: 0 5px 5px 5px;</span><br><span class="line">    background-color: coral;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-right-bottom&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    height: 320px;</span><br><span class="line">    width: 95%;</span><br><span class="line">    margin: 10px 2.5% 0 2.5%;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* footer */</span><br><span class="line"></span><br><span class="line">.footer&#123;</span><br><span class="line">    height: 120px;</span><br><span class="line">    width: 100%;</span><br><span class="line">    background-color: brown;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 <hr>
                 
 
@@ -278,7 +280,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-布局方法"><span class="toc-text">一 布局方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-准备工作"><span class="toc-text">1 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-布局思路"><span class="toc-text">2 布局思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-详解"><span class="toc-text">3 详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-div-CSS-布局小结"><span class="toc-text">4 div + CSS 布局小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-注意"><span class="toc-text">5 注意</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-示例代码"><span class="toc-text">二 示例代码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-布局方法"><span class="toc-text">一 布局方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-准备工作"><span class="toc-text">1 准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-布局思路"><span class="toc-text">2 布局思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-详解"><span class="toc-text">3 详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-div-CSS-布局小结"><span class="toc-text">4 div + CSS 布局小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-注意"><span class="toc-text">5 注意</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-示例代码"><span class="toc-text">二 示例代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HTML"><span class="toc-text">1 HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CSS"><span class="toc-text">2 CSS</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -407,7 +409,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

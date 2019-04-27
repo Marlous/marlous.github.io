@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/07/22/DOM-一-文档树/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/07/22/DOM-一-文档树/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -203,7 +203,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <ol>
-<li><p>概念：<br><img src="/2018/07/22/DOM-一-文档树/图1.PNG" alt="DOM"><br>用文档对象来描述 HTML，DOM 是一系列 API 规范。<br>在浏览器中由 JS 来实现这些规范并调用它。</p>
+<li><p>概念：<br><img src="/blog/2018/07/22/DOM-一-文档树/图1.PNG" alt="DOM"><br>用文档对象来描述 HTML，DOM 是一系列 API 规范。<br>在浏览器中由 JS 来实现这些规范并调用它。</p>
 </li>
 <li><p>DOM 包括：</p>
 </li>
@@ -215,13 +215,13 @@
 <li>DOM Event</li>
 </ul>
 <ol start="3">
-<li><p>HTML 转为 DOM 树：<br><img src="/2018/07/22/DOM-一-文档树/图2.PNG" alt="HTML 转为 DOM 树"></p>
+<li><p>HTML 转为 DOM 树：<br><img src="/blog/2018/07/22/DOM-一-文档树/图2.PNG" alt="HTML 转为 DOM 树"></p>
 </li>
-<li><p>节点遍历：<br><img src="/2018/07/22/DOM-一-文档树/图3.PNG" alt="节点遍历"><br>以 p 标签为节点，<br>firstChild 是 hello；<br>lastChild 是 img 标签；<br>previousSibling 为 null；<br>nextSibling 为 div 标签。</p>
+<li><p>节点遍历：<br><img src="/blog/2018/07/22/DOM-一-文档树/图3.PNG" alt="节点遍历"><br>以 p 标签为节点，<br>firstChild 是 hello；<br>lastChild 是 img 标签；<br>previousSibling 为 null；<br>nextSibling 为 div 标签。</p>
 </li>
-<li><p>节点类型：<br><img src="/2018/07/22/DOM-一-文档树/图4.PNG" alt="节点类型"></p>
+<li><p>节点类型：<br><img src="/blog/2018/07/22/DOM-一-文档树/图4.PNG" alt="节点类型"></p>
 </li>
-<li><p>元素遍历：<br>与节点遍历类似，只是去除了文本节点。<br>（需要兼容的做法：节点遍历 + 节点判断 = 元素节点遍历）<br><img src="/2018/07/22/DOM-一-文档树/图5.PNG" alt="元素遍历"></p>
+<li><p>元素遍历：<br>与节点遍历类似，只是去除了文本节点。<br>（需要兼容的做法：节点遍历 + 节点判断 = 元素节点遍历）<br><img src="/blog/2018/07/22/DOM-一-文档树/图5.PNG" alt="元素遍历"></p>
 </li>
 </ol>
 
@@ -386,7 +386,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

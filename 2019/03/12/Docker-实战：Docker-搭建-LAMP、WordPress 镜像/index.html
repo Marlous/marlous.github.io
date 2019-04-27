@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/03/12/Docker-实战：Docker-搭建-LAMP、WordPress 镜像/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/03/12/Docker-实战：Docker-搭建-LAMP、WordPress 镜像/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -223,7 +223,7 @@
 </li>
 <li><p>Windows 环境中 DockerToolBox 目录挂载问题：<br>DockerToolBox 的工作原理是，首先通过 VM 虚拟机创建一个 Linux 虚拟机，然后在虚拟机中安装 Docker。然后 VM 虚拟机通过共享文件夹的机制将宿主机文件挂载到虚拟机中，然后我们通过 -v 参数挂载时，<code>:</code> 前面的目录应该是 Linux 虚拟机中的共享文件夹的目录。</p>
 </li>
-<li><p>补充，用图形工具查看容器相关信息：<br>图中的 IP 是虚拟机的 IP，详见 Windows 环境中 DockerToolBox 目录挂载问题。一般是 127.0.0.1，本地访问。虚拟机问题导致的使用虚拟机 IP 更像是从公网访问。<br><img src="/2019/03/12/Docker-实战：Docker-搭建-LAMP、WordPress 镜像/图1.PNG" alt="用图形工具查看容器相关信息"></p>
+<li><p>补充，用图形工具查看容器相关信息：<br>图中的 IP 是虚拟机的 IP，详见 Windows 环境中 DockerToolBox 目录挂载问题。一般是 127.0.0.1，本地访问。虚拟机问题导致的使用虚拟机 IP 更像是从公网访问。<br><img src="/blog/2019/03/12/Docker-实战：Docker-搭建-LAMP、WordPress 镜像/图1.PNG" alt="用图形工具查看容器相关信息"></p>
 </li>
 <li><p>补充：Windows 迁移本地 Docker 数据卷（Windows for Docker 软件安装的 Docker）：<br>参见：<a href="https://blog.csdn.net/haojing8312/article/details/80790429" target="_blank" rel="noopener">参考 1</a>、<a href="https://www.imooc.com/article/48737" target="_blank" rel="noopener">参考 2</a>。</p>
 </li>
@@ -234,7 +234,7 @@
 <ul>
 <li><p>每从镜像运行一个容器（添加完数据卷，数据卷数据会保留于宿主机）就相当于新建运行了一个虚拟机，并在上面运行了程序。</p>
 </li>
-<li><p>启动容器内的 Apache、MySQL 服务，如下图是初次运行。然后对其进行配置，如数据库管理员密码等。记得所有脚本加执行权限 <code>chmod +x xxx.sh</code> 后再运行脚本！然后配置 MySQL 初始密码，命令 <code>mysql -uroot</code>、<code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;12345&#39;;</code>。<br><img src="/2019/03/12/Docker-实战：Docker-搭建-LAMP、WordPress 镜像/图2.PNG" alt="初次运行"></p>
+<li><p>启动容器内的 Apache、MySQL 服务，如下图是初次运行。然后对其进行配置，如数据库管理员密码等。记得所有脚本加执行权限 <code>chmod +x xxx.sh</code> 后再运行脚本！然后配置 MySQL 初始密码，命令 <code>mysql -uroot</code>、<code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;12345&#39;;</code>。<br><img src="/blog/2019/03/12/Docker-实战：Docker-搭建-LAMP、WordPress 镜像/图2.PNG" alt="初次运行"></p>
 </li>
 <li><p>宿主机浏览器访问 <code>容器的公共 ip:port/phpmyadmin/</code> 来访问容器内的 phpmyadmin，图形化工具来使用其中的 MySQL。具体怎么配置记得去 Docker Hub 查看镜像信息避免坑 <a href="https://hub.docker.com/r/mattrayner/lamp" target="_blank" rel="noopener">mattrayner/lamp 镜像</a>。</p>
 </li>
@@ -490,7 +490,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

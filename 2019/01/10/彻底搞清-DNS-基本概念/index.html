@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/01/10/彻底搞清-DNS-基本概念/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/01/10/彻底搞清-DNS-基本概念/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -208,13 +208,13 @@
 <h1 id="一-域名系统"><a href="#一-域名系统" class="headerlink" title="一 域名系统"></a>一 域名系统</h1><ul>
 <li><p>概念：<br>任何一个连接在因特网上的主机或路由器，都有一个唯一的层次结构的名字，即域名。</p>
 </li>
-<li><p>域名组成：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图1.PNG" alt="域名组成"></p>
+<li><p>域名组成：<br><img src="/blog/2019/01/10/彻底搞清-DNS-基本概念/图1.PNG" alt="域名组成"></p>
 </li>
-<li><p>因特网的域名空间：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图2.PNG" alt="因特网的域名空间"></p>
+<li><p>因特网的域名空间：<br><img src="/blog/2019/01/10/彻底搞清-DNS-基本概念/图2.PNG" alt="因特网的域名空间"></p>
 </li>
-<li><p>域名与域名服务器：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图3.PNG" alt="域名与域名服务器"></p>
+<li><p>域名与域名服务器：<br><img src="/blog/2019/01/10/彻底搞清-DNS-基本概念/图3.PNG" alt="域名与域名服务器"></p>
 </li>
-<li><p>区、域：<br>如果每一个节点都采用一个域名服务器，这样会使得域名服务器的数量太多，使域名服务器系统的运行效率降低。所以在 DNS 中，采用划分区的方法来解决。<br>总之，DNS 服务器的管辖范围不是以“域”为单位，而是以“区”为单位。区是 DNS 服务器实际管辖的范围。区是域的子集。<br>左图表示 abc 公司只设一个区 abc.com，这里区 abc.com 和域 abc.com 指的是同一件事。<br>但右图表示 abc 公司划分为两个区，abc.com 和 y.abc.com。这两个区都隶属于域 abc.com，都各设置了相应的权限域名服务器。<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图4.PNG" alt="区、域"></p>
+<li><p>区、域：<br>如果每一个节点都采用一个域名服务器，这样会使得域名服务器的数量太多，使域名服务器系统的运行效率降低。所以在 DNS 中，采用划分区的方法来解决。<br>总之，DNS 服务器的管辖范围不是以“域”为单位，而是以“区”为单位。区是 DNS 服务器实际管辖的范围。区是域的子集。<br>左图表示 abc 公司只设一个区 abc.com，这里区 abc.com 和域 abc.com 指的是同一件事。<br>但右图表示 abc 公司划分为两个区，abc.com 和 y.abc.com。这两个区都隶属于域 abc.com，都各设置了相应的权限域名服务器。<br><img src="/blog/2019/01/10/彻底搞清-DNS-基本概念/图4.PNG" alt="区、域"></p>
 </li>
 </ul>
 <h1 id="二-DNS-解析过程"><a href="#二-DNS-解析过程" class="headerlink" title="二 DNS 解析过程"></a>二 DNS 解析过程</h1><ul>
@@ -238,7 +238,7 @@
 <h1 id="三-DNS-查询两种方式"><a href="#三-DNS-查询两种方式" class="headerlink" title="三 DNS 查询两种方式"></a>三 DNS 查询两种方式</h1><ul>
 <li><p>递归查询、迭代查询。</p>
 </li>
-<li><p>图解：<br><img src="/2019/01/10/彻底搞清-DNS-基本概念/图5.PNG" alt="图解递归查询、迭代查询"></p>
+<li><p>图解：<br><img src="/blog/2019/01/10/彻底搞清-DNS-基本概念/图5.PNG" alt="图解递归查询、迭代查询"></p>
 </li>
 </ul>
 <h1 id="四-资源记录类型详解"><a href="#四-资源记录类型详解" class="headerlink" title="四 资源记录类型详解"></a>四 资源记录类型详解</h1><ul>
@@ -442,7 +442,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

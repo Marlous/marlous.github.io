@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/07/05/JavaScript-进阶一-概述/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/07/05/JavaScript-进阶一-概述/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -202,7 +202,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一 简介"></a>一 简介</h1><h2 id="1-浏览器中的-JavaScript"><a href="#1-浏览器中的-JavaScript" class="headerlink" title="1 浏览器中的 JavaScript"></a>1 浏览器中的 JavaScript</h2><p><img src="/2018/07/05/JavaScript-进阶一-概述/图1.PNG" alt="浏览器中的 JS"></p>
+                <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一 简介"></a>一 简介</h1><h2 id="1-浏览器中的-JavaScript"><a href="#1-浏览器中的-JavaScript" class="headerlink" title="1 浏览器中的 JavaScript"></a>1 浏览器中的 JavaScript</h2><p><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图1.PNG" alt="浏览器中的 JS"></p>
 <h2 id="2-JavaScript-引入"><a href="#2-JavaScript-引入" class="headerlink" title="2 JavaScript 引入"></a>2 JavaScript 引入</h2><ul>
 <li><p>内嵌代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		document.write(&quot;hello world&quot;);</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
@@ -216,23 +216,23 @@
 <li>变量标识符命名要求：<br>字母，下划线，美元符号开头。<br>由字母，下划线，美元符号，数字组成。</li>
 </ol>
 <ol start="2">
-<li><p>关键字和保留字：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图2.PNG" alt="关键字和保留字"></p>
+<li><p>关键字和保留字：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图2.PNG" alt="关键字和保留字"></p>
 </li>
 <li><p>JavaScript 大小写敏感。</p>
 </li>
-<li><p>严格模式:<br><img src="/2018/07/05/JavaScript-进阶一-概述/图3.PNG" alt="严格模式"><br><img src="/2018/07/05/JavaScript-进阶一-概述/图4.PNG" alt="严格模式2"></p>
+<li><p>严格模式:<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图3.PNG" alt="严格模式"><br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图4.PNG" alt="严格模式2"></p>
 </li>
 <li><p>注释:<br>单行注释用 <code>//</code><br>多行注释用 <code>/* */</code></p>
 </li>
 </ol>
-<h1 id="三-类型系统"><a href="#三-类型系统" class="headerlink" title="三 类型系统"></a>三 类型系统</h1><h2 id="1-基本类型"><a href="#1-基本类型" class="headerlink" title="1 基本类型"></a>1 基本类型</h2><p>宿主对象是浏览器为完善 js 运行环境提供的对象（DOM）；<br>浏览器扩展对象是各个浏览器厂商提供的对象（BOM）。<br><img src="/2018/07/05/JavaScript-进阶一-概述/图5.PNG" alt="基本类型"></p>
+<h1 id="三-类型系统"><a href="#三-类型系统" class="headerlink" title="三 类型系统"></a>三 类型系统</h1><h2 id="1-基本类型"><a href="#1-基本类型" class="headerlink" title="1 基本类型"></a>1 基本类型</h2><p>宿主对象是浏览器为完善 js 运行环境提供的对象（DOM）；<br>浏览器扩展对象是各个浏览器厂商提供的对象（BOM）。<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图5.PNG" alt="基本类型"></p>
 <ol>
-<li>标准类型：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图6.PNG" alt="标准类型"></li>
+<li>标准类型：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图6.PNG" alt="标准类型"></li>
 </ol>
 <ul>
 <li><p>原始类型与引用类型区别：<br>应用类型只在栈中保存个地址，指向堆中的具体变量与值；<br>复制时原始类型在栈中复制了一份，而引用类型栈内存两个变量指向同一个堆中的值（修改会相互影响）。</p>
 </li>
-<li><p>undefined：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图7.PNG" alt="undefined"><br>undefined -&gt; boolean 为 false；<br>undefined -&gt; number 为 NaN；<br>undefined -&gt; string 为 “undefined”。</p>
+<li><p>undefined：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图7.PNG" alt="undefined"><br>undefined -&gt; boolean 为 false；<br>undefined -&gt; number 为 NaN；<br>undefined -&gt; string 为 “undefined”。</p>
 </li>
 <li><p>Null：<br>null 表示对象不存在。<br>null -&gt; boolean 为 false；<br>null -&gt; number 为 0；<br>null -&gt; string 为 “null”。</p>
 </li>
@@ -240,20 +240,20 @@
 </li>
 <li><p>string：<br>由单引号或双引号括起来的字符序列。<br>空字符串 <code>&quot;&quot;</code> 转为 boolean 为 false；其他转为 boolean 全为 true。</p>
 </li>
-<li><p>number：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图8.PNG" alt="number"></p>
+<li><p>number：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图8.PNG" alt="number"></p>
 </li>
 <li><p>object：<br>Object 是一组属性的集合。<br>任何 object 值转换为<br>-&gt; boolean 为 true；<br>-&gt; number 为 NaN；<br>-&gt; string 为 “[object Object]”</p>
 </li>
 </ul>
-<h2 id="2-类型识别"><a href="#2-类型识别" class="headerlink" title="2 类型识别"></a>2 类型识别</h2><p><img src="/2018/07/05/JavaScript-进阶一-概述/图9.PNG" alt="类型识别"><br>提高稳定性，减少错误。</p>
+<h2 id="2-类型识别"><a href="#2-类型识别" class="headerlink" title="2 类型识别"></a>2 类型识别</h2><p><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图9.PNG" alt="类型识别"><br>提高稳定性，减少错误。</p>
 <ol>
-<li><p>typeof：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图10.PNG" alt="typeof"></p>
+<li><p>typeof：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图10.PNG" alt="typeof"></p>
 </li>
-<li><p>Object.prototype.toSting：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图11.PNG" alt="Object.prototype.toSting"></p>
+<li><p>Object.prototype.toSting：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图11.PNG" alt="Object.prototype.toSting"></p>
 </li>
-<li><p>constructor：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图12.PNG" alt="constructor"></p>
+<li><p>constructor：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图12.PNG" alt="constructor"></p>
 </li>
-<li><p>instanceof：<br><img src="/2018/07/05/JavaScript-进阶一-概述/图13.PNG" alt="instanceof"></p>
+<li><p>instanceof：<br><img src="/blog/2018/07/05/JavaScript-进阶一-概述/图13.PNG" alt="instanceof"></p>
 </li>
 </ol>
 
@@ -418,7 +418,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

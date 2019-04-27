@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/03/15/Hexo 博客的持续集成和部署（Travis-CI、Docker 和 Jenkins）/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/03/15/Hexo 博客的持续集成和部署（Travis-CI、Docker 和 Jenkins）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -246,14 +246,14 @@
 </li>
 <li><p>GitHub 生成一个 Access Token（除了删仓库权限，其它全给）。</p>
 </li>
-<li><p>Travis 配置中填入 Token（配置其它环境变量，可以起到加密作用；不配置写在 .travis.yml 文件中也行）。<br><img src="/2019/03/15/Hexo 博客的持续集成和部署（Travis-CI、Docker 和 Jenkins）/图1.PNG" alt="Travis 配置"></p>
+<li><p>Travis 配置中填入 Token（配置其它环境变量，可以起到加密作用；不配置写在 .travis.yml 文件中也行）。<br><img src="/blog/2019/03/15/Hexo 博客的持续集成和部署（Travis-CI、Docker 和 Jenkins）/图1.PNG" alt="Travis 配置"></p>
 </li>
 <li><p>中间存储文件夹（my-hexo-cicd）根目录下写 .travis.yml 配置文件（在 GitHub 仓库页面创建。具体编写方法见网上的教程）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">.travis.yml</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">language: node_js</span><br><span class="line">node_js: </span><br><span class="line">  - &quot;8.11.4&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cache:</span><br><span class="line">  directories:</span><br><span class="line">    - node_modules</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"># 一些依赖，每个人用的博客主题不同，依赖可能不同，后两个是我的博客需要的。</span><br><span class="line">install:</span><br><span class="line">  - npm install -g hexo</span><br><span class="line">  - npm install</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"> before_script:</span><br><span class="line">  - npm install hexo-deployer-git --save</span><br><span class="line">  - npm install hexo-asset-image --save</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">script:</span><br><span class="line">  - hexo clean</span><br><span class="line">  - hexo g</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">after_script:</span><br><span class="line">  - cd ./public</span><br><span class="line">  - git init</span><br><span class="line">  - git config user.name &quot;$&#123;U_NAME&#125;&quot;</span><br><span class="line">  - git config user.email &quot;$&#123;U_EMAIL&#125;&quot;</span><br><span class="line">  - git add .</span><br><span class="line">  - git commit -m &quot;Update docs with TravisCI&quot;</span><br><span class="line">  - git push --force --quiet &quot;https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;&quot; master:$&#123;P_BRANCH&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">branches:</span><br><span class="line">  only:</span><br><span class="line">- master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>向本地 my-hexo-cicd 文件夹中 source 中的 <code>_post</code> 文件夹添加博文后推送即可。</p>
 </li>
-<li><p>补充：手动触发<br><img src="/2019/03/15/Hexo 博客的持续集成和部署（Travis-CI、Docker 和 Jenkins）/图2.PNG" alt="补充：手动触发"></p>
+<li><p>补充：手动触发<br><img src="/blog/2019/03/15/Hexo 博客的持续集成和部署（Travis-CI、Docker 和 Jenkins）/图2.PNG" alt="补充：手动触发"></p>
 </li>
 </ul>
 <h1 id="三-部署在远程-Docker-容器"><a href="#三-部署在远程-Docker-容器" class="headerlink" title="三 部署在远程 Docker 容器"></a>三 部署在远程 Docker 容器</h1><blockquote>
@@ -459,7 +459,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/09/03/Python-语言学习（上）/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/09/03/Python-语言学习（上）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -208,9 +208,9 @@
 <h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一 概述"></a>一 概述</h1><ol>
 <li><p>使用的 IDE 为 PyCharm，其基本使用教程：<a href="https://blog.csdn.net/zhusongziye/article/details/79069233" target="_blank" rel="noopener">基本使用教程</a></p>
 </li>
-<li><p>验证正确安装及配置环境变量：<br>命令 <code>python</code><br><img src="/2018/09/03/Python-语言学习（上）/图0.PNG" alt="验证正确安装及配置环境变量"></p>
+<li><p>验证正确安装及配置环境变量：<br>命令 <code>python</code><br><img src="/blog/2018/09/03/Python-语言学习（上）/图0.PNG" alt="验证正确安装及配置环境变量"></p>
 </li>
-<li><p>行注释用 <code>#</code>，块注释用 <code>&quot;&quot;&quot;</code> 包裹。<br><img src="/2018/09/03/Python-语言学习（上）/图1.PNG" alt="注释"></p>
+<li><p>行注释用 <code>#</code>，块注释用 <code>&quot;&quot;&quot;</code> 包裹。<br><img src="/blog/2018/09/03/Python-语言学习（上）/图1.PNG" alt="注释"></p>
 </li>
 <li><p>命令行下运行程序：进入文件所在目录，命令 <code>python test.py</code> 。<br>命令行无需创建文件，立即看到运行结果，适用于语句功能测试；脚本可反复运行，易于编辑，适用于编写大型程序。</p>
 </li>
@@ -232,7 +232,7 @@
 <li>算术运算符：</li>
 </ol>
 <ul>
-<li><p><img src="/2018/09/03/Python-语言学习（上）/图2.PNG" alt="算术运算符"></p>
+<li><p><img src="/blog/2018/09/03/Python-语言学习（上）/图2.PNG" alt="算术运算符"></p>
 </li>
 <li><p>自动类型转换：bool -&gt; int -&gt; float -&gt; complex<br>布尔值 true 为 1，false 为 0</p>
 </li>
@@ -240,17 +240,17 @@
 </li>
 </ul>
 <ol start="2">
-<li><p>关系运算符：<br><img src="/2018/09/03/Python-语言学习（上）/图3.PNG" alt="关系运算"></p>
+<li><p>关系运算符：<br><img src="/blog/2018/09/03/Python-语言学习（上）/图3.PNG" alt="关系运算"></p>
 </li>
-<li><p>逻辑运算符：<br><img src="/2018/09/03/Python-语言学习（上）/图4.PNG" alt="逻辑运算符"></p>
+<li><p>逻辑运算符：<br><img src="/blog/2018/09/03/Python-语言学习（上）/图4.PNG" alt="逻辑运算符"></p>
 </li>
-<li><p>运算符优先级：<br><img src="/2018/09/03/Python-语言学习（上）/图5.PNG" alt="运算符优先级"></p>
+<li><p>运算符优先级：<br><img src="/blog/2018/09/03/Python-语言学习（上）/图5.PNG" alt="运算符优先级"></p>
 </li>
 </ol>
 <h2 id="3-变量与简单-I-O"><a href="#3-变量与简单-I-O" class="headerlink" title="3 变量与简单 I/O"></a>3 变量与简单 I/O</h2><ol>
 <li>变量：<br>用来绑定一个对象的标识符。<code>变量名=对象（数值，表达式等）</code></li>
 </ol>
-<p><img src="/2018/09/03/Python-语言学习（上）/图6.PNG" alt="标识符命名规则"></p>
+<p><img src="/blog/2018/09/03/Python-语言学习（上）/图6.PNG" alt="标识符命名规则"></p>
 <ol start="2">
 <li><p>简单 I/O，输入：<br>输入函数 input，读取键盘输入，所有输入作为字符串看待。<code>input([prompt])</code> ，可选填提示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r = float(input(<span class="string">'Enter r:'</span>))</span><br><span class="line">area = (math.pi ** <span class="number">2</span>) * r</span><br><span class="line">print(area)</span><br></pre></td></tr></table></figure>
@@ -458,7 +458,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

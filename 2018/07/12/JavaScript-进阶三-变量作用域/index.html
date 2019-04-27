@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/07/12/JavaScript-进阶三-变量作用域/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/07/12/JavaScript-进阶三-变量作用域/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -205,20 +205,20 @@
                 <h1 id="一-概念"><a href="#一-概念" class="headerlink" title="一 概念"></a>一 概念</h1><ul>
 <li><p>即变量的生命周期和作用范围。<br>分为全局作用域，局部作用域。</p>
 </li>
-<li><p>两个方面：<br>当看到一个变量时，需要知道其生命周期和作用域；<br>知道这个变量是在哪里定义的变量。<br><img src="/2018/07/12/JavaScript-进阶三-变量作用域/图1.PNG" alt="两个方面"></p>
+<li><p>两个方面：<br>当看到一个变量时，需要知道其生命周期和作用域；<br>知道这个变量是在哪里定义的变量。<br><img src="/blog/2018/07/12/JavaScript-进阶三-变量作用域/图1.PNG" alt="两个方面"></p>
 </li>
 </ul>
 <h1 id="二-变量作用域解析"><a href="#二-变量作用域解析" class="headerlink" title="二 变量作用域解析"></a>二 变量作用域解析</h1><h2 id="1-静态作用域"><a href="#1-静态作用域" class="headerlink" title="1 静态作用域"></a>1 静态作用域</h2><p>也称词法作用域。<br>由程序定义位置决定，编译时决定。与代码执行顺序无关。</p>
-<p>例子： foo() 函数会找到全局作用域的 x 值。<br><img src="/2018/07/12/JavaScript-进阶三-变量作用域/图2.PNG" alt="例子"></p>
+<p>例子： foo() 函数会找到全局作用域的 x 值。<br><img src="/blog/2018/07/12/JavaScript-进阶三-变量作用域/图2.PNG" alt="例子"></p>
 <h2 id="2-动态作用域"><a href="#2-动态作用域" class="headerlink" title="2 动态作用域"></a>2 动态作用域</h2><p>由程序运行时决定。</p>
-<p>例子： 使用栈，选择最近的 x 值。<br><img src="/2018/07/12/JavaScript-进阶三-变量作用域/图3.PNG" alt="例子2"></p>
+<p>例子： 使用栈，选择最近的 x 值。<br><img src="/blog/2018/07/12/JavaScript-进阶三-变量作用域/图3.PNG" alt="例子2"></p>
 <h2 id="3-Js-变量作用域"><a href="#3-Js-变量作用域" class="headerlink" title="3 Js 变量作用域"></a>3 Js 变量作用域</h2><p>Js 使用静态作用域；<br>Js 没有块级作用域（只有函数才会创建一个新的作用域，if，for 语句等都不会产生新的作用域）；<br>ES5 中使用词法环境管理静态作用域。</p>
 <h2 id="4-词法环境"><a href="#4-词法环境" class="headerlink" title="4 词法环境"></a>4 词法环境</h2><ol>
 <li><p>组成：环境记录（形参，变量，函数等）；对外部词法环境的引用。</p>
 </li>
 <li><p>一段代码开始执行前，先初始化词法环境。Js 中只有全局和函数代码。</p>
 </li>
-<li><p>词法环境结构：<br>变量顺着链一级级找。<br><img src="/2018/07/12/JavaScript-进阶三-变量作用域/图4.PNG" alt="词法环境结构"></p>
+<li><p>词法环境结构：<br>变量顺着链一级级找。<br><img src="/blog/2018/07/12/JavaScript-进阶三-变量作用域/图4.PNG" alt="词法环境结构"></p>
 </li>
 <li><p>问题：</p>
 </li>
@@ -226,9 +226,9 @@
 <ul>
 <li><p>函数定义优先级高于形参，形参定义优先级高于变量定义（定义发生冲突时）。</p>
 </li>
-<li><p>函数表达式和函数定义不同，前者的函数对象是执行到时才创建（词法环境可能会发生变化），后者的函数对象是代码执行前就定义了。<br><img src="/2018/07/12/JavaScript-进阶三-变量作用域/图5.PNG" alt="函数表达式和函数定义"></p>
+<li><p>函数表达式和函数定义不同，前者的函数对象是执行到时才创建（词法环境可能会发生变化），后者的函数对象是代码执行前就定义了。<br><img src="/blog/2018/07/12/JavaScript-进阶三-变量作用域/图5.PNG" alt="函数表达式和函数定义"></p>
 </li>
-<li><p>try…catch：<br><img src="/2018/07/12/JavaScript-进阶三-变量作用域/图6.PNG" alt="try...catch"></p>
+<li><p>try…catch：<br><img src="/blog/2018/07/12/JavaScript-进阶三-变量作用域/图6.PNG" alt="try...catch"></p>
 </li>
 </ul>
 
@@ -393,7 +393,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

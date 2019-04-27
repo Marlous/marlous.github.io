@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/25/SVN-及-Git、SVN-协作学习笔记/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/10/25/SVN-及-Git、SVN-协作学习笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -272,7 +272,7 @@
 <h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h2><p>git-svn 工具把 Git 变成了 Subversion 服务的客户端，在本地享受到 Git 所有的功能，而后直接向 Subversion 服务器推送内容。Git 中所有 Subversion 桥接命令的基础是 <code>git svn</code>。所有的命令都从它开始，它实际是在与 Subversion 交互。</p>
 <h2 id="2-流程"><a href="#2-流程" class="headerlink" title="2 流程"></a>2 流程</h2><p>软件工程师本地库使用 Git，通过 git-svn -&gt; 公司 SVN 库（软件工程师直接与公司的 SVN 库打交道）。 </p>
 <h2 id="3-git-svn-工作流（Windows-使用方法）"><a href="#3-git-svn-工作流（Windows-使用方法）" class="headerlink" title="3 git-svn 工作流（Windows 使用方法）"></a>3 git-svn 工作流（Windows 使用方法）</h2><ul>
-<li><p>克隆远程 SVN 的仓库变为 git-svn 协作仓库。Windows 下使创建要使用的文件夹，Git Bash Here，<code>git svn clone svn://192.168.50.214/demo -T trunk -b branches -t tags</code>，或用 -s 参数。注：SVN 服务器该仓库 authz 配置目录权限下一定要加上 <code>* = r</code>，否则无法被克隆会报错！下图表明成功克隆。<br><img src="/2018/10/25/SVN-及-Git、SVN-协作学习笔记/图1.PNG" alt="克隆成功"></p>
+<li><p>克隆远程 SVN 的仓库变为 git-svn 协作仓库。Windows 下使创建要使用的文件夹，Git Bash Here，<code>git svn clone svn://192.168.50.214/demo -T trunk -b branches -t tags</code>，或用 -s 参数。注：SVN 服务器该仓库 authz 配置目录权限下一定要加上 <code>* = r</code>，否则无法被克隆会报错！下图表明成功克隆。<br><img src="/blog/2018/10/25/SVN-及-Git、SVN-协作学习笔记/图1.PNG" alt="克隆成功"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 项目太大也可以同 init、fetch 代替 clone</span><br><span class="line"></span><br><span class="line"># 初始化仓库</span><br><span class="line">git svn init &lt;svn-url&gt;</span><br><span class="line"># 拉取指定版本之后的记录</span><br><span class="line">git svn fetch -r &lt;svn-version&gt;</span><br><span class="line"># 拉取最新版本</span><br><span class="line">git svn fetch -r HEAD</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建本地工作分支并在其上工作：<code>git checkout -b work</code>。</p>
@@ -459,7 +459,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

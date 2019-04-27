@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/08/09/GitBook-使用小结/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/08/09/GitBook-使用小结/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -208,15 +208,15 @@
 <h1 id="一-网站与客户端生成"><a href="#一-网站与客户端生成" class="headerlink" title="一 网站与客户端生成"></a>一 网站与客户端生成</h1><h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1 准备"></a>1 准备</h2><ol>
 <li><p>注册 GitBook，安装 GitBook Editor 并登陆。</p>
 </li>
-<li><p>可以直接使用网页版创建并发布；可以在本地创建并在网页版创建后使用 Git HTTPS 将本地与远程仓库关联；可以远端创建后直接在 GitBook Editor 客户端中打开。<br><img src="/2018/08/09/GitBook-使用小结/图0.PNG" alt="网页版创建"><br><img src="/2018/08/09/GitBook-使用小结/图1.PNG" alt="Git HTTPS"></p>
+<li><p>可以直接使用网页版创建并发布；可以在本地创建并在网页版创建后使用 Git HTTPS 将本地与远程仓库关联；可以远端创建后直接在 GitBook Editor 客户端中打开。<br><img src="/blog/2018/08/09/GitBook-使用小结/图0.PNG" alt="网页版创建"><br><img src="/blog/2018/08/09/GitBook-使用小结/图1.PNG" alt="Git HTTPS"></p>
 </li>
-<li><p>注：title 下的路径即为本书面向公共的访问路径（直接访问本书内容）。本地客户端和网页版均无法输入中文的书名（title），在网页版的书主页设置中可更改为中文书名。<br><img src="/2018/08/09/GitBook-使用小结/图2.PNG" alt="更改为中文书名"></p>
+<li><p>注：title 下的路径即为本书面向公共的访问路径（直接访问本书内容）。本地客户端和网页版均无法输入中文的书名（title），在网页版的书主页设置中可更改为中文书名。<br><img src="/blog/2018/08/09/GitBook-使用小结/图2.PNG" alt="更改为中文书名"></p>
 </li>
 </ol>
 <h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><ol>
-<li><p>在编辑中右上角 Publish 为发布。<br><img src="/2018/08/09/GitBook-使用小结/图3.PNG" alt="Publish 发布"></p>
+<li><p>在编辑中右上角 Publish 为发布。<br><img src="/blog/2018/08/09/GitBook-使用小结/图3.PNG" alt="Publish 发布"></p>
 </li>
-<li><p>若发布失败可在书主页的 UPDATES 中按哈希选择重新发布。<br><img src="/2018/08/09/GitBook-使用小结/图4.PNG" alt="Restart this build"></p>
+<li><p>若发布失败可在书主页的 UPDATES 中按哈希选择重新发布。<br><img src="/blog/2018/08/09/GitBook-使用小结/图4.PNG" alt="Restart this build"></p>
 </li>
 </ol>
 <h1 id="二-本地编译生成"><a href="#二-本地编译生成" class="headerlink" title="二 本地编译生成"></a>二 本地编译生成</h1><h2 id="1-安装、更新与卸载"><a href="#1-安装、更新与卸载" class="headerlink" title="1 安装、更新与卸载"></a>1 安装、更新与卸载</h2><ul>
@@ -406,7 +406,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

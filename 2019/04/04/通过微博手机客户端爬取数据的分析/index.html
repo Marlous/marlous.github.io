@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/04/04/通过微博手机客户端爬取数据的分析/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2019/04/04/通过微博手机客户端爬取数据的分析/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -256,11 +256,11 @@
 </li>
 <li><p>返回到研究对象的一度人脉列表，点击第一个好友，点击粉丝 -&gt; 点击互相关注全部 -&gt; 停止抓包。再重复此动作两次。获得三个获取二度人脉的数据包样本。</p>
 </li>
-<li><p>分析抓到的数据包，发现其中两个数据包就是请求的某个用户的互关好友信息（json 文件）。/ 通过对比发现这两个区别在于导出的 URL 中只有 count 参数不同，一个是 50，一个是 10，前者的 json 文件也大些。参数为 10 的只有 10 个互关好友的信息。因此用参数 50。推测最多能获取到一个人互关的 50 个好友信息。查看微博开发文档发现默认为 50，上限 500，返回 30% 的互关好友。必须要授权才能访问，<a href="https://open.weibo.com/wiki/2/friendships/friends/bilateral" target="_blank" rel="noopener">friendships/friends/bilateral</a>。<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图1.PNG" alt="分析抓到的数据包"><br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图2.PNG" alt="分析抓到的数据包"></p>
+<li><p>分析抓到的数据包，发现其中两个数据包就是请求的某个用户的互关好友信息（json 文件）。/ 通过对比发现这两个区别在于导出的 URL 中只有 count 参数不同，一个是 50，一个是 10，前者的 json 文件也大些。参数为 10 的只有 10 个互关好友的信息。因此用参数 50。推测最多能获取到一个人互关的 50 个好友信息。查看微博开发文档发现默认为 50，上限 500，返回 30% 的互关好友。必须要授权才能访问，<a href="https://open.weibo.com/wiki/2/friendships/friends/bilateral" target="_blank" rel="noopener">friendships/friends/bilateral</a>。<br><img src="/blog/2019/04/04/通过微博手机客户端爬取数据的分析/图1.PNG" alt="分析抓到的数据包"><br><img src="/blog/2019/04/04/通过微博手机客户端爬取数据的分析/图2.PNG" alt="分析抓到的数据包"></p>
 </li>
-<li><p>分析这些可以获得信息的有效数据包，找出共同规律。（第一个为一度人脉互关好友，剩下依次为互关好友中第一个好友的互关好友信息，互关好友中第二个…）<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图3.PNG" alt="分析抓到的数据包"></p>
+<li><p>分析这些可以获得信息的有效数据包，找出共同规律。（第一个为一度人脉互关好友，剩下依次为互关好友中第一个好友的互关好友信息，互关好友中第二个…）<br><img src="/blog/2019/04/04/通过微博手机客户端爬取数据的分析/图3.PNG" alt="分析抓到的数据包"></p>
 </li>
-<li><p>通过分析客户端数据包，发现可以通过构造 URI 来直接获得某个用户互关好友的 json 文件。uid 就是指定的用户，其他参数可以构造出来。（这里需要构造的参数就是微博小号在分析过程中抓到的可以获取 json 的 URL 除去 uid 部分。（可以直接使用，爬虫程序中 uid 作为变量即可。）/ 在 Thor 软件中导出原始连接，可以直接在浏览器中打开。<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图4.PNG" alt="分析抓到的数据包"><br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图5.PNG" alt="分析抓到的数据包"></p>
+<li><p>通过分析客户端数据包，发现可以通过构造 URI 来直接获得某个用户互关好友的 json 文件。uid 就是指定的用户，其他参数可以构造出来。（这里需要构造的参数就是微博小号在分析过程中抓到的可以获取 json 的 URL 除去 uid 部分。（可以直接使用，爬虫程序中 uid 作为变量即可。）/ 在 Thor 软件中导出原始连接，可以直接在浏览器中打开。<br><img src="/blog/2019/04/04/通过微博手机客户端爬取数据的分析/图4.PNG" alt="分析抓到的数据包"><br><img src="/blog/2019/04/04/通过微博手机客户端爬取数据的分析/图5.PNG" alt="分析抓到的数据包"></p>
 </li>
 </ul>
 <h1 id="五-获取数据的-URL"><a href="#五-获取数据的-URL" class="headerlink" title="五 获取数据的 URL"></a>五 获取数据的 URL</h1><ol>
@@ -278,7 +278,7 @@
 <li>uid（指定用户的 uid）</li>
 </ul>
 <ol start="3">
-<li><p>通过观察发现，只需要获得四个参数值即可。参数值要么是客户端生成的，要么是服务器生成的，所以从登陆客户端开始抓包试试。删掉客户端重新下载，从打开开始抓包。<br><img src="/2019/04/04/通过微博手机客户端爬取数据的分析/图6.PNG" alt="分析抓到的数据包"></p>
+<li><p>通过观察发现，只需要获得四个参数值即可。参数值要么是客户端生成的，要么是服务器生成的，所以从登陆客户端开始抓包试试。删掉客户端重新下载，从打开开始抓包。<br><img src="/blog/2019/04/04/通过微博手机客户端爬取数据的分析/图6.PNG" alt="分析抓到的数据包"></p>
 </li>
 <li><p>通过分析手机客户端登录过程，发现两个重要的数据包。一个是通过加盐等方法请求授权的，另一个是通过某种方法得到的参数 aid、i、s 等参数构造请求，然后返回一个 gsid。/ 但是没弄清是怎样得到这些参数的，所以想通过模拟客户端登陆来获得参数，然后构造出 URL 的想法宣告失败。</p>
 </li>
@@ -451,7 +451,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

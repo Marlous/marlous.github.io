@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/23/Docker-入门学习笔记/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/10/23/Docker-入门学习笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -226,11 +226,11 @@
 </li>
 </ol>
 <h1 id="三-Docker"><a href="#三-Docker" class="headerlink" title="三 Docker"></a>三 Docker</h1><h2 id="1-虚拟化种类"><a href="#1-虚拟化种类" class="headerlink" title="1 虚拟化种类"></a>1 虚拟化种类</h2><ul>
-<li><p>全虚拟化：应用程序实现。<br><img src="/2018/10/23/Docker-入门学习笔记/图1.PNG" alt="全虚拟化"></p>
+<li><p>全虚拟化：应用程序实现。<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图1.PNG" alt="全虚拟化"></p>
 </li>
-<li><p>OS 层虚拟化：<br><img src="/2018/10/23/Docker-入门学习笔记/图2.PNG" alt="OS 层虚拟化"></p>
+<li><p>OS 层虚拟化：<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图2.PNG" alt="OS 层虚拟化"></p>
 </li>
-<li><p>硬件层虚拟化：<br><img src="/2018/10/23/Docker-入门学习笔记/图3.PNG" alt="硬件层虚拟化"></p>
+<li><p>硬件层虚拟化：<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图3.PNG" alt="硬件层虚拟化"></p>
 </li>
 </ul>
 <h2 id="2-Docker-原理与组成"><a href="#2-Docker-原理与组成" class="headerlink" title="2 Docker 原理与组成"></a>2 Docker 原理与组成</h2><ol>
@@ -238,12 +238,12 @@
 </li>
 <li><p>原理：容器技术类似 OS 层虚拟化（不等同），容器本质上是基于应用的，虚拟出运行环境。容器相当于一个个运行的小操作系统，但它是共享宿主机操作系统内核的。</p>
 </li>
-<li><p>架构：C/S 架构。客户端提供交互界面，与守护进程（服务程序）交互，运行一个镜像的实例（容器）。<br><img src="/2018/10/23/Docker-入门学习笔记/图4.jpg" alt="架构"></p>
+<li><p>架构：C/S 架构。客户端提供交互界面，与守护进程（服务程序）交互，运行一个镜像的实例（容器）。<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图4.jpg" alt="架构"></p>
 </li>
 </ol>
-<h2 id="3-Docker-使用场景"><a href="#3-Docker-使用场景" class="headerlink" title="3 Docker 使用场景"></a>3 Docker 使用场景</h2><p><img src="/2018/10/23/Docker-入门学习笔记/图5.PNG" alt="Docker 使用场景"></p>
+<h2 id="3-Docker-使用场景"><a href="#3-Docker-使用场景" class="headerlink" title="3 Docker 使用场景"></a>3 Docker 使用场景</h2><p><img src="/blog/2018/10/23/Docker-入门学习笔记/图5.PNG" alt="Docker 使用场景"></p>
 <h2 id="4-Docker-的使用方式"><a href="#4-Docker-的使用方式" class="headerlink" title="4 Docker 的使用方式"></a>4 Docker 的使用方式</h2><ol>
-<li>CI/CD 与 DevOps：<br><img src="/2018/10/23/Docker-入门学习笔记/图6.PNG" alt="CI/CD 与 DevOps 1"><br><img src="/2018/10/23/Docker-入门学习笔记/图7.PNG" alt="CI/CD 与 DevOps 2"><br><img src="/2018/10/23/Docker-入门学习笔记/图8.PNG" alt="CI/CD 与 DevOps 3"></li>
+<li>CI/CD 与 DevOps：<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图6.PNG" alt="CI/CD 与 DevOps 1"><br><img src="/blog/2018/10/23/Docker-入门学习笔记/图7.PNG" alt="CI/CD 与 DevOps 2"><br><img src="/blog/2018/10/23/Docker-入门学习笔记/图8.PNG" alt="CI/CD 与 DevOps 3"></li>
 </ol>
 <h1 id="四-Docker-快速上手"><a href="#四-Docker-快速上手" class="headerlink" title="四 Docker 快速上手"></a>四 Docker 快速上手</h1><p><a href="http://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">参考资料</a></p>
 <h2 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1 基本命令"></a>1 基本命令</h2><ol>
@@ -293,7 +293,7 @@
 <li>容器的数据卷（数据的永久化）：</li>
 </ol>
 <ul>
-<li><p>容器的数据卷概念：<br>容器的数据卷是一个本地主机上的目录。/ 利用 docker 数据卷映能保证镜像再次运行的时候数据不会丢失、映射了目录也更方便的传数据到运行的 docker 容器里。<br><img src="/2018/10/23/Docker-入门学习笔记/图9.PNG" alt="容器的数据卷概念"></p>
+<li><p>容器的数据卷概念：<br>容器的数据卷是一个本地主机上的目录。/ 利用 docker 数据卷映能保证镜像再次运行的时候数据不会丢失、映射了目录也更方便的传数据到运行的 docker 容器里。<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图9.PNG" alt="容器的数据卷概念"></p>
 </li>
 <li><p>对数据卷的操作：<br>参见 <a href="https://blog.csdn.net/jiangyu1013/article/details/80881097" target="_blank" rel="noopener">Docker ： 数据卷（创建、挂载、查看、删除）</a>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">创建：</span><br><span class="line">docker volume create test_lamp_www           # apache的web根目录 / 容器内：/var/www</span><br><span class="line">docker volume create test_lamp_apache_conf   # apache的配置目录 / 容器内：/etc/apache2</span><br><span class="line">docker volume create test_lamp_mysql_conf    # MySQL的配置目录 / 容器内：/etc/mysql</span><br><span class="line">docker volume create test_lamp_mysql_data    # MySQL的数据目录 / 容器内：/var/lib/mysql</span><br><span class="line"></span><br><span class="line">查看所有：</span><br><span class="line">docker volume ls</span><br><span class="line"></span><br><span class="line">查看某个具体的：</span><br><span class="line">docker volume inspect test_lamp_www</span><br><span class="line"></span><br><span class="line">挂载数据卷：</span><br><span class="line">docker run -it -p 80:80 -p 3306:3306 -v test_lamp_www:/var/www -v test_lamp_apache_conf:/etc/apache2 -v test_lamp_mysql_conf:/etc/mysql -v test_lamp_mysql_data:/var/lib/mysql --name testproject mattrayner/lamp /bin/bash</span><br><span class="line"># 解释：</span><br><span class="line"># docker run：运行一个 container，如果后面要绑定宿主主机的 0-1024 端口需要使用 sudo</span><br><span class="line"># -p port1:port2: 将宿主机的端口 port1 映射到容器中的 port2</span><br><span class="line"># -v volume:path: 将宿主机的 docker 卷映射到容器中的指定的路径</span><br><span class="line"># -t -i mattrayner/lamp /bin/bash：使用 mattrayner/lamp 生成容器，并打开 shell</span><br><span class="line"></span><br><span class="line">删除数据卷：</span><br><span class="line">docker volume rm test_lamp_www</span><br></pre></td></tr></table></figure>
@@ -305,7 +305,7 @@
 <li>数据卷容器：</li>
 </ol>
 <ul>
-<li>数据卷容器是一个容器。/ 也就是使用 –volumes-from 的东西。这早就不用了，如果看了书还在说这种方式，那说明书已经过时了。按照今天的理解，这类数据容器，无非就是挂了个匿名卷的容器罢了，<a href="https://blog.csdn.net/runner668/article/details/80955767" target="_blank" rel="noopener">详见</a>。<br><img src="/2018/10/23/Docker-入门学习笔记/图10.PNG" alt="数据卷容器概念"></li>
+<li>数据卷容器是一个容器。/ 也就是使用 –volumes-from 的东西。这早就不用了，如果看了书还在说这种方式，那说明书已经过时了。按照今天的理解，这类数据容器，无非就是挂了个匿名卷的容器罢了，<a href="https://blog.csdn.net/runner668/article/details/80955767" target="_blank" rel="noopener">详见</a>。<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图10.PNG" alt="数据卷容器概念"></li>
 </ul>
 <ol start="11">
 <li><p>数据卷的备份、迁移与使用：<br>直接对宿主机本地的数据卷进行备份、转移、挂载到容器上。</p>
@@ -314,15 +314,15 @@
 </li>
 </ol>
 <ul>
-<li><p>原理：<br><img src="/2018/10/23/Docker-入门学习笔记/图11.PNG" alt="原理"></p>
+<li><p>原理：<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图11.PNG" alt="原理"></p>
 </li>
 <li><p>功能：<br>可以更改 docker0 的网络地址网段，也可以在宿主机添加虚拟网卡给 docker 容器。</p>
 </li>
 <li><p>docker 容器间链接：<br>默认是可以相互连接的。重启容器 IP 可能会发生变化。/ 容器启动时的 link 选项来避免 IP 变化的不可靠连接。/ 更改 docker 配置文件来禁止容器间的连接。/ 允许特定容器间的链接：docker 配置将 <code>--c=false  --iptables=true</code>、容器启动加 link 参数。</p>
 </li>
-<li><p>docker 与外部网络连接：<br>docker 配置文件中 <code>--ip-forward=true</code> 默认转发流量；配置 iptables：表（每个环节中的 nat 等表）、链（数据流向）、操作（对每个节点的操作，如拒绝、接受）。通过添加 iptables 规则来控制对特定容器的拒绝接受访问。<br><img src="/2018/10/23/Docker-入门学习笔记/图12.PNG" alt="docker 与外部网络连接"></p>
+<li><p>docker 与外部网络连接：<br>docker 配置文件中 <code>--ip-forward=true</code> 默认转发流量；配置 iptables：表（每个环节中的 nat 等表）、链（数据流向）、操作（对每个节点的操作，如拒绝、接受）。通过添加 iptables 规则来控制对特定容器的拒绝接受访问。<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图12.PNG" alt="docker 与外部网络连接"></p>
 </li>
-<li><p>docker 的跨主机连接：<br>使用 open vswitch 虚拟网桥（建立网桥、配置接口、分网段）、weave 开源专用于 docker 跨主机连接软件。<br><img src="/2018/10/23/Docker-入门学习笔记/图13.PNG" alt="docker 的跨主机连接"></p>
+<li><p>docker 的跨主机连接：<br>使用 open vswitch 虚拟网桥（建立网桥、配置接口、分网段）、weave 开源专用于 docker 跨主机连接软件。<br><img src="/blog/2018/10/23/Docker-入门学习笔记/图13.PNG" alt="docker 的跨主机连接"></p>
 </li>
 </ul>
 <h2 id="2-制作、备份与迁移"><a href="#2-制作、备份与迁移" class="headerlink" title="2 制作、备份与迁移"></a>2 制作、备份与迁移</h2><ol>
@@ -559,7 +559,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -22,7 +22,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/">
+    <link rel="canonical" href="https://marlous.github.io/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -79,12 +79,6 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -93,9 +87,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -209,24 +209,24 @@
 <li>根据硬盘分区容量大小搞清楚自己已经安装的操作系统、将要安装的操作系统在哪个分区上以及相关信息。</li>
 </ul>
 <h1 id="二-安装第一个-Linux-系统"><a href="#二-安装第一个-Linux-系统" class="headerlink" title="二 安装第一个 Linux 系统"></a>二 安装第一个 Linux 系统</h1><ul>
-<li><p>此篇均为 BIOS 传统模式 + MBR，非 UEFI + GPT。<br>查看 BIOS 模式：<br><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图1.PNG" alt="查看 BIOS 模式"></p>
+<li><p>此篇均为 BIOS 传统模式 + MBR，非 UEFI + GPT。<br>查看 BIOS 模式：<br><img src="/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图1.PNG" alt="查看 BIOS 模式"></p>
 </li>
 <li><p>已存在 Windows 10，在 Windows 下准备好划分出一定的磁盘空间（用分区魔术师切割并转为主分区。一开始就准备装两个 Linux 的话，直接划两个分区出来。）；用 UltraISO 解压出其中的 deepin-boot-maker.exe，用它来制作 U 盘映像；设置 BIOS 启动顺序等其他配置，U 盘安装即可（引导会自动设置好）。Deepin 安装成功。</p>
 </li>
 </ul>
 <h1 id="三-安装第二个-Linux-系统"><a href="#三-安装第二个-Linux-系统" class="headerlink" title="三 安装第二个 Linux 系统"></a>三 安装第二个 Linux 系统</h1><ul>
-<li><p>先进入 Deeppin，为以防万一和备份一些信息，备份 gurb.cfg（一般不会有问题，可略过），查看分区情况和 UUID（硬盘分区唯一识别符），拍照记录。根据硬盘分区容量大小搞清楚自己已经安装的操作系统、将要安装的操作系统在哪个分区上。<br><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图2.PNG" alt="分区情况"><br><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图3.PNG" alt="UUID"></p>
+<li><p>先进入 Deeppin，为以防万一和备份一些信息，备份 gurb.cfg（一般不会有问题，可略过），查看分区情况和 UUID（硬盘分区唯一识别符），拍照记录。根据硬盘分区容量大小搞清楚自己已经安装的操作系统、将要安装的操作系统在哪个分区上。<br><img src="/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图2.PNG" alt="分区情况"><br><img src="/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图3.PNG" alt="UUID"></p>
 </li>
 <li><p>重启返回 Windows 10。</p>
 </li>
 <li><p>使用 Win32DiskImager-0.9.5（用其它软件写入可能会数据写入出错）将 Kali 镜像写入准备好的 U 盘，注意路径及文件名用英文。</p>
 </li>
-<li><p>用分区魔术师切割一部分空间并转为主分区（之前没预留空间的情况，已预留分区可直接重启安装，结束。），并重启。<br><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图4.PNG" alt="分区魔术师切割"><br><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图5.PNG" alt="分区魔术师转为主分区"></p>
+<li><p>用分区魔术师切割一部分空间并转为主分区（之前没预留空间的情况，已预留分区可直接重启安装，结束。），并重启。<br><img src="/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图4.PNG" alt="分区魔术师切割"><br><img src="/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图5.PNG" alt="分区魔术师转为主分区"></p>
 </li>
 <li><p>重启后因为分区的变化导致 Grub 引导找不到 Windows 操作系统位置而无法正常启动（最好之前预留好空闲分区），进入 grub rescue：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 查看各分区文件系统类型，确定哪个是 Deepin 系统安装位置，文件系统为 ext。</span><br><span class="line">ls</span><br><span class="line">ls (hdx,msdosy)    # x，y 为数字，参见 ls 命令后显示的分区情况。</span><br><span class="line"></span><br><span class="line"># 如果之前安装 Linux 时没有分 /boot 分区：</span><br><span class="line">ls (hdx,msdosy)/boot/grub</span><br><span class="line">set root=(hdx,msdosy)</span><br><span class="line">set prefix=(hdx,msdosy)/boot/grub</span><br><span class="line">insmod normal</span><br><span class="line">normal</span><br><span class="line"></span><br><span class="line"># 如果之前安装 Linux 时分出了 /boot 分区：</span><br><span class="line">ls (hdx,msdosy)/grub</span><br><span class="line">set root=(hdx,msdosy)</span><br><span class="line">set prefix=(hdx,msdosy)/grub</span><br><span class="line">insmod normal</span><br><span class="line">normal</span><br><span class="line"></span><br><span class="line"># 回车进入 Linux，命令行输入命令：</span><br><span class="line">sudo update-grub</span><br><span class="line">sudo grub-install /dev/sda</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>重启进入 Windows 查看，准备好的空闲分区也已成功：<br><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图6.PNG" alt="空闲分区状态"></p>
+<li><p>重启进入 Windows 查看，准备好的空闲分区也已成功：<br><img src="/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图6.PNG" alt="空闲分区状态"></p>
 </li>
 <li><p>重启用 U 盘安装第二个 Linux 操作系统 Kali，完成（Grub 会自动识别并完成引导的配置）。</p>
 </li>
@@ -241,7 +241,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menuentry &quot;显示的操作系统名&quot; &#123;</span><br><span class="line">    insmod part_msdos</span><br><span class="line">    insmod ntfs            # 文件系统类型。</span><br><span class="line">    set root=&apos;hd0,msdos8&apos;  # hd0 为第几块硬盘，8 为第几个分区。</span><br><span class="line">    search --no-floppy --fs-uuid --set=root 7E58BCF758BCAF71   # 磁盘用 UUID 来标记，更精确。</span><br><span class="line">    chainloader +1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图7.PNG" alt="添加启动项"></p>
+<p><img src="/blog/2018/10/28/三个操作系统安装（Win-10、Deepin、Kali）/图7.PNG" alt="添加启动项"></p>
 <ul>
 <li>更新 Grub 配置：<code>update-grub</code>，重启完成。</li>
 </ul>
@@ -407,7 +407,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/blog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
