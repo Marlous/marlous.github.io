@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#Editor/IDE"
+                        <a class="tag" href="/tags/#Editor/IDE"
                            title="Editor/IDE">Editor/IDE</a>
                         
                     </div>
@@ -227,21 +227,21 @@
 </li>
 </ul>
 <ol start="5">
-<li><p>Source Insight 添加其它功能窗口与工作界面：<br><img src="/blog/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图1.PNG" alt="添加其它功能窗口"><br><img src="/blog/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图2.PNG" alt="工作界面"></p>
+<li><p>Source Insight 添加其它功能窗口与工作界面：<br><img src="/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图1.PNG" alt="添加其它功能窗口"><br><img src="/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图2.PNG" alt="工作界面"></p>
 </li>
 <li><p>功能窗口简介：<br>从左到右，从上到下的顺序（3 + 4 个）。</p>
 </li>
 </ol>
 <ul>
-<li><p>符号窗口：<br>显示的是文档窗口的代码结构，宏、函数声明、结构体、函数等。<br><img src="/blog/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图3.PNG" alt="符号窗口"></p>
+<li><p>符号窗口：<br>显示的是文档窗口的代码结构，宏、函数声明、结构体、函数等。<br><img src="/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图3.PNG" alt="符号窗口"></p>
 </li>
 <li><p>文档窗口：<br>显示当前项目窗口中选择的文件。</p>
 </li>
-<li><p>项目窗口：<br>当前要分析的项目文件。<br><img src="/blog/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图4.PNG" alt="项目窗口"></p>
+<li><p>项目窗口：<br>当前要分析的项目文件。<br><img src="/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图4.PNG" alt="项目窗口"></p>
 </li>
-<li><p>上下文窗口：<br>这个窗口一般配合关联窗口使用，单机关联窗口的某一项，可以自动在上下文窗口显示该项的上下文，双击上下文内容，则可以在文档窗口打开上下文。<br><img src="/blog/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图5.PNG" alt="上下文窗口"></p>
+<li><p>上下文窗口：<br>这个窗口一般配合关联窗口使用，单机关联窗口的某一项，可以自动在上下文窗口显示该项的上下文，双击上下文内容，则可以在文档窗口打开上下文。<br><img src="/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图5.PNG" alt="上下文窗口"></p>
 </li>
-<li><p>关联窗口：<br>显示文档中的符号在哪些地方进行了引用。如哪些地方调用了函数，或该函数调用了哪些函数等。关联窗口可以有好多个。（选择后右键查看关联，calls and callers 查看调用与被调用关系。）<br><img src="/blog/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图6.PNG" alt="关联窗口"></p>
+<li><p>关联窗口：<br>显示文档中的符号在哪些地方进行了引用。如哪些地方调用了函数，或该函数调用了哪些函数等。关联窗口可以有好多个。（选择后右键查看关联，calls and callers 查看调用与被调用关系。）<br><img src="/2018/11/02/源代码静态分析工具-Source-Insight-使用（以-Nginx-源码为例）/图6.PNG" alt="关联窗口"></p>
 </li>
 <li><p>代码片段窗口：<br>可以自定义一些代码片段，使用时直接插入即可。</p>
 </li>
@@ -255,13 +255,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/11/04/《软件工程导论》张海潘版核心纲要读书笔记/" data-toggle="tooltip" data-placement="top"
                            title="《软件工程导论》张海潘版核心纲要读书笔记">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/11/01/我的工具集-工具链（持续更新）/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/11/01/我的工具集-工具链（持续更新）/" data-toggle="tooltip" data-placement="top"
                            title="我的工具集/工具链（持续更新）">Next Post &rarr;</a>
                     </li>
                     
@@ -299,11 +299,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#Editor/IDE"
+                        <a class="tag" href="/tags/#Editor/IDE"
                            title="Editor/IDE">Editor/IDE</a>
                         
                     </div>
@@ -386,13 +386,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -410,7 +410,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

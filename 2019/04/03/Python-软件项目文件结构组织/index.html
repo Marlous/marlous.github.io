@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2019/04/03/Python-软件项目文件结构组织/">
+    <link rel="canonical" href="https://marlous.github.io/2019/04/03/Python-软件项目文件结构组织/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#软件工程"
+                        <a class="tag" href="/tags/#软件工程"
                            title="软件工程">软件工程</a>
                         
                     </div>
@@ -302,7 +302,7 @@
 <li><p>使用 from 这种方式导入，直接代码中使用 <code>模块名.其中的函数</code> 就行了，使用更简洁。</p>
 </li>
 </ul>
-<h1 id="三-单个文件结构"><a href="#三-单个文件结构" class="headerlink" title="三 单个文件结构"></a>三 单个文件结构</h1><p><img src="/blog/2019/04/03/Python-软件项目文件结构组织/图1.PNG" alt="单个文件结构"></p>
+<h1 id="三-单个文件结构"><a href="#三-单个文件结构" class="headerlink" title="三 单个文件结构"></a>三 单个文件结构</h1><p><img src="/2019/04/03/Python-软件项目文件结构组织/图1.PNG" alt="单个文件结构"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python        可以让这个py文件直接在Unix/Linux/Mac上运行</span><br><span class="line"># -*- coding: utf-8 -*-      使用标准UTF-8编码；</span><br><span class="line"></span><br><span class="line">&apos; a test module &apos;            #表示模块的文档注释</span><br><span class="line"></span><br><span class="line">__author__ = &apos;Michael Liao&apos;  #作者名</span><br><span class="line"></span><br><span class="line">import sys                   #导入其他模块</span><br><span class="line">import cStringIO as StringIO #导入其他模块，并使用as命名别名</span><br><span class="line"></span><br><span class="line">def test():</span><br><span class="line">    return True</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">当我们在命令行运行模块文件时，Python解释器把一个特殊变量__name__置为__main__，</span><br><span class="line">而如果在其他地方导入该hello模块时，if判断将失败，</span><br><span class="line">因此，这种if测试可以让一个模块通过命令行运行时执行一些额外的代码，</span><br><span class="line">最常见的就是运行测试。</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">if __name__==&apos;__main__&apos;:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>在每个文件模块里放置了一个函数，可以放置许多函数；也可以在这些文件里定义 Python 的类，然后为这些类建一个包。</p>
@@ -317,13 +317,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2019/04/04/通过微博手机客户端爬取数据的分析/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/04/04/通过微博手机客户端爬取数据的分析/" data-toggle="tooltip" data-placement="top"
                            title="通过微博手机客户端爬取数据的分析">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2019/04/03/数据可视化软件-Gephi-的基本使用/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/04/03/数据可视化软件-Gephi-的基本使用/" data-toggle="tooltip" data-placement="top"
                            title="数据可视化软件 Gephi 的基本使用">Next Post &rarr;</a>
                     </li>
                     
@@ -361,11 +361,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#软件工程"
+                        <a class="tag" href="/tags/#软件工程"
                            title="软件工程">软件工程</a>
                         
                     </div>
@@ -448,13 +448,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -472,7 +472,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

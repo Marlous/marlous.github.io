@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/06/12/Hexo-踩坑记/">
+    <link rel="canonical" href="https://marlous.github.io/2018/06/12/Hexo-踩坑记/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#记录小结"
+                        <a class="tag" href="/tags/#记录小结"
                            title="记录小结">记录小结</a>
                         
                     </div>
@@ -218,7 +218,7 @@
 <li><p>在配置 about 导航栏时，先将 themes 中对应主题的 about 模版内容改成自己的，然后 <code>hexo new page “about”</code>，改 layout。最后 <code>hexo clear &amp;&amp; hexo generate &amp;&amp; hexo deploy</code>，结束。</p>
 </li>
 </ol>
-<h1 id="四-问题三之导航菜单文件夹小大写"><a href="#四-问题三之导航菜单文件夹小大写" class="headerlink" title="四 问题三之导航菜单文件夹小大写"></a>四 问题三之导航菜单文件夹小大写</h1><p>在配置 about 导航栏时遇到的问题，开始 new page 用的大写，导致生成了 ABOUT 文件夹，于是无法打开此页连接（模版中代码其生成的链接为小写，将对应代码改成小写也可以正常使用）。<br><img src="/blog/2018/06/12/Hexo-踩坑记/图1.PNG" alt="图1 改导航栏生成路径代码"></p>
+<h1 id="四-问题三之导航菜单文件夹小大写"><a href="#四-问题三之导航菜单文件夹小大写" class="headerlink" title="四 问题三之导航菜单文件夹小大写"></a>四 问题三之导航菜单文件夹小大写</h1><p>在配置 about 导航栏时遇到的问题，开始 new page 用的大写，导致生成了 ABOUT 文件夹，于是无法打开此页连接（模版中代码其生成的链接为小写，将对应代码改成小写也可以正常使用）。<br><img src="/2018/06/12/Hexo-踩坑记/图1.PNG" alt="图1 改导航栏生成路径代码"></p>
 <p>强迫症为保持一致还是删掉重建导航页。不知道是第一次错误的大写导致后来删掉后依然生成的是大写文件夹，还是 win 下文件夹大小写不敏感原因（总之 push 上去 GitHub 显示大写文件夹，本地为小写），反复删除生成重新 push，GitHub 上依然是大写文件夹，git 设置大小写不敏感也无济于事。这是个大坑啊。</p>
 <p>解决方案：将关于 about 文件夹删掉，手动在博客根目录 source 文件夹创建 about 文件夹，并手动创建 index.md 并将 layout 设置为 about，清理生成部署，完成！</p>
 <h1 id="五-遗留问题（重新部署后已解决）"><a href="#五-遗留问题（重新部署后已解决）" class="headerlink" title="五 遗留问题（重新部署后已解决）"></a>五 遗留问题（重新部署后已解决）</h1><p>问题：部署后只有 about 导航页用 PC 和手机蜂窝数据正常打开，手机连 Wi-Fi 就打不开，是 CDN 问题么，之后几小时又带不开了，唯独此页间歇性抽风，但换成蜂窝数据就能打开…</p>
@@ -229,13 +229,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/06/12/HTML-基础/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/06/12/HTML-基础/" data-toggle="tooltip" data-placement="top"
                            title="HTML 基础">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/06/08/hello-world/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/06/08/hello-world/" data-toggle="tooltip" data-placement="top"
                            title="Hello World">Next Post &rarr;</a>
                     </li>
                     
@@ -273,11 +273,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#记录小结"
+                        <a class="tag" href="/tags/#记录小结"
                            title="记录小结">记录小结</a>
                         
                     </div>
@@ -360,13 +360,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -384,7 +384,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

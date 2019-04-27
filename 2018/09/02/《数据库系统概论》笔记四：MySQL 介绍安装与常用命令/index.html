@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#数据库"
+                        <a class="tag" href="/tags/#数据库"
                            title="数据库">数据库</a>
                         
                     </div>
@@ -207,7 +207,7 @@
 </blockquote>
 <h1 id="一-MySQL-介绍"><a href="#一-MySQL-介绍" class="headerlink" title="一 MySQL 介绍"></a>一 MySQL 介绍</h1><h2 id="1-MySQL-组件介绍"><a href="#1-MySQL-组件介绍" class="headerlink" title="1 MySQL 组件介绍"></a>1 MySQL 组件介绍</h2><p>开发者默认安装类型下的组件和插件，都在安装目录下。</p>
 <ol>
-<li>相关软件产品：<br><img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图0.PNG" alt="相关软件产品"></li>
+<li>相关软件产品：<br><img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图0.PNG" alt="相关软件产品"></li>
 </ol>
 <ul>
 <li>MySQL Server：MySQL Server.</li>
@@ -218,7 +218,7 @@
 <li>Documentation：Allows you to read the documentation offline.</li>
 </ul>
 <ol start="2">
-<li>相关组件：<br><img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图1.PNG" alt="相关组件"></li>
+<li>相关组件：<br><img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图1.PNG" alt="相关组件"></li>
 </ol>
 <ul>
 <li>MySQL Server：MySQL 服务程序。</li>
@@ -227,7 +227,7 @@
 <li>MySQL Documents：一些类似于帮助文件的的东西。</li>
 <li>MySQL Examples and Samples：一些数据库案例，可以不要。</li>
 </ul>
-<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h2><p>旧版本配置文件在安装目录下。<br>MySQL 5.7 的配置文件在 <code>C:\ProgramData\MySQL\MySQL Server 5.7\my.ini</code> ，可在 MySQL Workbench 中默认的数据库中查看。<br><img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图2.PNG" alt="MySQL 5.7 的配置文件查看"></p>
+<h2 id="2-配置文件"><a href="#2-配置文件" class="headerlink" title="2 配置文件"></a>2 配置文件</h2><p>旧版本配置文件在安装目录下。<br>MySQL 5.7 的配置文件在 <code>C:\ProgramData\MySQL\MySQL Server 5.7\my.ini</code> ，可在 MySQL Workbench 中默认的数据库中查看。<br><img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图2.PNG" alt="MySQL 5.7 的配置文件查看"></p>
 <h2 id="3-服务启动与停止"><a href="#3-服务启动与停止" class="headerlink" title="3 服务启动与停止"></a>3 服务启动与停止</h2><ol>
 <li><p>启动命令 <code>net start mysql</code> （注意服务名是否无效，在服务中看正确的服务名，为 mysql57，拒绝访问用管理员。）;</p>
 </li>
@@ -235,12 +235,12 @@
 </li>
 </ol>
 <h2 id="4-登陆与退出"><a href="#4-登陆与退出" class="headerlink" title="4 登陆与退出"></a>4 登陆与退出</h2><ol>
-<li><p>登陆：<code>mysql 参数</code> ，如 <code>mysql -uroot -p -P3306 -h127.0.0.1</code><br>参数：<img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图3.PNG" alt="登陆参数"></p>
+<li><p>登陆：<code>mysql 参数</code> ，如 <code>mysql -uroot -p -P3306 -h127.0.0.1</code><br>参数：<img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图3.PNG" alt="登陆参数"></p>
 </li>
 <li><p>退出：<code>exit 或 quit 或 \q</code></p>
 </li>
 </ol>
-<h2 id="5-修改提示符"><a href="#5-修改提示符" class="headerlink" title="5 修改提示符"></a>5 修改提示符</h2><p>参数：<img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图4.PNG" alt="提示符参数"></p>
+<h2 id="5-修改提示符"><a href="#5-修改提示符" class="headerlink" title="5 修改提示符"></a>5 修改提示符</h2><p>参数：<img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图4.PNG" alt="提示符参数"></p>
 <ul>
 <li>连接时通过参数指定：<code>mysql -uroot -p --prompt 提示符</code></li>
 <li>连接上后：<code>prompt 提示符</code></li>
@@ -307,12 +307,12 @@
 <p>参考：<br>1、 <a href="https://dev.mysql.com/doc/workbench/en/" target="_blank" rel="noopener">MySQL Workbench Manual</a><br>2、 <a href="https://blog.csdn.net/z45689/article/details/54139396/" target="_blank" rel="noopener">MySQL 5.7以及MySQL Workbench使用</a><br>3、 <a href="https://jingyan.baidu.com/article/046a7b3e8d230bf9c27fa928.html" target="_blank" rel="noopener">mysql workbench如何汉化</a><br>4、 <a href="https://blog.csdn.net/iteye_10774/article/details/82606325" target="_blank" rel="noopener">关于 MySQL connections 的一些知识</a><br>5、 <a href="https://jingyan.baidu.com/article/a65957f4d533eb24e77f9b42.html" target="_blank" rel="noopener">怎么使用MySQL Workbench做数据建模</a></p>
 </blockquote>
 <ul>
-<li><p>MySQL Connections：<br><img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图5.PNG" alt="MySQL Connections"><br>MySQL Connections 指的是 MySQL 实例的连接数（并发数），每个连接 MySQL 的用户均算作一个连接。<br>MySQL 无论如何都会保留一个用于管理员（SUPER）登陆的连接，用于管理员连接数据库进行维护操作，即使当前连接数已经达到了 max_connections，该参数在服务器资源够用的情况下应该尽量设置大，以满足多个客户端同时连接的需求。</p>
+<li><p>MySQL Connections：<br><img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图5.PNG" alt="MySQL Connections"><br>MySQL Connections 指的是 MySQL 实例的连接数（并发数），每个连接 MySQL 的用户均算作一个连接。<br>MySQL 无论如何都会保留一个用于管理员（SUPER）登陆的连接，用于管理员连接数据库进行维护操作，即使当前连接数已经达到了 max_connections，该参数在服务器资源够用的情况下应该尽量设置大，以满足多个客户端同时连接的需求。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在命令行中查看:</span><br><span class="line">最大连接数 show variables like &apos;%max_connections%&apos;;</span><br><span class="line">查看当前所有连接的详细资料（只列出前 100 条）show processlist;</span><br><span class="line">查看当前所有连接的详细资料（全部）mysqladmin -uroot -pPwd processlist</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Models：<br><img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图6.PNG" alt="Models"><br>Models 用来建立数据建模，把一个项目的物理模型转换为实际的数据库对象（E - R）；使用方法见本章参考 5。</p>
+<li><p>Models：<br><img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图6.PNG" alt="Models"><br>Models 用来建立数据建模，把一个项目的物理模型转换为实际的数据库对象（E - R）；使用方法见本章参考 5。</p>
 </li>
-<li><p>SCHEMAS：<br><img src="/blog/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图7.PNG" alt="SCHEMAS"><br>SCHEMAS 指数据库的组织和结构，模式中包含了 schema 对象，可以是表、列、数据类型、视图、存储过程、关系、主键、外键等。<br>使用一个 MySQL Connections 实例连接上服务后，可以在左侧看到 SCHEMAS。</p>
+<li><p>SCHEMAS：<br><img src="/2018/09/02/《数据库系统概论》笔记四：MySQL 介绍安装与常用命令/图7.PNG" alt="SCHEMAS"><br>SCHEMAS 指数据库的组织和结构，模式中包含了 schema 对象，可以是表、列、数据类型、视图、存储过程、关系、主键、外键等。<br>使用一个 MySQL Connections 实例连接上服务后，可以在左侧看到 SCHEMAS。</p>
 </li>
 </ul>
 
@@ -322,13 +322,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/09/03/Python-语言学习（上）/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/09/03/Python-语言学习（上）/" data-toggle="tooltip" data-placement="top"
                            title="Python 语言学习（上）">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/09/01/Pycharm-运行环境管理小结/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/09/01/Pycharm-运行环境管理小结/" data-toggle="tooltip" data-placement="top"
                            title="Pycharm 运行环境管理小结">Next Post &rarr;</a>
                     </li>
                     
@@ -366,11 +366,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#数据库"
+                        <a class="tag" href="/tags/#数据库"
                            title="数据库">数据库</a>
                         
                     </div>
@@ -453,13 +453,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -477,7 +477,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

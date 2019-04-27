@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/09/05/Python-语言学习（下）/">
+    <link rel="canonical" href="https://marlous.github.io/2018/09/05/Python-语言学习（下）/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#Python"
+                        <a class="tag" href="/tags/#Python"
                            title="Python">Python</a>
                         
                     </div>
@@ -226,7 +226,7 @@
 </li>
 </ul>
 <ol start="4">
-<li>字符串索引：字符串中的每个字符都有一个索引值。<br>正着从 0 依次加一；或倒着从 -1 依次减一。<br><img src="/blog/2018/09/05/Python-语言学习（下）/图1.PNG" alt="字符串中索引值"></li>
+<li>字符串索引：字符串中的每个字符都有一个索引值。<br>正着从 0 依次加一；或倒着从 -1 依次减一。<br><img src="/2018/09/05/Python-语言学习（下）/图1.PNG" alt="字符串中索引值"></li>
 </ol>
 <ul>
 <li><p>切片 <code>[start:finish:countBy]</code> 。<br>[开始位置：结束位置的下一个值:计数参数]，计数参数默认为 1。<code>str[::-1]</code> 则获得原字符串的逆序。<br>通过切片来赋给原变量来更改原字符串（不可以直接通过索引更改）。</p>
@@ -255,20 +255,20 @@
 </li>
 </ul>
 <ol start="7">
-<li>正则表达式：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图2.PNG" alt="正则表达式概念"><br><img src="/blog/2018/09/05/Python-语言学习（下）/图3.PNG" alt="正则表达式示例"></li>
+<li>正则表达式：<br><img src="/2018/09/05/Python-语言学习（下）/图2.PNG" alt="正则表达式概念"><br><img src="/2018/09/05/Python-语言学习（下）/图3.PNG" alt="正则表达式示例"></li>
 </ol>
 <h1 id="二-列表与元组"><a href="#二-列表与元组" class="headerlink" title="二 列表与元组"></a>二 列表与元组</h1><h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1 列表"></a>1 列表</h2><ol>
 <li><p><code>lst = [5.2,&quot;hello&quot;,2]</code> ,列表也支持索引操作，与字符串索引相同。</p>
 </li>
-<li><p>列表与字符串相同与不同：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图4.PNG" alt="列表与字符串相同与不同"></p>
+<li><p>列表与字符串相同与不同：<br><img src="/2018/09/05/Python-语言学习（下）/图4.PNG" alt="列表与字符串相同与不同"></p>
 </li>
-<li><p>有关列表的方法：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图5.PNG" alt="有关列表的方法"></p>
+<li><p>有关列表的方法：<br><img src="/2018/09/05/Python-语言学习（下）/图5.PNG" alt="有关列表的方法"></p>
 </li>
 <li><p>列表赋值：</p>
 </li>
 </ol>
 <ul>
-<li><p>将一个被赋值的列表，赋给其他值，并不会生成一个新的，而是指向原来的。改成 <code>b = a[:]</code> 则可以重新开辟空间给变量 b。<br><img src="/blog/2018/09/05/Python-语言学习（下）/图6.PNG" alt="列表赋值"></p>
+<li><p>将一个被赋值的列表，赋给其他值，并不会生成一个新的，而是指向原来的。改成 <code>b = a[:]</code> 则可以重新开辟空间给变量 b。<br><img src="/2018/09/05/Python-语言学习（下）/图6.PNG" alt="列表赋值"></p>
 </li>
 <li><p>补充：赋值，浅拷贝，深拷贝。<a href="https://www.cnblogs.com/LetMe/p/6724555.html" target="_blank" rel="noopener">参考博文</a><br>赋值：变量初始化。<br>浅拷贝：不管是多么复杂的数据结构，浅拷贝只会拷贝第一层。<br>深拷贝：完全复制原变量的所有数据，在内存中生成一套完全一样的内容，我们对这两个变量中的一个进行任意修改都不会影响另一个变量。</p>
 </li>
@@ -278,22 +278,22 @@
 </li>
 <li><p>排序：<code>sorted() 函数</code> ，从小到大排序，不会改变原列表。<code>lst.sort() 方法</code> ，会改变原列表值。</p>
 </li>
-<li><p>嵌套列表：<code>x = [[2,3,4],[67,5,44]]</code> ，相当于二维数组。<br>例：这里的行直接用一个对象遍历了，只考虑列是哪个。<br><img src="/blog/2018/09/05/Python-语言学习（下）/图7.PNG" alt="嵌套列表"></p>
+<li><p>嵌套列表：<code>x = [[2,3,4],[67,5,44]]</code> ，相当于二维数组。<br>例：这里的行直接用一个对象遍历了，只考虑列是哪个。<br><img src="/2018/09/05/Python-语言学习（下）/图7.PNG" alt="嵌套列表"></p>
 </li>
-<li><p>列表解析或推倒：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图8.PNG" alt="列表解析或推倒"></p>
+<li><p>列表解析或推倒：<br><img src="/2018/09/05/Python-语言学习（下）/图8.PNG" alt="列表解析或推倒"></p>
 </li>
 <li><p>对列表排序：<br>使用 <code>sort(key,reverse) 函数</code> </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">对列表中学生成绩排序（由姓名和成绩组成）：</span><br><span class="line">def f(a)</span><br><span class="line">	return a[1]</span><br><span class="line"></span><br><span class="line">students.sort(key = f,reverse = True) #sort() 函数的两个格参数。</span><br><span class="line"></span><br><span class="line">print(students)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="2-元组"><a href="#2-元组" class="headerlink" title="2 元组"></a>2 元组</h2><ol>
-<li><p>概念：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图9.PNG" alt="元组概念"></p>
+<li><p>概念：<br><img src="/2018/09/05/Python-语言学习（下）/图9.PNG" alt="元组概念"></p>
 </li>
-<li><p>元组赋值：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图10.PNG" alt="元组赋值"></p>
+<li><p>元组赋值：<br><img src="/2018/09/05/Python-语言学习（下）/图10.PNG" alt="元组赋值"></p>
 </li>
-<li><p>函数与元组：返回的 <code>return max,min</code> 为元组。<br><img src="/blog/2018/09/05/Python-语言学习（下）/图11.PNG" alt="函数与元组"></p>
+<li><p>函数与元组：返回的 <code>return max,min</code> 为元组。<br><img src="/2018/09/05/Python-语言学习（下）/图11.PNG" alt="函数与元组"></p>
 </li>
-<li><p>DSU 模式：<br>装饰，排序，反装饰。<br>例：长单词排前面。<br>生成一个新的列表赋值（添加长度信息）；排序中间转换；生成新列表赋值（忽略长度信息）。<br><img src="/blog/2018/09/05/Python-语言学习（下）/图12.PNG" alt="DSU 模式"><br><img src="/blog/2018/09/05/Python-语言学习（下）/图13.PNG" alt="直接而用 lambda 函数"></p>
+<li><p>DSU 模式：<br>装饰，排序，反装饰。<br>例：长单词排前面。<br>生成一个新的列表赋值（添加长度信息）；排序中间转换；生成新列表赋值（忽略长度信息）。<br><img src="/2018/09/05/Python-语言学习（下）/图12.PNG" alt="DSU 模式"><br><img src="/2018/09/05/Python-语言学习（下）/图13.PNG" alt="直接而用 lambda 函数"></p>
 </li>
 <li><p>lambda 匿名函数：<a href="https://www.cnblogs.com/hf8051/p/8085424.html" target="_blank" rel="noopener">参考博文</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add = lambda x, y : x+y</span><br><span class="line">add(1,2)  #结果为3</span><br></pre></td></tr></table></figure>
@@ -302,9 +302,9 @@
 <h1 id="三-字典与集合"><a href="#三-字典与集合" class="headerlink" title="三 字典与集合"></a>三 字典与集合</h1><h2 id="1-字典"><a href="#1-字典" class="headerlink" title="1 字典"></a>1 字典</h2><ol>
 <li><p>概念：由键和值组成。</p>
 </li>
-<li><p>创建访问字典：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图14.PNG" alt="创建字典"></p>
+<li><p>创建访问字典：<br><img src="/2018/09/05/Python-语言学习（下）/图14.PNG" alt="创建字典"></p>
 </li>
-<li><p>字典运算符和方法：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图15.PNG" alt="字典运算符和方法"></p>
+<li><p>字典运算符和方法：<br><img src="/2018/09/05/Python-语言学习（下）/图15.PNG" alt="字典运算符和方法"></p>
 </li>
 <li><p>例.用字典统计一个字符串中字符出现次数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s = &quot;bjhebvjwbvevbek&quot;</span><br><span class="line"></span><br><span class="line">d = &#123;&#125; #生成一个空字典</span><br><span class="line"></span><br><span class="line">for i in s: #遍历字符串</span><br><span class="line">	if i in d: #判断字符是否在字典中</span><br><span class="line">		d[i] = d[i] + 1 #在字典中，则通过索引对值加一</span><br><span class="line">	else</span><br><span class="line">		d[i] = 1 #不在字典中，则创建索引并赋值为一</span><br><span class="line"></span><br><span class="line">print(d)</span><br></pre></td></tr></table></figure>
@@ -314,7 +314,7 @@
 </li>
 </ol>
 <h2 id="2-集合"><a href="#2-集合" class="headerlink" title="2 集合"></a>2 集合</h2><ol>
-<li>概念，创建添加与删除，集合运算符：<br><img src="/blog/2018/09/05/Python-语言学习（下）/图16.PNG" alt="概念，创建添加与删除，集合运算符"></li>
+<li>概念，创建添加与删除，集合运算符：<br><img src="/2018/09/05/Python-语言学习（下）/图16.PNG" alt="概念，创建添加与删除，集合运算符"></li>
 </ol>
 <h1 id="四-有关文件的操作"><a href="#四-有关文件的操作" class="headerlink" title="四 有关文件的操作"></a>四 有关文件的操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">打开文件：</span><br><span class="line">f = open(filename,mode) # r 为读，w 为写</span><br><span class="line"></span><br><span class="line">按行读取内容：</span><br><span class="line">for line in f:</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">关闭文件：</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">写文件：</span><br><span class="line">f.write(str)</span><br></pre></td></tr></table></figure>
                 <hr>
@@ -323,13 +323,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/09/08/Python-语言学习-强化（上）/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/09/08/Python-语言学习-强化（上）/" data-toggle="tooltip" data-placement="top"
                            title="Python 语言学习 强化（上）">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/09/05/《数据库系统概论》笔记五：MySQL 概述、补充、数据定义及操纵/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/09/05/《数据库系统概论》笔记五：MySQL 概述、补充、数据定义及操纵/" data-toggle="tooltip" data-placement="top"
                            title="《数据库系统概论》笔记五：MySQL 概述、补充、数据定义及操纵">Next Post &rarr;</a>
                     </li>
                     
@@ -367,11 +367,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#Python"
+                        <a class="tag" href="/tags/#Python"
                            title="Python">Python</a>
                         
                     </div>
@@ -454,13 +454,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -478,7 +478,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

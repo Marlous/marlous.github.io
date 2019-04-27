@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2019/03/06/Eclipse-CDT-使用笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2019/03/06/Eclipse-CDT-使用笔记/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#Editor/IDE"
+                        <a class="tag" href="/tags/#Editor/IDE"
                            title="Editor/IDE">Editor/IDE</a>
                         
                     </div>
@@ -210,10 +210,10 @@
 <li>Eclipse 需要 Java 的运行环境，Eclipse CDT 是用来写 C 的，所以还需要 C 语言的编译器。</li>
 <li>安装 Java 开发环境包（JDK）、编译器 MinGW（将 GCC 编译器和 GNU Binutils 移植到 Win32 平台下的产物，包括一系列头文件 Win32 API、库和可执行文件，<a href="https://jingyan.baidu.com/article/656db918c1d832e381249c3e.html" target="_blank" rel="noopener">安装教程</a>）。</li>
 </ul>
-<h1 id="二-简介"><a href="#二-简介" class="headerlink" title="二 简介"></a>二 简介</h1><p><img src="/blog/2019/03/06/Eclipse-CDT-使用笔记/图1.PNG" alt="简介"></p>
+<h1 id="二-简介"><a href="#二-简介" class="headerlink" title="二 简介"></a>二 简介</h1><p><img src="/2019/03/06/Eclipse-CDT-使用笔记/图1.PNG" alt="简介"></p>
 <ul>
 <li>简介：<br>按顺序：菜单栏、工具栏、侧边栏（显示当前目录文件调试文件等）、代码编辑区、调试信息信息显示、状态栏。</li>
-<li><p>创建一个工程项目，菜单栏 File 中，会显示装好的 MinGW。<br><img src="/blog/2019/03/06/Eclipse-CDT-使用笔记/图2.PNG" alt="创建一个工程项目"></p>
+<li><p>创建一个工程项目，菜单栏 File 中，会显示装好的 MinGW。<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图2.PNG" alt="创建一个工程项目"></p>
 </li>
 <li><p>右键工程名，Build Configurations -&gt; Build All，会多出三个文件夹（ a）Binaries：存放所有编译后的二进制文件，这里主要是用于 Debug，Release 的二进制文件，而且 Binaries 目录只能在 Eclipse 中才能看到，从电脑磁盘上面是直接看不到的。/ b）Debug：里面包含两个文件（.exe与.o）。这里 .exe 文件是可以直接执行的文件，因为在 Debug 目录里面，表明它只用于 debug；而 .o 文件则是一个 object 文件，即目标文件，编译器产生的，对源代码的 “直译”，未经过连接等操作的目标代码。注意：代码编译后生成目标文件（即 . o文件），目标文件经过连接后才能变成.exe文件。/ c）Release：也包含两个文件（.exe与.o）。这里 .exe 文件是可以直接执行的文件，因为在 Release 目录里面，表明它只用于发布运行；.o文件则也是一个 object 文件，原理同 Debug 里面的 .o 文件。）</p>
 </li>
@@ -229,9 +229,9 @@
 </li>
 <li><p>断点调试方法：<br>参考博文：<a href="https://blog.csdn.net/beijiwei/article/details/51671433" target="_blank" rel="noopener">Eclipse C/CPP 调试教程</a></p>
 </li>
-<li><p>调试信息变量值查看：<br>查看变量的值、汇编代码。<br><img src="/blog/2019/03/06/Eclipse-CDT-使用笔记/图3.PNG" alt="调试信息变量值查看"><br>如下图。修改代码，可以看到，变量信息的十六进制数字并不是内存地址，是具体存的值。<br><img src="/blog/2019/03/06/Eclipse-CDT-使用笔记/图4.PNG" alt="调试信息变量值查看"></p>
+<li><p>调试信息变量值查看：<br>查看变量的值、汇编代码。<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图3.PNG" alt="调试信息变量值查看"><br>如下图。修改代码，可以看到，变量信息的十六进制数字并不是内存地址，是具体存的值。<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图4.PNG" alt="调试信息变量值查看"></p>
 </li>
-<li><p>调试查看变量内存地址：<br><img src="/blog/2019/03/06/Eclipse-CDT-使用笔记/图5.PNG" alt="调试查看变量内存地址"></p>
+<li><p>调试查看变量内存地址：<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图5.PNG" alt="调试查看变量内存地址"></p>
 </li>
 <li><p>直接使用 gdb 命令调试：<br>参见 <a href="https://bbs.csdn.net/topics/310174860" target="_blank" rel="noopener">eclipse CDT中如何手动输入gdb命令</a>。</p>
 </li>
@@ -261,7 +261,7 @@
 </ul>
 <h1 id="四-构建方法小结"><a href="#四-构建方法小结" class="headerlink" title="四 构建方法小结"></a>四 构建方法小结</h1><ul>
 <li>选中项目，右击。</li>
-<li>Set Active 来选择当前是构建 Debug 版本，还是 Release 版本。<br><img src="/blog/2019/03/06/Eclipse-CDT-使用笔记/图6.PNG" alt="构建小结"></li>
+<li>Set Active 来选择当前是构建 Debug 版本，还是 Release 版本。<br><img src="/2019/03/06/Eclipse-CDT-使用笔记/图6.PNG" alt="构建小结"></li>
 </ul>
 
                 <hr>
@@ -270,13 +270,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2019/03/06/前端开发（过程方法与工具总结）/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/03/06/前端开发（过程方法与工具总结）/" data-toggle="tooltip" data-placement="top"
                            title="前端开发（流程方法总结）">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2019/03/06/编程语言规范-Style-Guide-汇总（持续更新）/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/03/06/编程语言规范-Style-Guide-汇总（持续更新）/" data-toggle="tooltip" data-placement="top"
                            title="编程语言规范 Style Guide 汇总（持续更新）">Next Post &rarr;</a>
                     </li>
                     
@@ -314,11 +314,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#Editor/IDE"
+                        <a class="tag" href="/tags/#Editor/IDE"
                            title="Editor/IDE">Editor/IDE</a>
                         
                     </div>
@@ -401,13 +401,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -425,7 +425,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

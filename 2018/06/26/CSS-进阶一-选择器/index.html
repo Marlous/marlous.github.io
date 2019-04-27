@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/06/26/CSS-进阶一-选择器/">
+    <link rel="canonical" href="https://marlous.github.io/2018/06/26/CSS-进阶一-选择器/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#CSS"
+                        <a class="tag" href="/tags/#CSS"
                            title="CSS">CSS</a>
                         
                     </div>
@@ -205,7 +205,7 @@
                 <h1 id="一-简介"><a href="#一-简介" class="headerlink" title="一 简介"></a>一 简介</h1><ol>
 <li><p>CSS 全称为层叠样式表。用来呈现页面的表现。</p>
 </li>
-<li><p>CSS 发展史：<br><img src="/blog/2018/06/26/CSS-进阶一-选择器/图1.PNG" alt="CSS 发展史"></p>
+<li><p>CSS 发展史：<br><img src="/2018/06/26/CSS-进阶一-选择器/图1.PNG" alt="CSS 发展史"></p>
 </li>
 <li><p>添加 CSS 的三种方式:</p>
 </li>
@@ -225,9 +225,9 @@
 <li><p>语法：<br>由选择器，属性声明构成。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;</span><br><span class="line">	属性:值;</span><br><span class="line">	属性2:值2;</span><br><span class="line">	... /* 属性声明 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>浏览器私有属性：<br><img src="/blog/2018/06/26/CSS-进阶一-选择器/图2.PNG" alt="浏览器私有属性"> </p>
+<li><p>浏览器私有属性：<br><img src="/2018/06/26/CSS-进阶一-选择器/图2.PNG" alt="浏览器私有属性"> </p>
 </li>
-<li><p>@ 规则：<br><img src="/blog/2018/06/26/CSS-进阶一-选择器/图3.PNG" alt="规则"><br>@media 用来做响应式布局。<br>@keyframes 用来描述一些 CSS 动画的中间步骤。<br>@font-face 用来引入外部字体。</p>
+<li><p>@ 规则：<br><img src="/2018/06/26/CSS-进阶一-选择器/图3.PNG" alt="规则"><br>@media 用来做响应式布局。<br>@keyframes 用来描述一些 CSS 动画的中间步骤。<br>@font-face 用来引入外部字体。</p>
 </li>
 </ol>
 <h1 id="二-选择器"><a href="#二-选择器" class="headerlink" title="二 选择器"></a>二 选择器</h1><h2 id="1-简单选择器"><a href="#1-简单选择器" class="headerlink" title="1 简单选择器"></a>1 简单选择器</h2><p>选择器：通过选择器表达式来选中一系列元素。<br>可以将各种选择器进行组合。<code>img[src$=jpg]{属性声明;}</code></p>
@@ -297,7 +297,7 @@
 <li><p>继承</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">body&#123;font-family:&quot;Microsoft Yahei&quot;;&#125;  </span><br><span class="line">/* 可以使所有子元素都应用雅黑字体，一些属性可以自动继承。 */</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>优先与层叠<br><img src="/blog/2018/06/26/CSS-进阶一-选择器/图4.PNG" alt="优先"></p>
+<li><p>优先与层叠<br><img src="/2018/06/26/CSS-进阶一-选择器/图4.PNG" alt="优先"></p>
 </li>
 </ol>
 <ul>
@@ -313,13 +313,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/06/28/CSS-进阶二-文本/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/06/28/CSS-进阶二-文本/" data-toggle="tooltip" data-placement="top"
                            title="CSS 进阶二 文本">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/06/25/HTML-进阶/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/06/25/HTML-进阶/" data-toggle="tooltip" data-placement="top"
                            title="HTML 进阶">Next Post &rarr;</a>
                     </li>
                     
@@ -357,11 +357,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#CSS"
+                        <a class="tag" href="/tags/#CSS"
                            title="CSS">CSS</a>
                         
                     </div>
@@ -444,13 +444,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -468,7 +468,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

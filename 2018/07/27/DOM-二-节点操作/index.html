@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/07/27/DOM-二-节点操作/">
+    <link rel="canonical" href="https://marlous.github.io/2018/07/27/DOM-二-节点操作/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#前端"
+                        <a class="tag" href="/tags/#前端"
                            title="前端">前端</a>
                         
                     </div>
@@ -214,7 +214,7 @@
 <li>getElementByClassName</li>
 <li>querySelector/All</li>
 </ul>
-<h2 id="2-各接口使用"><a href="#2-各接口使用" class="headerlink" title="2 各接口使用"></a>2 各接口使用</h2><p><img src="/blog/2018/07/27/DOM-二-节点操作/图1.PNG" alt="示例"></p>
+<h2 id="2-各接口使用"><a href="#2-各接口使用" class="headerlink" title="2 各接口使用"></a>2 各接口使用</h2><p><img src="/2018/07/27/DOM-二-节点操作/图1.PNG" alt="示例"></p>
 <ol>
 <li><p>getElementById：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element=document.getElementById(id)</span><br></pre></td></tr></table></figure>
@@ -229,29 +229,29 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var users=document.querySelector(&quot;#users&quot;)  //选择第一个 id 为 users 的节点。</span><br><span class="line">users.querySelectorAll(&quot;.user&quot;)  //选择所有类名为 user 的节点。</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="3-IE-兼容"><a href="#3-IE-兼容" class="headerlink" title="3 IE 兼容"></a>3 IE 兼容</h2><p><img src="/blog/2018/07/27/DOM-二-节点操作/图2.PNG" alt="IE 兼容"></p>
-<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4 小结"></a>4 小结</h2><p><img src="/blog/2018/07/27/DOM-二-节点操作/图3.PNG" alt="小结"></p>
-<h1 id="二-创建节点"><a href="#二-创建节点" class="headerlink" title="二 创建节点"></a>二 创建节点</h1><p>示例：<br><img src="/blog/2018/07/27/DOM-二-节点操作/图4.PNG" alt="创建节点示例"></p>
+<h2 id="3-IE-兼容"><a href="#3-IE-兼容" class="headerlink" title="3 IE 兼容"></a>3 IE 兼容</h2><p><img src="/2018/07/27/DOM-二-节点操作/图2.PNG" alt="IE 兼容"></p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4 小结"></a>4 小结</h2><p><img src="/2018/07/27/DOM-二-节点操作/图3.PNG" alt="小结"></p>
+<h1 id="二-创建节点"><a href="#二-创建节点" class="headerlink" title="二 创建节点"></a>二 创建节点</h1><p>示例：<br><img src="/2018/07/27/DOM-二-节点操作/图4.PNG" alt="创建节点示例"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element=document.createElement(tagName)</span><br><span class="line"></span><br><span class="line">var li=document.creatElement(&quot;li&quot;)</span><br></pre></td></tr></table></figure>
 <h1 id="三-修改节点"><a href="#三-修改节点" class="headerlink" title="三 修改节点"></a>三 修改节点</h1><p>element.textContent 节点及其后代节点的文本内容。<br>element.innerText 节点及其后代节点的文本内容,不规范，ff 不支持。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a=document.createElement(&quot;a&quot;);</span><br><span class="line">a.innerText=&quot;Xiaoming&quot;;</span><br></pre></td></tr></table></figure></p>
 <h1 id="四-插入节点"><a href="#四-插入节点" class="headerlink" title="四 插入节点"></a>四 插入节点</h1><ol>
 <li>appendChild:<br>追加一个节点。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var achild=element.appendChild(achild);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="/blog/2018/07/27/DOM-二-节点操作/图5.PNG" alt="追加一个节点"></p>
+<p><img src="/2018/07/27/DOM-二-节点操作/图5.PNG" alt="追加一个节点"></p>
 <ol start="2">
 <li><p>insertBefore:<br>在指定节点(referenceChild)前插入一个节点(achild)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var achild=element.insertBefore(achild,referenceChild);</span><br><span class="line"></span><br><span class="line">ul.insertBefore(li,ul.firstChild);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>创建，修改，插入，设置属性：<br><img src="/blog/2018/07/27/DOM-二-节点操作/图6.PNG" alt="创建，修改，插入，设置属性"></p>
+<li><p>创建，修改，插入，设置属性：<br><img src="/2018/07/27/DOM-二-节点操作/图6.PNG" alt="创建，修改，插入，设置属性"></p>
 </li>
 </ol>
 <h1 id="五-删除节点"><a href="#五-删除节点" class="headerlink" title="五 删除节点"></a>五 删除节点</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">child=element.removeChild(child)</span><br><span class="line"></span><br><span class="line">var user2=users.getElementByClassName(&apos;user&apos;)[1];  //先获取准备删除的节点。</span><br><span class="line">user2.parentNode.removeChild(user2);  //删除获取到的节点。</span><br></pre></td></tr></table></figure>
 <h1 id="六-innerHTML"><a href="#六-innerHTML" class="headerlink" title="六 innerHTML"></a>六 innerHTML</h1><p>修改某节点的 HTML。可以直接创建插入节点，批量删除节点。</p>
 <ol>
-<li><p>示例：<br>先追加一个空 li 节点，后向里加内容。<br><img src="/blog/2018/07/27/DOM-二-节点操作/图7.PNG" alt="修改某节点的 HTML"></p>
+<li><p>示例：<br>先追加一个空 li 节点，后向里加内容。<br><img src="/2018/07/27/DOM-二-节点操作/图7.PNG" alt="修改某节点的 HTML"></p>
 </li>
-<li><p>问题：<br><img src="/blog/2018/07/27/DOM-二-节点操作/图8.PNG" alt="问题"><br>直接插入整个 HTML 代码会刷新页面，可能导致之前的效果失效。<br>也可能导致内存泄漏，安全问题。</p>
+<li><p>问题：<br><img src="/2018/07/27/DOM-二-节点操作/图8.PNG" alt="问题"><br>直接插入整个 HTML 代码会刷新页面，可能导致之前的效果失效。<br>也可能导致内存泄漏，安全问题。</p>
 </li>
 </ol>
 
@@ -261,13 +261,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/08/01/C-语言练习程序小结-一/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/08/01/C-语言练习程序小结-一/" data-toggle="tooltip" data-placement="top"
                            title="C 语言练习程序小结 一">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/07/22/DOM-一-文档树/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/07/22/DOM-一-文档树/" data-toggle="tooltip" data-placement="top"
                            title="DOM 一 文档树">Next Post &rarr;</a>
                     </li>
                     
@@ -305,11 +305,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#前端"
+                        <a class="tag" href="/tags/#前端"
                            title="前端">前端</a>
                         
                     </div>
@@ -392,13 +392,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -416,7 +416,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

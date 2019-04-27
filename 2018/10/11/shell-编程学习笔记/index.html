@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/10/11/shell-编程学习笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2018/10/11/shell-编程学习笔记/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#Unix/Linux"
+                        <a class="tag" href="/tags/#Unix/Linux"
                            title="Unix/Linux">Unix/Linux</a>
                         
                     </div>
@@ -214,7 +214,7 @@
 </ol>
 <p>补充：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看语系：</span><br><span class="line">locale</span><br><span class="line">-a 查看支持的语系</span><br><span class="line"></span><br><span class="line">设置主语系变量：</span><br><span class="line">LANG</span><br><span class="line"></span><br><span class="line">第三方插件支持中文：如 zhcon</span><br></pre></td></tr></table></figure></p>
 <ol start="2">
-<li>变量声明（可进行数值运算的类型）：<br><code>declare [+|-] 选项 变量名</code><br><img src="/blog/2018/10/11/shell-编程学习笔记/图0.PNG" alt="变量声明"></li>
+<li>变量声明（可进行数值运算的类型）：<br><code>declare [+|-] 选项 变量名</code><br><img src="/2018/10/11/shell-编程学习笔记/图0.PNG" alt="变量声明"></li>
 </ol>
 <p>export 声明变量（加在变量前），可以让别的程序或脚本调用。等于<code>declare -x</code>。</p>
 <ol start="3">
@@ -362,15 +362,15 @@
 <li><p>通配符：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*   星号代表任意多个或零个字符</span><br><span class="line">？  问号代表任意一个字符</span><br><span class="line">[]  匹配括号中的一个字符</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>基础正则表达式（非扩展）：<br><img src="/blog/2018/10/11/shell-编程学习笔记/图1.PNG" alt="基础正则表达式"></p>
+<li><p>基础正则表达式（非扩展）：<br><img src="/2018/10/11/shell-编程学习笔记/图1.PNG" alt="基础正则表达式"></p>
 </li>
 </ul>
 <ol start="2">
 <li>字符截取命令：cut、printf、awk、sed<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 行提取命令 cut</span><br><span class="line">cut 选项 文件名</span><br><span class="line">-f 列号     # 提取第几列</span><br><span class="line">-d 分隔符   # 按指定分隔符分割列</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line">cut -d &quot;:&quot; -f 1,3 /etc/passwd</span><br><span class="line"></span><br><span class="line">----------------------------</span><br><span class="line"># 列提取命令 grep</span><br><span class="line"></span><br><span class="line">----------------------------</span><br><span class="line"># 格式化输出命令 printf</span><br><span class="line">printf &apos;输出类型输出格式&apos; 输出内容</span><br><span class="line">%ns    # 输出字符串。n 是数字指代输出几个字符。</span><br><span class="line">%ni    # 输出整数。n 是数字指代输出几个数字。</span><br><span class="line">%m.nf  # 输出的整数位和小数位。</span><br><span class="line"></span><br><span class="line">----------------------------</span><br><span class="line"># awk</span><br><span class="line">见图。</span><br><span class="line"></span><br><span class="line">----------------------------</span><br><span class="line"># 字符选取、替换、删除、增加命令 sed</span><br><span class="line">见图。</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>awk 命令：<br><img src="/blog/2018/10/11/shell-编程学习笔记/图2.PNG" alt="awk 命令"></p>
-<p>sed 命令：<br><img src="/blog/2018/10/11/shell-编程学习笔记/图3.PNG" alt="sed 命令"><br><img src="/blog/2018/10/11/shell-编程学习笔记/图4.PNG" alt="sed 命令"></p>
+<p>awk 命令：<br><img src="/2018/10/11/shell-编程学习笔记/图2.PNG" alt="awk 命令"></p>
+<p>sed 命令：<br><img src="/2018/10/11/shell-编程学习笔记/图3.PNG" alt="sed 命令"><br><img src="/2018/10/11/shell-编程学习笔记/图4.PNG" alt="sed 命令"></p>
 <ol start="3">
 <li>字符处理命令：<br>sort、wc 命令。</li>
 </ol>
@@ -382,13 +382,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/10/13/Windows-批处理实例-发布测试博客与备份博文/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/10/13/Windows-批处理实例-发布测试博客与备份博文/" data-toggle="tooltip" data-placement="top"
                            title="Windows 批处理实例 发布测试博客与备份博文">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/10/08/软件工程-C-实践一-环境搭建/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/10/08/软件工程-C-实践一-环境搭建/" data-toggle="tooltip" data-placement="top"
                            title="软件工程 C 实践一 环境搭建">Next Post &rarr;</a>
                     </li>
                     
@@ -426,11 +426,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#Unix/Linux"
+                        <a class="tag" href="/tags/#Unix/Linux"
                            title="Unix/Linux">Unix/Linux</a>
                         
                     </div>
@@ -513,13 +513,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -537,7 +537,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

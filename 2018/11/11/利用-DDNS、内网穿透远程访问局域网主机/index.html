@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/">
+    <link rel="canonical" href="https://marlous.github.io/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#计算机网络"
+                        <a class="tag" href="/tags/#计算机网络"
                            title="计算机网络">计算机网络</a>
                         
                     </div>
@@ -237,9 +237,9 @@
 </ul>
 <h1 id="二-DDNS-实践"><a href="#二-DDNS-实践" class="headerlink" title="二 DDNS 实践"></a>二 DDNS 实践</h1><p>分配到的是公网 IP，可以正常使用 DDNS。</p>
 <ul>
-<li><p>远程访问局域网路由器登陆界面：<br>登陆进路由器，找到 DDNS 设置，华硕提供了 DDNS 服务，打开开关后，起个主机名称即注册成功。也可以使用如花生壳等其它服务将注册的域名填写好即可。在 系统管理 -&gt; 系统设置 -&gt; 设置端口，如图，即可通过访问 <code>注册的 DDNS 服务域名:1234</code> 形式在外网访问路由器 Web 登陆界面。<br><img src="/blog/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图1.PNG" alt="远程访问局域网路由器登陆界面 设置端口"></p>
+<li><p>远程访问局域网路由器登陆界面：<br>登陆进路由器，找到 DDNS 设置，华硕提供了 DDNS 服务，打开开关后，起个主机名称即注册成功。也可以使用如花生壳等其它服务将注册的域名填写好即可。在 系统管理 -&gt; 系统设置 -&gt; 设置端口，如图，即可通过访问 <code>注册的 DDNS 服务域名:1234</code> 形式在外网访问路由器 Web 登陆界面。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图1.PNG" alt="远程访问局域网路由器登陆界面 设置端口"></p>
 </li>
-<li><p>远程访问局域网内其它主机：<br>以访问 NAS 为例，在 NAS 上设置好被访问的端口号；然后在路由器中设置，外部网络 -&gt; 端口转发。如图，填入 NAS 的局域网 IP 和端口号。即可通过访问 <code>注册的 DDNS 服务域名:端口号</code> 形式在外网访问 NAS。也可以直接在 NAS 中对端口转发设置，<a href="https://jingyan.baidu.com/article/84b4f565af615e60f6da32c9.html" target="_blank" rel="noopener">参考教程</a>。<br><img src="/blog/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图2.PNG" alt="远程访问局域网内其它主机 设置端口"></p>
+<li><p>远程访问局域网内其它主机：<br>以访问 NAS 为例，在 NAS 上设置好被访问的端口号；然后在路由器中设置，外部网络 -&gt; 端口转发。如图，填入 NAS 的局域网 IP 和端口号。即可通过访问 <code>注册的 DDNS 服务域名:端口号</code> 形式在外网访问 NAS。也可以直接在 NAS 中对端口转发设置，<a href="https://jingyan.baidu.com/article/84b4f565af615e60f6da32c9.html" target="_blank" rel="noopener">参考教程</a>。<br><img src="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/图2.PNG" alt="远程访问局域网内其它主机 设置端口"></p>
 </li>
 </ul>
 
@@ -249,13 +249,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2018/11/14/Python 语言学习路径、知识点/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/11/14/Python 语言学习路径、知识点/" data-toggle="tooltip" data-placement="top"
                            title="Python 语言学习路径、知识点">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2018/11/09/Python-语言学习补充提高总结/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2018/11/09/Python-语言学习补充提高总结/" data-toggle="tooltip" data-placement="top"
                            title="Python 语言学习补充提高总结">Next Post &rarr;</a>
                     </li>
                     
@@ -293,11 +293,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#计算机网络"
+                        <a class="tag" href="/tags/#计算机网络"
                            title="计算机网络">计算机网络</a>
                         
                     </div>
@@ -380,13 +380,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -404,7 +404,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

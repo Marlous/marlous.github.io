@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2019/02/02/使用-Doxygen-自动生成代码文档/">
+    <link rel="canonical" href="https://marlous.github.io/2019/02/02/使用-Doxygen-自动生成代码文档/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#Tools"
+                        <a class="tag" href="/tags/#Tools"
                            title="Tools">Tools</a>
                         
                     </div>
@@ -222,7 +222,7 @@
 <h1 id="二-使用实践"><a href="#二-使用实践" class="headerlink" title="二 使用实践"></a>二 使用实践</h1><ol>
 <li><p>下载安装 Doxygen、Graphviz（帮助 Doxygen 生成一些图表等，不需要直接使用它）。</p>
 </li>
-<li><p>设置 Graphviz 的环境变量。<br><img src="/blog/2019/02/02/使用-Doxygen-自动生成代码文档/图1.PNG" alt="设置 Graphviz 的环境变量"></p>
+<li><p>设置 Graphviz 的环境变量。<br><img src="/2019/02/02/使用-Doxygen-自动生成代码文档/图1.PNG" alt="设置 Graphviz 的环境变量"></p>
 </li>
 <li><p>在自己的项目代码里按照一定的规范写注释。<a href="https://www.cnblogs.com/rongpmcu/p/7662765.html#%E6%A0%87%E8%AE%B01" target="_blank" rel="noopener">规范写法参考</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">e.g.</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @brief Calculate the sum of two int.</span><br><span class="line"> * </span><br><span class="line"> * This function will return the sum of two int.</span><br><span class="line"> * </span><br><span class="line"> * @param a The first number.</span><br><span class="line"> * @param b The second number.</span><br><span class="line"> * @return int The sum of a and b.</span><br><span class="line"> */</span><br><span class="line">int add(a, b)</span><br><span class="line">&#123;</span><br><span class="line">	int sum;</span><br><span class="line">	int a,b;</span><br><span class="line">	sum = a + b;</span><br><span class="line">	return sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -231,15 +231,15 @@
 </li>
 </ol>
 <ul>
-<li><p>Doxygen 的工作目录是指用来存放配置文件的目录。/ 文档起个名字。/ 所要生成代码文档的代码目录。/ 生成的文档保存在何处。<br><img src="/blog/2019/02/02/使用-Doxygen-自动生成代码文档/图2.PNG" alt="使用 Doxygen GUI 来设置"></p>
+<li><p>Doxygen 的工作目录是指用来存放配置文件的目录。/ 文档起个名字。/ 所要生成代码文档的代码目录。/ 生成的文档保存在何处。<br><img src="/2019/02/02/使用-Doxygen-自动生成代码文档/图2.PNG" alt="使用 Doxygen GUI 来设置"></p>
 </li>
-<li><p>要哪些生成文档。/ 选择自己要生成文档的语言。<br><img src="/blog/2019/02/02/使用-Doxygen-自动生成代码文档/图3.PNG" alt="使用 Doxygen GUI 来设置"></p>
+<li><p>要哪些生成文档。/ 选择自己要生成文档的语言。<br><img src="/2019/02/02/使用-Doxygen-自动生成代码文档/图3.PNG" alt="使用 Doxygen GUI 来设置"></p>
 </li>
-<li><p>生成 HTML 的文档。/ 有数学公式的话勾选 LaTeX。<br><img src="/blog/2019/02/02/使用-Doxygen-自动生成代码文档/图4.PNG" alt="使用 Doxygen GUI 来设置"></p>
+<li><p>生成 HTML 的文档。/ 有数学公式的话勾选 LaTeX。<br><img src="/2019/02/02/使用-Doxygen-自动生成代码文档/图4.PNG" alt="使用 Doxygen GUI 来设置"></p>
 </li>
-<li><p>生成一些图表（类图等）。<br><img src="/blog/2019/02/02/使用-Doxygen-自动生成代码文档/图5.PNG" alt="使用 Doxygen GUI 来设置"></p>
+<li><p>生成一些图表（类图等）。<br><img src="/2019/02/02/使用-Doxygen-自动生成代码文档/图5.PNG" alt="使用 Doxygen GUI 来设置"></p>
 </li>
-<li><p>开始生成：<br><img src="/blog/2019/02/02/使用-Doxygen-自动生成代码文档/图6.PNG" alt="使开始生成"></p>
+<li><p>开始生成：<br><img src="/2019/02/02/使用-Doxygen-自动生成代码文档/图6.PNG" alt="使开始生成"></p>
 </li>
 <li><p>查看文档：在生成的目录中选择 index.html 来查看文档。</p>
 </li>
@@ -251,13 +251,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/02/11/微积分、线性代数（3Blue1Brown）拓展笔记/" data-toggle="tooltip" data-placement="top"
                            title="微积分、线性代数（3Blue1Brown）拓展笔记">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2019/01/29/微专业（网易云课堂）系列课程知识清单整理/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/01/29/微专业（网易云课堂）系列课程知识清单整理/" data-toggle="tooltip" data-placement="top"
                            title="微专业（网易云课堂）系列课程知识清单整理">Next Post &rarr;</a>
                     </li>
                     
@@ -295,11 +295,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#Tools"
+                        <a class="tag" href="/tags/#Tools"
                            title="Tools">Tools</a>
                         
                     </div>
@@ -382,13 +382,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -406,7 +406,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

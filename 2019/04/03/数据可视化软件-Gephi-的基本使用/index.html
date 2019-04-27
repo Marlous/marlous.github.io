@@ -22,16 +22,16 @@
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/blog/blog/2019/04/03/数据可视化软件-Gephi-的基本使用/">
+    <link rel="canonical" href="https://marlous.github.io/2019/04/03/数据可视化软件-Gephi-的基本使用/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/blog/css/blog-style.css">
+    <link rel="stylesheet" href="/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/blog/css/syntax.css">
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
 
 <style>
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/blog/">
+            <a class="navbar-brand animated pulse" href="/">
                 <span class="brand-logo">
                     Mo
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/blog/archives/">archives</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/blog/tags/">tags</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/blog/work/">works</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -110,7 +110,7 @@
 					
 					
 						<li>
-							<a href="/blog/blog/about">About</a>
+							<a href="/about">About</a>
 						</li>
 					
                 </ul>
@@ -181,7 +181,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/blog/tags/#Tools"
+                        <a class="tag" href="/tags/#Tools"
                            title="Tools">Tools</a>
                         
                     </div>
@@ -227,8 +227,8 @@
 <li>具体怎样使用可见教程（参考 7）。这里主要讲解下怎样收集数据、怎样将数据导入 Gephi，对数据格式有怎样的要求。</li>
 <li>补充：<a href="https://www.zhihu.com/question/21268129?sort=created" target="_blank" rel="noopener">gephi安装好了，为何打不开？</a>，找到 gephi 的安装路径，修改 etc 下的 gephi.conf 文件（记事本打开），将 jdkhome 的 # 号注释去掉，并设置 jre 的安装路径。如 <code>jdkhome=&quot;C:\Program Files (x86)\Java\jdk1.8.0_172&quot;</code>。</li>
 </ul>
-<h2 id="1-CSV-文件"><a href="#1-CSV-文件" class="headerlink" title="1 CSV 文件"></a>1 CSV 文件</h2><p>先新建项目。<br><img src="/blog/2019/04/03/数据可视化软件-Gephi-的基本使用/图1.PNG" alt="CSV 文件"></p>
-<h2 id="2-MySQL"><a href="#2-MySQL" class="headerlink" title="2 MySQL"></a>2 MySQL</h2><p><img src="/blog/2019/04/03/数据可视化软件-Gephi-的基本使用/图2.PNG" alt="MySQL"></p>
+<h2 id="1-CSV-文件"><a href="#1-CSV-文件" class="headerlink" title="1 CSV 文件"></a>1 CSV 文件</h2><p>先新建项目。<br><img src="/2019/04/03/数据可视化软件-Gephi-的基本使用/图1.PNG" alt="CSV 文件"></p>
+<h2 id="2-MySQL"><a href="#2-MySQL" class="headerlink" title="2 MySQL"></a>2 MySQL</h2><p><img src="/2019/04/03/数据可视化软件-Gephi-的基本使用/图2.PNG" alt="MySQL"></p>
 <ol>
 <li>收集数据时数据库设计：<br>以分析社交网络为例。分为两个表，一个表叫 Node，另一个叫 Edge。/ 然后写代码等方式收集数据写入数据库。</li>
 </ol>
@@ -251,7 +251,7 @@
 <li>Edge 表属性：Source、Target、Weight。分别为两个用户，表明两个用户间的关系。Weight 表示第几度人脉。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `weibo-friends-analysis`.`node` (</span><br><span class="line">  `id` VARCHAR(20) NOT NULL,</span><br><span class="line">  `label` VARCHAR(32) NOT NULL,</span><br><span class="line">  `gender` CHAR(1) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`id`));</span><br><span class="line"></span><br><span class="line">CREATE TABLE `weibo-friends-analysis`.`edge` (</span><br><span class="line">  `source` VARCHAR(20) NOT NULL,</span><br><span class="line">  `target` VARCHAR(20) NOT NULL,</span><br><span class="line">  `weight` INT(1) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`source`, `target`));</span><br></pre></td></tr></table></figure>
-<h1 id="四-示例"><a href="#四-示例" class="headerlink" title="四 示例"></a>四 示例</h1><p><img src="/blog/2019/04/03/数据可视化软件-Gephi-的基本使用/图3.PNG" alt="Gephi 的处理操作"></p>
+<h1 id="四-示例"><a href="#四-示例" class="headerlink" title="四 示例"></a>四 示例</h1><p><img src="/2019/04/03/数据可视化软件-Gephi-的基本使用/图3.PNG" alt="Gephi 的处理操作"></p>
 <ul>
 <li>导入是有中文，编码选 GB2312，导入第二个文件（edge.csv）时，记得选择添加到已存在的工作区。</li>
 <li>注意：边文件中的权值可以设置差异大些，这样在 Gephi 中可以容易看出自己（研究用户）的点</li>
@@ -273,13 +273,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/blog/2019/04/03/Python-软件项目文件结构组织/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/04/03/Python-软件项目文件结构组织/" data-toggle="tooltip" data-placement="top"
                            title="Python 软件项目文件结构组织">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/blog/2019/03/26/Python-全栈开发（流程方法总结）/" data-toggle="tooltip" data-placement="top"
+                        <a href="/2019/03/26/Python-全栈开发（流程方法总结）/" data-toggle="tooltip" data-placement="top"
                            title="Python 全栈开发（流程方法总结）">Next Post &rarr;</a>
                     </li>
                     
@@ -317,11 +317,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/blog/tags/">FEATURED TAGS</a>
+                        <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/blog/tags/#Tools"
+                        <a class="tag" href="/tags/#Tools"
                            title="Tools">Tools</a>
                         
                     </div>
@@ -404,13 +404,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/blog.js"></script>
+<script src="/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -428,7 +428,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://marlous.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("https://marlous.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
