@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Python 语言学习补充提高总结｜Mo&#39;s blog
+        我的一些精品学习资料收藏整理（持续更新）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2018/11/09/Python-语言学习补充提高总结/">
+    <link rel="canonical" href="https://marlous.github.io/2019/04/29/我的一些精品学习资料收藏整理（持续更新）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,18 +171,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Python 语言学习补充提高总结</h1>
+                    <h1>我的一些精品学习资料收藏整理（持续更新）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2018-11-09
+                          日期 2019-04-29
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Python"
-                           title="Python">Python</a>
+                        <a class="tag" href="/tags/#知识图谱与方法论"
+                           title="知识图谱与方法论">知识图谱与方法论</a>
                         
                     </div>
                 </div>
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Python 语言学习补充提高总结
+            我的一些精品学习资料收藏整理（持续更新）
         </span>
     </div>
 </header>
@@ -202,54 +202,57 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>参考：<a href="https://www.cnblogs.com/linhaifeng/p/7278389.html" target="_blank" rel="noopener">参考博文</a></p>
-</blockquote>
-<h1 id="一-数据类型"><a href="#一-数据类型" class="headerlink" title="一 数据类型"></a>一 数据类型</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1 数据类型"></a>1 数据类型</h2><ul>
-<li>数字</li>
-<li>字符串</li>
-<li>集合：无序，即无序存索引相关信息，不重复</li>
-<li>元组：有序，需要存索引相关信息，不可变</li>
-<li>列表：有序，需要存索引相关信息，可变，需要处理数据的增删改</li>
-<li>字典：无序，需要存 key 与 value 映射的相关信息，可变，需要处理数据的增删改</li>
-</ul>
-<h2 id="2-集合数据类型补充"><a href="#2-集合数据类型补充" class="headerlink" title="2 集合数据类型补充"></a>2 集合数据类型补充</h2><ol>
-<li><p>定义和元组相同，但用大括号 <code>{}</code>。如 <code>s = {&quot;a&quot;,&quot;b&quot;,&quot;c&quot;} 或 s = set(&quot;abc&quot;)</code>，set() 中的值可以是一个列表，即把列表中的值遍历放入集合中，集合可以用来去重。<br>集合是无值的字典，集合与元组区别在于：元组无序、不可变；集合无序、可变、不重复。</p>
+                <h1 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h1><ul>
+<li><p>Python：<br><a href="https://woaielf.github.io/2017/06/13/python3-all/" target="_blank" rel="noopener">Python 编程核心知识体系（ZOE’s MindMap）</a><br><a href="https://woaielf.github.io/2018/04/15/python2/" target="_blank" rel="noopener">7 幅思维导图：Python 编程（二）常用标准库（ZOE’s MindMap）</a><br><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰 Python 教程</a><br><a href="https://www.cnblogs.com/linhaifeng/p/7278389.html" target="_blank" rel="noopener">Python 开发之路</a></p>
 </li>
-<li><p>方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s.add(&quot;abc&quot;)  # 增加一项，作为整体添加</span><br><span class="line">s.update(&quot;abc&quot;)  # 增加多项，拆分为个体添加</span><br><span class="line">s.update([&quot;abc&quot;，&quot;hello&quot;, &quot;world&quot;])  # 增加多项</span><br><span class="line">s.pop()  # 随机删除</span><br><span class="line">s.remove(要删除的值)  # 指定删除，元素不存在会报错</span><br><span class="line">s.discrad(要删除的值) # 指定删除，元素不存在不报错</span><br><span class="line">s.issubset(XXX)  # 判断 s 是不是 XXX 的子集，返回 True，False</span><br><span class="line">s.issuperset(XXX)  # 判断 s 是不是 XXX 的父集</span><br><span class="line">s.isdisjoint(XXX)  # 判断是不是相交</span><br><span class="line">s = forzenset(&quot;hello&quot;)  # 将集合变为不可变的集合（元组）</span><br></pre></td></tr></table></figure>
+<li><p>Java：<br><a href="http://how2j.cn/" target="_blank" rel="noopener">how2j.cn 实践项目</a></p>
 </li>
-<li><p>集合关系运算：</p>
+</ul>
+<h1 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h1><ul>
+<li>数据结构 Python：<br><a href="http://ningning.today/python_data_structures_and_algorithms/" target="_blank" rel="noopener">Python 算法与数据结构视频教程</a></li>
+</ul>
+<h1 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h1><h2 id="Web-前端开发"><a href="#Web-前端开发" class="headerlink" title="Web 前端开发"></a>Web 前端开发</h2><ul>
+<li><p>前端开发入门：<br><a href="https://www.yuque.com/fe9/basic" target="_blank" rel="noopener">前端九部 - 入门者手册2019</a></p>
 </li>
-</ol>
-<ul>
-<li>求交集：<code>a_s &amp; b_s</code>，<code>a_s.intersection(b_s)</code>。</li>
-<li>求并集：<code>a_s | b_s</code>，<code>a_s.union(b_s)</code>。</li>
-<li>求差集：<code>a_s - b_s</code>，<code>a_s.difference(b_s)</code>。</li>
-<li>交叉补集（除去相同部分剩下的）：<code>a_s ^ b_s</code>，<code>a_s.symmetric_difference(b_s)</code>。</li>
+<li><p>HTML/CSS/Bootstrap/JavaScript/jQuery/Vue/Webpack：<br><a href="https://space.bilibili.com/44076852/video?tid=0&amp;page=1&amp;keyword=&amp;order=pubdate" target="_blank" rel="noopener">bilibili 表严肃</a></p>
+</li>
 </ul>
-<ol start="4">
-<li>补充：<br>对列表去重：names 为一个列表。<code>names = list(set(names))</code>。</li>
-</ol>
-<h1 id="二-文件操作"><a href="#二-文件操作" class="headerlink" title="二 文件操作"></a>二 文件操作</h1><ul>
-<li>全部读入内存，修改，保存替换掉原文件。</li>
-<li>利用循环一行行读入内存，修改，保存替换掉原文件。</li>
+<h2 id="Web-后端开发"><a href="#Web-后端开发" class="headerlink" title="Web 后端开发"></a>Web 后端开发</h2><ul>
+<li>Python Web：<br><a href="https://python-web-guide.readthedocs.io/zh/latest/index.html" target="_blank" rel="noopener">Python Web 入坑指南</a></li>
 </ul>
-<h1 id="三-函数"><a href="#三-函数" class="headerlink" title="三 函数"></a>三 函数</h1>
+<h2 id="开发杂项"><a href="#开发杂项" class="headerlink" title="开发杂项"></a>开发杂项</h2><ul>
+<li>Python 爬虫：<br><a href="https://woaielf.github.io/2018/04/28/scrappy/" target="_blank" rel="noopener">四幅思维导图学会 Python 爬虫：Requests，BeautifulSoup &amp; Scrapy（ZOE’s MindMap）</a></li>
+</ul>
+<h1 id="信息安全"><a href="#信息安全" class="headerlink" title="信息安全"></a>信息安全</h1><ul>
+<li><p>未分类：<br><a href="http://blog.knownsec.com/Knownsec_RD_Checklist/index.html" target="_blank" rel="noopener">知道创宇研发技能表v3.1</a></p>
+</li>
+<li><p>Web 安全：<br><a href="https://study.163.com/course/introduction.htm?courseId=1003521035#/courseDetail?tab=1" target="_blank" rel="noopener">Web 安全微专业（前置课程）</a><br><a href="https://mooc.study.163.com/smartSpec/detail/1001227001.htm?share=1&amp;shareId=9305777" target="_blank" rel="noopener">Web 安全微专业（基础）</a><br><a href="https://mooc.study.163.com/smartSpec/detail/1001386007.htm?share=1&amp;shareId=9305777" target="_blank" rel="noopener">Web 安全微专业（进阶）</a><br><a href="https://websec.readthedocs.io/zh/latest/" target="_blank" rel="noopener">Web安全学习笔记</a></p>
+</li>
+<li><p>CTF：<br><a href="https://ctf-wiki.github.io/ctf-wiki/" target="_blank" rel="noopener">CTF Wiki</a></p>
+</li>
+</ul>
+<h1 id="软件工具使用"><a href="#软件工具使用" class="headerlink" title="软件工具使用"></a>软件工具使用</h1><ul>
+<li><p>数据可视化软件 Gephi：<br><a href="https://www.bilibili.com/video/av36736176?from=search&amp;seid=2140421252302840747" target="_blank" rel="noopener">GEPHI中文教程</a></p>
+</li>
+<li><p>Tableau：<br><a href="https://www.bilibili.com/video/av22425587?from=search&amp;seid=16766703608260073206" target="_blank" rel="noopener">程序媛&amp;Tableau基础入门介绍</a></p>
+</li>
+</ul>
+<h1 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h1><ul>
+<li>完备学习路线：<br><a href="https://media.weibo.cn/article?id=2309404366002560347513&amp;jumpfrom=weibocom" target="_blank" rel="noopener">重磅 | 完备的 AI 学习路线，最详细的资源整理！</a></li>
+</ul>
+<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><ul>
+<li>数据可视化入门：<br><a href="https://www.yuque.com/mo-college/beginner-tutorial" target="_blank" rel="noopener">数据可视化入门教程（beta）</a></li>
+</ul>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2018/11/11/利用-DDNS、内网穿透远程访问局域网主机/" data-toggle="tooltip" data-placement="top"
-                           title="利用 DDNS、内网穿透远程访问局域网主机">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2018/11/06/UX-UI-一站式设计平台：Adobe-XD-使用笔记/" data-toggle="tooltip" data-placement="top"
-                           title="UX/UI 一站式设计平台：Adobe XD 使用笔记">Next Post &rarr;</a>
+                        <a href="/2019/04/29/Python-使用-pymysql-库操作-MySQL/" data-toggle="tooltip" data-placement="top"
+                           title="Python 使用 pymysql 库操作 MySQL">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -268,7 +271,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-数据类型"><span class="toc-text">一 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据类型"><span class="toc-text">1 数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-集合数据类型补充"><span class="toc-text">2 集合数据类型补充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-文件操作"><span class="toc-text">二 文件操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-函数"><span class="toc-text">三 函数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编程语言"><span class="toc-text">编程语言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法与数据结构"><span class="toc-text">算法与数据结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发"><span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-前端开发"><span class="toc-text">Web 前端开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-后端开发"><span class="toc-text">Web 后端开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发杂项"><span class="toc-text">开发杂项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息安全"><span class="toc-text">信息安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#软件工具使用"><span class="toc-text">软件工具使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#人工智能"><span class="toc-text">人工智能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#大数据"><span class="toc-text">大数据</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -290,8 +293,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Python"
-                           title="Python">Python</a>
+                        <a class="tag" href="/tags/#知识图谱与方法论"
+                           title="知识图谱与方法论">知识图谱与方法论</a>
                         
                     </div>
                 </section>
