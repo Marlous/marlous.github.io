@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -294,7 +294,7 @@
 <li>ListInsert(&amp;L, i, e)：按位置插入操作。</li>
 <li>ListDelete(&amp;L, i, &amp;e)：删除某位置操作。</li>
 <li>LocateElem(L, e)：按值查找。</li>
-<li>GetElem(L, i)：按位置查找。</li>
+<li>GetElem(L, i, &amp;e)：按位置查找。</li>
 <li>Length(L)：求表长，即元素个数。</li>
 <li>Empty(L)：判空操作。</li>
 <li>PrintList(L)：输出 L 操作。</li>
@@ -310,20 +310,7 @@
 <ol start="2">
 <li>顺序表的基本操作：<br><a href="https://github.com/Marlous/data-structures-for-C-language/blob/master/src/linear_list/modules/SqList_SeqList.c" target="_blank" rel="noopener">顺序表的基本操作 GitHub 代码</a></li>
 </ol>
-<ul>
-<li><p>InitList(&amp;L)：<br>申请内存初始化数组指针。/ 初始化容量。/ 初始化当前长度。</p>
-</li>
-<li><p>DestroyList(&amp;L)：<br>释放并置 NULL 指针。/ 重置容量。/ 重置长度。</p>
-</li>
-<li><p>ListInsert(&amp;L, i, e)：<br>判断顺序表实例存在。/ 判断插入位置合法。/ 判断容量是否满并扩容。/ 移动元素。/ 插入元素、表长加一。</p>
-</li>
-<li><p>ListDelete(&amp;L, i, &amp;e)：<br>判断顺序表实例存在。/ 判断删除位置合法。/ 删除元素（赋给一个变量，知道删除了啥）。/ 移动元素、表长减一。</p>
-</li>
-<li><p>LocateElem(L, e)：<br>判断顺序表实例存在。/ 遍历所有元素；与输入 e 相同则返回位置，不同则判断是否是最后一个，不是最后一个继续循环，是最后一个则返回 0（表示没找到）。</p>
-</li>
-<li><p>GetElem(L, i)：</p>
-</li>
-</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化一个空的线性表</span></span><br><span class="line"><span class="function">Status <span class="title">InitList</span><span class="params">(seq_list_s *L)</span></span>;</span><br><span class="line">申请内存初始化数组指针。/ 初始化容量。/ 初始化当前长度。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 销毁操作</span></span><br><span class="line"><span class="function">Status <span class="title">DestroyList</span><span class="params">(seq_list_s *L)</span></span>;</span><br><span class="line">释放并置 <span class="literal">NULL</span> 指针。/ 重置容量。/ 重置长度。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按位置插入操作</span></span><br><span class="line"><span class="function">Status <span class="title">ListInsert</span><span class="params">(seq_list_s *L, <span class="keyword">int</span> i, ElemType e)</span></span>;</span><br><span class="line">判断顺序表实例存在。/ 判断插入位置合法。/ 判断容量是否满并扩容。/ 移动元素。/ 插入元素、表长加一。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除某位置操作，删除的元素赋给 e 变量</span></span><br><span class="line"><span class="function">Status <span class="title">ListDelete</span><span class="params">(seq_list_s *L, <span class="keyword">int</span> i, ElemType *e)</span></span>;</span><br><span class="line">判断顺序表实例存在。/ 判断删除位置合法。/ 删除元素（赋给一个变量，知道删除了啥）。/ 移动元素、表长减一。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按值查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LocateElem</span><span class="params">(seq_list_s L, ElemType e)</span></span>;</span><br><span class="line">判断顺序表实例存在。/ 遍历所有元素；与输入 e 相同则返回位置，不同则判断是否是最后一个，不是最后一个继续循环，是最后一个则返回 <span class="number">0</span>（表示没找到）。</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按位置查找，找到的元素赋给 e 变量</span></span><br><span class="line"><span class="function">Status <span class="title">GetElem</span><span class="params">(seq_list_s L, <span class="keyword">int</span> i, ElemType *e)</span></span>;</span><br><span class="line">判断顺序表实例存在。/ 判断位置是否合法。/ 将某个查找的位置元素赋给 e。</span><br></pre></td></tr></table></figure>
 <h2 id="4-线性表的链式表示"><a href="#4-线性表的链式表示" class="headerlink" title="4 线性表的链式表示"></a>4 线性表的链式表示</h2><h3 id="（1）单链表-LNode"><a href="#（1）单链表-LNode" class="headerlink" title="（1）单链表 LNode"></a>（1）单链表 LNode</h3><h3 id="（2）双链表-DNode"><a href="#（2）双链表-DNode" class="headerlink" title="（2）双链表 DNode"></a>（2）双链表 DNode</h3><h3 id="（3）循环链表"><a href="#（3）循环链表" class="headerlink" title="（3）循环链表"></a>（3）循环链表</h3><h3 id="（4）静态链表-SlinkList"><a href="#（4）静态链表-SlinkList" class="headerlink" title="（4）静态链表 SlinkList"></a>（4）静态链表 SlinkList</h3><h1 id="三-栈与队列"><a href="#三-栈与队列" class="headerlink" title="三 栈与队列"></a>三 栈与队列</h1><h1 id="四-树与二叉树"><a href="#四-树与二叉树" class="headerlink" title="四 树与二叉树"></a>四 树与二叉树</h1><h1 id="五-图"><a href="#五-图" class="headerlink" title="五 图"></a>五 图</h1><h1 id="六-查找"><a href="#六-查找" class="headerlink" title="六 查找"></a>六 查找</h1><h1 id="七-排序"><a href="#七-排序" class="headerlink" title="七 排序"></a>七 排序</h1>
                 <hr>
                 
