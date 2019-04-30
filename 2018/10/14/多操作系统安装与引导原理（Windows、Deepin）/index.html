@@ -79,7 +79,9 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
 							
 						
                     
@@ -93,9 +95,7 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -306,7 +306,7 @@
 <ul>
 <li><p>Windows 下安装第二个操作系统 Linux 时，会选择 Grub 安装位置。往 MBR 上装，往 Linux 系统所在的分区的第一个扇区里装。一般安装在 MBR。</p>
 </li>
-<li><p>MBR 是各个系统的必争之地，尤其是 Windows 一旦重装, MBR 记录就被覆盖, GRUB 也会不见。先后安装两个 Linux，其 Grub 都往 MBR 上装，留下的只会是后来者。Grub 会自动识别配置引导。</p>
+<li><p>MBR 是各个系统的必争之地，尤其是 Windows 一旦重装, MBR 记录就被覆盖, GRUB 也会不见。先后安装两个 Linux，其 Grub 都往 MBR 上修改指向自己，留下的只会是后来者。Grub 会自动识别配置引导。</p>
 </li>
 </ul>
 
