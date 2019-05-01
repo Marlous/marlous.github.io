@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Kali Linux 桌面美化｜Mo&#39;s blog
+        Kali Linux 桌面美化及基本设置｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/04/30/Kali-Linux-桌面美化/">
+    <link rel="canonical" href="https://marlous.github.io/2019/04/30/Kali Linux 桌面美化及基本设置/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Kali Linux 桌面美化</h1>
+                    <h1>Kali Linux 桌面美化及基本设置</h1>
                     
                     <span class="meta">
                          作者 Marlous
@@ -191,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Kali Linux 桌面美化
+            Kali Linux 桌面美化及基本设置
         </span>
     </div>
 </header>
@@ -205,6 +205,34 @@
                 <blockquote>
 <p>补充：<a href="https://www.linuxidc.com/Linux/2018-08/153429.htm" target="_blank" rel="noopener">Kali 安装</a><br>最好不要以中文安装。</p>
 </blockquote>
+<blockquote>
+<p>参考我的博文：《工作环境（Linux）初始化》</p>
+</blockquote>
+<h1 id="一-美化"><a href="#一-美化" class="headerlink" title="一 美化"></a>一 美化</h1><p><img src="/2019/04/30/Kali Linux 桌面美化及基本设置/图1.PNG" alt="美化"></p>
+<ul>
+<li><p>主题：<br><a href="https://www.gnome-look.org/p/1099856/" target="_blank" rel="noopener">Gnome 主题：Ant-Nebula 链接地址</a><br>解压后移动到 <code>usr/share/themes</code>。</p>
+</li>
+<li><p>icon：<br><a href="https://www.gnome-look.org/p/1294124/" target="_blank" rel="noopener">Gnome icons：Deepin 链接地址</a><br>解压后移动到 <code>usr/share/icons</code>。</p>
+</li>
+<li><p>在 tweaks 中设置。重新打开 tweaks 才生效。</p>
+</li>
+</ul>
+<h1 id="二-基本设置"><a href="#二-基本设置" class="headerlink" title="二 基本设置"></a>二 基本设置</h1><ul>
+<li><p>安装 google 输入法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get install fcitx</span><br><span class="line"></span><br><span class="line">apt-get install fcitx-googlepinyin</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装深度截图工具：<code>apt install deepin-screenshot</code>。</p>
+</li>
+<li><p>安装 Slack、Xtreme Download Manager。</p>
+</li>
+<li><p>调终端透明度。</p>
+</li>
+<li><p>安装蓝牙相关：blueZ、blueman。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo service bluetooth start</span><br><span class="line">bluetoothctl</span><br><span class="line">power on</span><br><span class="line">agent on</span><br><span class="line">default-agent</span><br><span class="line">scan on</span><br><span class="line">pair [yourDeviceMAC] # 记得输入完授权码后回车。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开启 SSH 服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ssh localhost 查看是否安装了 SSH；</span><br><span class="line"></span><br><span class="line">没安装用 apt-get install openssh-server 安装；</span><br><span class="line"></span><br><span class="line">允许 root 用户远程登陆 vi /etc/ssh/sshd_config 加入一行 PermitRootLogin yes 并注释掉不用密码登陆；</span><br><span class="line"></span><br><span class="line">将 SSH 加入开机自启，打开 /etc/rc.local 文件，在 exit 0 语句前加入</span><br><span class="line">/etc/init.d/ssh start；</span><br><span class="line"></span><br><span class="line">开启服务与查看状态用 service ssh start、ps -s | grep ssh；</span><br><span class="line"></span><br><span class="line">使用命令 ip addr 查看 ip 地址，用 Termius 填入相关信息后登陆。</span><br></pre></td></tr></table></figure></li>
+</ul>
 
                 <hr>
                 
@@ -233,7 +261,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-美化"><span class="toc-text">一 美化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-基本设置"><span class="toc-text">二 基本设置</span></a></li></ol>
                 </div>
             </div>
         </div>

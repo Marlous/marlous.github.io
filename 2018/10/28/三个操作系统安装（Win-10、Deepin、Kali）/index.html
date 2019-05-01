@@ -202,7 +202,10 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-概况"><a href="#一-概况" class="headerlink" title="一 概况"></a>一 概况</h1><ul>
+                <blockquote>
+<p>注意：<br>Grub 安装在 /dev/sda 上。</p>
+</blockquote>
+<h1 id="一-概况"><a href="#一-概况" class="headerlink" title="一 概况"></a>一 概况</h1><ul>
 <li>本篇文章的流程概况：以有 Windows 10 -&gt; 在 Win 10 中划分出一个分区 -&gt; 安装 Deepin Linux -&gt; 返回 Win10 再划分一块分区（之前没打算装两个 Linux）-&gt; grub rescue 恢复引导 -&gt; 返回 Win 10 查看、制作第二个 Linux 启动盘安装 -&gt; 完成</li>
 <li>如果一开始就打算安装两个 Linux，可以直接划分出两个分区准备好，这样就不会出现 grub rescue 恢复引导。</li>
 <li>在 Windows 基础上安装 Linux 很容易，但返过来在引导上会比较麻烦。</li>
@@ -235,7 +238,7 @@
 <ul>
 <li><p>先进入 Deepin，终端查看分区情况，我的 Kali 装在 /dev/sda8。如下图。</p>
 </li>
-<li><p>安装 Grub：<code>grub2-install</code>。</p>
+<li><p>安装 Grub：<code>grub2-install</code> 或 <code>grub-install /dev/sda</code>。</p>
 </li>
 <li><p>在 /boot/grub/grub.cfg 中添加 Kali Linux 的启动项，让 Deepin Linux 的 Grub 能找到 Kali 操作系统的位置并添加在开机启动操作系统选择菜单上（想再改回去则同理，在 Kali 里覆盖安装 Deepin 的 Grub，然后添加 Deepin 的启动项），如图：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menuentry &quot;显示的操作系统名&quot; &#123;</span><br><span class="line">    insmod part_msdos</span><br><span class="line">    insmod ntfs            # 文件系统类型。</span><br><span class="line">    set root=&apos;hd0,msdos8&apos;  # hd0 为第几块硬盘，8 为第几个分区。</span><br><span class="line">    search --no-floppy --fs-uuid --set=root 7E58BCF758BCAF71   # 磁盘用 UUID 来标记，更精确。</span><br><span class="line">    chainloader +1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
