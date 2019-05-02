@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/work/">works</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/work/">works</a>
                         </li>
 							
 						
@@ -205,40 +205,10 @@
                 <blockquote>
 <p>注意：<br>搞清楚每个操作系统的安装位置。操作系统使用的 bootloader 是什么，安装在哪。</p>
 </blockquote>
-<h1 id="一-双系统原理"><a href="#一-双系统原理" class="headerlink" title="一 双系统原理"></a>一 双系统原理</h1><p><a href="https://www.cnblogs.com/mahocon/p/5691348.html" target="_blank" rel="noopener">参考资料 1</a><br><a href="https://blog.csdn.net/liao20081228/article/details/82591728" target="_blank" rel="noopener">参考资料 2</a><br><a href="https://blog.csdn.net/JackLiu16/article/details/79881207" target="_blank" rel="noopener">参考资料 3</a></p>
-<h2 id="1-解释"><a href="#1-解释" class="headerlink" title="1 解释"></a>1 解释</h2><ol>
-<li>操作系统启动过程：<br>（1）双系统，Grub 来引导：</li>
-</ol>
-<ul>
-<li>Linux 大致启动过程：BIOS &gt; MBR &gt; Grub &gt; 装载 Linux 操作系统。</li>
-<li>Windows 大致启动过程：BIOS &gt; MBR &gt; Grub &gt; 装载 Windows 操作系统。<br>（2）双系统，BOOTMGR 来引导：</li>
-<li>Linux 大致启动过程：BIOS &gt; MBR &gt; BOOTMGR &gt; Grub &gt; 装载 Linux 操作系统。</li>
-<li>Windows 大致启动过程：BIOS &gt; MBR &gt; BOOTMGR &gt; 装载 Windows 操作系统。<br>（3）解释：<br>传统 Legacy BIOS 引导 windows 操作系统时，是通过一个活动的主分区下的 bootmgr（启动管理器）文件导入根目录下 boot 文件夹里的 BCD（启动设置数据）文件，然后 BCD 文件根据自身的配置内容加载系统启动文件 winload.exe（位置：根目录 \Windows\system32\winload.exe）来启动系统。一个 BCD 文件可以加载多个系统启动文件从而实现引导多个系统的启动。<br>（4）补充：<br>Grub 装在 MBR，即用 Grub 引导（Win 下安装 Linux 的默认方式，会自动修复 Win 的引导问题）；装在其它地方即用 Windows 的来引导的话，需要用 EasyBCD 来设置添加 Linux 的启动项。<br>（5）详解：</li>
-<li>Windows（Legacy BIOS + MBR）:<br>上电–&gt;Legacy BIOS–&gt;MBR–&gt;DPT–&gt;PBR–&gt; Bootmgr（vista开始）/NTLDR–&gt;BCD（vista开始）/boot.ini–&gt;Winload.exe–&gt;内核加载 –&gt;windows vista/windows xp</li>
-<li>Windows（UEFI BIOS + GPT）:<br>上电–&gt;UEFI–&gt;GPT分区表–&gt;EFI分区–&gt;\efi\Microsoft\boot\bootmgfw.efi–&gt;efi\Microsoft\BCD→\Windows\system32\winload.efi</li>
-<li>Linux（Grub）：<br>上电–&gt;Legacy BIOS–&gt;MBR–&gt;Grub–&gt;kernel<br><img src="/2018/10/14/多操作系统安装与引导原理（Windows、Deepin）/图0.PNG" alt="Linux（Grub）"></li>
-</ul>
-<ol start="2">
-<li>分区：</li>
-</ol>
-<ul>
-<li><p>一块硬盘进行高级格式化（逻辑分区），方便管理。（低级格式化为分磁道扇区）。主流分区机制为 MBR、GPT 两种。分区个数取决于分区表所能存储的描述磁盘分区的情况。</p>
-</li>
-<li><p>两种模式：BIOS + MBR 或 UEFI + GPT。</p>
-</li>
-<li><p>MBR：最多 4 个主分区，或者 3 个主分区加 1 个扩展分区，扩展分区中的逻辑分区可分多个。由磁盘操作系统对硬盘进行初始化时产生的。<br><img src="/2018/10/14/多操作系统安装与引导原理（Windows、Deepin）/图1.PNG" alt="MBR 结构"><br><img src="/2018/10/14/多操作系统安装与引导原理（Windows、Deepin）/图2.PNG" alt="硬盘"></p>
-</li>
-<li><p>GPT：一个较新的分区机制，解决了 MBR 很多缺点。向后兼容 MBR，必须在 UEFI 硬件上使用，必须为 64 位系统，Mac、Linux 都支持 GPT 分区格式。</p>
-</li>
-</ul>
-<ol start="3">
-<li>Linux 分区：</li>
-</ol>
-<ul>
-<li>/ 根分区、swap 交换分区。</li>
-<li>可以给根分区加密保证物理安全，会丧失性能；可以给引导加密码（可进入单用户模式清除 root 密码）。</li>
-</ul>
-<h2 id="2-小结"><a href="#2-小结" class="headerlink" title="2 小结"></a>2 小结</h2><ol>
+<blockquote>
+<p>参考：<br><a href="https://www.cnblogs.com/mahocon/p/5691348.html" target="_blank" rel="noopener">参考资料 1</a><br><a href="https://blog.csdn.net/liao20081228/article/details/82591728" target="_blank" rel="noopener">参考资料 2</a><br><a href="https://blog.csdn.net/JackLiu16/article/details/79881207" target="_blank" rel="noopener">参考资料 3</a></p>
+</blockquote>
+<h1 id="一-系统引导原理"><a href="#一-系统引导原理" class="headerlink" title="一 系统引导原理"></a>一 系统引导原理</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><ol>
 <li>BIOS：</li>
 </ol>
 <ul>
@@ -253,12 +223,33 @@
 <ul>
 <li>UEFI（上电自检）–&gt;</li>
 <li>ESP 分区即启动项存放位置分区（EFI/BOOT/一大堆 efi 后缀名的文件）–&gt;</li>
-<li>启动引导程序 bootloader -&gt;</li>
+<li>启动引导程序 bootloader（Grub/Bootmgr）-&gt;</li>
 <li>OS</li>
 </ul>
-<ol start="3">
-<li>注意：<br>UEFI、BIOS 两种完全不一样。</li>
-</ol>
+<h2 id="2-详解"><a href="#2-详解" class="headerlink" title="2 详解"></a>2 详解</h2><ul>
+<li><p>Windows（BIOS + MBR）:<br>上电 –&gt; Legacy BIOS –&gt; MBR –&gt; DPT –&gt; PBR –&gt; Bootmgr/NTLDR –&gt; BCD/boot.ini –&gt; Winload.exe –&gt; 内核加载 –&gt; Windows</p>
+</li>
+<li><p>Windows（UEFI + GPT）:<br>上电 –&gt; UEFI –&gt; GPT 分区表 –&gt; EFI 分区（ESP）–&gt; \efi\Microsoft\boot\bootmgfw.efi –&gt; efi\Microsoft\BCD→\Windows\system32\winload.efi</p>
+</li>
+</ul>
+<h2 id="3-补充"><a href="#3-补充" class="headerlink" title="3 补充"></a>3 补充</h2><ul>
+<li><p>两种引导方法：UEFI、BIOS（BIOS + MBR 或 UEFI + GPT）。</p>
+</li>
+<li><p>UEFI、BIOS 两种完全不一样。</p>
+</li>
+<li><p>作为 bootloader 的 Grub 可以直接引导 Windows，但是作为 bootloader 的 Bootmgr 无法直接引导 Linux，需要用 EasyBCD 来设置添加 Linux 的启动项。</p>
+</li>
+<li><p>一块硬盘进行高级格式化（逻辑分区），方便管理。（低级格式化为分磁道扇区）。主流分区机制为 MBR、GPT 两种。分区个数取决于分区表所能存储的描述磁盘分区的情况。</p>
+</li>
+<li><p>UEFI 引导中：ESP 分区，Windows 下想访问 ESP 分区需用分区工具给它分配盘符并取消隐藏；而 Linux 则直接将这个分区挂载到 /boot/efi。</p>
+</li>
+<li><p>GPT：一个较新的分区机制，解决了 MBR 很多缺点。向后兼容 MBR，必须在 UEFI 硬件上使用，必须为 64 位系统，Mac、Linux 都支持 GPT 分区格式。</p>
+</li>
+<li><p>MBR：最多 4 个主分区，或者 3 个主分区加 1 个扩展分区，扩展分区中的逻辑分区可分多个。由磁盘操作系统对硬盘进行初始化时产生的。<br><img src="/2018/10/14/多操作系统安装与引导原理（Windows、Deepin）/图1.PNG" alt="MBR 结构"><br><img src="/2018/10/14/多操作系统安装与引导原理（Windows、Deepin）/图2.PNG" alt="硬盘"></p>
+</li>
+<li><p>传统 BIOS 引导 Windows 操作系统时，是通过一个活动的主分区下的 bootmgr（启动管理器）文件导入根目录下 boot 文件夹里的 BCD（启动设置数据）文件，然后 BCD 文件根据自身的配置内容加载系统启动文件 winload.exe（位置：根目录 \Windows\system32\winload.exe）来启动系统。一个 BCD 文件可以加载多个系统启动文件从而实现引导多个系统的启动。</p>
+</li>
+</ul>
 <h1 id="二-Windows-与-Deepin-双系统安装"><a href="#二-Windows-与-Deepin-双系统安装" class="headerlink" title="二 Windows 与 Deepin 双系统安装"></a>二 Windows 与 Deepin 双系统安装</h1><blockquote>
 <p>Deepin 官方文档：<a href="https://wiki.deepin.org/wiki/%E5%8E%9F%E7%94%9F%E5%AE%89%E8%A3%85#.E5.A4.9A.E7.A1.AC.E7.9B.98.E6.97.B6.E5.AE.89.E8.A3.85_deepin_.E5.87.BA.E7.8E.B0.E7.9A.84.E6.97.A0.E6.B3.95.E5.BC.95.E5.AF.BC.E7.9A.84.E9.97.AE.E9.A2.98" target="_blank" rel="noopener">文档</a><br>安装教程 1 不需要设置引导：<a href="https://jingyan.baidu.com/article/17bd8e524527a985ab2bb82e.html" target="_blank" rel="noopener">文档</a><br>安装教程 2 需设置引导：<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=158334&amp;extra=" target="_blank" rel="noopener">文档</a></p>
 </blockquote>
@@ -293,7 +284,7 @@
 <h1 id="三-引导修复及卸载问题"><a href="#三-引导修复及卸载问题" class="headerlink" title="三 引导修复及卸载问题"></a>三 引导修复及卸载问题</h1><blockquote>
 <p><a href="https://blog.csdn.net/s_gy_zetrov/article/details/51958484" target="_blank" rel="noopener">参考博文</a><br><a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=44261" target="_blank" rel="noopener">启动引导设置、用 BOOTMGR 引导参考文章</a></p>
 </blockquote>
-<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><p>Linux 引导出问题：用 Linux 的 U 盘挂载上 Linux 所在分区，安装 Grub（会自动配置好 Windows 的启动项）；<br>Windows 引导出问题或两个都出问题：（用 Grub 引导的方式）用 PE 先修复 MBR，后安装 Grub，和配置 Grub 中的 Windows 引导。</p>
+<h2 id="1-概述-1"><a href="#1-概述-1" class="headerlink" title="1 概述"></a>1 概述</h2><p>Linux 引导出问题：用 Linux 的 U 盘挂载上 Linux 所在分区，安装 Grub（会自动配置好 Windows 的启动项）；<br>Windows 引导出问题或两个都出问题：（用 Grub 引导的方式）用 PE 先修复 MBR，后安装 Grub，和配置 Grub 中的 Windows 引导。</p>
 <h2 id="2-具体实践"><a href="#2-具体实践" class="headerlink" title="2 具体实践"></a>2 具体实践</h2><ol>
 <li><p>U 盘 PE 恢复 MBR 引导：<br>使用 U 启动盘（老毛桃 PE）进入 PE，用 NTBOOTautofix 修复 MBR；然后用 DiskGenius，选择 C 盘，分区 &gt; 激活当前分区 &gt; 保存更改。<br>删除 Linux 导致 windows 进入不了，也可以使用此方法。</p>
 </li>
@@ -363,7 +354,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-双系统原理"><span class="toc-text">一 双系统原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-解释"><span class="toc-text">1 解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-小结"><span class="toc-text">2 小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Windows-与-Deepin-双系统安装"><span class="toc-text">二 Windows 与 Deepin 双系统安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-引导修复及卸载问题"><span class="toc-text">三 引导修复及卸载问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-text">1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-具体实践"><span class="toc-text">2 具体实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-小结"><span class="toc-text">四 小结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充：安装多个-Linux-操作系统"><span class="toc-text">五 补充：安装多个 Linux 操作系统</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-系统引导原理"><span class="toc-text">一 系统引导原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-text">1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-详解"><span class="toc-text">2 详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-补充"><span class="toc-text">3 补充</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Windows-与-Deepin-双系统安装"><span class="toc-text">二 Windows 与 Deepin 双系统安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-引导修复及卸载问题"><span class="toc-text">三 引导修复及卸载问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述-1"><span class="toc-text">1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-具体实践"><span class="toc-text">2 具体实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-小结"><span class="toc-text">四 小结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-补充：安装多个-Linux-操作系统"><span class="toc-text">五 补充：安装多个 Linux 操作系统</span></a></li></ol>
                 </div>
             </div>
         </div>
