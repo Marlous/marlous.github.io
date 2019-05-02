@@ -86,14 +86,6 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/tags/">tags</a>
                         </li>
 							
@@ -103,6 +95,14 @@
 							
                         <li>
                             <a href="/work/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -234,7 +234,7 @@
 <li>想把哪个条状块区域分割成几个列区域，就将子元素若干个列块设置成 float，同时其父元素条状块清除浮动。</li>
 <li>每个块都可看作是一个新的文档流，然后在其中分成若干个条状块区域，或分割成几个列块区域。</li>
 <li>使用递归的思想。</li>
-<li>margin 是元素之间的距离。记得 padding、border 也会占距离，一开始设计时就要考虑，因为设置的宽度高度是内容的，后添加 padding、border 的话，距离会向外扩展。</li>
+<li>margin 是元素之间的距离。记得 padding、border 也会占距离，一开始设计时就要考虑，因为设置的宽度高度是内容的（也可以通过 box-sizing 属性设置，默认值是 content-box），后添加 padding、border 的话，距离会向外扩展。</li>
 </ul>
 <h2 id="5-注意"><a href="#5-注意" class="headerlink" title="5 注意"></a>5 注意</h2><blockquote>
 <p>参考：<br>1、 <a href="https://www.zhihu.com/question/21042513" target="_blank" rel="noopener">设计网页，常见的宽度是多少像素？</a><br>2、 <a href="https://www.zhihu.com/question/21679928" target="_blank" rel="noopener">流布局与响应式网页设计有什么区别？</a></p>
