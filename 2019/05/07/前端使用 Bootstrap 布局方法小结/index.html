@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -229,15 +229,15 @@
 <li>响应式布局，通过媒体查询设计不同的页面（css）。</li>
 </ul>
 <h1 id="二-bootstrap-中的-flex-布局"><a href="#二-bootstrap-中的-flex-布局" class="headerlink" title="二 bootstrap 中的 flex 布局"></a>二 bootstrap 中的 flex 布局</h1><h2 id="1-布局思路"><a href="#1-布局思路" class="headerlink" title="1 布局思路"></a>1 布局思路</h2><ul>
-<li><p>注意：<br>虽然容器可以嵌套，但大多数布局不需要嵌套容器。/ 用 bootstrap 布局相当于综合了上面回顾的两种布局思路。先用弹性盒子布局整体，后在弹性项目中使用浮动布局块级元素，或使用 bootstrap 中的栅格切分列。</p>
+<li><p>注意：<br>虽然容器可以嵌套，但大多数布局不需要嵌套容器。/ 用 bootstrap 布局相当于综合了上面回顾的两种布局思路。先用弹性盒子布局整体，后在弹性项目中使用浮动布局块级元素，或使用 bootstrap 中的栅格切分列。/ bootstrap 中 <code>box-sizing: border-box</code>。</p>
 </li>
 <li><p>设置 body 的一些样式（如高度、背景颜色等）。</p>
 </li>
 <li>先将整个页面放入一个弹性容器（bootstrap 中的 container）中，设置横向或纵向排列里面的弹性成员。</li>
-<li>此时每个弹性成员看作是一个新的文档流（div + css 布局思路）。</li>
-<li>在其中嵌套容器，利用栅格系统分行，列布局块级元素（推荐。考虑自动的响应式布局，列会在窗口缩小后叠加）。/ 在弹性容器中使用浮动布局块级元素。/ 或两者混合。</li>
+<li>此时其中的每个弹性成员看作是一个新的文档流（div + css 布局思路）。</li>
+<li>在弹性成员中嵌套容器，利用栅格系统分行，列布局块级元素（推荐。考虑自动的响应式布局，列会在窗口缩小后叠加。用于菜单）。/ 嵌套若干个容器（用于固定要显示的内容块）。/ 在容器中使用浮动布局块级元素（用于固定要显示的内容中的某一项，记得清除浮动）。/ 或几者混合。</li>
 <li>元素与元素间通过 margin 来控制彼此间间隔的大小。</li>
-<li>通过媒体查询，决定隐藏掉边栏等来适应手机屏幕。</li>
+<li>通过媒体查询，决定隐藏掉嵌套的若干个容器来适应手机屏幕。</li>
 </ul>
 <h2 id="2-代码实例"><a href="#2-代码实例" class="headerlink" title="2 代码实例"></a>2 代码实例</h2><ul>
 <li><p>HTML:</p>
