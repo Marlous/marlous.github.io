@@ -320,8 +320,9 @@
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单链表（头节点也用此结构）</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">	ElemType data; <span class="comment">// 数据域</span></span><br><span class="line">	l_node_s *next; <span class="comment">// 指针域</span></span><br><span class="line">&#125;l_node_s;</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>单链表的基本操作：</li>
+<li>单链表的基本操作：<br><a href="https://github.com/Marlous/data-structures-for-C-language/blob/master/src/linear_list/modules/LNode.c" target="_blank" rel="noopener">单链表的基本操作 GitHub 代码</a><br>注意，我自己写的代码和书上的不同，但是本质原理是一样的。</li>
 </ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单链表的头节点创建（创建一个头节点，将头节点地址赋给单链表指针变量）</span></span><br><span class="line"><span class="function">Status <span class="title">CreateList</span><span class="params">(l_node_s *L)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单链表的多个节点创建并插入（头插法）</span></span><br><span class="line"><span class="function">Status <span class="title">HeadInsert</span><span class="params">(l_node_s *L)</span></span>;</span><br></pre></td></tr></table></figure>
 <h3 id="（2）双链表-DNode"><a href="#（2）双链表-DNode" class="headerlink" title="（2）双链表 DNode"></a>（2）双链表 DNode</h3><ol>
 <li>双链表的定义、特点：</li>
 </ol>
