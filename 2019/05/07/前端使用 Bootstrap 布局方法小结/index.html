@@ -80,7 +80,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -223,8 +223,10 @@
 </ul>
 <h2 id="2-布局思路小结"><a href="#2-布局思路小结" class="headerlink" title="2 布局思路小结"></a>2 布局思路小结</h2><ul>
 <li>提示：把每个组件看成一个 flex 成员 / 放在栅格中的元素。</li>
-<li>用一个 bootstrap 中的 container（用 flex 设置排列）。</li>
-<li>在每个 flex 成员中，可以嵌套 flex 容器；可以用栅格切分容器（父容器不是 flex 容器的话，子元素需要浮动，父容器需要清除浮动）。</li>
+<li>用一个 bootstrap 中的 container（用 flex 设置排列）作为整个页面的容器，或者拆分成几个 container（用 flex 设置排列）也行。</li>
+<li>把这个 container 当成文档流。</li>
+<li>将 container 中每个 flex 成员当成 flex 盒子，然后在这个 flex 成员中使用栅格划分列，在列中放入固定大小的盒子。</li>
+<li>（以上小结为：container -&gt; flex 盒子 -&gt; 栅格分列 -&gt; 固定大小盒子）</li>
 <li>元素与元素间通过 margin 来控制彼此间间隔的大小。</li>
 <li>整个 body 高度可以设置为 <code>height: 100vh</code> 充满页面；当手机屏幕大小时（断点）body 的高度不设置（由里面的元素撑开，这样里面的元素不会流到视窗的外面）。</li>
 <li>通过媒体查询，决定隐藏掉嵌套的若干个容器来适应手机屏幕。/ 设置新的 CSS 样式。</li>
