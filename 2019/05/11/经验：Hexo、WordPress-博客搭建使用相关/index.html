@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        数据结构（C 语言）开源项目开发小结｜Mo&#39;s blog
+        经验：Hexo、WordPress 博客搭建使用相关｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/03/04/数据结构（C-语言）开源项目开发小结/">
+    <link rel="canonical" href="https://marlous.github.io/2019/05/11/经验：Hexo、WordPress-博客搭建使用相关/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,12 +153,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>数据结构（C 语言）开源项目开发小结</h1>
+                    <h1>经验：Hexo、WordPress 博客搭建使用相关</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2019-03-04
+                          日期 2019-05-11
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -173,7 +173,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            数据结构（C 语言）开源项目开发小结
+            经验：Hexo、WordPress 博客搭建使用相关
         </span>
     </div>
 </header>
@@ -184,67 +184,19 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p><a href="https://github.com/Marlous/Data-Structures-For-C-Language" target="_blank" rel="noopener">GitHub 项目仓库链接：Data-Structures-For-C-Language</a></p>
-</blockquote>
-<h1 id="一-软件演示"><a href="#一-软件演示" class="headerlink" title="一 软件演示"></a>一 软件演示</h1><p><img src="/2019/03/04/数据结构（C-语言）开源项目开发小结/图0.gif" alt="软件演示"></p>
-<h1 id="二-若干问题"><a href="#二-若干问题" class="headerlink" title="二 若干问题"></a>二 若干问题</h1><ul>
-<li><p>为了简化代码，突出数据结构知识重点，项目中的如顺序表的初始大小等都是用宏定义的，没有让用户从键盘输入。</p>
+                <h1 id="一-项目整理文章汇总"><a href="#一-项目整理文章汇总" class="headerlink" title="一 项目整理文章汇总"></a>一 项目整理文章汇总</h1><ul>
+<li><p><a href="https://marlous.github.io/2018/06/12/Hexo-踩坑记/">《Hexo 踩坑记》</a></p>
 </li>
-<li><p>国内数据结构教材 《数据结构》、《数据结构算法解析》 中，代码里 <code>&amp;</code> 符号的问题，教材中是 C++ 的用法，并非纯 C 语言，我自己的项目用的是纯 C 语言，所以代码在此问题上会有所不同。参考博文：<a href="https://blog.csdn.net/yxpandjay/article/details/82217779" target="_blank" rel="noopener">C++ 中的&amp;：“&amp;引用” 和“&amp;取地址符”的区别和作用</a>、<a href="https://blog.csdn.net/qq_35038153/article/details/77968036" target="_blank" rel="noopener">C语言中取地址符&amp;做函数形参？</a>。</p>
+<li><p><a href="https://marlous.github.io/2018/07/16/Hexo-博客迁移重新部署/">《Hexo 博客迁移重新部署》</a></p>
 </li>
-<li><p>我自己的项目代码中与教材 《数据结构》、《数据结构算法解析》的代码在宏名、变量名等上面会不同。</p>
+<li><p><a href="https://marlous.github.io/2019/01/02/WordPress-与-Hexo-搭建的博客相互迁移问题/">《WordPress 与 Hexo 搭建的博客相互迁移问题》</a></p>
 </li>
-<li><p>关于结构体指针：<br>结构体变量的地址作为实参，传递到函数（形参为指针变量）。此时在函数内引用结构体变量的成员，直接写成 <code>w-&gt;name</code> 相当于 <code>(*w).name</code>（指针的解引用）。参考博文：<a href="https://blog.csdn.net/liangllhahaha/article/details/81674407" target="_blank" rel="noopener">结构体的初始化和引用及指向结构体变量的指针变量（C语言）</a>。</p>
+<li><p><a href="https://marlous.github.io/2019/01/01/使用-WordPress-在云服务器快速建站/">《使用 WordPress 在云服务器快速建站》</a></p>
 </li>
-<li><p>访问结构体成员方法：点 <code>.</code> 是用于结构体变量访问成员，箭头 <code>-&gt;</code> 是用于结构体指针访问成员。<code>-&gt;</code> 从外部看是包含了一个解指针。</p>
+<li><p><a href="https://marlous.github.io/2019/03/15/Hexo%20%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2%EF%BC%88Travis-CI%E3%80%81Docker%20%E5%92%8C%20Jenkins%EF%BC%89/">《Hexo 博客的持续集成和部署（Travis-CI、Docker 和 Jenkins）》</a></p>
 </li>
-<li><p>菜单部分代码参考：<a href="https://blog.csdn.net/howard2005/article/details/79263674" target="_blank" rel="noopener">C语言实现顺序表的创建与增删改查操作</a></p>
+<li><p><a href="https://marlous.github.io/2019/03/17/CICD%20%E5%B7%A5%E5%85%B7%20Jenkins%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%88Hexo%20%E4%B8%BA%E4%BE%8B%EF%BC%89/">《CI/CD 工具 Jenkins 的基本使用（Hexo 为例）》</a></p>
 </li>
-<li><p>C 语言中，传参数给函数有两种方式：按值调用（实参为变量名，形参为变量名。/ 是传一个副本给函数）、按地址调用（实参为地址，形参为指针变量。/ 函数通过指针解引用访问原本变量）。</p>
-</li>
-</ul>
-<h1 id="三-版本控制最佳实践与问题"><a href="#三-版本控制最佳实践与问题" class="headerlink" title="三 版本控制最佳实践与问题"></a>三 版本控制最佳实践与问题</h1><blockquote>
-<p>参考：<br>1、 <a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">A successful Git branching model</a><br>2、 <a href="https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md" target="_blank" rel="noopener">Git飞行规则(Flight Rules)</a></p>
-</blockquote>
-<p><img src="/2019/03/04/数据结构（C-语言）开源项目开发小结/图1.PNG" alt="版本控制最佳实践"><br><img src="/2019/03/04/数据结构（C-语言）开源项目开发小结/图2.PNG" alt="版本控制最佳实践，自己的"></p>
-<h1 id="四-开发环境"><a href="#四-开发环境" class="headerlink" title="四 开发环境"></a>四 开发环境</h1><ul>
-<li>OS：Windows 10</li>
-<li>IDE：Eclipse Cpp 2018-09</li>
-<li>Compiler：GNU GCC v6.3.0</li>
-</ul>
-<h1 id="五-软件项目结构"><a href="#五-软件项目结构" class="headerlink" title="五 软件项目结构"></a>五 软件项目结构</h1><ol>
-<li><p>软件项目结构：<br>（截图为项目未完成的状态。）<br><img src="/2019/03/04/数据结构（C-语言）开源项目开发小结/图3.PNG" alt="软件项目结构"></p>
-</li>
-<li><p>项目（目录）结构解析：</p>
-<blockquote>
-<p>参考博文：《软件工程 C 实践二 课程总结笔记》</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li><p>core 文件夹中，main.c 为整个项目的主程序。/ main.h 为主函数的函数声明（子模块会用到）；config.h 为整个程序会用到的基本数据等。</p>
-</li>
-<li><p>除 core 文件夹外，每个文件夹和其中与之同名的 c 文件，是一个模块（或子模块）。</p>
-</li>
-<li><p>除 core 文件夹外，每个文件夹和其中与之同名的 c 文件中的同名函数作为这个模块的主函数（也是向外提供 API 的函数）。/ 补充： modules 文件夹中的每个 c 文件都为一个子模块，一个 .h 头文件统一向外提供 API 接口（其头文件还可能包含各个子模块可能会用到的宏定义等）。</p>
-</li>
-<li><p>除 core 文件夹外，每个 .h 头文件即为接口文件，向外提供接口，供其它模块、函数调用。</p>
-</li>
-<li><p>每个 c 文件，包含自己的头文件、自己程序所要用到的 API 的头文件。</p>
-</li>
-</ul>
-<ol start="3">
-<li>文件结构：</li>
-</ol>
-<ul>
-<li>版权等信息</li>
-<li>#ifndef、#define</li>
-<li>包含的头文件</li>
-<li>宏定义</li>
-<li>结构体定义</li>
-<li>变量定义</li>
-<li>函数声明</li>
 </ul>
 
                 <hr>
@@ -252,15 +204,10 @@
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/03/05/C-语言疑难知识点总结/" data-toggle="tooltip" data-placement="top"
-                           title="C 语言疑难知识点总结">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/03/04/《简明世界史》课程学习笔记/" data-toggle="tooltip" data-placement="top"
-                           title="《简明世界史》课程学习笔记">Next Post &rarr;</a>
+                        <a href="/2019/05/07/前端使用 Bootstrap 布局方法小结/" data-toggle="tooltip" data-placement="top"
+                           title="前端使用 Bootstrap 布局方法小结">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -279,7 +226,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-软件演示"><span class="toc-text">一 软件演示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-若干问题"><span class="toc-text">二 若干问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-版本控制最佳实践与问题"><span class="toc-text">三 版本控制最佳实践与问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-开发环境"><span class="toc-text">四 开发环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-软件项目结构"><span class="toc-text">五 软件项目结构</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-项目整理文章汇总"><span class="toc-text">一 项目整理文章汇总</span></a></li></ol>
                 </div>
             </div>
         </div>
