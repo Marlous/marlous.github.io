@@ -185,10 +185,32 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="一-XSS-概念"><a href="#一-XSS-概念" class="headerlink" title="一 XSS 概念"></a>一 XSS 概念</h1><ul>
-<li>Cross Site Script（跨站脚本）</li>
-<li>通过 “HTML 注入” 篡改网页，插入恶意脚本，当用户浏览网页时实现浏览器控制。</li>
+<li><p>Cross Site Script（跨站脚本）</p>
+</li>
+<li><p>通过 “HTML 注入” 篡改网页，插入恶意脚本，当用户浏览网页时实现浏览器控制。</p>
+</li>
+<li><p>XSS 分类：<br><img src="/2019/04/29/Web-安全学习笔记二-常见-Web-漏洞（XSS）/图1.PNG" alt="XSS 分类"></p>
+</li>
+<li><p>DOM 型与反射型区别：<br>DOM 型：通过前端 JS，直接将 URL 中的脚本写入 DOM 中触发。<br>反射型：通过后端应用程序，将脚本写入到页面中，在页面渲染时触发。</p>
+</li>
 </ul>
-<h1 id="二-基础实战"><a href="#二-基础实战" class="headerlink" title="二 基础实战"></a>二 基础实战</h1><h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><h1 id="四-我的笔记思考等"><a href="#四-我的笔记思考等" class="headerlink" title="四 我的笔记思考等"></a>四 我的笔记思考等</h1>
+<h1 id="二-资料阅读"><a href="#二-资料阅读" class="headerlink" title="二 资料阅读"></a>二 资料阅读</h1><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/26177815" target="_blank" rel="noopener">浅谈XSS攻击的那些事（附常用绕过姿势）</a></li>
+</ul>
+<h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><ol>
+<li>存储型 XSS 过程：</li>
+</ol>
+<ul>
+<li>将构造的恶意代码（如 img 标签中的 onerror 事件中写脚本）提交存储（如留言板）。</li>
+<li>当访问页面时，触发。</li>
+</ul>
+<ol start="2">
+<li><p>反射型：</p>
+</li>
+<li><p>DOM 型：</p>
+</li>
+</ol>
+<h1 id="四-基础实战"><a href="#四-基础实战" class="headerlink" title="四 基础实战"></a>四 基础实战</h1><h1 id="五-我的笔记思考总结等"><a href="#五-我的笔记思考总结等" class="headerlink" title="五 我的笔记思考总结等"></a>五 我的笔记思考总结等</h1>
                 <hr>
                 
 
@@ -221,7 +243,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-XSS-概念"><span class="toc-text">一 XSS 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-基础实战"><span class="toc-text">二 基础实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-漏洞原理与利用"><span class="toc-text">三 漏洞原理与利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-我的笔记思考等"><span class="toc-text">四 我的笔记思考等</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-XSS-概念"><span class="toc-text">一 XSS 概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-资料阅读"><span class="toc-text">二 资料阅读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-漏洞原理与利用"><span class="toc-text">三 漏洞原理与利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-基础实战"><span class="toc-text">四 基础实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-我的笔记思考总结等"><span class="toc-text">五 我的笔记思考总结等</span></a></li></ol>
                 </div>
             </div>
         </div>
