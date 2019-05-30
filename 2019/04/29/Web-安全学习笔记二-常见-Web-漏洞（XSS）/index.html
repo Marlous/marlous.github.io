@@ -191,24 +191,16 @@
 </li>
 <li><p>XSS 分类：<br><img src="/2019/04/29/Web-安全学习笔记二-常见-Web-漏洞（XSS）/图1.PNG" alt="XSS 分类"></p>
 </li>
-<li><p>DOM 型与反射型区别：<br>DOM 型：通过前端 JS，直接将 URL 中的脚本写入 DOM 中触发。<br>反射型：通过后端应用程序，将脚本写入到页面中，在页面渲染时触发。</p>
+<li><p>DOM 型与反射型区别：<br>DOM 型：通过前端 JS，直接将 URL 中的脚本写入 DOM 中触发。DOM 型 XSS 代码不需要服务器解释响应的直接参与，触发 XSS 只需要浏览器的 DOM 解析，完全是客户端的问题。<br>反射型：通过后端应用程序，将脚本写入到页面中，在页面渲染时触发。</p>
 </li>
 </ul>
 <h1 id="二-资料阅读"><a href="#二-资料阅读" class="headerlink" title="二 资料阅读"></a>二 资料阅读</h1><ul>
 <li><a href="https://zhuanlan.zhihu.com/p/26177815" target="_blank" rel="noopener">浅谈XSS攻击的那些事（附常用绕过姿势）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/37455061" target="_blank" rel="noopener">【前端黑客】XSS入门</a></li>
+<li><a href="https://www.freebuf.com/column/155799.html" target="_blank" rel="noopener">Web安全 — XSS漏洞</a></li>
 </ul>
 <h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><ol>
-<li>存储型 XSS 过程：</li>
-</ol>
-<ul>
-<li>将构造的恶意代码（如 img 标签中的 onerror 事件中写脚本）提交存储（如留言板）。</li>
-<li>当访问页面时，触发。</li>
-</ul>
-<ol start="2">
-<li><p>反射型：</p>
-</li>
-<li><p>DOM 型：</p>
-</li>
+<li>小结：<br><img src="/2019/04/29/Web-安全学习笔记二-常见-Web-漏洞（XSS）/图2.PNG" alt="小结"></li>
 </ol>
 <h1 id="四-基础实战"><a href="#四-基础实战" class="headerlink" title="四 基础实战"></a>四 基础实战</h1><h1 id="五-我的笔记思考总结等"><a href="#五-我的笔记思考总结等" class="headerlink" title="五 我的笔记思考总结等"></a>五 我的笔记思考总结等</h1>
                 <hr>
@@ -217,8 +209,8 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/04/29/Web-安全学习笔记二-常见-Web-漏洞（CSRF）/" data-toggle="tooltip" data-placement="top"
-                           title="Web 安全学习笔记二 常见 Web 漏洞（CSRF）">&larr; Previous Post</a>
+                        <a href="/2019/04/29/Web-安全学习笔记三-常见-Web-漏洞（CSRF）/" data-toggle="tooltip" data-placement="top"
+                           title="Web 安全学习笔记三 常见 Web 漏洞（CSRF）">&larr; Previous Post</a>
                     </li>
                     
                     
