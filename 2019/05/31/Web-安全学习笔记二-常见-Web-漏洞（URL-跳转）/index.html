@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Web 安全学习笔记四 常见 Web 漏洞（点击劫持）｜Mo&#39;s blog
+        Web 安全学习笔记二 常见 Web 漏洞（URL 跳转）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/05/29/Web-安全学习笔记四-常见-Web-漏洞（点击劫持）/">
+    <link rel="canonical" href="https://marlous.github.io/2019/05/31/Web-安全学习笔记二-常见-Web-漏洞（URL-跳转）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,12 +153,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Web 安全学习笔记四 常见 Web 漏洞（点击劫持）</h1>
+                    <h1>Web 安全学习笔记二 常见 Web 漏洞（URL 跳转）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2019-05-29
+                          日期 2019-05-31
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -173,7 +173,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Web 安全学习笔记四 常见 Web 漏洞（点击劫持）
+            Web 安全学习笔记二 常见 Web 漏洞（URL 跳转）
         </span>
     </div>
 </header>
@@ -184,35 +184,24 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-点击劫持概念"><a href="#一-点击劫持概念" class="headerlink" title="一 点击劫持概念"></a>一 点击劫持概念</h1><ul>
-<li><p>点击劫持：click jacking，也被称为 UI 覆盖攻击。</p>
+                <h1 id="一-URL-跳转"><a href="#一-URL-跳转" class="headerlink" title="一 URL 跳转"></a>一 URL 跳转</h1><ul>
+<li><p>URL 跳转：</p>
 </li>
-<li><p>它是通过覆盖不可见的框架误导受害者点击。/ 虽然受害者点击的是他所看到的网页，但其实他所点击的是被黑客精心构建的另一个置于原网页上面的透明页面。/ 这种攻击利用了 HTML 中 <code>&lt;iframe&gt;</code> 标签的透明属性。</p>
+<li><p>基本原理：</p>
 </li>
-<li><p>基本原理：<br>将恶意页面（网站）放在 <code>&lt;iframe&gt;</code> 标签中，设置透明度等信息。将恶意页面按钮隐藏在诱骗用户点击的按钮下面（重叠），诱骗用户点击的正常按钮通过 z-index 属性 “悬浮” 在 iframe 恶意页面按钮上面。/ 攻击者使用一个或多个透明的 iframe 覆盖在一个正常的网页，然后诱使用户在该网页上进行操作，当用户在不知情的情况下点击透明的 iframe 页面时，用户的操作已经被劫持到攻击者事先设计好的恶意按钮或链接上。</p>
-</li>
-<li><p>特点：<br>隐蔽性高。</p>
+<li><p>特点：</p>
 </li>
 </ul>
-<h1 id="二-资料阅读"><a href="#二-资料阅读" class="headerlink" title="二 资料阅读"></a>二 资料阅读</h1><ul>
-<li><a href="https://www.jianshu.com/p/251704d8ff18" target="_blank" rel="noopener">web安全之–点击劫持攻击与防御技术简介</a></li>
-<li><a href="https://www.jianshu.com/p/7ec986aa28a7" target="_blank" rel="noopener">深入浅出iframe</a></li>
-</ul>
-<h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><h1 id="四-基础实战"><a href="#四-基础实战" class="headerlink" title="四 基础实战"></a>四 基础实战</h1><h1 id="五-我的笔记思考总结等"><a href="#五-我的笔记思考总结等" class="headerlink" title="五 我的笔记思考总结等"></a>五 我的笔记思考总结等</h1>
+<h1 id="二-资料阅读"><a href="#二-资料阅读" class="headerlink" title="二 资料阅读"></a>二 资料阅读</h1><h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><h1 id="四-基础实战"><a href="#四-基础实战" class="headerlink" title="四 基础实战"></a>四 基础实战</h1><h1 id="五-我的笔记思考总结等"><a href="#五-我的笔记思考总结等" class="headerlink" title="五 我的笔记思考总结等"></a>五 我的笔记思考总结等</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/05/31/Web-安全学习笔记二-常见-Web-漏洞（URL-跳转）/" data-toggle="tooltip" data-placement="top"
-                           title="Web 安全学习笔记二 常见 Web 漏洞（URL 跳转）">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/05/26/考研数学方法论/" data-toggle="tooltip" data-placement="top"
-                           title="考研数学方法论">Next Post &rarr;</a>
+                        <a href="/2019/05/29/Web-安全学习笔记四-常见-Web-漏洞（点击劫持）/" data-toggle="tooltip" data-placement="top"
+                           title="Web 安全学习笔记四 常见 Web 漏洞（点击劫持）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -231,7 +220,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-点击劫持概念"><span class="toc-text">一 点击劫持概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-资料阅读"><span class="toc-text">二 资料阅读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-漏洞原理与利用"><span class="toc-text">三 漏洞原理与利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-基础实战"><span class="toc-text">四 基础实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-我的笔记思考总结等"><span class="toc-text">五 我的笔记思考总结等</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-URL-跳转"><span class="toc-text">一 URL 跳转</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-资料阅读"><span class="toc-text">二 资料阅读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-漏洞原理与利用"><span class="toc-text">三 漏洞原理与利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-基础实战"><span class="toc-text">四 基础实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-我的笔记思考总结等"><span class="toc-text">五 我的笔记思考总结等</span></a></li></ol>
                 </div>
             </div>
         </div>
