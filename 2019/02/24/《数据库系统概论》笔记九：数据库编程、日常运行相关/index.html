@@ -80,7 +80,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -206,7 +206,38 @@
 <li>编码流程：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">创建一个 connection 对象</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">db = pymysql.connect(</span><br><span class="line">    host=settings.DB_HOST,</span><br><span class="line">    port=int(settings.DB_PORT),</span><br><span class="line">    user=settings.DB_USER,</span><br><span class="line">    passwd=settings.DB_USER_PASSWORD,</span><br><span class="line">    charset=settings.DB_CHARSET)</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">创建一个 cursor 对象</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">cur = db.cursor()</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">使用 cursor 对象的方法执行 SQL 语句</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">cur.execute(<span class="string">'SHOW DATABASES;'</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">使用 cursor 对象的方法获取执行过 MySQL 返回的数据</span></span><br><span class="line"><span class="string">fetchall() 是获取多行。返回多个元组，即返回多条记录（rows）,如果没有结果,则返回 ()</span></span><br><span class="line"><span class="string">fetchone() 获取一行。返回单个的元组，也就是一条记录（row），如果没有结果，则返回 None</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">db_list = list(cur.fetchall())</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">补充：使用 connection 对象提交事务（如果是对数据库定义、操作、控制，非查询）</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">db.commit()</span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">关闭 cursor、connection 对象</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">cur.close()</span><br><span class="line">db.close()</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="2-过程化-SQL"><a href="#2-过程化-SQL" class="headerlink" title="2 过程化 SQL"></a>2 过程化 SQL</h2><h2 id="3-ODBC"><a href="#3-ODBC" class="headerlink" title="3 ODBC"></a>3 ODBC</h2><h1 id="二-关系查询处理和查询优化"><a href="#二-关系查询处理和查询优化" class="headerlink" title="二 关系查询处理和查询优化"></a>二 关系查询处理和查询优化</h1><h2 id="1-关系查询处理"><a href="#1-关系查询处理" class="headerlink" title="1 关系查询处理"></a>1 关系查询处理</h2><h2 id="2-查询优化"><a href="#2-查询优化" class="headerlink" title="2 查询优化"></a>2 查询优化</h2><h1 id="三-数据库恢复技术"><a href="#三-数据库恢复技术" class="headerlink" title="三 数据库恢复技术"></a>三 数据库恢复技术</h1><h1 id="四-并发控制"><a href="#四-并发控制" class="headerlink" title="四 并发控制"></a>四 并发控制</h1>
+<h2 id="2-过程化-SQL"><a href="#2-过程化-SQL" class="headerlink" title="2 过程化 SQL"></a>2 过程化 SQL</h2><ol>
+<li>概念：</li>
+</ol>
+<ul>
+<li>嵌入式 SQL（ESQL）将 SQL 语句嵌入程序设计语言，借助高级语言的控制功能实现过程化。</li>
+<li>过程化 SQL（PL/SQL）是对 SQL 的扩展，增加了过程化语句功能。</li>
+<li>这个过程化代码，经编译优化，存储在数据库服务器中，下次使用直接调用即可。</li>
+</ul>
+<ol start="2">
+<li>使用方法：</li>
+</ol>
+<ul>
+<li><p>创建：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE Procedure 过程名(参数, 参数, ...)</span><br><span class="line">AS</span><br><span class="line">过程化 SQL 语句块；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CALL Procedure 过程名(参数, 参数, ...)；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP Procedure 过程名();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="3">
+<li>PL/SQL：</li>
+</ol>
+<h2 id="3-ODBC"><a href="#3-ODBC" class="headerlink" title="3 ODBC"></a>3 ODBC</h2><ol>
+<li><p>概念：<br>为解决异构数据库间的数据共享而产生的。一个基于 ODBC 的应用程序对数据库的操作不依赖任何 DBMS，不直接与 DBMS 打交道，所有的数据库操作由对应的 DBMS 的 ODBC 驱动程序完成。ODBC 使应用程序具有良好的互用性和可移植性，并且具备同时访问多种 DBS 的能力，从而克服了传统数据库应用程序的缺陷。</p>
+</li>
+<li><p>ODBC 应用系统的体系结构：<br><img src="/2019/02/24/《数据库系统概论》笔记九：数据库编程、日常运行相关/图6.PNG" alt="ODBC 应用系统的体系结构"></p>
+</li>
+</ol>
+<h1 id="二-关系查询处理和查询优化"><a href="#二-关系查询处理和查询优化" class="headerlink" title="二 关系查询处理和查询优化"></a>二 关系查询处理和查询优化</h1><h2 id="1-关系查询处理"><a href="#1-关系查询处理" class="headerlink" title="1 关系查询处理"></a>1 关系查询处理</h2><h2 id="2-查询优化"><a href="#2-查询优化" class="headerlink" title="2 查询优化"></a>2 查询优化</h2><h1 id="三-数据库恢复技术"><a href="#三-数据库恢复技术" class="headerlink" title="三 数据库恢复技术"></a>三 数据库恢复技术</h1><h1 id="四-并发控制"><a href="#四-并发控制" class="headerlink" title="四 并发控制"></a>四 并发控制</h1>
                 <hr>
                 
 

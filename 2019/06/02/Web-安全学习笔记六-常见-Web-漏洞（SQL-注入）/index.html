@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Web 安全学习笔记二 常见 Web 漏洞（URL 跳转）｜Mo&#39;s blog
+        Web 安全学习笔记六 常见 Web 漏洞（SQL 注入）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/05/31/Web-安全学习笔记二-常见-Web-漏洞（URL-跳转）/">
+    <link rel="canonical" href="https://marlous.github.io/2019/06/02/Web-安全学习笔记六-常见-Web-漏洞（SQL-注入）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,7 +80,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -153,12 +153,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Web 安全学习笔记二 常见 Web 漏洞（URL 跳转）</h1>
+                    <h1>Web 安全学习笔记六 常见 Web 漏洞（SQL 注入）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2019-05-31
+                          日期 2019-06-02
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -173,7 +173,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Web 安全学习笔记二 常见 Web 漏洞（URL 跳转）
+            Web 安全学习笔记六 常见 Web 漏洞（SQL 注入）
         </span>
     </div>
 </header>
@@ -184,30 +184,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-URL-跳转"><a href="#一-URL-跳转" class="headerlink" title="一 URL 跳转"></a>一 URL 跳转</h1><ul>
-<li><p>URL 跳转：<br>当使用者浏览某个网址时，将他导向到另一个网址的技术。</p>
-</li>
-<li><p>基本原理：<br>可以通过 header 头、JS、meta 标签三种方式实现跳转。/ 向用户发送一个恶意链接（此链接精心构造过，通过正常网址后加参数实现跳转）-&gt; 跳转到恶意山寨的官网。/ 构造的链接如 <code>http://www.xxx.com?url=www.evil.com</code></p>
-</li>
-</ul>
-<h1 id="二-资料阅读"><a href="#二-资料阅读" class="headerlink" title="二 资料阅读"></a>二 资料阅读</h1><ul>
-<li><a href="https://www.cnblogs.com/liaozs/p/5754702.html" target="_blank" rel="noopener">URL跳转的几种方式</a></li>
-</ul>
-<h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><h1 id="四-基础实战"><a href="#四-基础实战" class="headerlink" title="四 基础实战"></a>四 基础实战</h1><h1 id="五-我的笔记思考总结等"><a href="#五-我的笔记思考总结等" class="headerlink" title="五 我的笔记思考总结等"></a>五 我的笔记思考总结等</h1>
+                <h1 id="一-SQL-注入概念"><a href="#一-SQL-注入概念" class="headerlink" title="一 SQL 注入概念"></a>一 SQL 注入概念</h1><h1 id="二-资料阅读"><a href="#二-资料阅读" class="headerlink" title="二 资料阅读"></a>二 资料阅读</h1><h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><h1 id="四-基础实战"><a href="#四-基础实战" class="headerlink" title="四 基础实战"></a>四 基础实战</h1><h1 id="五-我的笔记思考总结等"><a href="#五-我的笔记思考总结等" class="headerlink" title="五 我的笔记思考总结等"></a>五 我的笔记思考总结等</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/06/01/多个系列课程笔记汇总（持续更新）/" data-toggle="tooltip" data-placement="top"
-                           title="多个系列课程笔记汇总（持续更新）">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/05/29/Web-安全学习笔记四-常见-Web-漏洞（点击劫持）/" data-toggle="tooltip" data-placement="top"
-                           title="Web 安全学习笔记四 常见 Web 漏洞（点击劫持）">Next Post &rarr;</a>
+                        <a href="/2019/06/01/多个系列课程笔记汇总（持续更新）/" data-toggle="tooltip" data-placement="top"
+                           title="多个系列课程笔记汇总（持续更新）">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -226,7 +212,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-URL-跳转"><span class="toc-text">一 URL 跳转</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-资料阅读"><span class="toc-text">二 资料阅读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-漏洞原理与利用"><span class="toc-text">三 漏洞原理与利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-基础实战"><span class="toc-text">四 基础实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-我的笔记思考总结等"><span class="toc-text">五 我的笔记思考总结等</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SQL-注入概念"><span class="toc-text">一 SQL 注入概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-资料阅读"><span class="toc-text">二 资料阅读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-漏洞原理与利用"><span class="toc-text">三 漏洞原理与利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-基础实战"><span class="toc-text">四 基础实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-我的笔记思考总结等"><span class="toc-text">五 我的笔记思考总结等</span></a></li></ol>
                 </div>
             </div>
         </div>
