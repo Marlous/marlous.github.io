@@ -657,7 +657,7 @@
 </li>
 <li><p>所有路由器都知道整个 IP 网络路由表，称 RIP 最终收敛。</p>
 </li>
-<li><p>距离向量算法：<br><code>&lt;目的网络 距离 下一跳&gt;</code>。/ 有更新查看下一跳是否相同，相同换成新的，不同则换成距离小的。/ 默认 180 秒没收到更新超时，认为不可达，设置为 16。</p>
+<li><p>距离向量算法：<br><code>&lt;目的网络 距离 下一跳&gt;</code>。/ 有更新查看下一跳是否相同，不同则换成距离小的。/ 默认 180 秒没收到更新超时，认为不可达，设置为 16。</p>
 </li>
 <li><p>缺点：<br>网络规模增大，会慢收敛，坏消息传的慢（明明已经不可达了，但是路由表还认为可达没更新）。 </p>
 </li>
@@ -685,7 +685,46 @@
 <ol start="5">
 <li>RIP、OSPF、BGP 比较小结：<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图36.PNG" alt="RIP、OSPF、BGP 比较小结"></li>
 </ol>
-<h2 id="4-IPv4"><a href="#4-IPv4" class="headerlink" title="4 IPv4"></a>4 IPv4</h2><h2 id="5-IPv6"><a href="#5-IPv6" class="headerlink" title="5 IPv6"></a>5 IPv6</h2><h2 id="6-IP-组播"><a href="#6-IP-组播" class="headerlink" title="6 IP 组播"></a>6 IP 组播</h2><h2 id="7-移动-IP"><a href="#7-移动-IP" class="headerlink" title="7 移动 IP"></a>7 移动 IP</h2><h2 id="8-网络层设备"><a href="#8-网络层设备" class="headerlink" title="8 网络层设备"></a>8 网络层设备</h2><h1 id="五-传输层"><a href="#五-传输层" class="headerlink" title="五 传输层"></a>五 传输层</h1><h1 id="六-应用层"><a href="#六-应用层" class="headerlink" title="六 应用层"></a>六 应用层</h1>
+<h2 id="4-IPv4"><a href="#4-IPv4" class="headerlink" title="4 IPv4"></a>4 IPv4</h2><ol>
+<li>IPv4 分组：</li>
+</ol>
+<ul>
+<li><p>分组格式：<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图37.PNG" alt="分组格式"></p>
+</li>
+<li><p>IP 数据包分片：<br>以太网数据链路层 MTU 为 1500B，许多广域网不超过 576B。/ IP 数据报中标识：DF 为是否允许分片（0 是、1 否）；MF 为是否后面还有分片（1 是、0 否）。/ 当前分片开始位置为：片偏移 x 8B（除最后一个分片，都是 8 的倍数）。<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图38.PNG" alt="IP 数据包分片"></p>
+</li>
+<li><p>传统 A、B、C、D、E 类网络划分：</p>
+</li>
+<li><p>补充，私有 IP 网段：</p>
+</li>
+<li><p>补充，默认路由：</p>
+</li>
+</ul>
+<ol start="2">
+<li>子网划分与子网掩码、CIDR：</li>
+</ol>
+<ul>
+<li>子网划分与子网掩码：</li>
+</ul>
+<ul>
+<li>CIDR：</li>
+</ul>
+<ol start="3">
+<li>路由转发原理：</li>
+</ol>
+<ul>
+<li><p>子网划分与子网掩码的路转发：</p>
+</li>
+<li><p>CIDR 的路转发：</p>
+</li>
+</ul>
+<ol start="4">
+<li><p>NAT：</p>
+</li>
+<li><p>ARP、DHCP、ICMP 协议：</p>
+</li>
+</ol>
+<h2 id="5-IPv6"><a href="#5-IPv6" class="headerlink" title="5 IPv6"></a>5 IPv6</h2><h2 id="6-IP-组播"><a href="#6-IP-组播" class="headerlink" title="6 IP 组播"></a>6 IP 组播</h2><h2 id="7-移动-IP"><a href="#7-移动-IP" class="headerlink" title="7 移动 IP"></a>7 移动 IP</h2><h2 id="8-网络层设备"><a href="#8-网络层设备" class="headerlink" title="8 网络层设备"></a>8 网络层设备</h2><h1 id="五-传输层"><a href="#五-传输层" class="headerlink" title="五 传输层"></a>五 传输层</h1><h1 id="六-应用层"><a href="#六-应用层" class="headerlink" title="六 应用层"></a>六 应用层</h1>
                 <hr>
                 
 
