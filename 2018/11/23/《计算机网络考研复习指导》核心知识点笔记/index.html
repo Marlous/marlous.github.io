@@ -80,7 +80,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -869,12 +869,37 @@
 <li><p>TCP 的可靠传输：</p>
 </li>
 </ol>
+<ul>
+<li>校验（和 UDP 的校验一样）。</li>
+<li>序号：建立在字节流上，而非报文段上。</li>
+<li>确认：TCP 使用累计确认，发送一个报文段字节后才发回一个确认。</li>
+<li>重传：a)超时（超时重传时间应略大于加权平均往返时间 RTTs）。b) 冗余 ACK（某个报文段确认时捎带冗余 ACK 标表示之前丢失的报文段，期望收到之前丢失的）。规定当发送方收到同一个报文段 3 个冗余 ACK 时，旧可以认为跟在这个被确认报文段后的报文段已经丢失。这种技术被称为快速重传。</li>
+</ul>
 <ol start="4">
-<li><p>TCP 的流量控制：</p>
-</li>
-<li><p>TCP 的拥塞控制：</p>
-</li>
+<li>TCP 的流量控制：</li>
 </ol>
+<ul>
+<li>一个速度匹配服务，消除发送方使接收方缓存区溢出的可能性。</li>
+<li>发送方（cwnd 拥塞窗口）&lt;- 接收方（rwnd 接收方窗口）。</li>
+<li>接收方根据自己缓冲区大小确定接收窗口告诉发送方；</li>
+<li>发送方根据当前网络拥塞程序估计确定拥塞窗口值。发送方取 cwnd、rwnd 中值小的作为发送窗口。</li>
+<li>与数据链路层比较：<br>数据链路层：窗口大小不变化、两个相邻节点的流量控制；<br>传输层：窗口可大小变化，端到端的流量控制。</li>
+</ul>
+<ol start="5">
+<li>TCP 的拥塞控制：</li>
+</ol>
+<ul>
+<li><p>概念：防止过多的数据注入到网络中。/ 发送方窗口可等同于拥塞窗口 cwnd（接收方总是有足够大的缓存空间）。</p>
+</li>
+<li><p>两套组合，四种算法：慢开始和拥塞避免、快重传和快恢复（对前者的改进）。</p>
+</li>
+<li><p>具体策略：a）当发送方检测到超时、TCP 链接建立时，用慢开始和拥塞避免。b）当发送方检测到冗余 ACK 时，采用快重传和快恢复。</p>
+</li>
+<li><p>慢开始与拥塞避免详解：<br>a）慢开始：先令拥塞窗口 cwnd = 1（mms 最大报文段长度），每收到一个确认后 cwnd 加倍（指数增大），直到达到慢开始门限 ssthresh 值后改用拥塞避免算法。<br>b）拥塞避免：cwnd 每经过一个 RTT 就增加一个 MSS 大小（线性增大），当出现一次超时就令 cwnd = 1，ssthresh 为出现拥塞时 cwnd 的一半。<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图48.PNG" alt="慢开始与拥塞避免详解"></p>
+</li>
+<li><p>快重传和快恢复详解：<br>a）快重传：发送方连续收到三个冗余 ACK 报文时，直接重传尚未收到的报文段，不必等待那个报文段设置的重传计时器超时。<br>b）快恢复：连续收到三个冗余 ACK，设置 cwnd = 出现拥塞时 cwnd 的一半，ssthresh = 出现拥塞时 cwnd 的一半。然后 cwnd 线性增大。<br><img src="/2018/11/23/《计算机网络考研复习指导》核心知识点笔记/图49.PNG" alt="快重传和快恢复详解"></p>
+</li>
+</ul>
 <h1 id="六-应用层"><a href="#六-应用层" class="headerlink" title="六 应用层"></a>六 应用层</h1><h2 id="1-DNS"><a href="#1-DNS" class="headerlink" title="1 DNS"></a>1 DNS</h2><h2 id="2-FTP"><a href="#2-FTP" class="headerlink" title="2 FTP"></a>2 FTP</h2><h2 id="3-电子邮件"><a href="#3-电子邮件" class="headerlink" title="3 电子邮件"></a>3 电子邮件</h2><h2 id="4-万维网"><a href="#4-万维网" class="headerlink" title="4 万维网"></a>4 万维网</h2><h2 id="5-SNMP"><a href="#5-SNMP" class="headerlink" title="5 SNMP"></a>5 SNMP</h2><h2 id="6-音-视频服务"><a href="#6-音-视频服务" class="headerlink" title="6 音/视频服务"></a>6 音/视频服务</h2><h1 id="七-补充"><a href="#七-补充" class="headerlink" title="七 补充"></a>七 补充</h1><h2 id="1-网络安全"><a href="#1-网络安全" class="headerlink" title="1 网络安全"></a>1 网络安全</h2><h2 id="2-其它概念"><a href="#2-其它概念" class="headerlink" title="2 其它概念"></a>2 其它概念</h2>
                 <hr>
                 
