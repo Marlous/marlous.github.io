@@ -80,7 +80,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -195,6 +195,7 @@
 <li><a href="https://blog.csdn.net/jayjaydream/article/details/82945384" target="_blank" rel="noopener">kali 工具列表中文解释</a></li>
 <li><a href="https://github.com/enaqx/awesome-pentest" target="_blank" rel="noopener">GitHub：Awesome Penetration Testing</a></li>
 <li><a href="https://github.com/tiancode/learn-hacking" target="_blank" rel="noopener">GitHub：开始学习 Kali Linux</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/55484970" target="_blank" rel="noopener">渗透测试入门指南与路线规划（全文版）</a></li>
 </ul>
 <ol start="2">
 <li>补充资源：</li>
@@ -206,27 +207,43 @@
 <li>概要分类：</li>
 </ol>
 <ul>
-<li>Information Gathering（信息收集）</li>
-<li>Vulnerability Analysis（漏洞分析）</li>
-<li>Web Applications Analysis（Web 程序分析）</li>
-<li>Database Assessment（数据库评估）</li>
-<li>Password Attacks（密码攻击）</li>
-<li>Wireless Attacks（无线攻击）</li>
-<li>Reverse Engineering（逆向工程）</li>
-<li>Exploitation Tools（漏洞利用工具集）</li>
-<li>Sniffing &amp; Spoofing（嗅探/欺骗）</li>
-<li>Post Exploitation（权限维持）</li>
-<li>Forensics Tools（数字取证）</li>
-<li>Reporting Tools（报告工具集）</li>
-<li>Social Engineering Tools（社会工程学工具）</li>
-<li>System Services（系统服务）</li>
+<li><p>Information Gathering（信息收集）：<br>这类工具可用来收集目标的 DNS、IDS/IPS、网络扫描、操作系统、路由、SSL、SMB、VPN、VoIP、SNMP 信息和 E-mail 地址。</p>
+</li>
+<li><p>Social Engineering Tools（社会工程学工具）</p>
+</li>
+<li><p>Sniffing &amp; Spoofing（嗅探/欺骗）：<br>这类工具用于监听网络和 Web 流量。网络监听需要进行网络欺骗，所以 Ettercap 和 Yersinia 这类软件也归于这类软件。</p>
+</li>
+<li><p>Vulnerability Analysis（漏洞分析）：<br>这类工具都可以扫描目标系统上的漏洞。部分工具可以检测 Cisco 网络系统缺陷，有些还可以评估各种数据库系统的安全问题。很多模糊测试软件都属于漏洞评估工具。</p>
+</li>
+<li><p>Web Applications Analysis（Web 程序分析）：<br>与 Web 应用有关的工具。它包括 CMS（内容管理系统）扫描器、数据库漏洞利用程序、Web 应用模糊测试、Web 应用代理、Web 爬虫及 Web 漏洞扫描器。</p>
+</li>
+<li><p>Database Assessment（数据库评估）</p>
+</li>
+<li><p>Password Attacks（密码攻击）：<br>无论是在线攻击还是离线破解，只要是能够实施密码攻击的工具都属于密码攻击类工具。</p>
+</li>
+<li><p>Wireless Attacks（无线攻击）：<br>可攻击蓝牙、RFID／NFC和其他无线设备的工具。</p>
+</li>
+<li><p>Reverse Engineering（逆向工程）：<br>可用于调试程序或反汇编的工具。</p>
+</li>
+<li><p>Exploitation Tools（漏洞利用工具集）：<br>这类工具可以利用在目标系统中发现的漏洞。攻击网络、Web 和数据库漏洞的软件，都属于漏洞利用（exploitation）工具。</p>
+</li>
+<li><p>Post Exploitation（权限维持）：<br>这类工具帮助渗透人员维持他们对目标主机的访问权。某些情况下，渗透人员必须先获取主机的最高权限才能安装这类软件。这类软件包括用于在 Web 应用和操作系统安装后门的程序，以及隧道类工具。</p>
+</li>
+<li><p>System Services（系统服务）：<br>这是渗透人员在渗透测试时可能用到的常见服务类软件，它包括 Apache 服务、MySQL 服务、SSH 服务和 Metasploit 服务。</p>
+</li>
+<li><p>Forensics Tools（数字取证）：<br>电子取证的工具。它的各种工具可以用于制作硬盘磁盘镜像、文件分析、硬盘镜像分析。如需使用这类程序，首先要在启动菜单里选择 Kali Linux Forensics | No Drives or Swap Mount。在开启这个选项以后，Kali Linux 不会自动加载硬盘驱动器，以保护硬盘数据的完整性。</p>
+</li>
+<li><p>Reporting Tools（报告工具集）：<br>如果您需要撰写渗透测试的报告文件，您应该用得上这些软件。</p>
+</li>
 </ul>
-<ol start="2">
-<li>详细分类：</li>
-</ol>
 <h1 id="三-渗透测试流程与学习方法"><a href="#三-渗透测试流程与学习方法" class="headerlink" title="三 渗透测试流程与学习方法"></a>三 渗透测试流程与学习方法</h1><ol>
-<li><h1 id="四-核心工具"><a href="#四-核心工具" class="headerlink" title="四 核心工具"></a>四 核心工具</h1></li>
+<li><p>渗透测试流程：<br><img src="/2019/07/25/渗透测试方法论概述笔记/图1.PNG" alt="渗透测试流程"></p>
+</li>
+<li><p>学习方法：<br><img src="/2019/07/25/渗透测试方法论概述笔记/图1-1.PNG" alt="学习方法"></p>
+</li>
 </ol>
+<h1 id="四-渗透测试执行标准"><a href="#四-渗透测试执行标准" class="headerlink" title="四 渗透测试执行标准"></a>四 渗透测试执行标准</h1><p><img src="/2019/07/25/渗透测试方法论概述笔记/图2.PNG" alt="渗透测试执行标准"></p>
+<h1 id="五-蓝军测试流程"><a href="#五-蓝军测试流程" class="headerlink" title="五 蓝军测试流程"></a>五 蓝军测试流程</h1><p><img src="/2019/07/25/渗透测试方法论概述笔记/图3.PNG" alt="蓝军测试流程"></p>
 
                 <hr>
                 
@@ -255,7 +272,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关于-Kali-Linux-的学习资料"><span class="toc-text">一 关于 Kali Linux 的学习资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Kali-Linux-工具分类简介"><span class="toc-text">二 Kali Linux 工具分类简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-渗透测试流程与学习方法"><span class="toc-text">三 渗透测试流程与学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-核心工具"><span class="toc-text">四 核心工具</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关于-Kali-Linux-的学习资料"><span class="toc-text">一 关于 Kali Linux 的学习资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Kali-Linux-工具分类简介"><span class="toc-text">二 Kali Linux 工具分类简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-渗透测试流程与学习方法"><span class="toc-text">三 渗透测试流程与学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-渗透测试执行标准"><span class="toc-text">四 渗透测试执行标准</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-蓝军测试流程"><span class="toc-text">五 蓝军测试流程</span></a></li></ol>
                 </div>
             </div>
         </div>
