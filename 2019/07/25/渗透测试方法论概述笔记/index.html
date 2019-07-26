@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Kali Linux 概述笔记｜Mo&#39;s blog
+        渗透测试方法论概述笔记｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/01/01/Kali-Linux-概述笔记/">
+    <link rel="canonical" href="https://marlous.github.io/2019/07/25/渗透测试方法论概述笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -80,7 +80,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -153,18 +153,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Kali Linux 概述笔记</h1>
+                    <h1>渗透测试方法论概述笔记</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2019-01-01
+                          日期 2019-07-25
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Kali"
-                           title="Kali">Kali</a>
+                        <a class="tag" href="/tags/#渗透测试"
+                           title="渗透测试">渗透测试</a>
                         
                     </div>
                 </div>
@@ -173,7 +173,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Kali Linux 概述笔记
+            渗透测试方法论概述笔记
         </span>
     </div>
 </header>
@@ -189,21 +189,23 @@
 </ol>
 <ul>
 <li>Kali Linux 官方文档，<a href="https://www.kali.org/kali-linux-documentation/" target="_blank" rel="noopener">链接</a></li>
-<li>kali linux 工具相关：<a href="https://tools.kali.org/tools-listing" target="_blank" rel="noopener">工具使用说明书链接</a>，<a href="https://tools.kali.org/" target="_blank" rel="noopener">补充：Kali 工具页面链接</a>，<a href="https://blog.csdn.net/jayjaydream/article/details/82945384" target="_blank" rel="noopener">kali 工具列表中文解释</a></li>
-<li>《Kali Linux大揭秘：深入掌握渗透测试平台》，<a href="https://book.douban.com/subject/30309211/" target="_blank" rel="noopener">豆瓣读书链接</a></li>
-<li>Kali 渗透测试（大学霸），<a href="http://www.daxueba.net/?page_id=2108" target="_blank" rel="noopener">链接</a></li>
-<li>Kali Linux web 渗透测试经典视频，<a href="https://www.bilibili.com/video/av23312845?from=search&amp;seid=1344609958529235591" target="_blank" rel="noopener">链接</a></li>
-<li><a href="https://github.com/enaqx/awesome-pentest" target="_blank" rel="noopener">GitHub：Awesome Penetration Testing</a></li>
+<li>kali linux 工具相关：<a href="https://tools.kali.org/tools-listing" target="_blank" rel="noopener">工具使用说明书链接</a>，</li>
+<li><a href="https://tools.kali.org/" target="_blank" rel="noopener">补充：Kali 工具页面链接</a></li>
 <li><a href="https://github.com/Jack-Liang/kalitools" target="_blank" rel="noopener">GitHub：Kali Linux工具文档翻译计划</a></li>
+<li><a href="https://blog.csdn.net/jayjaydream/article/details/82945384" target="_blank" rel="noopener">kali 工具列表中文解释</a></li>
+<li><a href="https://github.com/enaqx/awesome-pentest" target="_blank" rel="noopener">GitHub：Awesome Penetration Testing</a></li>
 <li><a href="https://github.com/tiancode/learn-hacking" target="_blank" rel="noopener">GitHub：开始学习 Kali Linux</a></li>
 </ul>
 <ol start="2">
-<li>资源：</li>
+<li>补充资源：</li>
 </ol>
 <ul>
 <li><a href="https://pentestbox.org/zh/" target="_blank" rel="noopener">PentestBox：Windows 平台下预配置的便携式开源渗透测试环境</a></li>
 </ul>
-<h1 id="二-Kali-Linux-工具分类简介"><a href="#二-Kali-Linux-工具分类简介" class="headerlink" title="二 Kali Linux 工具分类简介"></a>二 Kali Linux 工具分类简介</h1><ul>
+<h1 id="二-Kali-Linux-工具分类简介"><a href="#二-Kali-Linux-工具分类简介" class="headerlink" title="二 Kali Linux 工具分类简介"></a>二 Kali Linux 工具分类简介</h1><ol>
+<li>概要分类：</li>
+</ol>
+<ul>
 <li>Information Gathering（信息收集）</li>
 <li>Vulnerability Analysis（漏洞分析）</li>
 <li>Web Applications Analysis（Web 程序分析）</li>
@@ -219,37 +221,22 @@
 <li>Social Engineering Tools（社会工程学工具）</li>
 <li>System Services（系统服务）</li>
 </ul>
-<h1 id="三-各工具功能概述"><a href="#三-各工具功能概述" class="headerlink" title="三 各工具功能概述"></a>三 各工具功能概述</h1><h2 id="1-Information-Gathering（信息收集）"><a href="#1-Information-Gathering（信息收集）" class="headerlink" title="1 Information Gathering（信息收集）"></a>1 Information Gathering（信息收集）</h2><ol>
-<li>dmitry：</li>
-</ol>
-<ul>
-<li>参考文档：<br><a href="https://tools.kali.org/information-gathering/dmitry" target="_blank" rel="noopener">DMitry Package Description</a>；<a href="https://github.com/Marlous/kalitools/blob/master/Information%20Gathering/DMitry.md" target="_blank" rel="noopener">DMitry 介绍</a>。</li>
-<li>简介：<br>DMitry(Deepmagic Information Gathering Tools 深度信息收集工具)是一个linux下用C语言写的工具。它能够尽可能的获取指定主机目标的信息。基础功能是获取目标的子域名，Email地址，运行时间相关信息，tcp端口，whois信息等等。</li>
-<li>评价等：<br>whois 查询/子域名收集/端口扫描；whois并不简单明了，子域名和邮箱依赖google，端口扫描速度一般。</li>
-</ul>
 <ol start="2">
-<li>dnmap：</li>
+<li>详细分类：</li>
 </ol>
-<ul>
-<li>参考文档：<br><a href="https://tools.kali.org/information-gathering/dnmap" target="_blank" rel="noopener">dnmap Package Description</a>；<a href="https://github.com/Marlous/kalitools/blob/master/Information%20Gathering/dnmap.md" target="_blank" rel="noopener">dnmap 介绍</a>。</li>
-<li>简介：<br>dnmap（distributed nmap）是一款基于nmap的分布式扫描工具，它能够用一个集群来对另外一个大型集群网络进行扫描。 dnmap采用的是客户端/服务器体系结构，服务端主要是用来分发任务和汇总扫描状态，客户端主要用来执行扫描任务和记录自身的扫描状态。 该工具主要用于你想一个大型集群网络进行扫描，你自己拥有一个集群（肉鸡）的资源或者你的小伙伴想帮你的情况。</li>
-<li>评价等：<br>用于组建分布式 nmap，dnmap_server 为服务端；dnmap_client为客户端，用起来并不是那么方便，不是实在不行不是很必要。</li>
-</ul>
-<h2 id="2-Vulnerability-Analysis（漏洞分析）"><a href="#2-Vulnerability-Analysis（漏洞分析）" class="headerlink" title="2 Vulnerability Analysis（漏洞分析）"></a>2 Vulnerability Analysis（漏洞分析）</h2>
+<h1 id="三-渗透测试流程与学习方法"><a href="#三-渗透测试流程与学习方法" class="headerlink" title="三 渗透测试流程与学习方法"></a>三 渗透测试流程与学习方法</h1><ol>
+<li><h1 id="四-核心工具"><a href="#四-核心工具" class="headerlink" title="四 核心工具"></a>四 核心工具</h1></li>
+</ol>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/01/01/使用-WordPress-在云服务器快速建站/" data-toggle="tooltip" data-placement="top"
-                           title="使用 WordPress 在云服务器快速建站">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/01/01/《网络与系统安全》课程学习笔记/" data-toggle="tooltip" data-placement="top"
-                           title="《网络与系统安全》课程学习笔记">Next Post &rarr;</a>
+                        <a href="/2019/06/30/Web 安全学习笔记九 安全体系建设/" data-toggle="tooltip" data-placement="top"
+                           title="Web 安全学习笔记九 安全体系建设">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -268,7 +255,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关于-Kali-Linux-的学习资料"><span class="toc-text">一 关于 Kali Linux 的学习资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Kali-Linux-工具分类简介"><span class="toc-text">二 Kali Linux 工具分类简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-各工具功能概述"><span class="toc-text">三 各工具功能概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Information-Gathering（信息收集）"><span class="toc-text">1 Information Gathering（信息收集）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Vulnerability-Analysis（漏洞分析）"><span class="toc-text">2 Vulnerability Analysis（漏洞分析）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-关于-Kali-Linux-的学习资料"><span class="toc-text">一 关于 Kali Linux 的学习资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-Kali-Linux-工具分类简介"><span class="toc-text">二 Kali Linux 工具分类简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-渗透测试流程与学习方法"><span class="toc-text">三 渗透测试流程与学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-核心工具"><span class="toc-text">四 核心工具</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -290,8 +277,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Kali"
-                           title="Kali">Kali</a>
+                        <a class="tag" href="/tags/#渗透测试"
+                           title="渗透测试">渗透测试</a>
                         
                     </div>
                 </section>
