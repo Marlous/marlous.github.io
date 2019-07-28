@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Web 安全学习笔记九 安全体系建设｜Mo&#39;s blog
+        Web 安全学习笔记九 常见 Web 漏洞（暴力破解）｜Mo&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="https://marlous.github.io/2019/06/30/Web 安全学习笔记九 安全体系建设/">
+    <link rel="canonical" href="https://marlous.github.io/2019/07/28/Web-安全学习笔记九-常见-Web-漏洞（暴力破解）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -153,12 +153,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Web 安全学习笔记九 安全体系建设</h1>
+                    <h1>Web 安全学习笔记九 常见 Web 漏洞（暴力破解）</h1>
                     
                     <span class="meta">
                          作者 Marlous
                         <span>
-                          日期 2019-06-30
+                          日期 2019-07-28
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -173,7 +173,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Web 安全学习笔记九 安全体系建设
+            Web 安全学习笔记九 常见 Web 漏洞（暴力破解）
         </span>
     </div>
 </header>
@@ -184,22 +184,40 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="一-SDL（Security-Development-Lifecycle）"><a href="#一-SDL（Security-Development-Lifecycle）" class="headerlink" title="一 SDL（Security Development Lifecycle）"></a>一 SDL（Security Development Lifecycle）</h1><p>安全开发生产周期流程。<br><img src="/2019/06/30/Web 安全学习笔记九 安全体系建设/图1.PNG" alt="SDL"></p>
-<h1 id="二-漏洞和事件处理"><a href="#二-漏洞和事件处理" class="headerlink" title="二 漏洞和事件处理"></a>二 漏洞和事件处理</h1><h1 id="三-安全运营"><a href="#三-安全运营" class="headerlink" title="三 安全运营"></a>三 安全运营</h1>
+                <h1 id="一-暴力破解概念"><a href="#一-暴力破解概念" class="headerlink" title="一 暴力破解概念"></a>一 暴力破解概念</h1><ul>
+<li><p>暴力破解本质上就是通过穷举法来尝试所有密码与密钥的组合（两层 for 循环）。</p>
+</li>
+<li><p>在 Web 应用中使用编写好的程序或工具来模拟用户提交用户名和密码这个过程。</p>
+</li>
+</ul>
+<h1 id="二-资料阅读"><a href="#二-资料阅读" class="headerlink" title="二 资料阅读"></a>二 资料阅读</h1><p>略。</p>
+<h1 id="三-漏洞原理与利用"><a href="#三-漏洞原理与利用" class="headerlink" title="三 漏洞原理与利用"></a>三 漏洞原理与利用</h1><ol>
+<li>low 等级：<br>没有任何限制措施，直接是指代理使用 OWASP ZAP 来进行模糊测试（Fuzz）。先测试提交抓包找到提交用户名密码的数据报，然后根据此请求使用字典来 fuzz，字典即为 payload，加在用户名、密码参数中。</li>
+</ol>
+<ul>
+<li><p>找到提交用户名密码的请求，并在响应中找到可以判断用户名密码成功或失败的信息。<br><img src="/2019/07/28/Web-安全学习笔记九-常见-Web-漏洞（暴力破解）/图1.PNG" alt="请求"><br><img src="/2019/07/28/Web-安全学习笔记九-常见-Web-漏洞（暴力破解）/图2.PNG" alt="请求"></p>
+</li>
+<li><p>直接使用 Zap 进行 fuzz（准备好用户名、密码字典）。<br><img src="/2019/07/28/Web-安全学习笔记九-常见-Web-漏洞（暴力破解）/图3.PNG" alt="请求"></p>
+</li>
+<li><p>fuzz 结束后，根据响应的数据报大小排序。因为正确返回的页面和错误返回的页面不同。得到正确的用户名密码组合。<br><img src="/2019/07/28/Web-安全学习笔记九-常见-Web-漏洞（暴力破解）/图4.PNG" alt="请求"></p>
+</li>
+</ul>
+<ol start="2">
+<li><p>medium 等级：<br>与 low 等级方法相同，不同在于时间更长。因为失败后限制一段时间才能再次登陆。</p>
+</li>
+<li><p>high 等级：</p>
+</li>
+</ol>
+<h1 id="四-修复"><a href="#四-修复" class="headerlink" title="四 修复"></a>四 修复</h1><h1 id="五-基础实战"><a href="#五-基础实战" class="headerlink" title="五 基础实战"></a>五 基础实战</h1><h1 id="六-我的笔记思考总结等"><a href="#六-我的笔记思考总结等" class="headerlink" title="六 我的笔记思考总结等"></a>六 我的笔记思考总结等</h1>
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/07/25/渗透测试方法论概述笔记/" data-toggle="tooltip" data-placement="top"
-                           title="渗透测试方法论概述笔记">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/06/19/Web-安全学习笔记七-常见-Web-漏洞（文件操作）/" data-toggle="tooltip" data-placement="top"
-                           title="Web 安全学习笔记七 常见 Web 漏洞（文件操作）">Next Post &rarr;</a>
+                        <a href="/2019/07/25/渗透测试方法论概述笔记/" data-toggle="tooltip" data-placement="top"
+                           title="渗透测试方法论概述笔记">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -218,7 +236,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-SDL（Security-Development-Lifecycle）"><span class="toc-text">一 SDL（Security Development Lifecycle）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-漏洞和事件处理"><span class="toc-text">二 漏洞和事件处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-安全运营"><span class="toc-text">三 安全运营</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一-暴力破解概念"><span class="toc-text">一 暴力破解概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二-资料阅读"><span class="toc-text">二 资料阅读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-漏洞原理与利用"><span class="toc-text">三 漏洞原理与利用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-修复"><span class="toc-text">四 修复</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-基础实战"><span class="toc-text">五 基础实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六-我的笔记思考总结等"><span class="toc-text">六 我的笔记思考总结等</span></a></li></ol>
                 </div>
             </div>
         </div>
